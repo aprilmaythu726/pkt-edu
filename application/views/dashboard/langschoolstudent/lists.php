@@ -37,7 +37,7 @@
     <div class="card-body">
     <ul class="manage-menu">
     <li style="color: #EA585A;">New Applicant</li>
-          <li>Interview</li>
+          <li>Interview (10)</li>
           <li>Interview Failed</li>
           <li>Admission</li>
           <li>Admission Complete</li>
