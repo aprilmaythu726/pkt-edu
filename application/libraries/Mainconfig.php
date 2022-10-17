@@ -219,18 +219,13 @@
       'table_open' => '<table class="col-lg-12 col-md-12 col-ls-12 my-calendar">',
       'cal_cell_start'  => '<td class="day">',
       'cal_cell_start_today' => '<td class="today">'
-    );
-    
-      return $this->prefs;
+    );    
+    return $this->prefs;
   }
 
   public function getTargetdays($date1, $date2, $string)
   {
-    return new DatePeriod(
-      new DateTime($date1),
-      DateInterval::createFromDateString($string),
-      new DateTime($date2),
-    );
+    return new DatePeriod(new DateTime($date1),DateInterval::createFromDateString($string),new DateTime($date2));
   }
 
   public function targetDateGenerate(array $target, $start_date, $end_date) 
