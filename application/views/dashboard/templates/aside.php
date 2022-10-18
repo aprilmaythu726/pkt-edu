@@ -37,10 +37,10 @@
           <a href="#" title="Layout Options"><span class="nav-icon material-icons">account_box</span> LangSchoolStudent  </a>
           <ul class="sub-nav">
               <li class="<?php if($uri[1] != "" && $uri[1] == "std_lists") { echo "active"; } ?>">
-                <a href="<?php echo base_url('adm/portal/langschool_applicant'); ?>" title="">List</a>
+                <a href="<?php echo base_url('adm/portal/jls_applicant'); ?>" title="">List</a>
               </li>
               <li class="<?php if($uri[1] != "" && $uri[1] == "std_add") { echo "active"; } ?>">
-                <a href="<?php echo base_url('adm/portal/langschool_applicant/add'); ?>" title="">Add New</a>
+                <a href="<?php echo base_url('adm/portal/jls_applicant/add'); ?>" title="">Add New</a>
               </li>
           </ul>
         </li>  

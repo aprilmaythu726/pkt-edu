@@ -71,6 +71,52 @@ class Langschoolapplicant extends CI_Controller
 
   }
 
+  public function new()
+  {
+    /** User Permission Checker **/
+		$this->__permissionChecker($this->key,$this->url);
+		$globalHeader = array(
+			"alert" => $this->mainconfig->_DefaultNotic(),
+			'title' => "Student Lists",
+			'msg' => "",
+			'uri' => array("student","std_lists"),
+			'config' => $this->user_config
+		);
+		
+		$list = $this->Student_Model->getStudentList();
+		//*** Generate necessary key and value
+		$Q_list = _transfer_key_prepare(array_keys_checker($list));
+		$this->data['lists'] = array_transfer($list, $Q_list);
+    $this->data['course'] = $this->Student_Model->getStudentCourseRequest();	
+		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
+
+    // For data showing (course, )
+    $this->load->view('dashboard/langschoolstudent/lists', $this->data);
+
+  }
+  public function interview()
+  {
+    /** User Permission Checker **/
+		$this->__permissionChecker($this->key,$this->url);
+		$globalHeader = array(
+			"alert" => $this->mainconfig->_DefaultNotic(),
+			'title' => "Student Lists",
+			'msg' => "",
+			'uri' => array("student","std_lists"),
+			'config' => $this->user_config
+		);
+		
+		$list = $this->Student_Model->getStudentList();
+		//*** Generate necessary key and value
+		$Q_list = _transfer_key_prepare(array_keys_checker($list));
+		$this->data['lists'] = array_transfer($list, $Q_list);
+    $this->data['course'] = $this->Student_Model->getStudentCourseRequest();	
+		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
+
+    // For data showing (course, )
+    $this->load->view('dashboard/langschoolstudent/lists', $this->data);
+
+  }
   public function add()
 	{
     /** User Permission Checker **/
@@ -390,7 +436,6 @@ class Langschoolapplicant extends CI_Controller
 			$this->load->view('dashboard/langschoolstudent/views', $this->data);
 		}
   }
-  
   public function delete($id)
   {
     /** User Permission Checker **/
