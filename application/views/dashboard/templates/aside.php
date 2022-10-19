@@ -33,13 +33,13 @@
 
     <?php if(string_pos($sess_config, "pe_student") !== FALSE ){ ?>
       <ul>
-        <li class="<?php if($uri[0] != "" && $uri[0] == "student") { echo "open active"; } ?>">
-          <a href="#" title="Layout Options"><span class="nav-icon material-icons">account_box</span> LangSchoolStudent  </a>
+        <li class="<?php if($uri[0] != "" && $uri[0] == "langschoolapplicant") { echo "open active"; } ?>">
+          <a href="#" title="Layout Options"><span class="nav-icon material-icons">account_box</span> JLSApplicant</a>
           <ul class="sub-nav">
-              <li class="<?php if($uri[1] != "" && $uri[1] == "std_lists") { echo "active"; } ?>">
+              <li class="<?php if($uri[1] != "" && $uri[1] == "jls_lists") { echo "active"; } ?>">
                 <a href="<?php echo base_url('adm/portal/jls_applicant'); ?>" title="">List</a>
               </li>
-              <li class="<?php if($uri[1] != "" && $uri[1] == "std_add") { echo "active"; } ?>">
+              <li class="<?php if($uri[1] != "" && $uri[1] == "jls_add") { echo "active"; } ?>">
                 <a href="<?php echo base_url('adm/portal/jls_applicant/add'); ?>" title="">Add New</a>
               </li>
           </ul>
