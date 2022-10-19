@@ -1021,83 +1021,100 @@
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Educational History : from Elementary School to the Most Recent School</h6>
 <div class="tbl">
-<table class="table table-bordered">
-  <thead>
+<table class="table-bordered">
+  <thead class="tbl_head">
     <tr>
-      <th scope="col">Name of institution</th>
-      <th scope="col">Address</th>
-      <th scope="col">Starting <br>Year/Month  </th>
-      <th scope="col">Finishing <br>Year/Month </th>
-      <th scope="col">Term of Study</th>
+      <th>Name of institution</th>
+      <th>Address</th>
+      <th>Starting <br>Year/Month  </th>
+      <th >Finishing <br>Year/Month </th>
+      <th>Term of Study</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term form-control col-md-12" name="" value=""><span class="study_year">year</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term form-control col-md-12" name="" value=""><span class="study_year">year</span> 
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term form-control col-md-12" name="" value=""><span class="study_year">year</span> 
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control term form-control col-md-12" name="" value=""><span class="study_year">year</span> 
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
       </td>
     </tr>
   </tbody>
@@ -1112,197 +1129,431 @@
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Previous Japanese Language Study</h6>
 <div class="tbl">
-<table class="table table-bordered">
-  <thead>
+<table class="table-bordered">
+  <thead class="tbl_head">
     <tr>
-      <th scope="col">Name of institution</th>
-      <th scope="col">Address</th>
-      <th scope="col">Starting <br>Year/Month  </th>
-      <th scope="col">Finishing <br>Year/Month </th>
-      <th scope="col">Total hour of Study</th>
+      <th>Name of institution</th>
+      <th>Address</th>
+      <th>Starting <br>Year/Month  </th>
+      <th >Finishing <br>Year/Month </th>
+      <th>Total hour of Studyy</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term form-control col-md-12" name="" value=""><span class="study_year">hour</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term form-control col-md-12" name="" value=""><span class="study_year">hour</span> 
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term form-control col-md-12" name="" value=""><span class="study_year">hour</span> 
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control term form-control col-md-12" name="" value=""><span class="study_year">hour</span> 
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
       </td>
     </tr>
   </tbody>
 </table>
 </div>
-      
 
-       
 </div>
 <!-- Table -->
+
+<!-- Table -->
+<div class="col-md-12 float-left">
+<h6 class="" style="padding: 33px 0px 12px;">Achievement in JP language tests</h6>
+<div class="tbl">
+<table class="table-bordered">
+  <thead class="tbl_head">
+    <tr>
+      <th>Name of Japanese language test</th>
+      <th>Level</th>
+      <th>Exam Years</th>
+      <th >Score</th>
+      <th>Result</th>
+      <th>Date of Qualification</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="" value="">
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<!-- Table -->
+
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">History of Employment (Write in order, ending with the most recent employment.)</h6>
 <div class="tbl">
-<table class="table table-bordered">
-  <thead>
+<table class="table-bordered">
+  <thead class="tbl_head">
     <tr>
-      <th scope="col">Placement of Employment</th>
-      <th scope="col">Address</th>
-      <th scope="col">Years</th>
-      <th scope="col">Starting <br>Year/Month  </th>
-      <th scope="col">Finishing <br>Year/Month </th>
-      <th scope="col">Job Description</th>
+      <th>Placement of Employment</th>
+      <th>Address</th>
+      <th>Years</th>
+      <th>Starting <br>Year/Month  </th>
+      <th >Finishing <br>Year/Month </th>
+      <th>Job Description</th>
     </tr>
   </thead>
   <tbody>
+    
     <tr>
-    <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control term" name="" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control" name="" value="">
       </td>
     </tr>
     <tr>
-    <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control term" name="" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control term form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control" name="" value="">
       </td>
     </tr>
     <tr>
-    <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control"  name="" value="">
       </td>
       <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control term" name="" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control term form-control col-md-12" name="" value="">
-      </td>
-    </tr>
-    <tr>
-    <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control form-control col-md-12" name="" value="">
-      </td>
-      <td>
-      <input type="text" class="table-control term form-control col-md-12" name="" value="">
+      <input type="text" class=" table-control" name="" value="">
       </td>
     </tr>
   </tbody>
 </table>
 </div>
-      
-
-       
 </div>
 <!-- Table -->
+
+<!-- Table -->
+<div class="col-md-12 float-left">
+<h6 class="" style="padding: 33px 0px 12px;">Family Member</h6>
+<div class="tbl">
+<table class="table-bordered">
+  <thead class="tbl_head">
+    <tr>
+      <th>Name</th>
+      <th>Relationship	</th>
+      <th>Work Place	</th>
+      <th>Date Of Birth</th>
+      <th >Occupation </th>
+      <th>Annual Income</th>
+      <th>Address</th>
+      <th>Length of service</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="" value="">
+      </td>
+    </tr>
+    <tr>
+    <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="" value="">
+      </td>
+    </tr>
+    <tr>
+    <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="" value="">
+      </td>
+    </tr>
+    <tr>
+    <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="" value="">
+      </td>
+    </tr>
+    <tr>
+    <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="" value="">
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<!-- Table -->
+
+
 
 </div>
 </div>
@@ -1377,16 +1628,18 @@
 .tbl{
    width: 100%;
   }
-.study_year{
-  text-align: end;
-}
+
 .term{
   position: relative;
 }
-.study_year {
-    position: relative;
-    top: -27px;
-    left: 110px;
+.tbl_head{
+  text-align: center;
+}
+.table-bordered{
+  width: 100%;
+}
+.study_year{
+  margin-left: 10px;
 }
 </style>
 
