@@ -44,52 +44,58 @@
     ?>
 <div class="col-md-12">
 <div class="col-md-6 float-left">
-  <!-- Student Photo -->
+<!-- Student Photo -->
+  <?php
+    echo form_label('Student Photo','userfile', array('class' => 'col-form-label'));
+  ?>
+  <div class="col-md-12 col-sm-12 p-0">
     <?php
-      echo form_label('Student Photo','userfile', array('class' => 'col-form-label'));
+      echo form_input(array(
+      'name' => 'userfile',
+      'type' => 'file',
+      'class' => 'form-control',
+      'id' => 'clickImg',
+      'accept' => 'image/*'
+      ));
     ?>
-    <div class="col-md-12 col-sm-12 p-0">
-      <?php
-        echo form_input(array(
-        'name' => 'userfile',
-        'type' => 'file',
-        'class' => 'form-control',
-        'id' => 'clickImg',
-        'accept' => 'image/*'
-        ));
-      ?>
-      <div class="form-group col-md-12 col-sm-12 p-0" id="showImg1"> </div>   
-    </div>
-  <span class="text-danger"><?php echo form_error('userfile'); ?></span>
+    <div class="form-group col-md-12 col-sm-12 p-0" id="showImg1"> </div>   
   </div>
-  <!-- Student Photo -->  
-  <!-- date -->
+<span class="text-danger"><?php echo form_error('userfile'); ?></span>
+</div>
+<!-- Student Photo -->  
+<!-- date -->
   <div class="col-md-6 float-left">
       <div class="form-group" style="padding-left: 165px;">
           <label class="weight-400" for="release" style="margin-bottom:10px">Date</label> 
-          <span class="badge badge-danger">Required</span>
+          <!-- <span class="badge badge-danger">Required</span> -->
           <input type="datetime-local" step="1" name="release" id="release" class="form-control" placeholder="" value="">
           <span class="text-danger"><?php echo form_error( 'release' ); ?></span>
       </div>
   </div>
-   
-  <!-- date-->
-  <!-- JLS Name -->
-  <div class="school_list" name="">
-    <p class="list_label">Japanese Language School  </p>
-    <select name="" class="form-group col-md-6 school_select">
-        <option value="ECC">ECC</option>
-        <option value="JCLI">JCLI</option>
-        <option value="OJLS">OJLS</option>
-        <option value="Fukuoka">fukuoka</option>
-        <option value="Shizuoka">shizuoka</option>
-    </select>
-  </div>
-     <!-- JLS Name -->
-     <!-- Status Name -->
-   <div class="school_list" name="">
+<!-- date-->
+
+<!-- JLS Name -->
+<div class="school_list" name="" >
+<p class="list_label">Japanese Language School  </p>
+<select name="" class="form-group col-md-6 school_select">
+    <option value="">Please Select!</option>
+    <option value="ECC">ECC</option>
+    <option value="JCLI">JCLI</option>
+    <option value="OJLS">OJLS</option>
+    <option value="Fukuoka">fukuoka</option>
+    <option value="Shizuoka">shizuoka</option>
+</select>
+</div>
+<!-- JLS Name -->
+
+<!-- Status -->
+<div class="status_popup" >
+  <div class="col-md-4 float-left">
+    <!-- Status Name -->
+    <div class="school_list status_select col-md-12" name=""  style="width: 100%;padding-top: 22px;">
     <p class="list_label">Status</p>
-    <select name="" class="form-group col-md-6 school_select">
+    <select name="" id="sele_popup " class="form-group col-md-9 school_select">
+        <option value="">Please Select!</option>
         <option value="Register">Register</option>
         <option value="Interview">Interview</option>
         <option value="Interview Failed">Interview Failed</option>
@@ -100,14 +106,164 @@
         <option value="COE Failed">COE Failed</option>
         <option value="COE Passed">COE Passed</option>
     </select>
+    </div>
   </div>
-     <!-- Status Name -->
+    <!-- Status Name -->
+  <!-- interview date -->
+  <div class="col-md-6 float-left" id="interview_date" style="display: none;" >
+    <div class="form-group school_list"  style="width:65% ;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">Interview Date</label>
+       <span class="badge badge-danger" style="margin-left: 37px;">Required</span>
 
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'interview_date',
+            'type' => 'date',
+            // 'value' => html_escape(set_value('std_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'interview_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('interview_date'); ?></span>
+    </div>
+  </div>
+<!-- interview date -->
 
+<!-- collect data expired date -->
+<div class="col-md-8 float-left" id="data_expired_date" style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;">
+    <p class="list_label" style="padding-bottom: 12px;">
+       <label  style="margin-bottom: 0px;margin-top: 12px;">Collect Data EXP Date</label>
+       <span class="badge badge-danger" style="margin-left: 90px;">Required</span>
+
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'data_expired_date',
+            'type' => 'date',
+            // 'value' => html_escape(set_value('std_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'data_expired_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('data_expired_date'); ?></span>
+    </div>
+</div>
+<!-- collect data expired date -->
+<!-- admission date -->
+<div class="col-md-8 float-left" id="admission_date"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;">
+    <p class="list_label" style="margin: 0px 17px -12px 355px;padding-bottom: 12px;">
+       <label  style="margin-bottom: 0px;margin-left: 9px;">Admission Date</label>
+       <span class="badge badge-danger" style="margin-left: 60px;">Required</span>
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'admission_date',
+            'type' => 'date',
+            // 'value' => html_escape(set_value('std_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'admission_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('admission_date'); ?></span>
+    </div>
+</div>
+<!-- admission date -->
+<!-- tracking code -->
+<div class="col-md-8 float-left" id="tracking_code" style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;">
+    <p class="list_label" style="padding-bottom: 12px;">
+       <label  style="margin-bottom: 0px;margin-top: 12px;padding-left: 50px;">Tracking Code</label>
+       <span class="badge badge-danger" style="margin-left: 90px;">Required</span>
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'tracking_code',
+            'type' => 'input',
+            // 'value' => html_escape(set_value('std_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'tracking_code',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('tracking_code'); ?></span>
+    </div>
+</div>
+<!-- tracking code -->
+<!-- admission date -->
+<div class="col-md-10 float-left" id="adm_complete_date" style="display: none;">
+    <div class="form-group school_list"  style="width:80% ;">
+    <p class="list_label" style="margin: 0px 17px -12px 355px;padding-bottom: 12px;">
+       <label  style="margin-bottom: 0px;margin-left: 9px;">Complete Date</label>
+       <span class="badge badge-danger" style="margin-left: 60px;">Required</span>
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'adm_complete_date',
+            'type' => 'date',
+            // 'value' => html_escape(set_value('std_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'adm_complete_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('adm_complete_date'); ?></span>
+    </div>
+</div>
+<!-- admission date -->
+</div>
+<!-- Status -->
 </div>
 </div>
-  
-<!-- dropdown APPLICANT INFORMATION -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(function() {  
+    $(".status_select").change(function() {
+       if($('option:selected', this).text() =="Interview"){
+         $('#interview_date').show();
+         $('#data_expired_date').hide();
+         $('#admission_date').hide();
+         $('#tracking_code').hide();
+         $('#adm_complete_date').hide();
+
+        }else if($('option:selected', this).text() =="Admission"){
+        $('#data_expired_date').show();
+        $('#admission_date').show();
+        $('#interview_date').hide();
+        $('#tracking_code').hide();
+        $('#adm_complete_date').hide();
+      }else if($('option:selected', this).text() =="Admission Complete"){
+        $('#data_expired_date').hide();
+        $('#admission_date').hide();
+        $('#interview_date').hide();
+        $('#tracking_code').show();
+        $('#adm_complete_date').show();
+      }else{
+        console.log(true);
+      }
+    });
+});
+</script>
+
+<style>
+ #interview_date{
+  margin-top: 4px;
+} 
+.status_select{
+    display: inline;
+}
+.school_list.status_select {
+    padding-left: 0px;
+}
+select.form-group.col-md-9.school_select{
+    padding: 8px;
+    margin: 7px 7px 7px 35px;
+    border: 1px solid #ced4db;
+    border-radius: 3px;
+}
+</style>
+<!-- Start dropdown APPLICANT INFORMATION -->
 <div class="content_detail">
   <input class="dropdown" type="checkbox" id="faq-2">
   <p class="drop_ttl"><label for="faq-2" class="drop_label">APPLICANT INFORMATION  </label></p>
@@ -1836,112 +1992,13 @@
   </tbody>
 </table>
 </div>
-
 </div>
 <!-- Table -->
-
-
-
 </div>
 </div>
 
-<!-- dropdown APPLICANT INFORMATION -->
-<style>
-  .appl_ttl {
-    padding: 16px;
-    text-align: center;
-}
-.addmission{
-  padding: 0px;
-  /* margin: 0px; */
-}
-.admission_select{
-  width: 100%;
-  padding: 8px;
-  /* margin: 7px; */
-  border: 1px solid #ced4db;
-  border-radius: 3px;
-}
-#expected_year {
-    margin-left: 17px;
-    width: 40%;
-}
-#expected_month{
-  width: 40%;
-
-}
-.graduating_month_year{
-  display: flex;
-}
-.expected_txt{
-  padding-left: 22px;
-  font-size: 17px;
-  margin-bottom: 0px;
-  margin-top: 11px;
-}
-.col-rd{
-  margin: 0px 50px 0px 0px;
-}
-.details {
-    padding: 10px 10px 9px 9px;
-    border: 1px solid #ced4db;
-    border-radius: 3px;
-    margin: 0px 54px 12px 16px;
-}
-.employment{
-  padding-bottom: 12px;
-}
-.radio_record{
-  margin-bottom: 20px;
-  display: flex;
-}
-.criminal{
-  padding-left: 12px;
-  width: 100%;
-}
-.cri_text{
-  display: flex;
-}
-.muti_txt{
-  margin-right: 24px;
-}
-.appli{
-  margin-left: 11px;
-
-}
-.table-control{
-  width: 84%;
-    border: none;
-  }
- 
-/* .tbl{
-   width: 100%;
-  } */
-
-/* .term{
-  position: relative;
-} */
-.tbl_head{
-  text-align: center;
-}
-.table-bordered{
-  width: 100%;
-}
-.study_year{
-  margin-right: 0px;
-}
-.finial_ttl{
-  padding: 20px 12px;
-}
-.radio .col-md-2{
-  padding: 0px;
-}
-</style>
-
-
-
-
-<!-- dropdown FINANICIAL SPONSOR -->
+<!-- End dropdown APPLICANT INFORMATION -->
+<!--Start dropdown FINANICIAL SPONSOR -->
 <div class="content_detail">
   <input class="dropdown" type="checkbox" id="faq-3">
   <p class="drop_ttl"><label for="faq-3" class="drop_label">FINANICIAL SPONSOR</label></p>
@@ -2128,19 +2185,18 @@
   </div>
   </div>
 </div>
-<!-- dropdown FINANICIAL SPONSOR -->
+<!--End dropdown FINANICIAL SPONSOR -->
 <div class="clearfix"></div>
-          <hr class="my-4 dashed clearfix">
-
-          <div class="text-right">
-            <button type="submit" class="btn btn-primary text-white btn-sm py-1 px-2">
-              <span class="material-icons align-top md-18 mr-1">add_circle</span>Submit
-            </button>
-            <button type="reset" class="btn btn-secondary text-white btn-sm py-1 px-2">
-              <span class="material-icons align-top md-18 mr-1">sync</span>Reset
-            </button>
-          </div>
-     <?php echo form_close(); ?> 
+  <hr class="my-4 dashed clearfix">
+  <div class="text-right">
+    <button type="submit" class="btn btn-primary text-white btn-sm py-1 px-2">
+      <span class="material-icons align-top md-18 mr-1">add_circle</span>Submit
+    </button>
+    <button type="reset" class="btn btn-secondary text-white btn-sm py-1 px-2">
+      <span class="material-icons align-top md-18 mr-1">sync</span>Reset
+    </button>
+</div>
+<?php echo form_close(); ?> 
 </div>
 </div>
 </div>
@@ -2232,12 +2288,13 @@ color:#48a1af;
     border-radius: 3px;
 }
 .school_list{
-  width: 55%;
+  width: 51%;
   padding: 12px;
   align-items: center;
   display: flex;
 }
 .list_label{
+  width: 100%;
   font-size: 16px;
   margin: 0px;
 }
@@ -2246,6 +2303,91 @@ color:#48a1af;
     text-align: right !important;
 }
 </style>
+<style>
+  .appl_ttl {
+    padding: 16px;
+    text-align: center;
+}
+.addmission{
+  padding: 0px;
+  /* margin: 0px; */
+}
+.admission_select{
+  width: 100%;
+  padding: 8px;
+  /* margin: 7px; */
+  border: 1px solid #ced4db;
+  border-radius: 3px;
+}
+#expected_year {
+    margin-left: 17px;
+    width: 40%;
+}
+#expected_month{
+  width: 40%;
+
+}
+.graduating_month_year{
+  display: flex;
+}
+.expected_txt{
+  padding-left: 22px;
+  font-size: 17px;
+  margin-bottom: 0px;
+  margin-top: 11px;
+}
+.col-rd{
+  margin: 0px 50px 0px 0px;
+}
+.details {
+    padding: 10px 10px 9px 9px;
+    border: 1px solid #ced4db;
+    border-radius: 3px;
+    margin: 0px 54px 12px 16px;
+}
+.employment{
+  padding-bottom: 12px;
+}
+.radio_record{
+  margin-bottom: 20px;
+  display: flex;
+}
+.criminal{
+  padding-left: 12px;
+  width: 100%;
+}
+.cri_text{
+  display: flex;
+}
+.muti_txt{
+  margin-right: 24px;
+}
+.appli{
+  margin-left: 11px;
+
+}
+.table-control{
+  width: 84%;
+    border: none;
+  }
+.tbl_head{
+  text-align: center;
+}
+.table-bordered{
+  width: 100%;
+}
+.study_year{
+  margin-right: 0px;
+}
+.finial_ttl{
+  padding: 20px 12px;
+}
+.radio .col-md-2{
+  padding: 0px;
+}
+</style>
+
+
 
 <!-- <script>
   function filePreview(input,div){
