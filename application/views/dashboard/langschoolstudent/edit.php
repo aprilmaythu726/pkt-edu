@@ -214,10 +214,10 @@
         <?php echo form_label('Gender', 'gender', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="gender" value="1" > Male
               </label>
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="gender" value="0" checked="checked"> Female
               </label>
         </div>
@@ -227,10 +227,10 @@
         <?php echo form_label('Martial Status', 'martial status', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4 status ">
+              <label class="col-md-2 status ">
                   <input type="radio" class="marriage_status" name="martial status" value="1" checked="checked"> Single
               </label>
-              <label class="col-md-4 status ">
+              <label class="col-md-2 status ">
                   <input type="radio" class="marriage_status" name="martial status" value="0" > Married
               </label>
         </div>
@@ -335,10 +335,10 @@
         <?php echo form_label('Have you visited Japan?', 'have_you_visited_jp', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="have_you_visited_jp" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="have_you_visited_jp" value="0" > No
               </label>
         </div>
@@ -394,10 +394,10 @@
         <?php echo form_label('Departure by deportation / departure order or not', 'departure_deportation', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="departure_deportation" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="departure_deportation" value="0" > No
               </label>
         </div>
@@ -648,10 +648,10 @@
         <?php echo form_label('Passport', 'passport', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="passport" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="passport" value="0" > No
               </label>
         </div>
@@ -702,10 +702,10 @@
         <?php echo form_label('Blank period／Military service', 'military_service', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="military_service" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="military_service" value="0" > No
               </label>
         </div>
@@ -728,10 +728,10 @@
         <?php echo form_label('Accompanying Persons,if Any', 'accompanying_person', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="accompanying_person" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="accompanying_person" value="0" > No
               </label>
         </div>
@@ -740,10 +740,10 @@
         <?php echo form_label('Did you apply before in Japan?', 'school_apply_before_japan', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="school_apply_before_japan" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="school_apply_before_japan" value="0" > No
               </label>
         </div>
@@ -817,10 +817,10 @@
         <?php echo form_label('Have you ever experienced COE rejection?', 'COE_reject', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="COE_reject" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="COE_reject" value="0" > No
               </label>
         </div>
@@ -859,10 +859,10 @@
         <?php echo form_label('Is it possible to provide in English? ', 'provide_english', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio" style="padding-top: 12px;">
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="provide_english" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
+              <label class="col-md-2">
                   <input type="radio" name="provide_english" value="0" > No
               </label>
         </div>
@@ -1880,7 +1880,7 @@
   margin-top: 11px;
 }
 .col-rd{
-  margin: 0px 50px 0px 24px;
+  margin: 0px 50px 0px 0px;
 }
 .details {
     padding: 10px 10px 9px 9px;
@@ -1932,6 +1932,9 @@
 }
 .finial_ttl{
   padding: 20px 12px;
+}
+.radio .col-md-2{
+  padding: 0px;
 }
 </style>
 
