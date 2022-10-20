@@ -125,8 +125,13 @@
 </div>
   <!-- Status Name -->
   <!-- interview date -->
+<<<<<<< HEAD
   <div class="col-md-10 float-left" id="interview_date"  style="display: none;">
     <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+=======
+  <div class="col-md-6 float-left" id="interview_date">
+    <div class="form-group school_list"  style="width:65% ;">
+>>>>>>> 0f80aeb9b1e86a797d8835bf36d39a1f028d123d
     <p class="list_label" >
        <label style="margin-bottom: 0px;margin-top: 12px;">Interview Date</label>
        <span class="badge badge-danger" >Required</span>
