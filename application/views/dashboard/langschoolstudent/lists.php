@@ -99,8 +99,8 @@
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
             <span class="material-icons md-20 align-middle">more_vert</span></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/student/edit/'.$row->id); ?>">Edit</a>
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/student/pdf/'.$row->id); ?>">Print PDF</a>
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/langschoolapplicant/edit/'.$row->id); ?>">Edit</a>
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/langschoolapplicant/pdf/'.$row->id); ?>">Print PDF</a>
               <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/student/delete/'.$row->id); ?>">Delete</a>
             </div>
           </td>
