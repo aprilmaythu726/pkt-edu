@@ -92,9 +92,9 @@
 <div class="status_popup" >
   <div class="col-md-4 float-left">
     <!-- Status Name -->
-    <div class="school_list status_select col-md-12" name=""  style="width: 100%;padding-top: 22px;">
+    <div class="school_list status_select" name=""  style="width: 100%;padding-top: 22px;">
     <p class="list_label">Status</p>
-    <select name="" id="sele_popup " class="form-group col-md-9 school_select">
+    <select name="" id="sele_popup " class="form-group col-md- school_select">
         <option value="">Please Select!</option>
         <option value="Register">Register</option>
         <option value="Interview">Interview</option>
@@ -108,13 +108,13 @@
     </select>
     </div>
   </div>
-    <!-- Status Name -->
+  <!-- Status Name -->
   <!-- interview date -->
-  <div class="col-md-6 float-left" id="interview_date" style="display: none;" >
-    <div class="form-group school_list"  style="width:65% ;">
+  <div class="col-md-9 float-left" id="interview_date"  >
+    <div class="form-group school_list"  style="width:65% ;padding: 0px;">
     <p class="list_label" >
        <label style="margin-bottom: 0px;margin-top: 12px;">Interview Date</label>
-       <span class="badge badge-danger" style="margin-left: 37px;">Required</span>
+       <span class="badge badge-danger" >Required</span>
 
     </p>
         <?php
