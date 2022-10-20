@@ -90,11 +90,11 @@
 
 <!-- Status -->
 <div class="status_popup" >
-  <div class="col-md-4 float-left">
-    <!-- Status Name -->
-    <div class="school_list status_select col-md-12" name=""  style="width: 100%;padding-top: 22px;">
+      <!-- Status Name -->
+  <!-- <div class="col-md-4 float-left">
+    <div class="school_list status_select" name=""  style="width: 100%;padding-top: 22px;">
     <p class="list_label">Status</p>
-    <select name="" id="sele_popup " class="form-group col-md-9 school_select">
+    <select name="" id="sele_popup " class="form-group col-md- school_select">
         <option value="">Please Select!</option>
         <option value="Register">Register</option>
         <option value="Interview">Interview</option>
@@ -107,14 +107,34 @@
         <option value="COE Passed">COE Passed</option>
     </select>
     </div>
-  </div>
-    <!-- Status Name -->
+  </div> -->
+<div class="school_list status_select" name="" >
+<p class="list_label">Status </p>
+<select name="" id="sele_popup " class="form-group col-md-6 school_select">
+<option value="">Please Select!</option>
+        <option value="Register">Register</option>
+        <option value="Interview">Interview</option>
+        <option value="Interview Failed">Interview Failed</option>
+        <option value="Admission">Admission</option>
+        <option value="Admission Complete">Admission Complete</option>
+        <option value="COE Waiting">COE Waiting</option>
+        <option value="Cancel">Cancel</option>
+        <option value="COE Failed">COE Failed</option>
+        <option value="COE Passed">COE Passed</option>
+</select>
+</div>
+  <!-- Status Name -->
   <!-- interview date -->
+<<<<<<< HEAD
+  <div class="col-md-10 float-left" id="interview_date"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+=======
   <div class="col-md-6 float-left" id="interview_date">
     <div class="form-group school_list"  style="width:65% ;">
+>>>>>>> 0f80aeb9b1e86a797d8835bf36d39a1f028d123d
     <p class="list_label" >
        <label style="margin-bottom: 0px;margin-top: 12px;">Interview Date</label>
-       <span class="badge badge-danger" style="margin-left: 37px;">Required</span>
+       <span class="badge badge-danger" >Required</span>
 
     </p>
         <?php
@@ -131,33 +151,12 @@
   </div>
 <!-- interview date -->
 
-<!-- collect data expired date -->
-<div class="col-md-8 float-left" id="data_expired_date" style="display: none;">
-    <div class="form-group school_list"  style="width:60% ;">
-    <p class="list_label" style="padding-bottom: 12px;">
-       <label  style="margin-bottom: 0px;margin-top: 12px;">Collect Data EXP Date</label>
-       <span class="badge badge-danger" style="margin-left: 90px;">Required</span>
-
-    </p>
-        <?php
-          echo form_input(array(
-            'name' => 'data_expired_date',
-            'type' => 'date',
-            // 'value' => html_escape(set_value('std_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
-            'class' => 'form-control',
-            'id' => 'data_expired_date',
-            'autocomplete' => ''));
-          ?>
-        <span class="text-danger"><?php echo form_error('data_expired_date'); ?></span>
-    </div>
-</div>
-<!-- collect data expired date -->
 <!-- admission date -->
-<div class="col-md-8 float-left" id="admission_date"  style="display: none;">
-    <div class="form-group school_list"  style="width:60% ;">
-    <p class="list_label" style="margin: 0px 17px -12px 355px;padding-bottom: 12px;">
-       <label  style="margin-bottom: 0px;margin-left: 9px;">Admission Date</label>
-       <span class="badge badge-danger" style="margin-left: 60px;">Required</span>
+<div class="col-md-10 float-left" id="admission_date" style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label  style="margin-bottom: 0px;margin-top: 12px;">Admission Date</label>
+       <span class="badge badge-danger">Required</span>
     </p>
         <?php
           echo form_input(array(
@@ -172,32 +171,34 @@
     </div>
 </div>
 <!-- admission date -->
-<!-- tracking code -->
-<div class="col-md-8 float-left" id="tracking_code" style="display: none;">
-    <div class="form-group school_list"  style="width:60% ;">
-    <p class="list_label" style="padding-bottom: 12px;">
-       <label  style="margin-bottom: 0px;margin-top: 12px;padding-left: 50px;">Tracking Code</label>
-       <span class="badge badge-danger" style="margin-left: 90px;">Required</span>
+
+<!-- collect data expired date -->
+<div class="col-md-10 float-left" id="data_expired_date" style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label">
+       <label  style="margin-bottom: 0px;margin-top: 12px;">Collect Data EXP Date</label>
+       <span class="badge badge-danger" >Required</span>
     </p>
         <?php
           echo form_input(array(
-            'name' => 'tracking_code',
-            'type' => 'input',
+            'name' => 'data_expired_date',
+            'type' => 'date',
             // 'value' => html_escape(set_value('std_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
             'class' => 'form-control',
-            'id' => 'tracking_code',
+            'id' => 'data_expired_date',
             'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('tracking_code'); ?></span>
+        <span class="text-danger"><?php echo form_error('data_expired_date'); ?></span>
     </div>
 </div>
-<!-- tracking code -->
+<!-- collect data expired date -->
+
 <!-- admission date -->
 <div class="col-md-10 float-left" id="adm_complete_date" style="display: none;">
-    <div class="form-group school_list"  style="width:80% ;">
-    <p class="list_label" style="margin: 0px 17px -12px 355px;padding-bottom: 12px;">
-       <label  style="margin-bottom: 0px;margin-left: 9px;">Complete Date</label>
-       <span class="badge badge-danger" style="margin-left: 60px;">Required</span>
+    <div class="form-group school_list" style="width:60% ;padding: 0px;">
+    <p class="list_label">
+       <label  style="margin-bottom: 0px;margin-top: 12px;">Complete Date</label>
+       <span class="badge badge-danger">Required</span>
     </p>
         <?php
           echo form_input(array(
@@ -212,6 +213,28 @@
     </div>
 </div>
 <!-- admission date -->
+
+<!-- tracking code -->
+<div class="col-md-10 float-left" id="tracking_code" style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label">
+       <label  style="margin-bottom: 0px;margin-top: 12px;">Tracking Code</label>
+       <!-- <span class="badge badge-danger">Required</span> -->
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'tracking_code',
+            'type' => 'input',
+            // 'value' => html_escape(set_value('std_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'tracking_code',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('tracking_code'); ?></span>
+    </div>
+</div>
+<!-- tracking code -->
+
 </div>
 <!-- Status -->
 </div>
@@ -240,21 +263,29 @@ $(function() {
         $('#tracking_code').show();
         $('#adm_complete_date').show();
       }else{
-        console.log(true);
+        $('#data_expired_date').hide();
+        $('#admission_date').hide();
+        $('#interview_date').hide();
+        $('#tracking_code').hide();
+        $('#adm_complete_date').hide();
       }
     });
 });
 </script>
 
 <style>
- #interview_date{
-  margin-top: 4px;
+ #interview_date,
+ #data_expired_date,
+ #admission_date,
+ #tracking_code,
+ #adm_complete_date{
+  margin-top: 9px;
 } 
 .status_select{
     display: inline;
 }
 .school_list.status_select {
-    padding-left: 0px;
+    padding-left: 14px;
 }
 select.form-group.col-md-9.school_select{
     padding: 8px;
