@@ -235,7 +235,7 @@ class Langschoolapplicant extends CI_Controller
 		
 		$list = $this->Student_Model->studentDetail($id);
 		//*** Current query value checker
-		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/student", $list);
+		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
 		//*** Generate necessary key and value
 		$Q_list = _transfer_key_prepare(object_key_checker($list));
 		
@@ -317,7 +317,7 @@ class Langschoolapplicant extends CI_Controller
           } else {
             if ($checkdata) {
               $this->session->set_flashdata('msg_error', 'Your data already exits! please fill other data!');
-              redirect('adm/portal/student/edit/'.$id, $data);
+              redirect('adm/portal/langschoolstudent/edit/'.$id, $data);
             }
           }
         } else {
@@ -329,7 +329,7 @@ class Langschoolapplicant extends CI_Controller
           $this->Student_Model->studentAuthUpdate($usrData, $id);
           $this->Student_Model->studentUpdate($data, $id);
           $this->session->set_flashdata('msg_success', 'Your data has been update!');
-          redirect("adm/portal/student");
+          redirect("adm/portal/langschoolstudent");
         }
 
         // Auto Mail Sending
@@ -357,7 +357,7 @@ class Langschoolapplicant extends CI_Controller
 	
 	  $list = $this->Student_Model->studentViewDetail($id);
 	  //*** Current query value checker
-	  $this->__resultEmptyChecker($id, $globalHeader,"adm/portal/student", $list);
+	  $this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
 	  //*** Generate necessary key and value
 	  $Q_list = _transfer_key_prepare(object_key_checker($list));
 	  $this->data['result'] = object_transfer($list, $Q_list);
@@ -451,7 +451,7 @@ class Langschoolapplicant extends CI_Controller
 
     $list = $this->Student_Model->studentDetail($id);
 		//*** Current query value checker
-		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/student", $list);
+		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
     $recent_cover = $list->image_file;
 
     if(!empty($recent_cover)) {
@@ -470,7 +470,7 @@ class Langschoolapplicant extends CI_Controller
     $this->Student_Model->stdPaymentDelete($id);
 
 		$this->session->set_flashdata('msg_success', 'Your data has been delete!');
-    redirect('adm/portal/student');
+    redirect('adm/portal/langschoolstudent');
   }
 
   public function activated($id)
@@ -482,7 +482,7 @@ class Langschoolapplicant extends CI_Controller
 			'uri' => array("student","std_lists"),
 			'config' => $this->user_config,
 		);
-		$this->__resultEmptyChecker($id, $globalHeader, "adm/portal/student", $globalHeader);
+		$this->__resultEmptyChecker($id, $globalHeader, "adm/portal/langschoolstudent", $globalHeader);
     $data = array(
       'activate_date' => date('Y-m-d H:i:s'),
       "status" => 1
@@ -490,7 +490,7 @@ class Langschoolapplicant extends CI_Controller
 
     $data['result'] = $this->Student_Model->studentUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been activated!');
-    redirect("adm/portal/student", $data);
+    redirect("adm/portal/langschoolstudent", $data);
   }
 
   public function deactivated($id)
@@ -502,7 +502,7 @@ class Langschoolapplicant extends CI_Controller
 			'uri' => array("student","std_lists"),
 			'config' => $this->user_config,
 		);
-		$this->__resultEmptyChecker($id, $globalHeader, "adm/portal/student", $globalHeader);
+		$this->__resultEmptyChecker($id, $globalHeader, "adm/portal/langschoolstudent", $globalHeader);
 		$data = array(
 			'activate_date' => date('0000-00-00 00:00:00'),
 			"status" => 0
@@ -510,7 +510,7 @@ class Langschoolapplicant extends CI_Controller
 
 		$data['result'] = $this->Student_Model->studentUpdate($data, $id);
 		$this->session->set_flashdata('msg_success', 'Your data has been deactivated!');
-		redirect("adm/portal/student", $data);
+		redirect("adm/portal/langschoolstudent", $data);
 	}
   
   public function permission_activated($id)
@@ -522,7 +522,7 @@ class Langschoolapplicant extends CI_Controller
 			'uri' => array("student","std_lists"),
 			'config' => $this->user_config,
 		);
-		$this->__resultEmptyChecker($id, $globalHeader, "adm/portal/student", $globalHeader);
+		$this->__resultEmptyChecker($id, $globalHeader, "adm/portal/langschoolstudent", $globalHeader);
     $data = array(
       'updated_at' => date('Y-m-d H:i:s'),
       "permission" => 1
@@ -530,7 +530,7 @@ class Langschoolapplicant extends CI_Controller
 
     $data['result'] = $this->Student_Model->studentUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been activated!');
-    redirect("adm/portal/student", $data);
+    redirect("adm/portal/langschoolstudent", $data);
   }
 
   public function permission_deactivated($id)
@@ -542,7 +542,7 @@ class Langschoolapplicant extends CI_Controller
 			'uri' => array("student","std_lists"),
 			'config' => $this->user_config,
 		);
-		$this->__resultEmptyChecker($id, $globalHeader, "adm/portal/student", $globalHeader);
+		$this->__resultEmptyChecker($id, $globalHeader, "adm/portal/langschoolstudent", $globalHeader);
     $data = array(
       'updated_at' => date('Y-m-d H:i:s'),
       "permission" => 0
@@ -550,7 +550,7 @@ class Langschoolapplicant extends CI_Controller
 
     $data['result'] = $this->Student_Model->studentUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been deactivated!');
-    redirect("adm/portal/student", $data);
+    redirect("adm/portal/langschoolstudent", $data);
   }
 
   public function invoice_view($id)
@@ -568,7 +568,7 @@ class Langschoolapplicant extends CI_Controller
 	
 	  $list = $this->Student_Model->studentCourseDetail($id);
 	  //*** Current query value checker
-	  $this->__resultEmptyChecker($id, $globalHeader,"adm/portal/student", $list);
+	  $this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
 	  //*** Generate necessary key and value
 	  $Q_list = _transfer_key_prepare(object_key_checker($list));
 	  $this->data['result'] = object_transfer($list, $Q_list);
@@ -610,7 +610,7 @@ class Langschoolapplicant extends CI_Controller
 
 			if ($this->form_validation->run() === false) {
         $this->session->set_flashdata('msg_error', 'Empty Data! please fill data!');
-        redirect('adm/portal/student/invoice/view/'.$id);
+        redirect('adm/portal/langschoolstudent/invoice/view/'.$id);
 			} else {
         $lastid = $this->Student_Model->getStudentPaymentID();   
         $lastid = (isset($lastid)?$lastid:1);
@@ -737,7 +737,7 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config,
 		);
 
-		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/student", $globalHeader);
+		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $globalHeader);
     $parentChecker = $this->Student_Model->checkParentCourseInvoice($id);
     $Checker = $this->Student_Model->checkParentCoursePayment($parentChecker[0]->id);
 
@@ -765,7 +765,7 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config,
 		);
 
-		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/student", $globalHeader);
+		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $globalHeader);
 		$this->Student_Model->studentEnrollDelete($id);
 		$this->session->set_flashdata('msg_success', 'Your data has been delete!');
     redirect("adm/portal/langschoolstudent/invoice/view/".$invid);

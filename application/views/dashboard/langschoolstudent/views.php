@@ -11,7 +11,7 @@
     <div class="col controls-wrapper mt-3 mt-md-0 d-none d-md-block ">
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
       <button class="btn btn-secondary py-1 px-2" data-toggle="modal" data-target="#addNoteModal"><span class="material-icons align-text-bottom">add_circle</span></button>
-      <a href="<?php echo base_url('adm/portal/student'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
+      <a href="<?php echo base_url('adm/portal/langschool_applicant'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
       </div>
     </div>
   </div> 
@@ -56,7 +56,7 @@
               <?php } ?>
                 <div><br></div>
               <div class="text-center">
-                <a href="<?php echo base_url('adm/portal/student/edit/'.$result->id); ?>" class="btn btn-sm btn-dark text-light py-0 px-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit Information"><span class="material-icons align-middle">edit</span></a>
+                <a href="<?php echo base_url('adm/portal/langschool_applicant/edit/'.$result->id); ?>" class="btn btn-sm btn-dark text-light py-0 px-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit Information"><span class="material-icons align-middle">edit</span></a>
                 <a onclick="return confirm('Are you want to delete this data?');"  href="<?php echo base_url('adm/student/delete/'.$result->id); ?>" class="btn btn-sm btn-danger py-0 px-1 text-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Withdraw Account"><span class="material-icons align-middle">delete_sweep</span></a>
               </div>
             </div>
@@ -208,8 +208,8 @@
                           <?php } else { ?>
                             <a class="text-dark" data-toggle="tooltip" data-placement="top" title="Request" href="#"><span class="material-icons align-middle md-18">remove_circle</span></a>
                           <?php } ?>      
-                          <a class="text-secondary" href="<?php echo base_url('adm/portal/student/invoice/view/'.$row->id); ?>" data-toggle="tooltip" data-placement="top" title="View Invoice"><span class="material-icons align-middle md-20">assignment</span></a>       
-                          <a class="text-secondary" onclick="return confirm('Are you want to delete this course?');" data-toggle="tooltip" data-placement="top" title="Delete" href="<?php echo base_url('adm/portal/student/course/delete/'.$row->id.'/'.$result->id); ?>"><span class="material-icons align-middle md-18">delete</span></a>
+                          <a class="text-secondary" href="<?php echo base_url('adm/portal/langschool_applicant/invoice/view/'.$row->id); ?>" data-toggle="tooltip" data-placement="top" title="View Invoice"><span class="material-icons align-middle md-20">assignment</span></a>       
+                          <a class="text-secondary" onclick="return confirm('Are you want to delete this course?');" data-toggle="tooltip" data-placement="top" title="Delete" href="<?php echo base_url('adm/portal/langschool_applicant/course/delete/'.$row->id.'/'.$result->id); ?>"><span class="material-icons align-middle md-18">delete</span></a>
                         </td>
                       </tr>
                       <?php } 
@@ -311,7 +311,7 @@ table thead th {
           <div class="modal-content">
             <?php
               $attributes = array('class' => '');
-              echo form_open('adm/portal/student/view/'.$result->id, $attributes);
+              echo form_open('adm/portal/langschool_applicant/view/'.$result->id, $attributes);
 
               echo form_input(array(
 								'name' => 'std_id',

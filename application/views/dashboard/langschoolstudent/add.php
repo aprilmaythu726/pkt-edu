@@ -10,72 +10,71 @@
     </div> 
     <div class="col controls-wrapper mt-3 mt-md-0 d-none d-md-block ">
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
-      <a href="<?php echo base_url('adm/portal/student'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
+      <a href="<?php echo base_url('adm/portal/langschool_applicant'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
       </div>
     </div>
   </div> 
 
-  <?php if(!empty($_SESSION['msg_success'])){ ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>Success!</strong>  <?php echo $_SESSION['msg_success']; ?> 
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true" class="material-icons md-18">clear</span>
-      </button>
-    </div>
-  <?php } ?>    
+<?php if(!empty($_SESSION['msg_success'])){ ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong>  <?php echo $_SESSION['msg_success']; ?> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true" class="material-icons md-18">clear</span>
+    </button>
+  </div>
+<?php } ?>    
 
-  <?php if(!empty($_SESSION['msg_error'])){ ?>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <strong>Warning!</strong>  <?php echo $_SESSION['msg_error']; ?> 
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true" class="material-icons md-18">clear</span>
-      </button>
-    </div>
-  <?php } ?>
-  <div class="content">
-    <div class="row">
-    <div class="col-lg-12 col-md-12 mb-4 mb-lg-0">
-      <div class="card">
-        <div class="card-body">
-            <?php
-              $attributes = array('class' => 'form-horizontal form-label-left');
-              echo form_open_multipart('adm/portal/student/add', $attributes);
-            ?>
-          <div class="col-md-12">
+<?php if(!empty($_SESSION['msg_error'])){ ?>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Warning!</strong>  <?php echo $_SESSION['msg_error']; ?> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true" class="material-icons md-18">clear</span>
+    </button>
+  </div>
+<?php } ?>
 
-    <div class="col-md-6 float-left">
-<!-- Student Photo -->
-        <?php
-          echo form_label('Student Photo','userfile', array('class' => 'col-form-label'));
-        ?>
-        <div class="col-md-12 col-sm-12 p-0">
-          <?php
-            echo form_input(array(
-            'name' => 'userfile',
-            'type' => 'file',
-            'class' => 'form-control',
-            'id' => 'clickImg',
-            'accept' => 'image/*'
-            ));
-            
-          ?>
-          <div class="form-group col-md-12 col-sm-12 p-0" id="showImg1"> </div>
-                
-        </div>
-        <span class="text-danger"><?php echo form_error('userfile'); ?></span>
-<!-- Student Photo -->  
+<div class="content">
+<div class="row">
+<div class="col-lg-12 col-md-12 mb-4 mb-lg-0">
+<div class="card">
+<div class="card-body">
+    <?php
+      $attributes = array('class' => 'form-horizontal form-label-left');
+      echo form_open_multipart('adm/portal/langschool_applicant/add', $attributes);
+    ?>
+<div class="col-md-12">
+<div class="col-md-6 float-left">
+  <!-- Student Photo -->
+    <?php
+      echo form_label('Student Photo','userfile', array('class' => 'col-form-label'));
+    ?>
+    <div class="col-md-12 col-sm-12 p-0">
+      <?php
+        echo form_input(array(
+        'name' => 'userfile',
+        'type' => 'file',
+        'class' => 'form-control',
+        'id' => 'clickImg',
+        'accept' => 'image/*'
+        ));
+      ?>
+      <div class="form-group col-md-12 col-sm-12 p-0" id="showImg1"> </div>   
     </div>
-    <div class="col-md-6 float-left">
-<!-- date -->
-          <div class="form-group" style="padding-left: 165px;">
-                <label class="weight-400" for="release" style="margin-bottom:10px">Date</label> 
-                <span class="badge badge-danger">Required</span>
-                <input type="datetime-local" step="1" name="release" id="release" class="form-control" placeholder="" value="<?php echo html_escape(set_value('release',isset($result)?date('YYYY-MM-DDTkk:mm',strtotime($result->released_date)):''), ENT_QUOTES) ?>">
-                <span class="text-danger"><?php echo form_error( 'release' ); ?></span>
-              </div>
-<!-- date-->
-    </div>
- <div class="school_list">
+  <span class="text-danger"><?php echo form_error('userfile'); ?></span>
+  </div>
+  <!-- Student Photo -->  
+  <!-- date -->
+  <div class="col-md-6 float-left">
+      <div class="form-group" style="padding-left: 165px;">
+          <label class="weight-400" for="release" style="margin-bottom:10px">Date</label> 
+          <span class="badge badge-danger">Required</span>
+          <input type="datetime-local" step="1" name="release" id="release" class="form-control" placeholder="" value="<?php echo html_escape(set_value('release',isset($result)?date('YYYY-MM-DDTkk:mm',strtotime($result->released_date)):''), ENT_QUOTES) ?>">
+          <span class="text-danger"><?php echo form_error( 'release' ); ?></span>
+      </div>
+  </div>
+  <!-- date-->
+  <!-- JLS Name -->
+  <div class="school_list" name="">
     <p class="list_label">Japanese Language School  </p>
     <select name="" class="form-group col-md-6 school_select">
         <option value="ECC">ECC</option>
@@ -84,9 +83,11 @@
         <option value="Fukuoka">fukuoka</option>
         <option value="Shizuoka">shizuoka</option>
     </select>
-     </div>
- </div>
   </div>
+     <!-- JLS Name -->
+
+</div>
+</div>
   
 <!-- dropdown APPLICANT INFORMATION -->
 <div class="content_detail">
@@ -98,155 +99,155 @@
   <!-- leftside -->
    <div class="col-md-6 float-left">
       <div class="form-group">
-        <?php echo form_label('Name (アルファベット)', 'std_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Name (アルファベット)', 'applicant_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'std_name',
+            'name' => 'applicant_name',
             'type' => 'text',
-            'value' => html_escape(set_value('std_name',isset($result)?$result->name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('applicant_name',isset($result)?$result->applicant_name:''), ENT_QUOTES),
             'placeholder' => 'Enter student name!',
             'class' => 'form-control',
-            'id' => 'std_name',
-            'autocomplete' => 'new-std_name'));
+            'id' => 'applicant_name',
+            'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('std_name'); ?></span>
+        <span class="text-danger"><?php echo form_error('applicant_name'); ?></span>
       </div>
 
       <div class="form-group">
-        <?php echo form_label(' Name (漢字)', 'std_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label(' Name (漢字)', 'applicant_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'std_name',
+            'name' => 'applicant_name',
             'type' => 'text',
-            'value' => html_escape(set_value('std_name',isset($result)?$result->name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('applicant_name',isset($result)?$result->applicant_name:''), ENT_QUOTES),
             'placeholder' => 'Enter student name!',
             'class' => 'form-control',
-            'id' => 'std_name',
-            'autocomplete' => 'new-std_name'));
+            'id' => 'applicant_name',
+            'autocomplete' => ''));
           ?>
         <span class="text-danger"><?php echo form_error('std_name'); ?></span>
       </div>
       <div class="form-group">
-        <?php echo form_label('Date Of Birth', 'std_birthday', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_birthday')); ?>
+        <?php echo form_label('Date Of Birth', 'date_of_birthday', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_birthday')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'std_birthday',
+            'name' => 'date_of_birthday',
             'type' => 'date',
-            'value' => html_escape(set_value('std_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
+            'value' => html_escape(set_value('date_of_birthday',isset($result)?$result->date_of_birthday:''), ENT_QUOTES),
             'placeholder' => 'Enter Date Of Birth!',
             'class' => 'form-control',
-            'id' => 'std_birthday',
-            'autocomplete' => 'new-std_birthday'));
+            'id' => 'date_of_birthday',
+            'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('std_birthday'); ?></span>
+        <span class="text-danger"><?php echo form_error('date_of_birthday'); ?></span>
       </div>
 
       <div class="form-group">
-        <?php echo form_label('Place Of Birth', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Place Of Birth', 'place_birth', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'place_birth',
             'type' => 'text',
-            'value' => html_escape(set_value('std_name',isset($result)?$result->name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('place_birth',isset($result)?$result->place_birth:''), ENT_QUOTES),
             'placeholder' => 'Enter Place Of Birth!',
             'class' => 'form-control',
-            'id' => 'std_name',
-            'autocomplete' => 'new-std_name'));
+            'id' => 'place_birth',
+            'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('std_name'); ?></span>
+        <span class="text-danger"><?php echo form_error('place_birth'); ?></span>
       </div>
 
       <div class="form-group">
-        <?php echo form_label('Age', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'age',
             'type' => 'text',
-            'value' => html_escape(set_value('std_name',isset($result)?$result->name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('age',isset($result)?$result->age:''), ENT_QUOTES),
             'placeholder' => "Enter student's Age!",
             'class' => 'form-control',
-            'id' => 'std_name',
-            'autocomplete' => 'new-std_name'));
+            'id' => 'age',
+            'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('std_name'); ?></span>
+        <span class="text-danger"><?php echo form_error('age'); ?></span>
       </div>
 
       <div class="form-group">
-        <?php echo form_label('Nationality', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Nationality', 'nationality', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'nationality',
             'type' => 'text',
-            'value' => html_escape(set_value('std_name',isset($result)?$result->name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('nationality',isset($result)?$result->nationality:''), ENT_QUOTES),
             'placeholder' => "Enter student's Nationality!",
             'class' => 'form-control',
-            'id' => 'std_name',
-            'autocomplete' => 'new-std_name'));
+            'id' => 'nationality',
+            'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('std_name'); ?></span>
+        <span class="text-danger"><?php echo form_error('nationality'); ?></span>
       </div>
 
       <div class="form-group">
-        <?php echo form_label('Gender', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Gender', 'gender', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="1" > Male
+              <label class="col-md-2">
+                  <input type="radio" name="gender" value="1" > Male
               </label>
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="0" checked="checked"> Female
+              <label class="col-md-2">
+                  <input type="radio" name="gender" value="0" checked="checked"> Female
               </label>
         </div>
       </div>
 
       <div class="form-group">
-        <?php echo form_label('Martial Status', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Martial Status', 'martial status', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4 status ">
-                  <input type="radio" class="marriage_status" name="std_permission" value="1" checked="checked"> Single
+              <label class="col-md-2 status ">
+                  <input type="radio" class="marriage_status" name="martial status" value="1" checked="checked"> Single
               </label>
-              <label class="col-md-4 status ">
-                  <input type="radio" class="marriage_status" name="std_permission" value="0" > Married
+              <label class="col-md-2 status ">
+                  <input type="radio" class="marriage_status" name="martial status" value="0" > Married
               </label>
         </div>
       </div>
 
       <div class="form-group " id="partaner" style="display: none;">
-        <?php echo form_label('Name of your Partaner', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Name of your Partaner', 'partaner_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'partaner_name',
             'type' => 'text',
-            'value' => html_escape(set_value('std_name',isset($result)?$result->name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('partaner_name',isset($result)?$result->partaner_name:''), ENT_QUOTES),
             'placeholder' => "Enter Name of your Partaner",
             'class' => 'form-control',
-            'id' => 'std_name',
-            'autocomplete' => 'new-std_name'));
+            'id' => 'partaner_name',
+            'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('std_name'); ?></span>
+        <span class="text-danger"><?php echo form_error('partaner_name'); ?></span>
       </div>
    
       <div class="form-group">
-        <?php echo form_label('Email', 'std_email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
+        <?php echo form_label('Email', 'email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'std_email',
+            'name' => 'email',
             'type' => 'text',
-            'value' => html_escape(set_value('std_email',isset($result)?$result->email:''), ENT_QUOTES),
+            'value' => html_escape(set_value('email',isset($result)?$result->email:''), ENT_QUOTES),
             'placeholder' => 'Enter email account!',
             'class' => 'form-control',
             'id' => 'std_email',
-            'autocomplete' => 'new-std_email'));
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('std_email'); ?></span>
+        <span class="text-danger"><?php echo form_error('email'); ?></span>
        </div>
 
        <div class="form-group">
@@ -260,7 +261,7 @@
             'placeholder' => 'Enter phone number!',
             'class' => 'form-control',
             'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'autocomplete' => ''));
         ?>
         <span class="text-danger"><?php echo form_error('phone'); ?></span>
        </div>
@@ -287,7 +288,7 @@
      
   <div class="form-group">
     <p class="addmission">Course of Admission</p>
-    <select name="" class="admission_select">
+    <select name="course_admission" id="course_admission" class="admission_select">
         <option value="一般">一般</option>
         <option value="進学">進学</option>
         <option value="ビジネス">ビジネス</option>
@@ -296,184 +297,184 @@
   </div>
 
   <div class="form-group">
-      <?php echo form_label('Length of Study', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+      <?php echo form_label('Length of Study', 'course_study_lengh', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
       <span class="badge badge-danger">Required</span>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'course_study_lengh',
           'type' => 'text',
-          'value' => html_escape(set_value('std_name',isset($result)?$result->name:''), ENT_QUOTES),
-          'placeholder' => "Enter Length of Study",
+          'value' => html_escape(set_value('course_study_lengh',isset($result)?$result->course_study_lengh:''), ENT_QUOTES),
+          'placeholder' => "Please Enter!",
           'class' => 'form-control',
-          'id' => 'std_name',
-          'autocomplete' => 'new-std_name'));
+          'id' => 'course_study_lengh',
+          'autocomplete' => ''));
         ?>
-      <span class="text-danger"><?php echo form_error(''); ?></span>
+      <span class="text-danger"><?php echo form_error('course_study_lengh'); ?></span>
   </div>
 
 
   <div class="form-group">
-        <?php echo form_label('Have you visited Japan?', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Have you visited Japan?', 'have_you_visited_jp', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="1" checked="checked"> Yes
+              <label class="col-md-2">
+                  <input type="radio" name="have_you_visited_jp" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="0" > No
+              <label class="col-md-2">
+                  <input type="radio" name="have_you_visited_jp" value="0" > No
               </label>
         </div>
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Date of Entry', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Date of Entry', 'visited_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'visited_date',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
-            'placeholder' => 'Enter phone number!',
+            'value' => html_escape(set_value('visited_date',isset($result)?$result->visited_date:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'visited_date',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('visited_date'); ?></span>
   </div>
  
 
   <div class="form-group">
-        <?php echo form_label('Date of Departure', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Date of Departure', 'date_of_departure', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'date_of_departure',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
-            'placeholder' => 'Enter phone number!',
+            'value' => html_escape(set_value('date_of_departure',isset($result)?$result->date_of_departure:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'date_of_departure',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('date_of_departure'); ?></span>
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Enter visa type if you visited Japan', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Enter visa type if you visited Japan', 'visa type', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'visa type',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
-            'placeholder' => 'Enter phone number!',
+            'value' => html_escape(set_value('visa type',isset($result)?$result->visa_type:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'visa type',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('visa type'); ?></span>
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Departure by deportation / departure order or not', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Departure by deportation / departure order or not', 'departure_deportation', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="1" checked="checked"> Yes
+              <label class="col-md-2">
+                  <input type="radio" name="departure_deportation" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="0" > No
+              <label class="col-md-2">
+                  <input type="radio" name="departure_deportation" value="0" > No
               </label>
         </div>
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Current Status', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Current Status', 'current_status', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'current_status',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('current_status',isset($result)?$result->current_status:''), ENT_QUOTES),
             'placeholder' => 'Enter phone number!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'current_status',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('current_status'); ?></span>
   </div>
  
 
   <div class="form-group">
-        <?php echo form_label('(Expected month and year of graduating from the school.) ', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('(Expected month and year of graduating from the school.) ', 'expected_month_year_graduating', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <div class="graduating_month_year">
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'expected_month_year_graduating',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('expected_month_year_graduating',isset($result)?$result->expected_month_year_graduating:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
             'id' => 'expected_month',
-            'autocomplete' => 'new-phone'));
+            'autocomplete' => ''));
         ?><p class="expected_txt" style="padding-left: 22px;font-size:17px">月</p>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'expected_month_year_graduating',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('expected_month_year_graduating',isset($result)?$result->expected_month_year_graduating:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
             'id' => 'expected_year',
-            'autocomplete' => 'new-phone'));
+            'autocomplete' => ''));
         ?>
          <p class="expected_txt" style="padding-left: 22px;font-size:17px">年</p>
           </div>
-        <span class="text-danger"><?php echo form_error(''); ?></span>
+        <span class="text-danger"><?php echo form_error('expected_month_year_graduating'); ?></span>
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Name of School', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Name of School', 'current_status_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'current_status_school_name',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('current_status_school_name',isset($result)?$result->current_status_school_name:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'current_status_school_name',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('current_status_school_name'); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label('Department/Major', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Department/Major', 'current_status_school_major', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'current_status_school_major',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('current_status_school_major',isset($result)?$result->current_status_school_major:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'current_status_school_major',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('current_status_school_major'); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label('Grade', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Grade', 'current_status_school_grade', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'current_status_school_grade',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('current_status_school_grade',isset($result)?$result->current_status_school_grade:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'current_status_school_grade',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('current_status_school_grade'); ?></span>
   </div>
   <h6 class="spec_plan">Specific Plans after Graduating</h6>
   <div class="form-group">
     <p class="addmission">Specific Plans after Graduating</p>
-    <select name="" class="admission_select">
+    <select name="specific_plans_after_graduating" class="admission_select">
         <option value="Return to Home Country">帰国 /Return to Home Country</option>
         <option value="Attend School in Japan">日本での進学 /Attend School in Japan</option>
         <option value="Other">その他 /Other</option>
@@ -481,46 +482,46 @@
   </div>
   <h6 class="spec_plan">Higher Education in Japan</h6>
   <div class="form-group">
-        <?php echo form_label('Type of Schools', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Type of Schools', 'specific_plan_type_schools', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'specific_plan_type_schools',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('specific_plan_type_schools',isset($result)?$result->specific_plan_type_schools:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'specific_plan_type_schools',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('specific_plan_type_schools'); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label('Name of School', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Name of School', 'specific_plan_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'specific_plan_school_name',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('specific_plan_school_name',isset($result)?$result->specific_plan_school_name:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'specific_plan_school_name',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('specific_plan_school_name'); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label('Major', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Major', 'specific_plan_major ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'specific_plan_major ',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('specific_plan_major ',isset($result)?$result->specific_plan_major :''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'specific_plan_major ',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('specific_plan_major '); ?></span>
   </div>
 </div>
 <!-- leftside -->
@@ -528,266 +529,266 @@
 <!-- rightside -->
 <div class="col-md-6 float-left">
   <div class="form-group">
-      <?php echo form_label('Occupation', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'occupation',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('occupation',isset($result)?$result->phone:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'occupation',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('occupation'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Place of Employment or School', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Place of Employment or School', 'place_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'place_employment_school',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('place_employment_school',isset($result)?$result->place_employment_school:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'place_employment_school',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('place_employment_school'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Address of Employment or School', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Address of Employment or School', 'addr_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'addr_employment_school',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('addr_employment_school',isset($result)?$result->addr_employment_school:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'addr_employment_school',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('addr_employment_school'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Tel of Employment or School', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Tel of Employment or School', 'tel_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'tel_employment_school',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('tel_employment_school',isset($result)?$result->tel_employment_school:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'tel_employment_school',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('tel_employment_school'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Entrance Age to Elementary School', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Entrance Age to Elementary School', 'entry_age_ele_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'entry_age_ele_school',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('entry_age_ele_school',isset($result)?$result->entry_age_ele_school:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'entry_age_ele_school',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('entry_age_ele_school'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Lastest Educational history School name', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Lastest Educational history School name', 'educational_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'educational_school_name',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('educational_school_name',isset($result)?$result->educational_school_name:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'educational_school_name',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('educational_school_name'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Duration of JP Language study', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Duration of JP Language study', 'duration_jp_language_study', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'duration_jp_language_study',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('duration_jp_language_study',isset($result)?$result->duration_jp_language_study:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'duration_jp_language_study',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('duration_jp_language_study'); ?></span>
   </div>
   <div class="form-group" style="margin-bottom: 12px;">
-        <?php echo form_label('Passport', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Passport', 'passport', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="1" checked="checked"> Yes
+              <label class="col-md-2">
+                  <input type="radio" name="passport" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="0" > No
+              <label class="col-md-2">
+                  <input type="radio" name="passport" value="0" > No
               </label>
         </div>
   </div>
   <div class="form-group">
-      <?php echo form_label('Passport Number', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Passport Number', 'passport_no', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'passport_no',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('passport_no',isset($result)?$result->passport_no:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'passport_no',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('passport_no'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Date of issue', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Date of issue', 'passport_data_issue', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'passport_data_issue',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('passport_data_issue',isset($result)?$result->passport_data_issue:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'passport_data_issue',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('passport_data_issue'); ?></span>
   </div> 
   <div class="form-group">
-      <?php echo form_label('Date of expiration', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Date of expiration', 'passport_data_exp', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'passport_data_exp',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('passport_data_exp',isset($result)?$result->passport_data_exp:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'passport_data_exp',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('passport_data_exp'); ?></span>
   </div>  
   <div class="form-group">
-        <?php echo form_label('Blank period／Military service', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Blank period／Military service', 'military_service', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="1" checked="checked"> Yes
+              <label class="col-md-2">
+                  <input type="radio" name="military_service" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="0" > No
+              <label class="col-md-2">
+                  <input type="radio" name="military_service" value="0" > No
               </label>
         </div>
   </div>
   <div class="form-group">
-      <?php echo form_label('Place to Apply for VISA', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Place to Apply for VISA', 'place_apply_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'place_apply_visa',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('place_apply_visa',isset($result)?$result->place_apply_visa:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'place_apply_visa',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('place_apply_visa'); ?></span>
   </div>
   <div class="form-group" style="margin-bottom: 17px;">
-        <?php echo form_label('Accompanying Persons,if Any', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Accompanying Persons,if Any', 'accompanying_person', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="1" checked="checked"> Yes
+              <label class="col-md-2">
+                  <input type="radio" name="accompanying_person" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="0" > No
+              <label class="col-md-2">
+                  <input type="radio" name="accompanying_person" value="0" > No
               </label>
         </div>
   </div>
   <div class="form-group" style="margin-bottom: 0px;">
-        <?php echo form_label('Did you apply before in Japan?', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Did you apply before in Japan?', 'school_apply_before_japan', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="1" checked="checked"> Yes
+              <label class="col-md-2">
+                  <input type="radio" name="school_apply_before_japan" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="0" > No
+              <label class="col-md-2">
+                  <input type="radio" name="school_apply_before_japan" value="0" > No
               </label>
         </div>
   </div>
   <div class="form-group">
-      <?php echo form_label('when?', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('when?', 'school_apply_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'school_apply_date',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('school_apply_date',isset($result)?$result->school_apply_date:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'school_apply_date',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('school_apply_date'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('status?', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('status?', 'school_apply_status', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'school_apply_status',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('school_apply_status',isset($result)?$result->school_apply_status:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'school_apply_status',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('school_apply_status'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Name of School?', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Name of School?', 'school_apply_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'school_apply_name',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('school_apply_name',isset($result)?$result->school_apply_name:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'school_apply_name',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('school_apply_name'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Which immigration office?', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Which immigration office?', 'immigration_office', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'immigration_office',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('immigration_office',isset($result)?$result->immigration_office:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'immigration_office',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('immigration_office'); ?></span>
   </div>
   <div class="form-group">
     <p class="addmission"  style="margin-bottom:3px;">Result?</p>
-    <select name="" class="admission_select">
+    <select name="immigration_result" class="admission_select">
         <option value="交付">交付</option>
         <option value="不交付">不交付</option>
         <option value="取下げ">取下げ</option>
@@ -795,56 +796,56 @@
     </select>
   </div>
   <div class="form-group">
-        <?php echo form_label('Have you ever experienced COE rejection?', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Have you ever experienced COE rejection?', 'COE_reject', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio">
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="1" checked="checked"> Yes
+              <label class="col-md-2">
+                  <input type="radio" name="COE_reject" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="0" > No
+              <label class="col-md-2">
+                  <input type="radio" name="COE_reject" value="0" > No
               </label>
         </div>
   </div><br><br><br><br><br><br><br><br><br><br><br>
   <h6 class="spec_plan" style="padding-top:4px;">Employment</h6>
   <div class="form-group">
-        <?php echo form_label('Aimed occupational category', '', array( 'class' => 'employment', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Aimed occupational category', 'aimed_occupational_category', array( 'class' => 'employment', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'aimed_occupational_category',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('aimed_occupational_category',isset($result)?$result->aimed_occupational_category:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'aimed_occupational_category',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('aimed_occupational_category'); ?></span>
   </div>
   <h6 class="spec_plan">Higher Education in Japan</h6>
   <div class="form-group">
-        <?php echo form_label('When will you return', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('When will you return', 'will_you_return', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => '',
+            'name' => 'will_you_return',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('will_you_return',isset($result)?$result->will_you_return:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'will_you_return',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('will_you_return'); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label('Is it possible to provide in English? ', 'std_permission', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <?php echo form_label('Is it possible to provide in English? ', 'provide_english', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <span class="badge badge-danger">Required</span>
           <div class="radio" style="padding-top: 12px;">
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="1" checked="checked"> Yes
+              <label class="col-md-2">
+                  <input type="radio" name="provide_english" value="1" checked="checked"> Yes
               </label>
-              <label class="col-md-4">
-                  <input type="radio" name="std_permission" value="0" > No
+              <label class="col-md-2">
+                  <input type="radio" name="provide_english" value="0" > No
               </label>
         </div>
   </div>
@@ -858,22 +859,22 @@
 </div>
 <div class="col-md-6 float-left">
 <div class="form-group">
-      <?php echo form_label('Who?', '', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Who?', 'understand_language', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => '',
+          'name' => 'understand_language',
           'type' => 'text',
-          'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('understand_language',isset($result)?$result->understand_language:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'phone',
-          'autocomplete' => 'new-phone'));
+          'id' => 'understand_language',
+          'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('phone'); ?></span>
+      <span class="text-danger"><?php echo form_error('understand_language'); ?></span>
 </div>
  <div class="form-group">
     <p class="addmission">Language</p>
-    <select name="" class="admission_select">
+    <select name="family_language" class="admission_select">
         <option value="English">English</option>
         <option value="Chinese">Chinese</option>
         <option value="Korean">Korean</option>
@@ -894,16 +895,16 @@
   
       <div class="radio_record">
           <div class="radio criminal_record  ">
-              <label class="col-rd">
-                  <input type="radio" name="std_permission" value="1" > Yes
+              <label class="col-rd ">
+                  <input type="radio" name="criminal_record" value="1" > Yes
               </label>
               <label class="col-rd">
-                  <input type="radio" name="std_permission" value="0" checked="checked"> No
+                  <input type="radio" name="criminal_record" value="0" checked="checked"> No
               </label>
           </div>
           <div class="criminal_record01  ">
               <label class="col-rd cri_text"><span style="padding-left:4px ;">Details</span>
-                  <input type="text" class="details form-control col-md-12" name="std_permission" value="" checked="checked">
+                  <input type="text" class="details form-control col-md-12" name="criminal_record_details" value="" checked="checked">
               </label>
               
           </div>
@@ -918,29 +919,28 @@
       <div class="radio_record">
           <div class="radio criminal_record  ">
               <label class="muti_txt">
-                  <input type="radio" name="std_permission" value="1" > Yes
+                  <input type="radio" name="criminal_record" value="1" > Yes
               </label>
               <label class="muti_txt">
-                  <input type="radio" name="std_permission" value="0" checked="checked"> No
+                  <input type="radio" name="criminal_record" value="0" checked="checked"> No
               </label>
           </div>
           <div class="criminal_record01  ">
               <label class="cri_text muti_txt">Times:
-                  <input type="text" class="appli form-control col-md-9" name="std_permission" value="" checked="checked">
+                  <input type="text" class="appli form-control col-md-9" name="criminal_record_times" value="" checked="checked">
               </label>
              
           </div>
           <div class="criminal_record01  ">
               <label class="cri_text muti_txt">When:
-                  <input type="text" class="appli form-control col-md-9" name="std_permission" value="" checked="checked">
+                  <input type="text" class="appli form-control col-md-9" name="criminal_record_when" value="" checked="checked">
               </label>
               
           </div>
           <div class="criminal_record01  ">
               <label class="cri_text muti_txt">Purpose of Entry:
-                  <input type="text" class="appli form-control col-md-9" name="std_permission" value="" checked="checked">
+                  <input type="text" class="appli form-control col-md-9" name="criminal_record_details" value="" checked="checked">
               </label>
-              
           </div>
           
       </div>  
@@ -949,71 +949,71 @@
           <?php 
             $data = array(
             'name' => 'address',
-            'value' => '',
+            'value' => 'purpose_studying_in_japanese ',
             'rows' => '5',
             'cols' => '',
             'placeholder' => 'Please Enter!',
             'class' => "form-control",
-            'value' => set_value('address',isset($result)?$result->address:'')
+            'value' => set_value('purpose_studying_in_japanese ',isset($result)?$result->purpose_studying_in_japanese :'')
           );
           echo form_textarea($data); ?>
-          <span class="text-danger"><?php echo form_error('address'); ?></span>
+          <span class="text-danger"><?php echo form_error('purpose_studying_in_japanese '); ?></span>
       </div>
       
 </div>
 <div class="col-md-6 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Contact details of your family</h6>
 <div class="form-group">
-        <?php echo form_label('Email', 'std_email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
+        <?php echo form_label('Email', 'family_mail', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'std_email',
+            'name' => 'family_mail',
             'type' => 'text',
-            'value' => html_escape(set_value('std_email',isset($result)?$result->email:''), ENT_QUOTES),
+            'value' => html_escape(set_value('family_mail',isset($result)?$result->family_mail:''), ENT_QUOTES),
             'placeholder' => 'Enter email account!',
             'class' => 'form-control',
-            'id' => 'std_email',
-            'autocomplete' => 'new-std_email'));
+            'id' => 'family_mail',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('std_email'); ?></span>
+        <span class="text-danger"><?php echo form_error('family_mail'); ?></span>
        </div>
 
        <div class="form-group">
-        <?php echo form_label('Phone Number', 'phone', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Phone Number', 'family_tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'phone',
+            'name' => 'family_tel',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('family_tel',isset($result)?$result->family_tel:''), ENT_QUOTES),
             'placeholder' => 'Enter phone number!',
             'class' => 'form-control',
-            'id' => 'phone',
-            'autocomplete' => 'new-phone'));
+            'id' => 'family_tel',
+            'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+        <span class="text-danger"><?php echo form_error('family_tel'); ?></span>
        </div>
 
        <div class="form-group">
         <?php
-          echo form_label('Address','address', array('class' => 'col-form-label'));
+          echo form_label('Address','family_address', array('class' => 'col-form-label'));
         ?>
         <div class="col-md-12 col-sm-12 p-0">
           <?php 
             $data = array(
-            'name' => 'address',
+            'name' => 'family_address',
             'value' => '',
             'rows' => '3',
             'cols' => '',
             'placeholder' => 'Enter address',
             'class' => "form-control",
-            'value' => set_value('address',isset($result)?$result->address:'')
+            'value' => set_value('family_address',isset($result)?$result->address:'')
           );
           echo form_textarea($data); ?>
-          <span class="text-danger"><?php echo form_error('address'); ?></span>
+          <span class="text-danger"><?php echo form_error('family_address'); ?></span>
         </div>
-       </div>
+</div>
 </div>
 <!-- co_leftside -->
 
@@ -1021,8 +1021,8 @@
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Educational History : from Elementary School to the Most Recent School</h6>
 <div class="tbl">
-<table class="table-bordered">
-  <thead class="tbl_head">
+<table class="table-bordered" name="applicant_id">
+  <thead class="tbl_head" >
     <tr>
       <th>Name of institution</th>
       <th>Address</th>
@@ -1034,87 +1034,87 @@
   <tbody>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
+      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
+      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">year</span> 
+      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="address" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="start_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="end_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="address" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="start_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="end_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
       </td>
     </tr>
   </tbody>
@@ -1129,7 +1129,7 @@
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Previous Japanese Language Study</h6>
 <div class="tbl">
-<table class="table-bordered">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
       <th>Name of institution</th>
@@ -1142,87 +1142,87 @@
   <tbody>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
+      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
+      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""><span class="study_year">hour</span> 
+      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="address" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="start_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="end_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="address" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="start_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="end_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
       </td>
     </tr>
   </tbody>
@@ -1232,11 +1232,11 @@
 </div>
 <!-- Table -->
 
-<!-- Table -->
-<div class="col-md-12 float-left">
+
+<div class="col-md-8 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Achievement in JP language tests</h6>
 <div class="tbl">
-<table class="table-bordered">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
       <th>Name of Japanese language test</th>
@@ -1251,75 +1251,115 @@
     
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="level" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="exam_year" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="score" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value="">
+      <input type="text" class=" table-control term" name="result" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="" value="">
+      <input type="text" class=" table-control" name="date_qualification" value="">
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="level" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="exam_year" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="score" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""> 
+      <input type="text" class=" table-control term" name="result" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="" value="">
+      <input type="text" class=" table-control" name="date_qualification" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="level" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="exam_year" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="score" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="result" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="date_qualification" value="">
       </td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
+<div class="col-md-4 float-left">
+<h6 class="" style="padding: 33px 0px 12px;">Name of JP language tests you are going to take</h6>
+<table class="table-bordered" name="applicant_id">
+  <thead class="tbl_head">
+    <tr>
+      <th>Name of Japanese language test</th>
+      <th>Level</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+      <input type="text" class=" table-control term" name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="level" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control term" name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="level" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control term" name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="level" value="">
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 <!-- Table -->
 
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">History of Employment (Write in order, ending with the most recent employment.)</h6>
 <div class="tbl">
-<table class="table-bordered">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
       <th>Placement of Employment</th>
@@ -1334,62 +1374,62 @@
     
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value="">
+      <input type="text" class=" table-control term" name="year" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="" value="">
+      <input type="text" class=" table-control" name="job_description" value="">
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""> 
+      <input type="text" class=" table-control term" name="year" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="" value="">
+      <input type="text" class=" table-control" name="job_description" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="address" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="start_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="end_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control term" name="year" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="job_description" value="">
       </td>
     </tr>
   </tbody>
@@ -1402,7 +1442,7 @@
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Family Member</h6>
 <div class="tbl">
-<table class="table-bordered">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
       <th>Name</th>
@@ -1419,137 +1459,366 @@
     
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="relationship" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="work_place" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="birthday" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="occupation" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="annual_income" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value="">
+      <input type="text" class=" table-control " name="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="" value="">
+      <input type="text" class=" table-control" name="length_sevice" value="">
       </td>
     </tr>
     <tr>
     <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="relationship" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="work_place" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="birthday" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="occupation" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="annual_income" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""> 
+      <input type="text" class=" table-control " name="address" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="" value="">
+      <input type="text" class=" table-control" name="length_sevice" value="">
       </td>
     </tr>
     <tr>
     <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="relationship" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="work_place" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="birthday" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="occupation" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="annual_income" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""> 
+      <input type="text" class=" table-control " name="address" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="" value="">
+      <input type="text" class=" table-control" name="length_sevice" value="">
       </td>
     </tr>
     <tr>
     <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="relationship" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="work_place" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="birthday" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="occupation" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="annual_income" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""> 
+      <input type="text" class=" table-control " name="address" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="" value="">
+      <input type="text" class=" table-control" name="length_sevice" value="">
       </td>
     </tr>
     <tr>
     <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="relationship" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="work_place" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="birthday" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="occupation" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="" value="">
+      <input type="text" class=" table-control"  name="annual_income" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="" value=""> 
+      <input type="text" class=" table-control " name="address" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="" value="">
+      <input type="text" class=" table-control" name="length_sevice" value="">
       </td>
     </tr>
   </tbody>
 </table>
 </div>
+</div>
+<!-- Table -->
+<!-- Table -->
+<div class="col-md-12 float-left">
+<h6 class="" style="padding: 33px 0px 12px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h6>
+<p>If yes, fill in all the family members in Japan.</p>
+<div class="form-group">
+        <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <span class="badge badge-danger">Required</span>
+          <div class="radio">
+              <label class="col-md-2">
+                  <input type="radio" name="plan_to_stay_with_them" value="1" checked="checked"> Yes
+              </label>
+              <label class="col-md-2">
+                  <input type="radio" name="plan_to_stay_with_them" value="0" > No
+              </label>
+        </div>
+  </div>
+<div class="tbl">
+<table class="table-bordered" name="applicant_id">
+  <thead class="tbl_head">
+    <tr>
+      <th>Name</th>
+      <th>Age	</th>
+      <th>Relatonship</th>
+      <th>Residing with Applicant or Not	</th>
+      <th >Nationality </th>
+      <th>Visa status	</th>
+      <th>Work Place	</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="age" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="relationship" value="">
+      </td>
+      <td>
+      <div class="">
+      <select name="residing_applicant" class="table-control col-md-12">
+            <option value=""></option>
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+        </select>
+     </div>
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="nationality" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control " name="visa_status" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="work_place" value="">
+      </td>
+    </tr>
+    <tr>
+    
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="age" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="relationship" value="">
+      </td>
+      <td>
+      <div class="">
+      <select name="residing_applicant" class="table-control col-md-12">
+            <option value=""></option>
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+        </select>
+     </div>
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="nationality" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control " name="visa_status" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="work_place" value="">
+      </td>
+    </tr>
+    <tr>
+    
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="age" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="relationship" value="">
+      </td>
+      <td>
+      <div class="">
+      <select name="residing_applicant" class="table-control col-md-12">
+            <option value=""></option>
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+        </select>
+     </div>
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="nationality" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control " name="visa_status" value=""> 
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="work_place" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="name" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="age" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="relationship" value="">
+      </td>
+      <td>
+      <div class="">
+        <select name="residing_applicant " class="table-control col-md-12">
+            <option value=""></option>
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+        </select>
+     </div>
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="nationality" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="visa_status" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control " name="work_place" value=""> 
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+</div>
+<!-- Table -->
+<!-- Table -->
+<div class="col-md-12 float-left" style="padding-bottom: 15px;">
+<h6 class="" style="padding: 33px 0px 12px;">Previous  stay in Japan</h6>
+<div class="tbl">
+<table class="table-bordered" name="applicant_id">
+  <thead class="tbl_head">
+    <tr>
+      <th>Date of Entry	</th>
+      <th>Date of Arrival	</th>
+      <th>Date of Depature </th>
+      <th >Status	 </th>
+      <th>Purpose of Entry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="entry_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="arrival_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="depature_data" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="status" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="entry_purpose" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="entry_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="arrival_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="depature_data" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="status" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="entry_purpose" value="">
+      </td>
+     
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="entry_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="arrival_date" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="depature_data" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="status" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="entry_purpose" value="">
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 </div>
 <!-- Table -->
 
@@ -1593,7 +1862,7 @@
   margin-top: 11px;
 }
 .col-rd{
-  margin: 0px 50px 0px 24px;
+  margin: 0px 50px 0px 0px;
 }
 .details {
     padding: 10px 10px 9px 9px;
@@ -1623,15 +1892,17 @@
 
 }
 .table-control{
+  width: 84%;
     border: none;
   }
-.tbl{
+ 
+/* .tbl{
    width: 100%;
-  }
+  } */
 
-.term{
+/* .term{
   position: relative;
-}
+} */
 .tbl_head{
   text-align: center;
 }
@@ -1639,9 +1910,18 @@
   width: 100%;
 }
 .study_year{
-  margin-left: 10px;
+  margin-right: 0px;
 }
+.finial_ttl{
+  padding: 20px 12px;
+}
+.radio .col-md-2{
+  padding: 0px;
+}
+
 </style>
+
+
 
 
 <!-- dropdown FINANICIAL SPONSOR -->
@@ -1649,11 +1929,201 @@
   <input class="dropdown" type="checkbox" id="faq-3">
   <p class="drop_ttl"><label for="faq-3" class="drop_label">FINANICIAL SPONSOR</label></p>
   <div class="drop_txt">
-    <p>I was inpired by an article on css-tricks. <a href="https://css-tricks.com/the-checkbox-hack/">link to article</a>
-    </p>
+  <h5 class="finial_ttl">Finanicial Sponsor</h5>
+  <div class="col-md-6 float-left" name="applicant_id">
+      <div class="form-group">
+        <?php echo form_label('Name', 'name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'name',
+            'type' => 'text',
+            'value' => html_escape(set_value('name',isset($result)?$result->name:''), ENT_QUOTES),
+            'placeholder' => 'Enter name!',
+            'class' => 'form-control',
+            'id' => 'name',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('name'); ?></span>
+      </div>
+      <div class="form-group">
+        <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'age',
+            'type' => 'text',
+            'value' => html_escape(set_value('age',isset($result)?$result->age:''), ENT_QUOTES),
+            'placeholder' => "Enter Age!",
+            'class' => 'form-control',
+            'id' => 'age',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('age'); ?></span>
+      </div>
+      <div class="form-group">
+        <?php echo form_label('Relationship', 'relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'relationship',
+            'type' => 'text',
+            'value' => html_escape(set_value('relationship',isset($result)?$result->relationship:''), ENT_QUOTES),
+            'placeholder' => "Enter student's Age!",
+            'class' => 'form-control',
+            'id' => 'relationship',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('relationship'); ?></span>
+      </div>
+      <div class="form-group">
+        <?php
+          echo form_label('Address','address', array('class' => 'col-form-label'));
+        ?>
+        <div class="col-md-12 col-sm-12 p-0">
+          <?php 
+            $data = array(
+            'name' => 'address',
+            'value' => '',
+            'rows' => '3',
+            'cols' => '',
+            'placeholder' => 'Enter address',
+            'class' => "form-control",
+            'value' => set_value('address',isset($result)?$result->address:'')
+          );
+          echo form_textarea($data); ?>
+          <span class="text-danger"><?php echo form_error('address'); ?></span>
+        </div>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Phone Number', 'tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'tel',
+            'type' => 'text',
+            'value' => html_escape(set_value('tel',isset($result)?$result->tel:''), ENT_QUOTES),
+            'placeholder' => 'Enter phone number!',
+            'class' => 'form-control',
+            'id' => 'tel',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('tel'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Email', 'email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'email',
+            'type' => 'text',
+            'value' => html_escape(set_value('email',isset($result)?$result->email:''), ENT_QUOTES),
+            'placeholder' => 'Enter email account!',
+            'class' => 'form-control',
+            'id' => 'email',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('email'); ?></span>
+       </div>
+       <div class="form-group">
+      <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'occupation',
+          'type' => 'text',
+          'value' => html_escape(set_value('occupation',isset($result)?$result->occupation:''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'occupation',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('occupation'); ?></span>
+  </div>
+  <div class="form-group">
+      <?php echo form_label('Work Place', 'work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'work_place',
+          'type' => 'text',
+          'value' => html_escape(set_value('work_place',isset($result)?$result->work_place:''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'work_place',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('work_place'); ?></span>
+  </div>
+  <div class="form-group">
+      <?php echo form_label('Annual Income', 'annual_income', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'annual_income',
+          'type' => 'text',
+          'value' => html_escape(set_value('annual_income',isset($result)?$result->annual_income:''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'annual_income',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('annual_income'); ?></span>
+  </div>
+  <div class="form-group">
+      <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'amount_saving_for_study_abroad ',
+          'type' => 'text',
+          'value' => html_escape(set_value('amount_saving_for_study_abroad ',isset($result)?$result->amount_saving_for_study_abroad :''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'amount_saving_for_study_abroad ',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('amount_saving_for_study_abroad '); ?></span>
+  </div>
+  <div class="form-group">
+      <?php echo form_label('The amount of saving which can be proved ', 'amount_of_saving_which_proved', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'amount_of_saving_which_proved',
+          'type' => 'text',
+          'value' => html_escape(set_value('amount_of_saving_which_proved',isset($result)?$result->amount_of_saving_which_proved:''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'amount_of_saving_which_proved',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('amount_of_saving_which_proved'); ?></span>
+  </div>
+  <div class="form-group">
+      <?php echo form_label('Start of Work date', 'start_work_date ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'start_work_date  ',
+          'type' => 'text',
+          'value' => html_escape(set_value('start_work_date ',isset($result)?$result->start_work_date :''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'start_work_date ',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('start_work_date '); ?></span>
+  </div>
   </div>
 </div>
 <!-- dropdown FINANICIAL SPONSOR -->
+<div class="clearfix"></div>
+          <hr class="my-4 dashed clearfix">
+
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary text-white btn-sm py-1 px-2">
+              <span class="material-icons align-top md-18 mr-1">add_circle</span>Submit
+            </button>
+            <button type="reset" class="btn btn-secondary text-white btn-sm py-1 px-2">
+              <span class="material-icons align-top md-18 mr-1">sync</span>Reset
+            </button>
+          </div>
+     <?php echo form_close(); ?> 
 </div>
 </div>
 </div>
@@ -1753,5 +2223,9 @@ color:#48a1af;
 .list_label{
   font-size: 16px;
   margin: 0px;
+}
+.text-right {
+    padding-bottom: 27px;
+    text-align: right !important;
 }
 </style>
