@@ -10,7 +10,7 @@
     
     <div class="col controls-wrapper mt-3 mt-md-0 d-none d-md-block ">
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
-      <a href="<?php echo base_url('adm/portal/langschool_applicant/add'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">add_circle</span></a>
+      <a href="<?php echo base_url('adm/portal/student/add'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">add_circle</span></a>
       </div>
     </div>
   </div> 
@@ -73,45 +73,45 @@
           <th class="text-right"><?php echo $x; ?></th>
           <th width="1" class="text-left">
           <!-- <?php echo $row->user_id; ?> -->
-          JLS_01
             <span class="text-left">
               <?php foreach($course as $result) {
                 if($row->id == $result->std_id && $result->status == 0) { $y++;
                 } else { $y = 0; } ?>
                 <?php if($y > 0) { 
                   if($y == 1) { ?>
-                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
+                  <a href="<?php echo base_url('adm/portal/student/view/'.$row->id); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
               <?php } } } ?>
             </span>
           </th>
           <td class="text-left">
-            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->name; ?></a>
+            <a href="<?php echo base_url('adm/portal/student/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"></a>
           </td>
-          
-          <td class="text-left"><?php echo $row->email; ?></td>
-          <td class="text-center"><?php echo $row->phone; ?></td>
-          <td class="text-center"><?php echo $row->request_date; ?></td>
-
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/student/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"></a>
+          </td>
+          <td class="text-left"></td>
+          <td class="text-center"></td>
+          <td class="text-center"></td>
           <!-- <td class="text-center"><?php if($row->activate_date == "30-11--0001 00:00:00"){ echo " - "; } else { echo $row->activate_date; } ?></td> -->
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
             <span class="material-icons md-20 align-middle">more_vert</span></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>">View</a>
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/langschool_applicant/edit/'.$row->id); ?>">Edit</a>
-              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/langschool_applicant/delete/'.$row->id); ?>">Delete</a>
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/student/edit/'.$row->id); ?>">Edit</a>
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/student/pdf/'.$row->id); ?>">Print PDF</a>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/student/delete/'.$row->id); ?>">Delete</a>
             </div>
           </td>
           <td class="text-center">
             <?php if($row->status == 1) { ?>
               <span class="md-18">Register</span>
-              <a class="text-success" onclick="return confirm('Are you want to deactive this student status?');" data-toggle="tooltip" data-placement="top" title="Active" href="<?php echo base_url('adm/portal/langschool_applicant/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a>
+              <!-- <a class="text-success" onclick="return confirm('Are you want to deactive this student status?');" data-toggle="tooltip" data-placement="top" title="Active" href="<?php echo base_url('adm/portal/student/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a> -->
            
             <?php } ?>
             <?php if($row->status == 0) { ?>
               <span class="md-18">Register</span>
-              <a class="text-success" onclick="return confirm('Are you want to deactive this course permission?');" data-toggle="tooltip" data-placement="top" title="Allow" href="<?php echo base_url('adm/portal/langschool_applicant/permission/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a>
+              <!-- <a class="text-success" onclick="return confirm('Are you want to deactive this course permission?');" data-toggle="tooltip" data-placement="top" title="Allow" href="<?php echo base_url('adm/portal/student/permission/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a> -->
            
             <?php } ?>
          
@@ -149,7 +149,6 @@
         <tr>
           <th class="text-right"><?php echo $x; ?></th>
           <th width="1" class="text-left">
-            JLS_01
           <!-- <?php echo $row->user_id; ?> -->
             <span class="text-left">
               <?php foreach($course as $result) {
@@ -162,15 +161,15 @@
             </span>
           </th>
           <td class="text-left">
-            <a href="<?php echo base_url('adm/portal/student/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">Min Thant</a>
+            <a href="<?php echo base_url('adm/portal/student/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"></a>
           </td>
           <td class="text-left">
-            <a href="<?php echo base_url('adm/portal/student/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">ECC</a>
+            <a href="<?php echo base_url('adm/portal/student/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"></a>
           </td>
-          <td class="text-left">minthant@gmail.com</td>
-          <td class="text-center">0978656666</td>
-          <td class="text-center">13-08-2022 12:42:09	</td>
-          <td class="text-center">05-09-2022 09:30:09</td>
+          <td class="text-left"></td>
+          <td class="text-center"></td>
+          <td class="text-center"></td>
+          <td class="text-center"></td>
           <!-- <td class="text-center"><?php if($row->activate_date == "30-11--0001 00:00:00"){ echo " - "; } else { echo $row->activate_date; } ?></td> -->
           <td class="text-center">
            
@@ -184,12 +183,12 @@
           </td>
           <td class="text-center">
             <?php if($row->status == 1) { ?>
-              <span class="md-18">Interview</span>
+              <span class="md-18">Register</span>
               <!-- <a class="text-success" onclick="return confirm('Are you want to deactive this student status?');" data-toggle="tooltip" data-placement="top" title="Active" href="<?php echo base_url('adm/portal/student/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a> -->
            
             <?php } ?>
             <?php if($row->status == 0) { ?>
-              <span class="md-18">Interview</span>
+              <span class="md-18">Register</span>
               <!-- <a class="text-success" onclick="return confirm('Are you want to deactive this course permission?');" data-toggle="tooltip" data-placement="top" title="Allow" href="<?php echo base_url('adm/portal/student/permission/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a> -->
            
             <?php } ?>
@@ -226,7 +225,7 @@ ul.manage-menu {
     width: 100%;
     border-top: 1px solid #cccc;
     border-bottom: 1px solid #cccc;
-    padding: 0px;
+    padding: 10px;
     background: #f5f5f5;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -275,31 +274,33 @@ table {
 }
 ul.tabs{
 	margin: 0px;
+	padding: 10px;
 	list-style: none;
 }
 ul.tabs li{
 	background: none;
 	color: #222;
 	display: inline-block;
-	padding: 10px 15px;
+	/* padding: 10px 15px; */
 	cursor: pointer;
 }
 
 ul.tabs li.current{
 	background: #ededed;
-	color: #EA585A;
+	color: #222;
 }
 
 .tab-content{
 	display: none;
-	padding: 15px 0px;
+	background: #ededed;
+	padding: 15px;
 }
 
 .tab-content.current{
 	display: inherit;
 }
 a {
-    color: #000000;
+    color: #EA585A;
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
@@ -307,9 +308,6 @@ a {
 a:hover {
     color: #000000;
     /* text-decoration: underline; */
-}
-ul.tabs li.current a{
-  color: #EA585A;
 }
 </style>
 
