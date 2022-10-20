@@ -110,7 +110,7 @@
   </div>
     <!-- Status Name -->
   <!-- interview date -->
-  <div class="col-md-6 float-left" id="interview_date" style="display: none;" >
+  <div class="col-md-6 float-left" id="interview_date">
     <div class="form-group school_list"  style="width:65% ;">
     <p class="list_label" >
        <label style="margin-bottom: 0px;margin-top: 12px;">Interview Date</label>
