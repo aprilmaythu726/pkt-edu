@@ -223,6 +223,8 @@ $route['adm/portal/student/view/(:any)'] = '/dashboard/student/view/$1';
 $route['adm/portal/student/edit/(:any)'] = '/dashboard/student/edit/$1';
 $route['adm/portal/student/delete/(:any)'] = '/dashboard/student/delete/$1';
 
+$route['adm/portal/jls_applicant/pdf'] = '/dashboard/generatePdfController/index';
+
 $route['adm/portal/jls_applicant'] = '/dashboard/langschoolapplicant/index';
 $route['adm/portal/jls_applicant/add'] = '/dashboard/langschoolapplicant/add';
 $route['adm/portal/jls_applicant/new'] = '/dashboard/langschoolapplicant/new';
