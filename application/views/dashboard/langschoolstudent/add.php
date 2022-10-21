@@ -273,25 +273,21 @@ $(function() {
        </div>
 
        <div class="form-group">
+        <?php echo form_label('Address','address', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
         <?php
-          echo form_label('Address','address', array('class' => 'col-form-label'));
-        ?>
-        <div class="col-md-12 col-sm-12 p-0">
-          <?php 
-            $data = array(
+          echo form_input(array(
             'name' => 'address',
-            'value' => '',
-            'rows' => '3',
-            'cols' => '',
-            'placeholder' => 'Enter address',
-            'class' => "form-control",
-            'value' => set_value('address',isset($result)?$result->address:'')
-          );
-          echo form_textarea($data); ?>
-          <span class="text-danger"><?php echo form_error('address'); ?></span>
-        </div>
+            'type' => 'text',
+            'value' => html_escape(set_value('phone',isset($result)?$result->address:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'address',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('address'); ?></span>
        </div>
-     
+
   <div class="form-group">
     <p class="addmission">Course of Admission</p>
     <select name="course_admission" id="course_admission" class="admission_select">
@@ -579,8 +575,13 @@ $(function() {
       ?>
       <span class="text-danger"><?php echo form_error('addr_employment_school'); ?></span>
   </div>
+  <style>
+    .employment_text{
+      margin-bottom: 10px;
+    }
+  </style>
   <div class="form-group">
-      <?php echo form_label('Tel of Employment or School', 'tel_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Tel of Employment or School', 'tel_employment_school', array( 'class' => 'employment_text', 'id'=> '', 'style' => '', 'for' => 'phone'));?>
       <?php
         echo form_input(array(
           'name' => 'tel_employment_school',
@@ -635,9 +636,13 @@ $(function() {
       ?>
       <span class="text-danger"><?php echo form_error('duration_jp_language_study'); ?></span>
   </div>
-  
+  <style>
+    .passport_text{
+      margin-bottom: 10px;
+    }
+  </style>
   <div class="form-group">
-  <?php echo form_label('Passport', 'passport', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+  <?php echo form_label('Passport', 'passport', array( 'class' => 'passport_text', 'id'=> '')); ?>
     <select name="passport" id="passport" class="admission_select">
         <option value="1">Yes</option>
         <option value="0">No</option>
@@ -697,8 +702,13 @@ $(function() {
               </label>
         </div>
   </div> -->
+  <style>
+    .military_txt{
+      margin-bottom: 16px;
+    }
+  </style>
   <div class="form-group">
-  <?php echo form_label('Blank period／Military service', 'military_service', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+  <?php echo form_label('Blank period／Military service', 'military_service', array( 'class' => 'military_txt', 'id'=> '')); ?>
     <select name="military_service" id="military_service" class="admission_select">
         <option value="1">Yes</option>
         <option value="0">No</option>
@@ -814,7 +824,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('immigration_office'); ?></span>
   </div>
   <div class="form-group">
-    <p class="addmission"  style="margin-bottom:3px;">Result?</p>
+    <p class="addmission"  style="margin-bottom: 7px;">Result?</p>
     <select name="immigration_result" class="admission_select">
         <option value="交付">交付</option>
         <option value="不交付">不交付</option>
@@ -831,7 +841,7 @@ $(function() {
     </select>
   </div>
   
-  <br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br>
   <h6 class="spec_plan" style="padding-top:4px;">Employment</h6>
   <div class="form-group">
         <?php echo form_label('Aimed occupational category', 'aimed_occupational_category', array( 'class' => 'employment', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
@@ -847,7 +857,7 @@ $(function() {
         ?>
         <span class="text-danger"><?php echo form_error('aimed_occupational_category'); ?></span>
   </div>
-  <h6 class="spec_plan">Higher Education in Japan</h6>
+  <h6 class="spec_plan">Return to home country</h6>
   <div class="form-group">
         <?php echo form_label('When will you return', 'will_you_return', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
@@ -998,10 +1008,9 @@ $(function() {
       <div class="col-md-12 col-sm-12 p-0">
           <?php 
             $data = array(
-            'name' => 'address',
+            'name' => '',
             'value' => 'purpose_studying_in_japanese ',
-            'rows' => '5',
-            'cols' => '',
+            'type' => 'text',
             'placeholder' => 'Please Enter!',
             'class' => "form-control",
             'value' => set_value('purpose_studying_in_japanese ',isset($result)?$result->purpose_studying_in_japanese :'')
@@ -1045,25 +1054,21 @@ $(function() {
         <span class="text-danger"><?php echo form_error('family_tel'); ?></span>
        </div>
 
-       <div class="form-group">
+<div class="form-group">
+        <?php echo form_label('Address','family_address', array('class' => 'col-form-label')); ?>
+        <span class="badge badge-danger">Required</span>
         <?php
-          echo form_label('Address','family_address', array('class' => 'col-form-label'));
+          echo form_input(array(
+            'name' => 'address',
+            'type' => 'text',
+            'value' => html_escape(set_value('phone',isset($result)?$result->address:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'address',
+            'autocomplete' => ''));
         ?>
-        <div class="col-md-12 col-sm-12 p-0">
-          <?php 
-            $data = array(
-            'name' => 'family_address',
-            'value' => '',
-            'rows' => '3',
-            'cols' => '',
-            'placeholder' => 'Enter address',
-            'class' => "form-control",
-            'value' => set_value('family_address',isset($result)?$result->address:'')
-          );
-          echo form_textarea($data); ?>
-          <span class="text-danger"><?php echo form_error('family_address'); ?></span>
-        </div>
-</div>
+        <span class="text-danger"><?php echo form_error('address'); ?></span>
+       </div>
 </div>
 <!-- co_leftside -->
 
@@ -1077,7 +1082,7 @@ $(function() {
       <th>Name of institution</th>
       <th>Address</th>
       <th>Starting <br>Year/Month  </th>
-      <th >Finishing <br>Year/Month </th>
+      <th>Finishing <br>Year/Month </th>
       <th>Term of Study</th>
     </tr>
   </thead>
