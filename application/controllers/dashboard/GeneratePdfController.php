@@ -8,6 +8,9 @@ class GeneratePdfController extends CI_Controller {
         $this->load->library('pdf');
         $html = $this->load->view('dashboard/export/GeneratePdfView', [], true);
         $this->pdf->createPDF($html, 'mypdf', false);
+        
     }
 }
 ?>
+
+
