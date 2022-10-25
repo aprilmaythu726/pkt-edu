@@ -32,7 +32,6 @@
     </button>
   </div>
 <?php } ?>
-
 <div class="content">
 <div class="row">
 <div class="col-lg-12 col-md-12 mb-4 mb-lg-0">
@@ -43,17 +42,18 @@
       echo form_open_multipart('adm/portal/langschool_applicant/add', $attributes);
     ?>
 <div class="col-md-12">
-<div class="col-md-6 float-left">
+<div class="col-md-6 float-left" style="display: flex;padding-top: 32px;">
   <!-- Student Photo -->
     <?php
-      echo form_label('Student Photo','userfile', array('class' => 'col-form-label'));
+      echo form_label('Student Photo','userfile', array('class' => 'col-form-label')) ;
+      
     ?>
-    <div class="col-md-12 col-sm-12 p-0">
+    <div class="col-md-7 col-sm-7 p-9">
       <?php
         echo form_input(array(
         'name' => 'userfile',
         'type' => 'file',
-        'class' => 'form-control',
+        'class' => 'form-control stu_label',
         'id' => 'clickImg',
         'accept' => 'image/*'
         ));
@@ -63,28 +63,34 @@
   <span class="text-danger"><?php echo form_error('userfile'); ?></span>
   </div>
   <!-- Student Photo -->  
-  <!-- date -->
+  <style>
+    .stu_label{
+      margin-left: 57%
+    }
+  </style>
+<!-- date -->
   <div class="col-md-6 float-left">
       <div class="form-group" style="padding-left: 165px;">
           <label class="weight-400" for="release" style="margin-bottom:10px">Date</label> 
-          <span class="badge badge-danger">Required</span>
-          <input type="datetime-local" step="1" name="release" id="release" class="form-control" placeholder="" value="<?php echo html_escape(set_value('release',isset($result)?date('YYYY-MM-DDTkk:mm',strtotime($result->released_date)):''), ENT_QUOTES) ?>">
+          <!-- <span class="badge badge-danger">Required</span> -->
+          <input type="datetime-local" step="1" name="release" id="release" class="form-control" placeholder="" value="">
           <span class="text-danger"><?php echo form_error( 'release' ); ?></span>
       </div>
   </div>
-  <!-- date-->
+<!-- date-->
   <!-- JLS Name -->
-  <div class="school_list" name="">
-    <p class="list_label">Japanese Language School  </p>
-    <select name="" class="form-group col-md-6 school_select">
-        <option value="ECC">ECC</option>
-        <option value="JCLI">JCLI</option>
-        <option value="OJLS">OJLS</option>
-        <option value="Fukuoka">fukuoka</option>
-        <option value="Shizuoka">shizuoka</option>
-    </select>
-  </div>
-     <!-- JLS Name -->
+<div class="school_list" name="" >
+<p class="list_label">Japanese Language School  </p>
+<select name="" class="form-group col-md-6 school_select">
+    <option value="">Please Select!</option>
+    <option value="ECC">ECC</option>
+    <option value="JCLI">JCLI</option>
+    <option value="OJLS">OJLS</option>
+    <option value="Fukuoka">fukuoka</option>
+    <option value="Shizuoka">shizuoka</option>
+</select>
+</div>
+<!-- JLS Name -->
 
 </div>
 </div>
@@ -210,7 +216,7 @@
         </select>
       </div> 
      
-      <div class="form-group " id="partaner" style="display: none;">
+      <div class="form-group " id="partaner">
         <?php echo form_label('Name of your Partaner', 'partaner_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
@@ -478,7 +484,7 @@ $(function() {
   </div>
   <h6 class="spec_plan">Specific Plans after Graduating</h6>
   <div class="form-group">
-    <p class="addmission">Specific Plans after Graduating</p>
+    <p class="addmission" style="margin-bottom:19px ;">Specific Plans after Graduating</p>
     <select name="specific_plans_after_graduating" class="admission_select">
         <option value="Return to Home Country">帰国 /Return to Home Country</option>
         <option value="Attend School in Japan">日本での進学 /Attend School in Japan</option>
@@ -841,8 +847,8 @@ $(function() {
     </select>
   </div>
   
-  <br><br><br><br><br><br><br>
-  <h6 class="spec_plan" style="padding-top:4px;">Employment</h6>
+  <br><br><br><br><br><br><br><br><br><br>
+  <h6 class="spec_plan" style="padding-top:20px;">Employment</h6>
   <div class="form-group">
         <?php echo form_label('Aimed occupational category', 'aimed_occupational_category', array( 'class' => 'employment', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
@@ -899,23 +905,64 @@ $(function() {
 
 <!-- co_leftside -->
 <div class="float-left">
-    <h6 class="txt" style="padding: 33px 0px 12px;">Is there any your family member who understands at least one  of the languages which we understand?And, who?</h6>
+    <h6 class="txt" style="padding: 33px 10px 12px;">Is there any your family member who understands at least one  of the languages which we understand?And, who?</h6>
 </div>
+<style>
+  .wholanguage{
+    margin-bottom: 19px;
+  }
+</style>
 <div class="col-md-6 float-left">
-<div class="form-group">
-      <?php echo form_label('Who?', 'understand_language', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <?php
-        echo form_input(array(
-          'name' => 'understand_language',
-          'type' => 'text',
-          'value' => html_escape(set_value('understand_language',isset($result)?$result->understand_language:''), ENT_QUOTES),
-          'placeholder' => 'Please Enter!',
-          'class' => 'form-control',
-          'id' => 'understand_language',
-          'autocomplete' => ''));
-      ?>
-      <span class="text-danger"><?php echo form_error('understand_language'); ?></span>
+  <div class="form-group">
+        <?php echo form_label('Who?', 'understand_language', array( 'class' => 'wholanguage', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php
+          echo form_input(array(
+            'name' => 'understand_language',
+            'type' => 'text',
+            // 'value' => html_escape(set_value('understand_language',isset($result)?$result->understand_language:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'understand_language',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('understand_language'); ?></span>
+  </div>
+
+  <div class="form-group">
+  <?php echo form_label('Criminal Record in Japan or Overseas', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+    <span class="badge badge-danger">Required</span>
+      <select name="criminal_record" id="criminal_record" class="admission_select">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+      </select>
+    </div>
+   
+<div class="criminal form-group float-left">
+    <div class="">
+    <?php echo form_label('Have you applied for Certificate of Eligibility?', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+      <span class="badge badge-danger">Required</span>
+    </div>
+  
+    <div class="radio_record">
+        <div class="criminal_record01">
+          <select name="criminal_record" id="criminal_record" class="col-md-12 admission_select">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+          </select>
+        </div>
+        <div class="">
+            <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Details</span>
+                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked">
+            </label> 
+        </div>
+    </div>  
 </div>
+    
+</div>
+
+
+
+<div class="col-md-6 float-left">
  <div class="form-group">
     <p class="addmission">Language</p>
     <select name="family_language" class="admission_select">
@@ -927,61 +974,74 @@ $(function() {
         <option value="Japanese">Japanese Relationship</option>
     </select>
   </div>
-<style>
+  <!-- <div class="criminal_record02">
+            <label class="col-rd cri_text"><span style="padding-left:4px ;">Details</span>
+                <input type="text" class="details form-control col-md-12" name="criminal_record_details" value="" checked="checked">
+            </label> 
+        </div> -->
+        <div class="form-group">
+        <?php echo form_label('Details', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'phone')); ?>
+        <?php
+          echo form_input(array(
+            'name' => 'criminal_record_details ',
+            'type' => 'text',
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => ' criminal_record_details',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('criminal_record_details '); ?></span>
+  </div>
+  <div class="criminal form-group float-left">
+    <div class="">
+    <?php echo form_label('Have you applied for Certificate of Eligibility?', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+      <span class="badge badge-danger">Required</span>
+    </div>
+  
+    <div class="radio_record">
+        <div class="">
+            <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
+                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
+            </label> 
+        </div>
+        <div class="">
+            <label class="col-rd cri_text"><span>Purpose of Entry:</span>
+                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin: 0px;">
+            </label> 
+        </div>
+    </div>  
+</div>
+  <style>
   .criminal_record01 {
-    width: 17%;
-    margin-right: -211px;
+    width: 34%;
     /* position: absolute; */
   }
-  .criminal_record02 {
+  /* .criminal_record02 {
     position: relative;
     top: 0px;
     left: 25%;
-  }
+  } */
   .criminal_record03{
     position: relative;
     top: 0px;
     left: 25%;
   }
+  /* .eli_text{
+    padding-left: 37px;
+
+  } */
 </style> 
   
 </div>
 <!-- co_leftside -->
+
 <div class="criminal form-group float-left">
-    <div class="">
-    <?php echo form_label('Criminal Record in Japan or Overseas', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-      <span class="badge badge-danger">Required</span>
-    </div>
-  
-    <div class="radio_record">
-        <div class="criminal_record01">
-          <select name="criminal_record" id="criminal_record" class="col-md-12 admission_select">
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-          </select>
-        </div>
-        <div class="criminal_record02">
-            <label class="col-rd cri_text"><span style="padding-left:4px ;">Details</span>
-                <input type="text" class="details form-control col-md-12" name="criminal_record_details" value="" checked="checked">
-            </label> 
-        </div>
-    </div>  
-</div>
-<div class="criminal form-group float-left">
-      <div class="">
+      <!-- <div class="">
       <label>Have you applied for Certificate of Eligibility?</label>
       <span class="badge badge-danger">Required</span>
-    </div>
+    </div> -->
   
-      <div class="radio_record">
-          <!-- <div class="radio criminal_record  ">
-              <label class="muti_txt">
-                  <input type="radio" name="criminal_record" value="1" > Yes
-              </label>
-              <label class="muti_txt">
-                  <input type="radio" name="criminal_record" value="0" checked="checked"> No
-              </label>
-          </div> -->
+      <!-- <div class="radio_record">
           <div class="criminal_record01">
           <select name="criminal_record" id="criminal_record" class="col-md-12 admission_select">
               <option value="1">Yes</option>
@@ -990,30 +1050,30 @@ $(function() {
         </div>
           <div class="criminal_record03  ">
               <label class="cri_text muti_txt">Times:
-                  <input type="text" class="appli form-control col-md-8" name="criminal_record_times" value="" checked="checked">
+                  <input type="text" class="appli form-control " name="criminal_record_times" value="" checked="checked">
               </label>
           </div>
           <div class="criminal_record03  ">
               <label class="cri_text muti_txt">When:
-                  <input type="text" class="appli form-control col-md-8" name="criminal_record_when" value="" checked="checked">
+                  <input type="text" class="appli form-control " name="criminal_record_when" value="" checked="checked">
               </label>
           </div>
           <div class="criminal_record03  ">
               <label class="cri_text muti_txt">Purpose of Entry:
-                  <input type="text" class="appli form-control col-md-8" name="criminal_record_details" value="" checked="checked">
+                  <input type="text" class="appli form-control " name="criminal_record_details" value="" checked="checked">
               </label>
           </div> 
-      </div>  
+      </div>   -->
       <label>Purpose of studying in Japanese </label>
       <div class="col-md-12 col-sm-12 p-0">
           <?php 
             $data = array(
             'name' => '',
-            'value' => 'purpose_studying_in_japanese ',
+            'value' => ' ',
             'type' => 'text',
             'placeholder' => 'Please Enter!',
             'class' => "form-control",
-            'value' => set_value('purpose_studying_in_japanese ',isset($result)?$result->purpose_studying_in_japanese :'')
+            // 'value' => set_value('purpose_studying_in_japanese ',isset($result)?$result->purpose_studying_in_japanese :'')
           );
           echo form_textarea($data); ?>
           <span class="text-danger"><?php echo form_error('purpose_studying_in_japanese '); ?></span>
@@ -1922,20 +1982,21 @@ $(function() {
   margin: 0px 50px 0px 0px;
 }
 .details {
-    padding: 10px 10px 9px 9px;
+    padding: 8px 10px 7px 9px;
     border: 1px solid #ced4db;
     border-radius: 3px;
-    margin: 0px 54px 12px 16px;
+    margin: 0px 54px 12px 27px;
 }
 .employment{
   padding-bottom: 12px;
 }
 .radio_record{
+  width: 100%;
   margin-bottom: 20px;
   display: flex;
 }
 .criminal{
-  padding-left: 12px;
+  /* padding-left: 12px; */
   width: 100%;
 }
 .cri_text{
@@ -2194,7 +2255,7 @@ $(function() {
       var reader = new FileReader();
       reader.onload = function (e) {
           $(div).empty();
-          $(div).html('<embed src="'+e.target.result+'" width="30%" height="30%">');
+          $(div).html('<embed src="'+e.target.result+'" width="50%" >');
       };
       reader.readAsDataURL(input.files[0]);
     }
@@ -2210,11 +2271,11 @@ input#clickImg {
     padding: 4px;
 }
 .col-form-label {
-padding-top: 0px;
+padding-top: 7px;
 padding-bottom: 10px;
 }
-#showImg1{
-margin: 10px 0px;
+#showImg1 {
+    margin: 10px 140px;
 }
 div.content_detail{
 position: relative;
@@ -2278,6 +2339,7 @@ color:#48a1af;
   display: flex;
 }
 .list_label{
+  width: 100%;
   font-size: 16px;
   margin: 0px;
 }
