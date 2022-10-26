@@ -1087,7 +1087,7 @@ $(function() {
         <option value="Korean">Korean</option>
         <option value="Thai">Thai</option>
         <option value="Vietnamese">Vietnamese</option>
-        <option value="Japanese">Japanese Relationship</option>
+        <option value="Japanese">Japanese</option>
     </select>
   </div>
   <!-- <div class="criminal_record02">
@@ -2222,14 +2222,14 @@ $(function() {
 <div class="clearfix"></div>
   <hr class="my-4 dashed clearfix">
   <div class="text-right">
-    <button type="submit" class="btn btn-primary text-white btn-sm py-1 px-2">
-      <span class="material-icons align-top md-18 mr-1">add_circle</span>Submit
-    </button>
-    <button type="reset" class="btn btn-secondary text-white btn-sm py-1 px-2">
-      <span class="material-icons align-top md-18 mr-1">sync</span>Reset
-    </button>
-</div>
-<?php echo form_close(); ?> 
+            <button type="submit" class="btn btn-primary text-white btn-sm py-1 px-2">
+              <span class="material-icons align-top md-18 mr-1">update</span>Update
+            </button>
+            <button type="reset" class="btn btn-secondary text-white btn-sm py-1 px-2">
+              <span class="material-icons align-top md-18 mr-1">sync</span>Reset
+            </button>
+          </div>
+        <?php echo form_close(); ?>
 </div>
 </div>
 </div>
