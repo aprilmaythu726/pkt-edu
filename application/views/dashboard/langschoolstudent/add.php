@@ -971,7 +971,7 @@ $(function() {
         <option value="Korean">Korean</option>
         <option value="Thai">Thai</option>
         <option value="Vietnamese">Vietnamese</option>
-        <option value="Japanese">Japanese Relationship</option>
+        <option value="Japanese">Japanese</option>
     </select>
   </div>
   <!-- <div class="criminal_record02">
