@@ -7,6 +7,7 @@ class Pdf extends CI_Controller {
     public function index()
     {
         $mpdf = new \Mpdf\Mpdf(
+<<<<<<< HEAD
             ['debug' => true]
             
         );
@@ -15,10 +16,16 @@ class Pdf extends CI_Controller {
             'I' => "FrutigerObl-Normal.ttf",
         ];
         $html = $this->load->view('dashboard/export/Ecc_interview', [], true);
+=======
+            ['debug' => true]           
+        );      
+        $html = $this->load->view('dashboard/export/jcli_admission', [], true);
+>>>>>>> 90731e1e639a059a27ab39c1f945ab7ae2c24430
         $this->stylesheet = file_get_contents('asset/css/style.css');
         $mpdf->WriteHTML($html);  
         $mpdf->Output();
     }
+<<<<<<< HEAD
 
     public function index_admiss()
     {
@@ -59,6 +66,8 @@ class Pdf extends CI_Controller {
         // ]);
         
 
+=======
+>>>>>>> 90731e1e639a059a27ab39c1f945ab7ae2c24430
 }
 
 ?>
