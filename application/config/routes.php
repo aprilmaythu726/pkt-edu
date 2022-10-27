@@ -223,12 +223,9 @@ $route['adm/portal/student/view/(:any)'] = '/dashboard/student/view/$1';
 $route['adm/portal/student/edit/(:any)'] = '/dashboard/student/edit/$1';
 $route['adm/portal/student/delete/(:any)'] = '/dashboard/student/delete/$1';
 
-<<<<<<< HEAD
-$route['adm/portal/jls_applicant/ecc_interview'] = '/dashboard/pdf/index';
-$route['adm/portal/jls_applicant/ecc_admission'] = '/dashboard/pdf/index_admiss';
-=======
-$route['adm/portal/jls_applicant/jcli_admis'] = '/dashboard/pdf/index';
->>>>>>> 90731e1e639a059a27ab39c1f945ab7ae2c24430
+$route['adm/portal/jls_applicant/jcli_admission'] = '/dashboard/pdf/jcli_admiss';
+$route['adm/portal/jls_applicant/ecc_interview'] = '/dashboard/pdf/ecc_inter';
+$route['adm/portal/jls_applicant/ecc_admission'] = '/dashboard/pdf/ecc_admiss';
 
 $route['adm/portal/jls_applicant'] = '/dashboard/langschoolapplicant/index';
 $route['adm/portal/jls_applicant/add'] = '/dashboard/langschoolapplicant/add';
