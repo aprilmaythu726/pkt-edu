@@ -33,13 +33,13 @@ $html = '
             </td>
             <td rowspan="3" style="width: 20%;"></td>
         </tr>
-        <tr> 
-			<td style="width: 80%;">2  氏名 (漢字 or カタカナ)  In Kanji or Katakana
+        <tr style="width: 80%;border-bottom:0px;"> 
+			<td style="width: 80%;border-bottom:0px;">2  氏名 (漢字 or カタカナ)  In Kanji or Katakana
             <span></span>
             </td>
         </tr>
-        <tr> 
-			<td style="width: 80%;">英字  In Roman Letters 
+        <tr style="width: 80%;border-top:0px;"> 
+			<td style="width: 80%;border-top:0px;">英字  In Roman Letters 
             <span></span>
             </td>
         </tr>
@@ -52,39 +52,55 @@ $html = '
     <table style="width:100%; padding_top:20px" class="tbl">
                                 
         <tr class="text-center" style="font-size: 12px;border-top:0px;">
-            <th scope="col" style="text-align:left;width:30%;border-right:0px;">3  生年月日<br>Date of Birth
+            <th scope="col" colspan="3" style="text-align:left;border-right:0px;">3  生年月日<br>Date of Birth
             </th>
-            <th scope="col" style="text-align:left;width:30%;border-left:0px;">
+            <th scope="col" colspan="3" style="text-align:left;border-left:0px;">
                 <span>年         月       日</span>
             </th>
-            <th scope="col" class="align-middle" style="text-align:left;width:20%;">4  出生地Place of Birth <br>
-                <span></span>
+            <th scope="col" colspan="1" class="align-middle" style="text-align:left;">4  出生地Place of Birth <br>
+                <span>test test</span>
             </th>
-            <th scope="col" style="text-align:left;width:20%;">5  国籍Nationality<br>
+            <th scope="col" colspan="1" style="text-align:left;">5  国籍Nationality<br>
                 <span>Myanamar</span>
             </th>                                   
-            </tr>
-            <tr class="text-center" style="font-size: 12px;">
-                <th scope="col" style="text-align:left;width:25%;">8  職業 <br>Occupation
-                    <span></span>    
+        </tr>
+        <tr style="border-top:none;border-bottom:none;">
+                <th scope="col" colspan="1" style="text-align:left;border-right:0px;">6 性别 <br>Sex
                 </th>
-                <th scope="col" style="text-align:left;width:25%;">
-                    <span>年         月       日</span>
+                <th colspan="1" style="text-align:left;border-left:0px;border-right:0px;">  
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked=checked> 
+                    <br><label for="vehicle1">交付</label>
                 </th>
-                <th scope="col" class="align-middle" style="text-align:cenleftter;width:45%;">8  職業 <br>Occupation 
+                <th colspan="1" style="text-align:left;border-left:0px;">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
+                    <br><label for="vehicle1"> 不交付 </label>     
+                </th>
+                <th scope="col" colspan="1" style="text-align:left;border-right:0px;">7 性别 <br>Sex
+                </th>
+                <th colspan="1" style="text-align:left;border-left:0px;border-right:0px;">  
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked=checked> 
+                    <br><label for="vehicle1">交付</label>
+                </th>
+                <th colspan="1" style="text-align:left;border-left:0px;">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
+                    <br><label for="vehicle1"> 不交付 </label>
+                </th>
+                <th colspan="1" scope="col" class="align-middle" style="text-align:cenleftter;">8  職業 <br>Occupation 
                     <span>test</span>
                 </th>
-                <th scope="col" style="text-align:left;width:20%;">5  国籍Nationality
-                                        
-                </th>                                   
+                <th colspan="1" scope="col" class="align-middle" style="text-align:cenleftter;">9  小学校入学年龄 <br>Entrance Age to　Elementary School<br>
+                    <span>満　　　歳 </span>
+                </th>
+               
+                     
             </tr>
             <tr style="border-bottom:0px;"> 
-                <td colspan="5" style="width: 100%;border-bottom:0px;">10  現住所Present Address　　　　　                   
+                <td colspan="8" style="width: 100%;border-bottom:0px;">10  現住所Present Address　　　　　                   
                     <span></span>
                 </td>
             </tr>
             <tr  style="width: 100%;border-top:0px;">
-                <td colspan="5" style="text-align: right;border-bottom:0px;">電話 Phone <span>_________________</span></td>
+                <td colspan="8" style="text-align: right;border-bottom:0px;">電話 Phone <span>_________________</span></td>
             </tr>
     </table>                  
 </section>
@@ -233,18 +249,347 @@ $html = '
                                     </tr>
                         </table>                     
 </section>
-<!-- <section>
-    <div class="footer" style="width: 97%;margin:0 auto;margin-top:20px;">
- 
-    <dl style="margin:0px;">
-            <dt style="width:250px;float:left;">【福岡本校】<br>〒812-0035 福岡市博多区中呉服町2-1<br>TEL; +8192-273-1511  FAX; +8192-273-1522
-</dt>
-            <dd style="width:50%;float: right;">【東京日本橋校】<br>〒103-0007 東京都中央区浜町1-5-13 日本橋スカイビル4F</dd>
-    </dl>
-    <p style="text-align: center;margin:0px;">URL; http://www.kfla.jp　　E-mail; info@kfla.jp</p>
-
-    </div>
-</section> -->
+<section class="edu-background">	
+                        <table style="width:100%;" class="tbl">
+                        <tr style="border-top:0px;border-bottom:none;"> 
+                                    <td colspan="5" style="width: 100%;">15 過去日本に留学申請歴（不交付,取下げ,交付後の未入国を含む）   Did you apply before in Japan ?  </td>
+                        </tr>                        
+                        <tr style="border-top:none;border-bottom:none;">
+                            <th style="width: 50%;border:none;">				
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                            <label for="vehicle1"> 有 Yes  ·いつですか   When？ </label>
+                            </th>
+                            <td colspan="4" style="border:none;">
+                            _________________________________________________
+                            </td>
+                        </tr>
+                        <tr style="border-top:none;border-bottom:none;">
+                            <th style="width: 50%;border:none;">·どんなビザですか  Status？ </th>
+                            <td colspan="4" style="border:none;">
+                            _________________________________________________
+                            </td>
+                        </tr>
+                        <tr style="border-top:none;border-bottom:none;">
+                            <th style="width: 50%;border:none;">·どこの学校(校名)　Name of school    </th>
+                            <td colspan="4" style="border:none;">
+                            _________________________________________________
+                            </td>
+                        </tr>
+                        <tr style="border-top:none;border-bottom:none;">
+                            <th style="width: 50%;border:none;">·どこの入国管理局ですか  Which one？</th>
+                            <td colspan="4" style="border:none;">
+                            _________________________________________________
+                            </td>
+                        </tr>
+                        <tr style="border-top:none;border-bottom:none;">
+                            <th style="width: 50%;border:none;">·どこの入国管理局ですか  Which one？</th>
+                            <td colspan="4" style="border:none;">
+                            _________________________________________________
+                            </td>
+                        </tr>
+                        <tr style="border-top:none;border-bottom:none;">
+                            <th style="width: 50%;border:none;">　　·審査結果はどうでしたか  Result？</th>
+                            <td colspan="4" style="border:none;">
+                            </td>
+                        </tr>
+                        <tr style="border-top:none;border-bottom:none;">
+                            <td colspan="5" style="border:none;">
+                            　　<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked=checked>
+                            <label for="vehicle1">交付</label>
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                            <label for="vehicle1"> 不交付 </label>
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                            <label for="vehicle1">取下げ</label>
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                            <label for="vehicle1">交付後の未入国</label>
+                            </td>                         
+                        </tr>
+                        <tr style="border-top:none;border-bottom:none;">
+                        <td colspan="5" style="border-top:none;">　　Reasons(                                                            )</td>
+                        </tr>
+                        <tr style="border-top:none;">
+                                    <th style="width: 50%;border:none;">				
+                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                                    <label for="vehicle1"> 無 No </label>
+                                    </th>
+                                    <td colspan="4" style="border:none;">
+                                    </td>
+                                </tr>
+                        </table>                     
+</section>
+<section class="edu-background">	
+                        <table style="width:100%;" class="tbl">
+                                <tr style="border-top:0px;"> 
+                                    <td colspan="5" style="width: 100%;">16 日本滞在歴（三ヶ月以内の短期滞在及び家族滞在含む全て）　Have you ever been japan (Including 3 moth short visa)    
+                                    </td>
+                                </tr>
+                                <tr class="text-center" style="font-size: 12px;text-align:center;">
+                                    <th scope="col" style="width:20% !important;text-align:center;">入国目的 <br>Purpose</th>
+                                    <th scope="col" class="align-middle" style="width: 25%;text-align:center;">在留資格 <br>Status</th>
+                                    <th scope="col" style="width: 45%;border-left: none;text-align:center;">在留期間 <br> Period of Stay</th>
+                                    <th scope="col" style="width: 10%;text-align:center;">備  考</th>
+                                </tr>
+                                <tr>
+                                        <td style="font-size: 11px; text-align: right;"></td>
+                                        <td style="font-size: 12px; text-align: left;"></td>
+                                        <td style="font-size: 11px; text-align: left;border-left: none;">自From      年   月   日   至to        年   月  日</td>
+                                        <td style="font-size: 11px; text-align: left;"></td>
+                                </tr>                               
+                        </table>                     
+</section>
+<section class="edu-background">	
+                        <table style="width:100%;" class="tbl">
+                        <tr style="border-top:0px;border-bottom:none;"> 
+                                    <td colspan="5" style="width: 100%;">17 旅券　Passport</td>
+                        </tr>
+                        <tr style="border-bottom:none;border-top:none;">
+                            <th style="width: 25%;border:none;">				
+                            番号　Number
+                            </th>
+                            <td style="width: 25%;border:none;">
+                            _________________________________
+                            </td>
+                            <th style="width: 25%;border:none;">				
+                            発行年月日Date of issue
+                            </th>
+                            <td style="width: 25%;border:none;">
+                            _________年　  　月　 　　日________
+                            </td>
+                        </tr>
+                        <tr style="border-top:none;">
+                            <th style="width: 25%;border:none;">				
+                            有効期限Date of expiry
+                            </th>
+                            <td style="width: 25%;border:none;">
+                            ________年　  　月　 　　日______
+                            </td>
+                            <th style="width: 25%;border:none;">				
+                            発行機関Authority
+                            </th>
+                            <td style="width: 25%;border:none;">
+                            ____________________________________
+                            </td>
+                        </tr>
+                        </table>                     
+</section>
+<section class="edu-background">	
+                        <table style="width:100%;" class="tbl">
+                                <tr style="border-top:0px;"> 
+                                    <td colspan="5" style="width: 100%;">18 家族(本人を中心に記入すること) Family members (showing the relation of each person to yourself ) </td>
+                                </tr>
+                                <tr class="text-center" style="font-size: 12px;text-align:center;">
+                                    <th scope="col" style="width:20% !important;text-align:center;">続柄 Relation</th>
+                                    <th scope="col" class="align-middle" style="width: 25%;text-align:center;">氏名　Name</th>
+                                    <th scope="col" style="width: 10%;border-left: none;text-align:center;">年齢Age</th>
+                                    <th scope="col" style="width: 45%;text-align:center;">現住所　 Address</th>
+                                    <th scope="col" style="width: 10%;text-align:center;">職業 Occupation</th>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px; text-align: right;"></td>
+                                    <td style="font-size: 12px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px; text-align: right;"></td>
+                                    <td style="font-size: 12px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                </tr>
+                        </table>                     
+</section>
+<section class="edu-background">	
+                        <table style="width:100%;" class="tbl">
+                                <tr style="border-top:0px;"> 
+                                    <td colspan="5" style="width: 100%;">19 在日親族(父・母・配偶者・子・兄弟姉妹など)及び同居者  Relatives residing in Japan</td>
+                                </tr>
+                                <tr class="text-center" style="font-size: 12px;text-align:center;">
+                                    <th scope="col" style="width:20% !important;text-align:center;">続柄 <br>Relation</th>
+                                    <th scope="col" class="align-middle" style="width: 25%;text-align:center;">氏名　<br> Name</th>
+                                    <th scope="col" style="width: 10%;border-left: none;text-align:center;">生年月日 <br> Date of Birth</th>
+                                    <th scope="col" style="width: 10%;border-left: none;text-align:center;">国籍 <br>Nationality </th>
+                                    <th scope="col" style="width: 45%;text-align:center;">勤務先 <br>Name of Employer</th>
+                                    <th scope="col" style="width: 10%;text-align:center;">外国人登録証明書番号 <br> Certificate of Alien <br> Registration No.</th>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px; text-align: right;"></td>
+                                    <td style="font-size: 12px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px; text-align: right;"></td>
+                                    <td style="font-size: 12px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px; text-align: right;"></td>
+                                    <td style="font-size: 12px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: left;"></td>
+                                </tr>
+                        </table>                     
+</section>
+<section class="edu-background">	
+                        <table style="width:100%;" class="tbl">
+                        <tr style="border-top:0px;border-bottom:none;"> 
+                                    <td colspan="5" style="width: 100%;">20 学費·生活費負担者   The person who pays tuition and other expenses  </td>
+                        </tr>
+                        <tr style="border-bottom:none;border-top:none;">
+                            <th style="width: 10%;border:none;">				
+                               氏名 <br> Name
+                            </th>
+                            <td style="width: 40%;border:none;">
+                            __________________________________________
+                            </td>
+                            <th style="width: 10%;border:none;">				
+                              続柄 <br>Relation
+                            </th>
+                            <td style="width: 40%;border:none;">
+                            __________________________________________
+                            </td>
+                        </tr>
+                        <tr style="border-bottom:none;border-top:none;">
+                            <th style="width: 10%;border:none;">				
+                              職業 <br> Occupation
+                            </th>
+                            <td style="width: 40%;border:none;">
+                            __________________________________________
+                            </td>
+                            <th style="width: 10%;border:none;">				
+                              電話 <br>Telephone
+                            </th>
+                            <td style="width: 40%;border:none;">
+                            __________________________________________
+                            </td>
+                        </tr>
+                        <tr style="border-top:none;">
+                            <th style="width: 10%;border:none;">				
+                              住所 <br> Address
+                            </th>
+                            <td colspan="4" style="border:none;">
+                            ____________________________________________________________________________________
+                            </td>
+                        </tr>
+                        </table>                     
+</section>
+<section class="edu-background">	
+                        <table style="width:100%;" class="tbl">
+                        <tr style="border-top:0px;border-bottom:none;"> 
+                                    <td colspan="5" style="width: 100%;">21 本学卒業後の予定  Your plan after graduate from this school </td>
+                        </tr>
+                        <tr style="border-bottom:none;border-top:none;">
+                            <th style="width: 40%;border:none;">				
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                                <label for="vehicle1"> 大学院  Postgraduate Course</label>
+                            </th>
+                            <td style="width: 10%;border:none;"></td>
+                            <th style="width: 40%;border:none;">				
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                                <label for="vehicle1"> 大学 Undergraduate Course </label>
+                            </th>
+                            <td style="width: 10%;border:none;"></td>
+                        </tr>
+                        <tr style="border-bottom:none;border-top:none;">
+                            <th style="width: 40%;border:none;">				
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                                <label for="vehicle1"> 短大  Junior College    </label>
+                            </th>
+                            <td style="width: 10%;border:none;"></td>
+                            <th style="width: 40%;border:none;">				
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                                <label for="vehicle1"> 専門学校  Professional School</label>
+                            </th>
+                           <td style="width: 10%;border:none;"></td>
+                        </tr>
+                        <tr style="border-top:none;">
+                            <th style="width: 40%;border:none;">				
+                            学 校 名 Name of school
+                            </th>
+                            <td style="width: 10%;border:none;">__________</td>
+                            <th style="width: 40%;border:none;">				
+                            課　程 Course
+                            </th>
+                           <td style="width: 10%;border:none;">__________</td>
+                        </tr>
+                        </table>                     
+</section>
+<section class="edu-background">	
+                    <table style="width:100%;" class="tbl">
+                        <tr style="border-top:0px;border-bottom:none;"> 
+                            <td colspan="5" style="width: 100%;">22    留学理由書　      Purpose of Studying Japanese   <br>
+                                <p> 日本語を学ぶ目的(詳しく)  </p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;"></p>
+                            </td>
+                        </tr>
+                    </table>                     
+</section>
+<section class="edu-background">	
+                        <table style="width:100%;" class="tbl">
+                        <tr style="width:80%;margin:0 auto;border-top:0px;border-bottom:none;"> 
+                                <td colspan="5" style="width: 100%;text-align:center;">
+                                上記のとおり相違ありません。I hereby declare the above statement is true and correct.<br>
+                                許可を受け、日本に入国後、日本国の法律を守り，学校の規則に従うことを誓います。<br>
+                        　　     I swear to abide Japanese law and schools’ rule after I obtain permission of Japan entrance.
+                                </td>
+                        </tr>
+                        <tr style="margin:0 auto;border-top:none;border-bottom:none;">
+                            <th colspan="1" style="border:none;"></th>
+                            <th colspan="2" style="border:none;">				
+                            申請日Date of Application
+                            </th>
+                            <td colspan="2" style="border:none;">年　    　　月　　   　日
+                                <br>    year        month      day
+                            </td>
+                        </tr>
+                        <tr style="margin:0 auto;border-bottom:none;border-top:none;">
+                            <th colspan="1" style="border:none;"></th>
+                            <th colspan="2" style="border:none;">				
+                            申請人署名　 Signature of Applicant
+                            </th>
+                            <td colspan="2" style="border:none;"></td>
+                        </tr>
+                        <tr style="margin:0 auto;border-top:none;">
+                        <th colspan="5" style="border:none;float:right;text-align:right;">____________________________________________</th>
+                        </tr>
+                        </table>                     
+</section>
 </body>
 <style>
     body {
@@ -283,20 +628,6 @@ $html = '
                 .page-break {
                     page-break-after: always;
                 }
-
-                /* .tbl,
-                .tbl td,td
-                .tbl th th{
-                    border: solid black;
-                    border-width: 1px 1px 0 0;
-                }
-
-                .tbl th,th,
-                .tbl td,td{
-                    border: solid black;
-                    border-width: 0 0 1px 1px;
-                    padding: 10px 5px;
-                } */
                 tr,td,th {
                     border-top: 1px solid #000000;
                     border-bottom: 1px solid #000000;
