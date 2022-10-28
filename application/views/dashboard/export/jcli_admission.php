@@ -341,31 +341,6 @@ $html = '
                                
                             </tbody>
                         </table>
-                        <!-- <table>
-                            <tr style="width: 100%;">
-                               
-                                    <th style=width:20%;border-top:none;">				
-                                        在籍状況 <br> Registered enrollment
-                                    </th>
-                                    <td style="border-top:none;width:100px">
-                                       -
-                                    </td>
-                                    <th style="text-align: center;border-top:none;width:50px">			
-                                      -                                                                                                                                                                                                                           
-                                    </th>
-                                    <td style="text-align: center;border-top:none;">
-                                        修学年数(小学校から最終学歴まで) <br>Total period of education (from elementary <br>school to the last school attended).	
-                                    </td>
-                                    <td style="border-top:none;width:50px">
-                                       
-                                    </td>
-                                    <td style="text-align: center;border-top:none;">
-                                         年<br>
-                                        Years                                          
-                                    </td>
-                                
-                            </tr>
-                        </table> -->
 </section>
 <section class="edu-background">
                         <table style="width:100%; padding_top:20px;border-top:none;" class="tbl">
