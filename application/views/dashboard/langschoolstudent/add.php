@@ -69,14 +69,14 @@
     }
   </style>
 <!-- date -->
-  <div class="col-md-6 float-left">
+  <!-- <div class="col-md-6 float-left">
       <div class="form-group" style="padding-left: 165px;">
           <label class="weight-400" for="release" style="margin-bottom:10px">Date</label> 
-          <!-- <span class="badge badge-danger">Required</span> -->
+          <span class="badge badge-danger">Required</span>
           <input type="datetime-local" step="1" name="release" id="release" class="form-control" placeholder="" value="">
           <span class="text-danger"><?php echo form_error( 'release' ); ?></span>
       </div>
-  </div>
+  </div> -->
 <!-- date-->
   <!-- JLS Name -->
 <div class="school_list" name="" >
@@ -2268,18 +2268,19 @@ $(function() {
 
 <style>
 input#clickImg {
-    padding: 4px;
+    width: 252px;
+    padding: 3.5px;
 }
 .col-form-label {
 padding-top: 7px;
 padding-bottom: 10px;
 }
 #showImg1 {
-    margin: 10px 140px;
+    margin: 10px 140px 0px;
 }
 div.content_detail{
 position: relative;
-margin:0 2em;
+margin:0 2em 1em;
 }
 .dropdown{
 position: absolute;
@@ -2291,7 +2292,7 @@ opacity:0;
 visibility: 0;
 }
 .drop_ttl{
-background:#48a1af;
+background:#f1797b;
 color:white;
 padding: 0.75rem 1.25rem;
 position: relative;
@@ -2334,7 +2335,7 @@ color:#48a1af;
 }
 .school_list{
   width: 55%;
-  padding: 12px;
+  padding: 5px 12px;
   align-items: center;
   display: flex;
 }
