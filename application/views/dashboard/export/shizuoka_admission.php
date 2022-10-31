@@ -349,7 +349,7 @@ input {
   <br/><br/><br/>
 <label for=""> 6.  Eメール < E-Mail address ></label>
   <span>-</span>
-  <br/><br/><br/><br/>
+  <br/><br/><br/>
 <label for=""> 7.配偶者の有無 <br>< Marital Status > </label>
 <span style="width:40%;font-size: 14px;text-align:left;float:left;">
     <input type="radio"><label for="" style="font-size: 14px;">あり < Married ></label>
@@ -359,10 +359,7 @@ input {
 <br/><br/><br/>
 <label for=""> 8. 学歴  小学校～最終学歴 < Academic Accomplishments ></label>
   <span>-</span>
-  <br/><br/><br/>
-</form>
-</section>
-<p style="font-size:12px ;">Please complete your detailed educational backgrounds from elementary to your most recent academic record.</p>
+<p>Please complete your detailed educational backgrounds from elementary to your most recent academic record.</p>
 <table>
     <tr >
         <th style="text-align:center;">学校名 <br>Name of School</th>
@@ -449,6 +446,284 @@ input {
        <td style="border-left:none !important;">/</td>  
     </tr>
 </table>
+
+<br><br>
+
+<label for=""> 9. 日本語学習経験　< Experience of studying Japanese ></label>
+  <span>-</span>
+<p>(1)日本語学習時間　< Total study hours of Japanese Language > Please describe your completed hours of studying Japanese. </p>
+<table style="width: 75%;">
+    <tr >
+        <th style="text-align:center;">学校名 <br>Name of School</th>
+        <th style="text-align:center;">所在地(住所) <br>Location(Address) <br>Town, City, State/Province and Country</th>
+        <th style="text-align:center;">受講コース、<br>レベル <br> Name of class/level </th>
+        <th colspan="3" style="text-align:center;">在籍年月(入学年月~卒業年月) <br>Dates of Attendance <br>Month     Year</th>
+        <th style="text-align:center;">コースの  <br>  総時間数 <br> total hours of the course </th>
+        <th style="text-align:center;">   既習時間数 <br>  総時間数 <br> Total completed hours (up to now)  </th>
+        <th style="text-align:center;">学習状況 <br> Status </th>
+    </tr>
+    <tr>
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 25%;"></td>
+        <th style="width: 10%;">from</th>
+        <td style="border-right:none !important;width: 10%;"></td> 
+        <td style="border-left:none !important;width: 10%;">/</td>  
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;"></td>
+    </tr>
+    <tr>
+       <th style="width: 10%;">to</th>
+       <td style="border-right:none !important;width: 10%;"></td> 
+       <td style="border-left:none !important;width: 10%;">/</td>  
+    </tr>
+    <tr>
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 25%;"></td>
+        <th style="width: 10%;">from</th>
+        <td style="border-right:none !important;width: 10%;"></td> 
+        <td style="border-left:none !important;width: 10%;">/</td>  
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;"></td>
+    </tr>
+    <tr>
+       <th style="width: 10%;">to</th>
+       <td style="border-right:none !important;width: 10%;"></td> 
+       <td style="border-left:none !important;width: 10%;">/</td>  
+    </tr>
+    <tr>
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 25%;"></td>
+        <th style="width: 10%;">from</th>
+        <td style="border-right:none !important;width: 10%;"></td> 
+        <td style="border-left:none !important;width: 10%;">/</td>  
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;"></td>
+    </tr>
+    <tr>
+       <th style="width: 10%;">to</th>
+       <td style="border-right:none !important;width: 10%;"></td> 
+       <td style="border-left:none !important;width: 10%;">/</td>  
+    </tr>
+ 
+</table>
+
+<br><br>
+<p> (2)日本語能力試験合格　< Japanese Language Tests (JLPT, NAT-TEST, J.TEST, TOP-J etc. )></p>
+<p style="padding-left: 9px;">Please write name(s) of Japanese Proficiency Test you have taken and the passed level(s).  </p>
+<table style="width: 100%;">
+   <tr>
+    <th colspan="2">受験日(Month/Year of the Test)</th>
+    <th rowspan="2">  試験名　< Name of the test(s) ></th>
+    <th rowspan="2">合格した級 <br> level passed </th>
+   </tr>
+   <tr>
+    <th>月Month</th>
+    <th>年 Year</th>
+   </tr>
+   <tr>
+    <td style="border-right: none !important;; "></td>
+    <td style="border-left: none !important">/</td>
+    <td></td>
+    <td></td>
+   </tr>
+   <tr>
+    <td style="border-right: none !important;; "></td>
+    <td style="border-left: none !important">/</td>
+    <td></td>
+    <td></td>
+   </tr>
+</table>
+</form>
+</section>
+
+<section class="personal-info" style="width:100%;padding-top:22px;">
+<div class="personal" style="width: 100%;display:inline-block;">
+<div style="width: 100%;">
+<h4 style="width:50%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">10. 仕事の経験 < Vocational experience(s) ></h4>
+<p style="width:30%;font-size: 14px;text-align:left;float:right;">
+<input type="checkbox"><label for="" style="font-size: 14px;">あり(Yes)</label>
+<input type="checkbox"><label for="" style="font-size: 14px;">なし (No)</label>
+</p>
+</div>
+    <table style="width:100%;">
+      <tr style="text-align: center;">
+        <th rowspan="2" style="width:17%;text-align: center;">勤務先< 会社名 > <br/>Name of Company</th>
+        <th rowspan="2" style="width:15%;text-align: center;">職種 <br>Occupation/type of job</th>
+        <th rowspan="2" style="width:15%;text-align: center;">所在地 <br>Place/Location</th>
+        <th colspan="3" style="width:20%;text-align: center;">入社年月   <br>Starting</th>
+        <th colspan="3" style="width:20%;text-align: center;">退社年月 <br> Leaving</th>
+      </tr>
+    <tr>
+      <th style="text-align: center;">Day</th>
+      <th style="text-align: center;">Month</th>
+      <th style="text-align: center;">Year</th>
+      <th style="text-align: center;">Day</th>
+      <th style="text-align: center;">Month</th>
+      <th style="text-align: center;">Year</th>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+    </tr>
+    </table>
+</div>
+</section>
+
+
+<section class="personal-info" style="width:100%;padding-top:22px;">
+<div class="personal" style="width: 100%;display:inline-block;">
+<div style="width: 100%;">
+<h4 style="width:50%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">11. 来日歴 < Experience of stay in Japan ></h4>
+<p style="width:30%;font-size: 14px;text-align:left;float:right;">
+<input type="checkbox"><label for="" style="font-size: 14px;">あり(Yes)</label>
+<input type="checkbox"><label for="" style="font-size: 14px;">なし (No)</label>
+</p>
+</div>
+    <table style="width:100%;">
+      <tr style="text-align: center;">
+        <th rowspan="2" style="width:17%;text-align: center;">滞在理由/場所 <br>Purpose and Place of stay </th>
+        <th rowspan="2" style="width:15%;text-align: center;">在留資格  <br>Visa</th>
+        <th colspan="3" style="width:20%;text-align: center;">入国年月日   <br>Date of Arrival</th>
+        <th colspan="3" style="width:20%;text-align: center;">出国年月日 <br> Date of Departure </th>
+      </tr>
+    <tr>
+      <th style="text-align: center;">Day</th>
+      <th style="text-align: center;">Month</th>
+      <th style="text-align: center;">Year</th>
+      <th style="text-align: center;">Day</th>
+      <th style="text-align: center;">Month</th>
+      <th style="text-align: center;">Year</th>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+      <td style="border-right: none !important;"></td>
+      <td style="border-left: none !important;border-right: none !important;">/</td>
+      <td style="border-left: none !important;">/</td>
+    </tr>
+    </table>
+    <p style="padding-left: 9px;padding-top: 5px;">●４回以上来日した場合、下欄に記入してください。
+    <span style="font-size: 9px;"> If you have stayed in Japan more than four times, please use the blank below.</span>
+    <hr><hr><hr>
+  </p>
+    
+</div>
+</section>
+
+<div style="width: 100%;padding-top:12px;">
+<h4  style="font-family: sjis;">12. 母国や日本での犯罪(交通違反を含む)による処分・強制送還歴はありますか？<span style="font-size: 11px;">< Regarding Criminal record etc. ></span></h4>
+<p style="width:70%;float:left;font-family: sjis;"> (1) 犯罪歴　<span style="font-size: 11px;"> "Criminal record in your home country or Japan including dispositions due to traffic violations, etc."	</span></p>
+<p style="width:28%;font-size: 14px;text-align:left;float:right;">
+<input type="radio"><label for="" style="font-size: 14px;">あり Yes</label>
+<input type="radio"><label for="" style="font-size: 14px;">なし No </label>
+</p>
+<p style="width:70%;float:left;font-family: sjis;"> (2) 強制送還歴   Departure by deportation or departure order</p>
+<p style="width:28%;font-size: 14px;text-align:left;float:right;">
+<input type="radio"><label for="" style="font-size: 14px;">あり Yes</label>
+<input type="radio"><label for="" style="font-size: 14px;">なし No </label>
+</p>
+</div>
+
+<div style="width: 100%;padding-top:15px;">
+<h4  style="font-family: sjis;padding:0px;margin:0px;">13.  この学校を卒業した後の予定 < Future plan after graduating from this school.></h4>
+ <input type="radio"><label for="">A. 進学　< Advancing to higher education></label><br><br>
+ <p style="width: 50%;float:left">
+ <input type="checkbox"><label for="">大学院< Master's degree / Doctoral course</label><br>
+ <input type="checkbox"><label for=""> 短期大学< Junior College>  </label><br>
+ <input type="checkbox"><label for="">その他 < Other > </label><br>
+ </p>
+ <p style="width: 40%;float:right;padding-top:8px;">
+ <input type="checkbox"><label for="">大学< Undergraduate(Bachelor) > </label><br>
+ <input type="checkbox"><label for="">専門学校< Vocational School ></label>
+ </p>
+ <input type="radio"><label for="">B. 就職 < Planning  to work></label><br>
+ <input type="radio"><label for="">C. 帰国 < Returning home> </label><br>
+ <input type="radio"><label for="">D. その他 < Other> (Specify)</label><br>
+ <textarea name="" id="" cols="30" rows="3" style="width:100%;border: 1px solid #000000;">-</textarea>
+</div>
+
+<div style="width: 100%;padding-top:15px;">
+ <h4 style="font-family: sjis;">14. 日本語学習目的〈Purpose of Learning Japanese in Japan Kokusai Kotoba Gakuin JLS)〉</h4>
+<hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr>
+</div>
+<br>
+<p>この履歴書は私が自分自身で書いたものであり、その内容はすべて事実であることを誓います。<br>
+ I hereby swear that the all above is true and that I wrote this personal history myself.
+</p>
+
+<div>
+  <p style="width:25%;float: left;padding-left:40%;">日付 Date:</p>
+     <p style="width:5%;float: right;">日　<br>day</p>
+     <p style="width:15%;float: right;">月 <br>month</p>
+     <p style="width:15%;float: right;">年 <br>year</p>
+     
+</div>
+<br>
+<div style="width: 60%;float:right">
+  <p>署名 Signature:<span>_________________________</span></p>
+  
+</div>
+
 </body>
 </html>
 </html>';
