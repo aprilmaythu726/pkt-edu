@@ -55,7 +55,7 @@ class Langschoolapplicant extends CI_Controller
 			"alert" => $this->mainconfig->_DefaultNotic(),
 			'title' => "Student Lists",
 			'msg' => "",
-			'uri' => array("student","std_lists"),
+			'uri' => array("langschoolapplicant","jls_lists"),
 			'config' => $this->user_config
 		);
 		
@@ -79,7 +79,7 @@ class Langschoolapplicant extends CI_Controller
 			"alert" => $this->mainconfig->_DefaultNotic(),
 			'title' => "Student Lists",
 			'msg' => "",
-			'uri' => array("student","std_lists"),
+			'uri' => array("langschoolapplicant","jls_lists"),
 			'config' => $this->user_config
 		);
 		
@@ -102,7 +102,7 @@ class Langschoolapplicant extends CI_Controller
 			"alert" => $this->mainconfig->_DefaultNotic(),
 			'title' => "Student Lists",
 			'msg' => "",
-			'uri' => array("student","std_lists"),
+			'uri' => array("langschoolapplicant","jls_lists"),
 			'config' => $this->user_config
 		);
 		
@@ -126,7 +126,7 @@ class Langschoolapplicant extends CI_Controller
 			"alert" => $this->mainconfig->_DefaultNotic(),
 			'title' => "Add Student",
 			'msg' => "",
-			'uri' => array("student","std_add"),
+			'uri' => array("langschoolapplicant","jls_add"),
 			'config' => $this->user_config,
 		);
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, []);
