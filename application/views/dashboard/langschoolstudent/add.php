@@ -42,13 +42,34 @@
       echo form_open_multipart('adm/portal/langschool_applicant/add', $attributes);
     ?>
 <div class="col-md-12">
-<div class="col-md-6 float-left" style="display: flex;padding-top: 32px;">
+<div class="col-md-6" style="display: flex;padding-top: 32px;">
   <!-- Student Photo -->
     <?php
-      echo form_label('Student Photo','userfile', array('class' => 'col-form-label')) ;
+      echo form_label('Applicant Photo','userfile', array('class' => 'col-form-label')) ;
       
     ?>
-    <div class="col-md-7 col-sm-7 p-9">
+    <div class="col-md-6" style="width: 100%;padding-left:0px;padding-right: 0px;">
+      <?php
+        echo form_input(array(
+        'name' => 'userfile',
+        'type' => 'file',
+        'class' => 'form-control stu_label',
+        'id' => 'clickImg',
+        'accept' => 'image/*'
+        ));
+      ?>
+      <div class="form-group col-md-12 col-sm-12 p-0" id="showImg1"> </div>   
+    </div>
+  <span class="text-danger"><?php echo form_error('userfile'); ?></span>
+  </div>
+  <!-- Student Photo -->  
+  <div class="col-md-6" style="display: flex;padding-top: 12px;">
+  <!-- Student Photo -->
+    <?php
+      echo form_label('Applicant Sign','userfile', array('class' => 'col-form-label')) ;
+      
+    ?>
+    <div class="col-md-6" style="width: 100%;padding-left:0px;padding-right: 0px;">
       <?php
         echo form_input(array(
         'name' => 'userfile',
@@ -65,7 +86,7 @@
   <!-- Student Photo -->  
   <style>
     .stu_label{
-      margin-left: 57%
+      /* margin-left: 57% */
     }
   </style>
 <!-- date -->
@@ -79,8 +100,8 @@
   </div> -->
 <!-- date-->
   <!-- JLS Name -->
-<div class="school_list" name="" >
-<p class="list_label">Japanese Language School  </p>
+<div class="col-md-6 school_list" name="" >
+<p class="list_label">JLS Name </p>
 <select name="" class="form-group col-md-6 school_select">
     <option value="">Please Select!</option>
     <option value="ECC">ECC</option>
@@ -2267,13 +2288,19 @@ $(function() {
   </script>
 
 <style>
+  .table-bordered thead th, .table-bordered thead td {
+    font-size: 15px;
+    font-weight: 400;
+    border-bottom-width: 2px;
+}
 input#clickImg {
-    width: 252px;
+    /* width: 252px; */
     padding: 3.5px;
 }
 .col-form-label {
-padding-top: 7px;
-padding-bottom: 10px;
+  width:49%;
+  padding-top: 7px;
+  padding-bottom: 10px;
 }
 #showImg1 {
     margin: 10px 140px 0px;
@@ -2329,7 +2356,7 @@ color:#48a1af;
 }
 .school_select {
     padding: 8px;
-    margin: 7px;
+    margin: 7px 5px 7px 0px;
     border: 1px solid #ced4db;
     border-radius: 3px;
 }
@@ -2340,7 +2367,7 @@ color:#48a1af;
   display: flex;
 }
 .list_label{
-  width: 100%;
+  width: 50%;
   font-size: 16px;
   margin: 0px;
 }

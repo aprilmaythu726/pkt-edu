@@ -31,7 +31,7 @@
       </ul>
     <?php } ?>
 
-    <?php if(string_pos($sess_config, "pe_student") !== FALSE ){ ?>
+    <!-- <?php if(string_pos($sess_config, "pe_student") !== FALSE ){ ?> -->
       <ul>
         <li class="<?php if($uri[0] != "" && $uri[0] == "langschoolapplicant") { echo "open active"; } ?>">
           <a href="#" title="Layout Options"><span class="nav-icon material-icons">account_box</span> JLSApplicant</a>
@@ -45,7 +45,7 @@
           </ul>
         </li>  
       </ul>
-    <?php } ?>
+    <!-- <?php } ?> -->
 
     <?php if (string_pos($sess_config, "pe_course")!== FALSE ){ ?>
       <ul>
