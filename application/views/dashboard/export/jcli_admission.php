@@ -33,37 +33,37 @@ $html = '
     </section>
     <section class="personal-info" style="width:100%;display:block;">
         <img src="asset/admin/images/personal.png" style="width:30px;float:left;margin-right:10px;">
-        <h5 style="font-family: sun-exta, gb;">申請者情報　/　Personal Information</h5>
+        <h5 style="font-family: sun-exta, gb;margin-bottom:10px;">申請者情報　/　Personal Information</h5>
         <div class="personal" style="width:73%;margin-right:10px;">
         <table style="">
             <tr>
-                <th style="width: 20%;font-family: frutiger;">氏名(ローマ字)
+                <th style="width: 20%;font-family: frutiger;background:#f5f5f5;">氏名(ローマ字)
                     <br>Name(s) as shown
                     <br>on your passport
                 </th>
-                <td colspan="5">test</td>
+                <td colspan="5"></td>
             </tr>
             <tr>
 
-                <th style="width: 20%;">氏名　（漢字)
+                <th style="width: 20%;background:#f5f5f5;">氏名　（漢字)
                     <br>Name(s) in
                     <br>Chinese characterｓ　</th>
                     <td colspan="5"></td>
                 </tr>
             <tr>
-                <th style="width: 20%;">				
+                <th style="width: 20%;background:#f5f5f5;">				
                     国籍・地域<br>Nationality/Region
                 </th>
                 <td style="width: 15%;">
                 
                 </td>
-                <th style="width: 15%;">				
+                <th style="width: 15%;background:#f5f5f5;">				
                 性別 <br>Sex
                 </th>
                 <td style="width: 15%;">
                 
                 </td>
-                <th style="width: 15%;">			
+                <th style="width: 15%;background:#f5f5f5;">			
                 婚姻 <br> Marital Status
                 </th>
                 <td style="width: 20%;">
@@ -72,61 +72,62 @@ $html = '
             </tr>
             <tr>
 
-                <th style="width: 20%;">
+                <th style="width: 20%;background:#f5f5f5;">
                     入学希望コース <br> Course of Admission			
                 </th>
                 <td style="width: 20%;"></td>
-                <th style="width: 20%;">
+                <th style="width: 20%;background:#f5f5f5;">
                     生年月日 <br> Date of birth	
                 </th>
                 <td colspan="3"></td>
                 </tr>
             <tr>
 
-            <th style="width: 20%;border-bottom:0px;">出生地 <br> Place of  birth			
+            <th style="width: 20%;border-bottom:0px;background:#f5f5f5;">出生地 <br> Place of  birth			
                 </th>
             <td colspan="5" style="border-bottom:0px;"></td>
             </tr>
             </table>
         </div>
         <span class="applicant_image">
-            <p style="width:150px;height:100px;border:1p solid #000000;margin-left:20px;float:right;padding-left:15px;">写真貼付欄${student_photo}　　
-            　<br>Photo
-            （<br> ４ｃｍ×３ｃm ）
-            <br>・最近３ヶ月以内
+            <p style="width:150px;height:100px;border:1p solid #000000;margin-left:20px;float:right;padding:10px 0px 10px 5px;font-size:11px;line-height:15px;">写真貼付欄${student_photo}
+            <br>Photo
+            <br>（４ｃｍ×３ｃm ）
+            <br><br>・最近３ヶ月以内
             　<br>・上半身正面
             　<br>・脱帽のもの（ 2枚 ）
-            　<br>・Within ３ months
+            　<br><br>・Within ３ months
             　<br>・Full　face
             　<br>・Without hat
             　<br>・2 copies 
+              <br>
             </p>
         </span>
     </section>
     <section class="address" style="width:100%;">
 		<table style="width:100%;">
         <tr>
-			<th style="width: 20%;border-top:0px;">本国の戸籍住所 <br>Home address</th>
+			<th style="width: 20%;border-top:0px;background:#f5f5f5;">本国の戸籍住所 <br>Home address</th>
 			<td colspan="3"></td>
             </tr>
         <tr>
-			<th style="width: 20%;border-top:0px;">現在の住所 <br> Present address</th>
+			<th style="width: 20%;border-top:0px;background:#f5f5f5;">現在の住所 <br> Present address</th>
 			<td colspan="3"></td>
             </tr>
 		<tr>
-			<th style="width: 20%;">電話番号 <br>Phone Number</th>
+			<th style="width: 20%;background:#f5f5f5;">電話番号 <br>Phone Number</th>
 			<td></td>
-            <th style="width: 20%;">Ｅメール <br> E-mail</th>
-			<td></td>
-            </tr>
-		<tr>
-			<th style="width: 20%;">旅券番号 <br>Passport No</th>
-			<td></td>
-            <th style="width: 20%;">有効期限 <br> Date of expiration</th>
+            <th style="width: 20%;background:#f5f5f5;">Ｅメール <br> E-mail</th>
 			<td></td>
             </tr>
 		<tr>
-			<th style="width: 20%;">職業 <br> Occupation</th>
+			<th style="width: 20%;background:#f5f5f5;">旅券番号 <br>Passport No</th>
+			<td></td>
+            <th style="width: 20%;background:#f5f5f5;">有効期限 <br> Date of expiration</th>
+			<td></td>
+            </tr>
+		<tr>
+			<th style="width: 20%;background:#f5f5f5;">職業 <br> Occupation</th>
 			<td colspan="3"></td>
            
             </tr>
@@ -134,7 +135,7 @@ $html = '
 		
 </section>
 <section class="eligibility">	
-<div class="eligibility-status" style="padding: 10px 0px;">	
+<div class="eligibility-status" style="padding: 10px 0px 0px;">	
 <img src="asset/admin/images/past-history.png" style="width:30px;float:left;margin-right:10px;margin-top:10px;">																
         <p class="badge badge-danger" style="float:left;width: 60%;"> 過去の在留資格認定証明書交付申請歴 <br>
             Past history of applying for a certificate of eligibility</p>
@@ -149,13 +150,13 @@ $html = '
     </div>																	
 		<table style="width: 100%;">
             <tr>
-                <th style="width: 20%;">				
+                <th style="width: 20%;background:#f5f5f5;">				
                 回数 <br> No. of times
                 </th>
                 <td colspan="1">
                    
                 </td>
-                <th style="width: 30%;">			
+                <th style="width: 30%;background:#f5f5f5;">			
                     うち不交付となった回数<br>
                     Of these applications, the number of times of non-issuance																	                                                                                                                                                                 
                 </th>
@@ -166,7 +167,7 @@ $html = '
         </table>																
 </section>
 <section class="eligibility">	
-<div class="eligibility-status" style="padding: 10px 0px;">		
+<div class="eligibility-status" style="padding: 10px 0px 0px;">		
         <img src="asset/admin/images/record_japan.png" style="width:30px;float:left;margin-right:10px;">															
         <p class="badge badge-danger" style="float:left;width: 30%;"> 過去の来日歴　/　<br>Record of entry to Japan</p>
         <div class="radio" style="width:200px;float:right;margin-top:20px;">
@@ -180,13 +181,13 @@ $html = '
     </div>																	
 		<table style="width: 100%;">
             <tr>
-                <th style="width: 20%;">				
+                <th style="width: 20%;background:#f5f5f5;">				
                     回数 <br> No. of times
                 </th>
                 <td colspan="1">
                    
                 </td>
-                <th style="width: 20%;">			
+                <th style="width: 20%;background:#f5f5f5;">			
                     直近の出入国歴 <br>The latest entry																                                                                                                                                                                 
                 </th>
                 <td colspan="1">
@@ -234,9 +235,9 @@ $html = '
     <div class="clearfix mb-5"></div>
     <div class="eligibility-status" style="height:45px;">	
         <img src="asset/admin/images/family.png" style="width:40px;float:left;margin-right:10px;margin-top:10px">															
-        <p class="badge badge-danger" style="float:left;width: 70%;">在日親族（父・母・配偶者・子・兄弟姉妹・祖父母・叔(伯)父・叔(伯)母など）及び同居者 <br>
+        <p class="badge badge-danger" style="float:left;width: 75%;">在日親族（父・母・配偶者・子・兄弟姉妹・祖父母・叔(伯)父・叔(伯)母など）及び同居者 <br>
             Family in Japan (father, mother, spouse, children, <br>siblings,grandparents,uncle, aunt or others) and cohabitants</p>
-        <div class="radio" style="width:200px;float:right;margin-top:20px;">
+        <div class="radio" style="width:170px;float:right;margin-top:20px;">
             <label class="col-md-4">
                 <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
             </label>
@@ -294,7 +295,7 @@ $html = '
 </section>
 <section class="edu-background" style="margin-top: 20px;">
     <div class="clearfix mb-5"></div>	
-    <div class="eligibility-status" style="padding: 10px 0px;">	
+    <div class="eligibility-status" style="padding: 10px 0px 0px;">	
         <div class="edu-logo" style="width: 180px;">      
         <img src="asset/admin/images/jcli-logo.png">
         </div>		
@@ -352,7 +353,7 @@ $html = '
                                     </td>
                                     <th scope="col" style="width: 25%;;">修学年数(小学校から最終学歴まで)<br>
  Total period of education (from elementary school to the last school attended). </th>
-                                    <td scope="col" style="width: 25%;"></td>
+                                    <td scope="col" style="width: 15%;"></td>
                                     <td scope="col" style="width: 10%;">年<br>Years</td>
                                 </tr>
                             </tbody>
@@ -567,10 +568,10 @@ $html = '
 </section>
 <section class="family-japan">
     <div class="clearfix mb-5"></div>
-    <div class="eligibility-status" style="padding: 10px 0px;">	
+    <div class="eligibility-status" style="padding: 0px 0px;">	
         <img src="asset/admin/images/family-mem.png" style="width:30px;float:left;margin-right:10px;">															
-        <span class="badge badge-danger" style="float:left;width: 50%;">家族　Family members													
-        </span>       
+        <p class="badge badge-danger" style="float:left;width: 50%;margin: 5px 10px 0px;">家族　Family members													
+</p>       
     </div>		
                         <table style="width:100%;" class="tbl">
                             <thead style="background: #f5f5f5; text-align:center;padding:1px;">
@@ -632,26 +633,26 @@ $html = '
     <table style="width:100%; float: left;">
         <tr>
 
-			<th colspan="1">氏名(ローマ字)
+			<th colspan="1" style="background:#f5f5f5;">氏名(ローマ字)
 				<br>Name(s) as shown
 				<br>on your passport</th>
 				<td colspan="5"></td>
         </tr>
 		<tr>
            
-			<th colspan="1">				
+			<th colspan="1" style="background:#f5f5f5;">				
 				国籍・地域<br>Nationality/Region
             </th>
 			<td style="width: 20%;">
                
             </td>
-            <th style="width: 10%;">				
+            <th style="width: 10%;background:#f5f5f5;">				
             性別 <br> Sex
             </th>
 			<td style="width: 20%;">
                
             </td>
-            <th style="width: 20%;">			
+            <th style="width: 20%;background:#f5f5f5;">			
              生年月日 <br> Date of birth
             </th>
 			<td style="width: 20%;">
@@ -664,58 +665,57 @@ $html = '
 </section>
 <section class="personal-info">
 <img src="asset/admin/images/gradu.png" style="width:30px;float:left;margin-right:10px;margin:10px 0 0px;">
-    <p style="padding: 10px 0px 0px;">卒業後の進路　Plans for after graduation																			</p>
+    <p style="padding: 15px 10px 0px;">卒業後の進路　Plans for after graduation																			</p>
     <table style="width:100%; float: left;">
         <tr>
-			<th rowspan="3" style="width: 15%;">
+			<th rowspan="3" style="width: 15%;background:#f5f5f5;">
 				日本国内での進学 <br>Higher education in Japan
 			</th>			
-            <th colspan="1" style="width: 15%;">
+            <th colspan="1" style="width: 15%;background:#f5f5f5;">
 				学校種別 <br> Type of schools
 			</th>
             <td colspan="4"></td>
            
         </tr>
         <tr>
-			<th colspan="1" style="width: 15%;">
+			<th colspan="1" style="width: 15%;background:#f5f5f5;">
 				学校名 <br> Name of School	
 			</th>			
             
 			<td colspan="4"></td>
         </tr>
         <tr>
-			<th colspan="1" style="width: 15%;">
+			<th colspan="1" style="width: 15%;background:#f5f5f5;">
 				希望科目（専攻）<br> Major
 			</th>			
            
 			<td colspan="4"></td>
         </tr>
         <tr>
-			<th colspan="1" style="width: 15%;">
+			<th colspan="1" style="width: 15%;background:#f5f5f5;">
                 就職 <br> Employment								
 			</th>			
-            <th colspan="1" style="width: 15%;">
+            <th colspan="1" style="width: 15%;background:#f5f5f5;">
 				希望する職種 <br> Aimed occupational category
 			</th>	
 			<td colspan="4"></td>
         </tr>
         <tr>
-			<th colspan="1" style="width: 15%;">
+			<th colspan="1" style="width: 15%;background:#f5f5f5;">
 				帰国・復学 <br> Return to home country
 			</th>			
-            <th colspan="1" style="width: 30%;">
+            <th colspan="1" style="width: 30%;background:#f5f5f5;">
 				いつ頃帰国する予定ですか？<br> When will you return?
 			</th>	
 			<td colspan="4"></td>
         </tr>
         <tr>
 
-			<th colspan="1">その他 <br> Others</th>
+			<th colspan="1" style="background:#f5f5f5;">その他 <br> Others</th>
 				<td colspan="5"></td>
         </tr>		      
 		</table>		
 </section>
-<br><br><br><br><br><br>
 <section class="personal-info">
 <img src="asset/admin/images/purpose.png" style="width:30px;float:left;margin-right:10px;padding:10px 0 0px;">
     <p style="padding: 10px 0px 0px;">志望理由　Statement of purpose</p>
@@ -725,11 +725,11 @@ $html = '
         I hereby declare the above statement that I wrote is true and correct. By signing below I give consent to all of the information stated in this application form. The <br> submitted documents will be treated in accordance with the enrollment guidelines.</p>
     <table style="width:100%; float: left;">
         <tr>
-			<th colspan="1" style="width: 10%;">
+			<th colspan="1" style="width: 10%;background:#f5f5f5;">
 				作成日 <br>Date	
 			</th>	
             <td colspan="4"></td>		
-            <th colspan="1" style="width: 15%;">
+            <th colspan="1" style="width: 15%;background:#f5f5f5;">
 				署名 <br> Signature
 			</th>	
 			<td colspan="4"></td>

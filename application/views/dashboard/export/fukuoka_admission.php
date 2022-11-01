@@ -22,23 +22,50 @@ $html = '
 </section>
 <section class="address" style="width:100%;margin-top:10px;">
 		<table style="width:100%;">
-		<tr>
+		<tr style="border-bottom:0px;">
 			<td style="width: 80%;">
-            1  志望学科　Name of Course　* 東京日本橋校は4月期（2年,1年）と10月期（1.5年）のみ。<br>
-            ■　進学２年コ－ス　      ２－Year course              ２０２３ 年０４月 -- ２０２５ 年０３月 <br>
-            □　進学1年9ヶ月コ－ス　1 Year and 9 Months course   ２０　　 年０７月 -- ２０　　 年０３月 <br>
-            □　進学１.５年コ－ス     1.5－Year course             ２０　　 年１０月 -- ２０　　 年０３月 <br>
-            □　進学1年3ヶ月コ－ス　1 Year and 3 Months course   ２０　　 年０１月 -- ２０　　 年０３月 <br>
-            □　進学１年コ－ス　      １－Year course　            ２０　　 年０４月 -- ２０     年０３月 <br>
+            1  志望学科　Name of Course　* 東京日本橋校は4月期（2年,1年）と10月期（1.5年）のみ。</td>
+            <td rowspan="8" style="width: 20%;vertical-align: text-top;line-height:20px;">
+            写真　 Photos<br>
+最近3ヶ月以内に撮<br>影した上半身正面脱帽のもの(4cm×3cm)<br> 三个月以内的近照,<br>半身正面脱帽的证明<br>像(4cm×3cm)
             </td>
-            <td rowspan="3" style="width: 20%;"></td>
         </tr>
+        <tr style="border-top: 0px;border-bottom:0px;">
+            <td>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked=checked> 
+            <label for="vehicle1">進学２年コ－ス　　　　　　 ２－Year course  　　　　　　　  ２０２３ 年０４月 -- ２０２５ 年０３月</label>
+            </td>
+        </tr>
+        <tr style="border-top: 0px;border-bottom:0px;">
+            <td>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
+            <label for="vehicle1">進学1年9ヶ月コ－ス　　 1 Year and 9 Months course 　　 ２０_____年０７月 -- ２０_____年０３月</label>
+            </td>
+        </tr>
+        <tr style="border-top: 0px;border-bottom:0px;">
+            <td>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
+            <label for="vehicle1">進学１.５年コ－ス　　　　　 1.5－Year course　　　　　　 ２０____ 年１０月 -- ２０____ 年０３月 <br></label>
+            </td>
+        </tr>
+        <tr style="border-top: 0px;border-bottom:0px;">
+            <td>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
+            <label for="vehicle1">進学1年3ヶ月コ－ス　　1 Year and 3 Months course　　 ２０____ 年０１月 -- ２０____ 年０３月</label>
+            </td>
+        </tr>
+        <tr style="border-top: 0px;border-bottom:0px;">
+            <td>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
+            <label for="vehicle1">進学１年コ－ス　　　　　 １－Year course　　　　　　　 ２０_____ 年０４月 -- ２０_____ 年０３月</label>
+            </td>
+        </tr>        
         <tr style="width: 80%;border-bottom:0px;"> 
 			<td style="width: 80%;border-bottom:0px;">2  氏名 (漢字 or カタカナ)  In Kanji or Katakana
             <span></span>
             </td>
         </tr>
-        <tr style="width: 80%;border-top:0px;"> 
+        <tr style="width: 80%;border-top:0px;border-bottom:0px;"> 
 			<td style="width: 80%;border-top:0px;">英字  In Roman Letters 
             <span></span>
             </td>
@@ -51,16 +78,16 @@ $html = '
     <div class="clearfix mb-5"></div>
     <table style="width:100%; padding_top:20px" class="tbl">
                                 
-        <tr class="text-center" style="font-size: 12px;border-top:0px;">
-            <th scope="col" colspan="3" style="text-align:left;border-right:0px;">3  生年月日<br>Date of Birth
+        <tr class="text-center" style="font-size: 12px;">
+            <th scope="col" colspan="2" style="text-align:left;border-right:0px;">3  生年月日<br>Date of Birth
             </th>
-            <th scope="col" colspan="3" style="text-align:left;border-left:0px;">
-                <span>年         月       日</span>
+            <th scope="col" colspan="2" style="text-align:left;border-left:0px;">
+                <span>年　　　 月　　　日</span>
             </th>
-            <th scope="col" colspan="1" class="align-middle" style="text-align:left;">4  出生地Place of Birth <br>
+            <th scope="col" colspan="3" class="align-middle" style="text-align:left;">4  出生地Place of Birth <br>
                 <span>test test</span>
             </th>
-            <th scope="col" colspan="1" style="text-align:left;">5  国籍Nationality<br>
+            <th scope="col" colspan="3" style="text-align:left;">5  国籍Nationality<br>
                 <span>Myanamar</span>
             </th>                                   
         </tr>
@@ -69,38 +96,38 @@ $html = '
                 </th>
                 <th colspan="1" style="text-align:left;border-left:0px;border-right:0px;">  
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked=checked> 
-                    <br><label for="vehicle1">交付</label>
+                    <br><label for="vehicle1">男 Male</label>
                 </th>
                 <th colspan="1" style="text-align:left;border-left:0px;">
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
-                    <br><label for="vehicle1"> 不交付 </label>     
+                    <br><label for="vehicle1"> 女 Female </label>     
                 </th>
-                <th scope="col" colspan="1" style="text-align:left;border-right:0px;">7 性别 <br>Sex
+                <th scope="col" colspan="1" style="text-align:left;border-right:0px;">7  婚姻関係 <br>Marital
                 </th>
                 <th colspan="1" style="text-align:left;border-left:0px;border-right:0px;">  
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked=checked> 
-                    <br><label for="vehicle1">交付</label>
+                    <br><label for="vehicle1">未婚  Single</label>
                 </th>
                 <th colspan="1" style="text-align:left;border-left:0px;">
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
-                    <br><label for="vehicle1"> 不交付 </label>
+                    <br><label for="vehicle1"> 既婚  Married </label>
                 </th>
-                <th colspan="1" scope="col" class="align-middle" style="text-align:cenleftter;">8  職業 <br>Occupation 
+                <th colspan="2" scope="col" class="align-middle" style="text-align:cenleftter;">8  職業 <br>Occupation 
                     <span>test</span>
                 </th>
-                <th colspan="1" scope="col" class="align-middle" style="text-align:cenleftter;">9  小学校入学年龄 <br>Entrance Age to　Elementary School<br>
+                <th colspan="2" scope="col" class="align-middle" style="text-align:cenleftter;">9  小学校入学年龄 <br>Entrance Age to　Elementary School<br>
                     <span>満　　　歳 </span>
                 </th>
                
                      
             </tr>
             <tr style="border-bottom:0px;"> 
-                <td colspan="8" style="width: 100%;border-bottom:0px;">10  現住所Present Address　　　　　                   
+                <td colspan="10" style="width: 100%;border-bottom:0px;">10  現住所Present Address　　　　　                   
                     <span></span>
                 </td>
             </tr>
             <tr  style="width: 100%;border-top:0px;">
-                <td colspan="8" style="text-align: right;border-bottom:0px;">電話 Phone <span>_________________</span></td>
+                <td colspan="10" style="text-align: right;border-bottom:0px;">電話 Phone <span>_________________</span></td>
             </tr>
     </table>                  
 </section>
@@ -193,19 +220,24 @@ $html = '
                     <td colspan="5" style="width: 100%;">13日本語能力検定試験、J.TEST、BJTビジネス日本語能力テストなど <br>Japanese Language Test For example J.TEST·BJT·JLPT…            
                     </td>
             </tr>                                
-            <tr class="text-center" style="font-size: 12px;border-top:0px;">
+            <tr class="text-center" style="font-size: 12px;border-top:0px;border-bottom:0px;">
                 <th scope="col" style="text-align:right;width:20%;border-right:0px;">
                 <span>None</span>
-                級  <br>Level
+                級  
                 </th>
-                <th scope="col" class="align-middle" style="width:50%;text-align: right;"> 証書番号　Number <br>
-                    <span style="width:40%;text-align: center;">号</span>
+                <th scope="col" class="align-middle" style="width:50%;text-align: left;"> 証書番号　Number <br>
                 </th>
-                <th scope="col" style="text-align:left;width:30%;">　　　年　 　月　　日取得  <br>
-                    <span>Date of Qualification</span>
+                <th scope="col" style="text-align:right;width:30%;">　　　年　 　月　　日取得  <br>
                 </th>                                   
             </tr>
-            
+            <tr class="text-center" style="font-size: 12px;border-top:0px;">
+                <th scope="col" style="text-align:right;width:20%;border-right:0px;">Level
+                </th>
+                <th scope="col" class="align-middle" style="width:50%;text-align: right;">号
+                </th>
+                <th scope="col" style="text-align:center;width:30%;">Date of Qualification
+                </th>                                   
+            </tr>
         </table>                     
 </section>
 <section class="edu-background">	
@@ -220,15 +252,6 @@ $html = '
                                     <th scope="col" style="width: 10%;border-left: none;text-align:center;">職種 <br> Type of Work</th>
                                     <th scope="col" style="width: 25%;text-align:center;">修学期間<br>Period</th>
                                 </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;">
-                                        自from <span>2009</span> 年 <span>06</span> 月 <br>
-                                        至to   <span>2013</span> 年 <span>06</span> 月
-                                        </td>
-                                    </tr>
                                     <tr>
                                         <td style="font-size: 11px; text-align: right;"></td>
                                         <td style="font-size: 12px; text-align: left;"></td>
@@ -385,18 +408,32 @@ $html = '
                                     <th scope="col" style="width: 10%;text-align:center;">職業 Occupation</th>
                                 </tr>
                                 <tr>
-                                    <td style="font-size: 11px; text-align: right;"></td>
-                                    <td style="font-size: 12px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
+                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
                                 </tr>
                                 <tr>
-                                    <td style="font-size: 11px; text-align: right;"></td>
-                                    <td style="font-size: 12px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
+                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
+                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
+                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
                                 </tr>
                         </table>                     
 </section>
@@ -414,28 +451,20 @@ $html = '
                                     <th scope="col" style="width: 10%;text-align:center;">外国人登録証明書番号 <br> Certificate of Alien <br> Registration No.</th>
                                 </tr>
                                 <tr>
-                                    <td style="font-size: 11px; text-align: right;"></td>
-                                    <td style="font-size: 12px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
+                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
                                 </tr>
                                 <tr>
-                                    <td style="font-size: 11px; text-align: right;"></td>
-                                    <td style="font-size: 12px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
-                                </tr>
-                                <tr>
-                                    <td style="font-size: 11px; text-align: right;"></td>
-                                    <td style="font-size: 12px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
-                                    <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
+                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
                                 </tr>
                         </table>                     
 </section>
@@ -530,32 +559,80 @@ $html = '
                                 <p> 日本語を学ぶ目的(詳しく)  </p>
                             </td>
                         </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;"></p>
+                        <tr style="border-top:0px;"> 
+                            <td colspan="5" style="width: 100%;height:39px;">
                             </td>
                         </tr>
                         <tr style=""> 
-                            <td colspan="5" style="width: 100%;"></p>
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
                             </td>
                         </tr>
                         <tr style=""> 
-                            <td colspan="5" style="width: 100%;"></p>
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
                             </td>
                         </tr>
                         <tr style=""> 
-                            <td colspan="5" style="width: 100%;"></p>
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
                             </td>
                         </tr>
                         <tr style=""> 
-                            <td colspan="5" style="width: 100%;"></p>
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
                             </td>
                         </tr>
                         <tr style=""> 
-                            <td colspan="5" style="width: 100%;"></p>
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
                             </td>
                         </tr>
                         <tr style=""> 
-                            <td colspan="5" style="width: 100%;"></p>
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
                             </td>
                         </tr>
                     </table>                     
@@ -569,24 +646,24 @@ $html = '
                         　　     I swear to abide Japanese law and schools’ rule after I obtain permission of Japan entrance.
                                 </td>
                         </tr>
-                        <tr style="margin:0 auto;border-top:none;border-bottom:none;">
-                            <th colspan="1" style="border:none;"></th>
-                            <th colspan="2" style="border:none;">				
+                        <tr style="width:80%;margin:0 auto;border-top:none;border-bottom:none;">
+                            <!-- <th colspan="1" style="border:none;"></th> -->
+                            <td colspan="2" style="border:none;padding-left:100px;">				
                             申請日Date of Application
-                            </th>
-                            <td colspan="2" style="border:none;">年　    　　月　　   　日
-                                <br>    year        month      day
+                            </td>
+                            <td colspan="3" style="border:none;padding-left:50px;">年　    　　月　　   　日
+                                <br>    year　　month　　day
                             </td>
                         </tr>
-                        <tr style="margin:0 auto;border-bottom:none;border-top:none;">
-                            <th colspan="1" style="border:none;"></th>
-                            <th colspan="2" style="border:none;">				
+                        <tr style="width:100%;margin:0 auto;border-bottom:none;border-top:none;">
+                            <!-- <th colspan="1" style="border:none;"></th> -->
+                            <td colspan="2" style="border:none;padding-left:100px;">				
                             申請人署名　 Signature of Applicant
-                            </th>
-                            <td colspan="2" style="border:none;"></td>
+                            </td>
+                            <td colspan="3" style="border:none;"></td>
                         </tr>
-                        <tr style="margin:0 auto;border-top:none;">
-                        <th colspan="5" style="border:none;float:right;text-align:right;">____________________________________________</th>
+                        <tr style="width:100%;margin:0 auto;border-top:none;">
+                        <th colspan="5" style="border:none;float:right;text-align:right;padding-bottom:20px;">_____________________________________________________________</th>
                         </tr>
                         </table>                     
 </section>

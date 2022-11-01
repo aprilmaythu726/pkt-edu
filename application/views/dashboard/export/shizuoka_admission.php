@@ -13,7 +13,7 @@ $html = '
 }
    
 body {
-    font-size: 14px;
+    font-size: 13px;
     color: #111;
     font-weight: normal;
     font-family: sjis;
@@ -77,16 +77,16 @@ th{
 <section class="header" style="display: inline;position:absolute;">
 	<div class="application-title" style="text-align:center;font-family:sjis;margin-left:80px;">
 		<h2 style="font-family: sjis;padding:0px;margin:10px;">国際ことば学院日本語学校　入学願書</h2>
-        <p>Application for Admission to<br/> Kokusai Kotoba Gakuin Japanese Language School</p>
+        <p style="font-size:14px;">Application for Admission to<br/> Kokusai Kotoba Gakuin Japanese Language School</p>
 	</div>
 </section>
-<section class="header">
+<section class="header" style="padding: 0px;margin:0px;">
 <div class="application-title" style="width:20%;height:160px;border:1px solid #000000;margin-left:550px;">
 		<p>Photo</p>
         <p>4cm×3cm</p>
 </div>
 </section>
-<section class="personal-info" style="width:100%;padding-top:22px;">
+<section class="personal-info" style="width:100%;">
 <div class="personal" style="width: 100%;display:inline-block;">
 <h4 style="margin:0px;font-family: sjis;">1.氏名、性別、国籍、生年月日、年齢、出生地 <p style="font-size:12px ;">Applicant's name, sex, nationality, date of birth, age, place of birth</p></h4>
     <table style="width:100%;">
@@ -111,7 +111,7 @@ th{
         <td style="width:30% ;text-align: left;">(省Province) ・ （市 City)</td>
       </tr>
     </table>
-<p style="font-family: sjis;font-size:11px;text-align:right;">
+<p style="font-family: sjis;font-size:11px;text-align:right;line-height:11px;">
     ※パスポートの出生地と同じように書いてくださいPlease write as same as on your Passport<br/>
     ※中国人の方は必ず「省」も書いて下さい。Chinese applicant must add the province name,too
 </p>
@@ -154,12 +154,12 @@ th{
 </div>
 </section>
 
-<section class="personal-info" style="width:100%;padding-top:22px;">
+<section class="personal-info" style="width:100%;padding-top:10px;">
 <div class="personal" style="width: 100%;display:inline-block;">
 <h4 style="margin:0px;font-family: sjis;">3.現在の状況　Current Status　＜あなたは現在何をしていますか？＞</h4>
 <div style="width: 100%;">
 <p style="font-size:12px; width:27%;float:left;font-weight:bold;padding-left:10px;">A. 学校在学中（日本語学校を除く）</p>
-<p style="width:70%;font-size: 10px;text-align:left;float:right;">If you are currently being enrolled and registered as a student at a school (except private Japanese Language schools/intitues), please fill in the blanks below.</p>
+<p style="width:70%;font-size: 10px;text-align:left;float:right;line-height:10px;">If you are currently being enrolled and registered as a student at a school (except private Japanese Language schools/intitues), please fill in the blanks below.</p>
 </div>
     <table style="width:100%;">
       <tr style="border-bottom:none !important;">
@@ -183,7 +183,7 @@ th{
 </div>
 </section>
 
-<section class="personal-info" style="width:100%;padding-top:22px;">
+<section class="personal-info" style="width:100%;padding-top:5px;">
 <div class="personal" style="width: 100%;display:inline-block;">
 <div style="width: 100%;">
 <p style="font-size:13px; width:27%;float:left;font-weight:bold;padding-left:10px;">B. 就職している場合</p>
@@ -205,18 +205,15 @@ th{
     </table>
 </div>
 </section>
-<br><br>
-<section class="personal-info" style="width:100%;padding-top:22px;">
+<section class="personal-info" style="width:100%;padding-top:5px;">
 <div class="personal" style="width: 100%;display:inline-block;">
-<p style="font-size:13px; width:100%;float:left;font-weight:bold;padding-left:10px;">
-    C.その他（日本語学校の学生や、上記のA,B以外の場合、状況を詳しく書いて下さい。) 
-</p>
-<p style="font-size:11px;padding-left:10px;">
-    Others (If your are a student of Japanese language course, or neither a student nor a worker, explain your current situation in detail. )
+<p style="font-size:13px; width:100%;font-weight:bold;padding-left:10px;">
+    C.その他（日本語学校の学生や、上記のA,B以外の場合、状況を詳しく書いて下さい。) <br>
+   <span style="font-size: 10px;"> Others (If your are a student of Japanese language course, or neither a student nor a worker, explain your current situation in detail. )</span>
 </p>
 <table style="width: 100%;border:1px solid #000000;">
 <tr>
-    <td style="width: 100%;height:200px;border:1px solid #000000;"></td>
+    <td style="width: 100%;height:80px;border:1px solid #000000;"></td>
  </tr>
 </table>
 </div>
@@ -327,121 +324,158 @@ input {
     border-bottom: 2px solid #1890ff;
 }
 </style>
-<section class="header" style="display: inline;padding-top:20px;">
+<section class="header" style="display: inline;padding-top:15px;">
 	<div class="application-title" style="text-align:center;font-family:sjis;margin-left:80px;">
 		<h2 style="font-family: sjis;padding:0px;margin:10px;">≪履 歴 書≫ PERSONAL HISTORY </h2>
 	</div>
 </section>
-<section class="header" style="display: inline;padding-top:20px;">
+<section class="header" style="display: inline;">
 <form style="border:none !important;border-bottom:2px solid red !important;">
-  <label for="">1. 氏名　< Name ></label>
-  <span>-</span>
-<br/><br/><br/>
-  <label for="">2. 生年月日　< Date of birth ></label>
-  <span>-</span>
-<br/><br/><br/>
-<label for="">4.現住所 < current housing address ></label>
-  <span>-</span>
-  <br/><br/><br/>
-  <p style="font-size: 11px;">(the place you are living now)</p>
-<label for=""> 5. 電話番号 < Phone number ></label>
-  <span>-</span>
-  <br/><br/><br/>
-<label for=""> 6.  Eメール < E-Mail address ></label>
-  <span>-</span>
-  <br/><br/><br/>
-<label for=""> 7.配偶者の有無 <br>< Marital Status > </label>
-<span style="width:40%;font-size: 14px;text-align:left;float:left;">
+<table style="width: 100%;">
+  <tr style="border: none !important;">
+    <th style="width: 10%;background-color:none !important;border: none !important;">1. 氏名 <span  style="font-size: 11px;"> < Name > </span></th>
+    <td style="width: 80%;border: none !important;"></td>
+  </tr>
+  </table>
+
+<table style="width: 100%;">
+  <tr style="border: none !important;width:20%;">
+    <th rowspan="2" style="width: 10%;background-color:none !important;border: none !important;">2. 生年月日<span  style="font-size: 12px;"> < Date of birth > </span></th>
+    <td style="width: 10%;border: none !important;"></td>
+    <td style="width: 10%;border: none !important;">/</td>
+    <td style="width: 10%;border: none !important;">/</td>
+    <th rowspan="2" style="width: 10%;background-color:none !important;border: none !important;">3. 国籍　<span  style="font-size: 12px;"> < Nationality > </span></th>
+    <td rowspan="2" style="width: 10%;border: none !important;"></td>
+  </tr>
+  <tr style="border: none !important;">
+  <td style="width: 10%;border: none !important;text-align:center;">Day</td>
+  <td style="width: 10%;border: none !important;text-align:center;">Month</td>
+  <td style="width: 10%;border: none !important;text-align:center;">Year</td>
+  </tr>
+</table>
+<table style="width: 100%;">
+  <tr style="border: none !important;">
+    <th style="width: 20%;background-color:none !important;border: none !important;">4.現住所 <span  style="font-size: 12px;">< current housing address > </span><p style="font-size: 11px;">(the place you are living now)</p></th>
+    <td style="width: 65%;border: none !important;"></td>
+  </tr>
+</table>
+<br>
+<table style="width: 100%;">
+  <tr style="border: none !important;">
+    <th style="width: 20%;background-color:none !important;border: none !important;">5. 電話番号 <span  style="font-size: 12px;">  < Phone number > </span></th>
+    <td style="width: 30%;border: none !important;text-align:left;">(Home)</td>
+    <td style="width: 30%;border: none !important;text-align:right;text-align:left;">/(Mobile)</td>
+  </tr>
+</table>
+<br>
+  <table style="width: 100%;">
+  <tr style="border: none !important;">
+    <th style="width: 30%;background-color:none !important;border: none !important;">6.  Eメール <span  style="font-size: 12px;"> < E-Mail address > </span></th>
+    <td style="width: 65%;border: none !important;"></td>
+  </tr>
+  </table>
+  <br>
+  <table style="width: 100%;">
+  <tr style="border: none !important;">
+    <th style="width: 28%;background-color:none !important;border: none !important;">7.配偶者の有無 <span  style="font-size: 12px;"> < Marital Status > </span></th>
+    <td style="width: 35%;border: none !important;">
     <input type="radio"><label for="" style="font-size: 14px;">あり < Married ></label>
     <input type="radio"><label for="" style="font-size: 14px;">なし < Single ></label>
-</span>
-<label for=""> 配偶者名 < Name of your spouse > </label>
-<br/><br/><br/>
-<label for=""> 8. 学歴  小学校～最終学歴 < Academic Accomplishments ></label>
-  <span>-</span>
-<p>Please complete your detailed educational backgrounds from elementary to your most recent academic record.</p>
+    </td>
+    <th style="width: 28%;background-color:none !important;border: none !important;"> <span style="font-size: 12px;">配偶者名 < Name of your spouse > </span></th>
+    <td  style="width: 8%;border: none !important;"></td>
+  </tr>
+</table>
+<br>
+<p style="font-weight: bold;"> 8. 学歴  小学校～最終学歴 < Academic Accomplishments ></p>
+<p style="line-height: 2px;">Please complete your detailed educational backgrounds from elementary to your most recent academic record.</p>
 <table>
-    <tr >
-        <th style="text-align:center;">学校名 <br>Name of School</th>
-        <th style="text-align:center;">所在地(住所) <br>Location(Address) <br>Town, City, State/Province and Country</th>
-        <th colspan="3" style="text-align:center;">在籍年月(入学年月~卒業年月) <br>Dates of Attendance <br>Month     Year</th>
-        <th style="text-align:center;">期間  <br>Duration total years</th>
+    <tr style="border-bottom: none !important;">
+        <th rowspan="2" style="text-align:center;">学校名 <br>Name of School</th>
+        <th rowspan="2" style="text-align:center;">所在地(住所) <br><span style="font-size: 11px;">Location(Address) <br>Town, City, State/Province and Country</span></th>
+        <th colspan="3" style="text-align:center;border-bottom: none !important;"><span style="font-size: 11px;">在籍年月(入学年月~卒業年月) </span><br><span style="font-size: 11px;">Dates of Attendance</span></th>
+        <th rowspan="2" style="text-align:center;">期間  <br><span style="font-size: 11px;">Duration total years</span></th>
+    </tr>
+    <tr style="border-top: none !important;">
+      <th style="border-right:none !important;border-top: none !important;"></th>
+      <th style="text-align:center;border-left:none !important;border-right:none !important;border-top: none !important;"><span style="font-size: 11px;">Month </span></th>
+      <th style="text-align:center;border-left:none !important;border-top: none !important;"> <span style="font-size: 11px;">Year</span></th>
     </tr>
     <tr>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;">from</th>
+        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
         <td style="border-right:none !important;"></td> 
         <td style="border-left:none !important;">/</td>  
         <td rowspan="2" style="width: 15%;"></td>
     </tr>
     <tr>
-       <th style="width: 10%;">to</th>
+       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
        <td style="border-right:none !important;"></td> 
        <td style="border-left:none !important;">/</td>  
     </tr>
     <tr>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;">from</th>
+        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
         <td style="border-right:none !important;"></td> 
         <td style="border-left:none !important;">/</td>  
         <td rowspan="2" style="width: 15%;"></td>
     </tr>
     <tr>
-       <th style="width: 10%;">to</th>
+       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
        <td style="border-right:none !important;"></td> 
        <td style="border-left:none !important;">/</td>  
     </tr>
     <tr>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;">from</th>
+        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
         <td style="border-right:none !important;"></td> 
         <td style="border-left:none !important;">/</td>  
         <td rowspan="2" style="width: 15%;"></td>
     </tr>
     <tr>
-       <th style="width: 10%;">to</th>
+       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
        <td style="border-right:none !important;"></td> 
        <td style="border-left:none !important;">/</td>  
     </tr>
     <tr>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;">from</th>
+        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
         <td style="border-right:none !important;"></td> 
         <td style="border-left:none !important;">/</td>  
         <td rowspan="2" style="width: 15%;"></td>
     </tr>
     <tr>
-       <th style="width: 10%;">to</th>
+       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
        <td style="border-right:none !important;"></td> 
        <td style="border-left:none !important;">/</td>  
     </tr>
     <tr>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;">from</th>
+        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
         <td style="border-right:none !important;"></td> 
         <td style="border-left:none !important;">/</td>  
         <td rowspan="2" style="width: 15%;"></td>
     </tr>
     <tr>
-       <th style="width: 10%;">to</th>
+       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
        <td style="border-right:none !important;"></td> 
        <td style="border-left:none !important;">/</td>  
     </tr>
     <tr>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;">from</th>
+        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
         <td style="border-right:none !important;"></td> 
         <td style="border-left:none !important;">/</td>  
         <td rowspan="2" style="width: 15%;"></td>
     </tr>
     <tr>
-       <th style="width: 10%;">to</th>
+       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
        <td style="border-right:none !important;"></td> 
        <td style="border-left:none !important;">/</td>  
     </tr>
@@ -449,32 +483,34 @@ input {
 
 <br><br>
 
-<label for=""> 9. 日本語学習経験　< Experience of studying Japanese ></label>
-  <span>-</span>
-<p>(1)日本語学習時間　< Total study hours of Japanese Language > Please describe your completed hours of studying Japanese. </p>
+<p for="" style="font-weight: bold;"> 9. 日本語学習経験　< Experience of studying Japanese ></p>
+<p style="line-height: 11px;">(1)日本語学習時間　< Total study hours of Japanese Language ><span style="font-size: 10px;">Please describe your completed hours of studying Japanese. </span> </p>
 <table style="width: 75%;">
     <tr >
-        <th style="text-align:center;">学校名 <br>Name of School</th>
-        <th style="text-align:center;">所在地(住所) <br>Location(Address) <br>Town, City, State/Province and Country</th>
-        <th style="text-align:center;">受講コース、<br>レベル <br> Name of class/level </th>
-        <th colspan="3" style="text-align:center;">在籍年月(入学年月~卒業年月) <br>Dates of Attendance <br>Month     Year</th>
-        <th style="text-align:center;">コースの  <br>  総時間数 <br> total hours of the course </th>
-        <th style="text-align:center;">   既習時間数 <br>  総時間数 <br> Total completed hours (up to now)  </th>
-        <th style="text-align:center;">学習状況 <br> Status </th>
+        <th style="text-align:center;width:20%">学校名 <p style="font-size:11px;">Name of School(s)</p></th>
+        <th style="text-align:center;width:40%">所在地(住所)  <p style="font-size:10px;">Location(Address) <br>Town, City, State/Province and Country</p></th>
+        <th style="text-align:center;width:10%;">受講コース、<br>レベル <br> Name of <br>class/level </th>
+        <th colspan="3" style="text-align:center;width:10%;">在籍年月(入学年月~卒業年月) <br>Dates of Attendance <br>Month     Year</th>
+        <th style="text-align:center;width:10%;">コースの  <br>  総時間数 <br> total hours of the course </th>
+        <th style="text-align:center;width:10%;">   既習時間数 <br>  総時間数 <br> Total completed hours (up to now)  </th>
+        <th style="text-align:center;width:10%;">学習状況 <br> Status </th>
     </tr>
     <tr>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;">from</th>
+        <th style="width: 10%;font-size:11px;">from</th>
         <td style="border-right:none !important;width: 10%;"></td> 
         <td style="border-left:none !important;width: 10%;">/</td>  
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
+        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
+        <td rowspan="2" style="width: 15%;">
+       <input type="checkbox"><span style="font-size: 11px;">Completed</span><br>
+       <input type="checkbox"><span style="font-size: 11px;">Still Studying</span><br>
+      </td>
     </tr>
     <tr>
-       <th style="width: 10%;">to</th>
+       <th style="width: 10%;font-size:11px;">to</th>
        <td style="border-right:none !important;width: 10%;"></td> 
        <td style="border-left:none !important;width: 10%;">/</td>  
     </tr>
@@ -482,15 +518,18 @@ input {
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;">from</th>
+        <th style="width: 10%;font-size:11px;">from</th>
         <td style="border-right:none !important;width: 10%;"></td> 
         <td style="border-left:none !important;width: 10%;">/</td>  
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
+        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
+        <td rowspan="2" style="width: 15%;">
+       <input type="checkbox"><span style="font-size: 11px;">Completed</span><br>
+       <input type="checkbox"><span style="font-size: 11px;">Still Studying</span><br>
+      </td>
     </tr>
     <tr>
-       <th style="width: 10%;">to</th>
+       <th style="width: 10%;font-size:11px;">to</th>
        <td style="border-right:none !important;width: 10%;"></td> 
        <td style="border-left:none !important;width: 10%;">/</td>  
     </tr>
@@ -498,15 +537,18 @@ input {
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 15%;"></td>
         <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;">from</th>
+        <th style="width: 10%;font-size:11px;">from</th>
         <td style="border-right:none !important;width: 10%;"></td> 
         <td style="border-left:none !important;width: 10%;">/</td>  
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 15%;"></td>
+        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
+        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
+        <td rowspan="2" style="width: 15%;">
+       <input type="checkbox"><span style="font-size: 11px;">Completed</span><br>
+       <input type="checkbox"><span style="font-size: 11px;">Still Studying</span><br>
+      </td>
     </tr>
     <tr>
-       <th style="width: 10%;">to</th>
+       <th style="width: 10%;font-size:11px;">to</th>
        <td style="border-right:none !important;width: 10%;"></td> 
        <td style="border-left:none !important;width: 10%;">/</td>  
     </tr>
@@ -514,8 +556,8 @@ input {
 </table>
 
 <br><br>
-<p> (2)日本語能力試験合格　< Japanese Language Tests (JLPT, NAT-TEST, J.TEST, TOP-J etc. )></p>
-<p style="padding-left: 9px;">Please write name(s) of Japanese Proficiency Test you have taken and the passed level(s).  </p>
+<p style="line-height: 2px;"> (2)日本語能力試験合格　< Japanese Language Tests (JLPT, NAT-TEST, J.TEST, TOP-J etc. )></p>
+<p style="padding-left: 9px;line-height: 3px;">Please write name(s) of Japanese Proficiency Test you have taken and the passed level(s).  </p>
 <table style="width: 100%;">
    <tr>
     <th colspan="2">受験日(Month/Year of the Test)</th>
@@ -546,8 +588,8 @@ input {
 <div class="personal" style="width: 100%;display:inline-block;">
 <div style="width: 100%;">
 <h4 style="width:50%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">10. 仕事の経験 < Vocational experience(s) ></h4>
-<p style="width:30%;font-size: 14px;text-align:left;float:right;">
-<input type="checkbox"><label for="" style="font-size: 14px;">あり(Yes)</label>
+<p style="width:40%;font-size: 14px;text-align:left;float:right;">
+<input type="checkbox"><label for="" style="font-size: 14px;">あり(Yes)・</label>
 <input type="checkbox"><label for="" style="font-size: 14px;">なし (No)</label>
 </p>
 </div>
@@ -607,11 +649,11 @@ input {
 
 
 <section class="personal-info" style="width:100%;padding-top:22px;">
-<div class="personal" style="width: 100%;display:inline-block;">
+<div class="personal" style="width: 100%;display:inline-block;padding:0px;margin:0px;">
 <div style="width: 100%;">
 <h4 style="width:50%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">11. 来日歴 < Experience of stay in Japan ></h4>
-<p style="width:30%;font-size: 14px;text-align:left;float:right;">
-<input type="checkbox"><label for="" style="font-size: 14px;">あり(Yes)</label>
+<p style="width:40%;font-size: 14px;text-align:left;float:right;">
+<input type="checkbox"><label for="" style="font-size: 14px;">あり(Yes)・</label>
 <input type="checkbox"><label for="" style="font-size: 14px;">なし (No)</label>
 </p>
 </div>
@@ -720,8 +762,7 @@ input {
 </div>
 <br>
 <div style="width: 60%;float:right">
-  <p>署名 Signature:<span>_________________________</span></p>
-  
+  <p>署名 Signature:<span>_______________________________________</span></p>
 </div>
 
 </body>
