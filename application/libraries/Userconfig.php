@@ -214,11 +214,7 @@
 
   public function getTargetdays($date1, $date2, $string)
   {
-    return new DatePeriod(
-      new DateTime($date1),
-      DateInterval::createFromDateString($string),
-      new DateTime($date2),
-    );
+    return new DatePeriod(new DateTime($date1),DateInterval::createFromDateString($string),new DateTime($date2));
   }
 
   public function targetDateGenerate(array $target, $start_date, $end_date) 

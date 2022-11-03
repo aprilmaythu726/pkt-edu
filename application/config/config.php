@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | URL to your CodeIgniter root. Typically this will be your base URL,
 | WITH a trailing slash:
 |
-|	http://example.com/
+|	http://example.com/composer_autoload
 |
 | WARNING: You MUST set this value!
 |
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 // $config['base_url'] = 'http://192.168.0.2/pkt2.0/';
  // $config['base_url'] = 'http://localhost/pkt2.0/';
-$config['base_url'] = 'http://localhost/pkt/';
+$config['base_url'] = 'http://localhost/pkt-edu/';
 
 /*
 |--------------------------------------------------------------------------
@@ -138,7 +138,8 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = TRUE;
+$config['composer_autoload'] = 'vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------

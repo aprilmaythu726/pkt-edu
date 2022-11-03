@@ -19,14 +19,14 @@
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
       <?php if($sub_purchase <= 0) { ?>
         <?php if($result->status == 1) { ?>
-          <a class="btn btn-dark py-1 px-2 text-light" onclick="return confirm('All student data has been added. Are you want to deactive this enroll course?');" href="<?php echo base_url('adm/portal/student/course/deactive/'.$result->id); ?>"><span class="material-icons align-text-bottom">remove_circle_outline</span></a>
+          <a class="btn btn-dark py-1 px-2 text-light" onclick="return confirm('All student data has been added. Are you want to deactive this enroll course?');" href="<?php echo base_url('adm/portal/langschool_applicant/course/deactive/'.$result->id); ?>"><span class="material-icons align-text-bottom">remove_circle_outline</span></a>
         <?php } else { ?>
-          <a class="btn btn-success py-1 px-2 text-light" onclick="return confirm('Are you want to active this enroll course?');" href="<?php echo base_url('adm/portal/student/course/active/'.$result->id); ?>"><span class="material-icons align-text-bottom">done</span></a>
+          <a class="btn btn-success py-1 px-2 text-light" onclick="return confirm('Are you want to active this enroll course?');" href="<?php echo base_url('adm/portal/langschool_applicant/course/active/'.$result->id); ?>"><span class="material-icons align-text-bottom">done</span></a>
         <?php } ?>
       <?php } else { ?>
         <button class="btn btn-success py-1 px-2 text-light" data-toggle="modal" data-target="#addNoteModal"><span class="material-icons align-text-bottom">monetization_on</span></button>
       <?php } ?>
-        <a class="btn btn-secondary py-1 px-2" href="<?php echo base_url('adm/portal/student/view/'.$invoice->id); ?>"><span class="material-icons align-text-bottom">reorder</span></a>
+        <a class="btn btn-secondary py-1 px-2" href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$invoice->id); ?>"><span class="material-icons align-text-bottom">reorder</span></a>
       </div>
     </div>
   </div> 
@@ -139,7 +139,7 @@
           <td>#<?php echo $row->cash_type; ?></td>
           <td><?php echo $row->description; ?></td>
           <td><?php echo $row->created_at; ?></td>
-          <td width="1"><a onclick="return confirm('Are you want to cancel this purchase data?');"  class="text-secondary" href="<?php echo base_url('adm/portal/student/purchase/delete/'.$row->id.'/'.$result->id); ?>"><span class="material-icons align-middle md-20">delete</span></a></td>
+          <td width="1"><a onclick="return confirm('Are you want to cancel this purchase data?');"  class="text-secondary" href="<?php echo base_url('adm/portal/langschool_applicant/purchase/delete/'.$row->id.'/'.$result->id); ?>"><span class="material-icons align-middle md-20">delete</span></a></td>
         </tr>
         <?php $x++; } ?>
       </tbody>
@@ -154,7 +154,7 @@
         <div class="modal-content">
           <?php
             $attributes = array('class' => '');
-            echo form_open('adm/portal/student/purchase/add/'.$result->id, $attributes);
+            echo form_open('adm/portal/langschool_applicant/purchase/add/'.$result->id, $attributes);
             echo form_input(array(
               'name' => 'id',
               'type' => 'hidden',

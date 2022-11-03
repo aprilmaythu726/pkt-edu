@@ -223,16 +223,27 @@ $route['adm/portal/student/view/(:any)'] = '/dashboard/student/view/$1';
 $route['adm/portal/student/edit/(:any)'] = '/dashboard/student/edit/$1';
 $route['adm/portal/student/delete/(:any)'] = '/dashboard/student/delete/$1';
 
-$route['adm/portal/langschool_applicant'] = '/dashboard/langschoolapplicant/index';
-$route['adm/portal/langschool_applicant/add'] = '/dashboard/langschoolapplicant/add';
-$route['adm/portal/langschool_applicant/activated/(:any)'] = '/dashboard/langschoolapplicant/activated/$1';
-$route['adm/portal/langschool_applicant/deactivated/(:any)'] = '/dashboard/langschoolapplicant/deactivated/$1';
-$route['adm/portal/langschool_applicant/permission/activated/(:any)'] = '/dashboard/langschoolapplicant/permission_activated/$1';
-$route['adm/portal/langschool_applicant/permission/deactivated/(:any)'] = '/dashboard/langschoolapplicant/permission_deactivated/$1';
+$route['adm/portal/jls_applicant/jcli_admission'] = '/dashboard/pdf/jcli_admiss';
+$route['adm/portal/jls_applicant/ecc_interview'] = '/dashboard/pdf/ecc_inter';
+$route['adm/portal/jls_applicant/ecc_admission'] = '/dashboard/pdf/ecc_admiss';
 
-$route['adm/portal/langschool_applicant/view/(:any)'] = '/dashboard/langschoolapplicant/view/$1';
-$route['adm/portal/langschool_applicant/edit/(:any)'] = '/dashboard/langschoolapplicant/edit/$1';
-$route['adm/portal/langschool_applicant/delete/(:any)'] = '/dashboard/langschoolapplicant/delete/$1';
+$route['adm/portal/jls_applicant/fukuoka_interview'] = '/dashboard/pdf/fukuoka_inter';
+$route['adm/portal/jls_applicant/fukuoka_admission'] = '/dashboard/pdf/fukuoka_admiss';
+$route['adm/portal/jls_applicant/shizuoka_interview'] = '/dashboard/pdf/shizuoka_inter';
+$route['adm/portal/jls_applicant/shizuoka_admission'] = '/dashboard/pdf/shizuoka_admiss';
+
+$route['adm/portal/jls_applicant'] = '/dashboard/langschoolapplicant/index';
+$route['adm/portal/jls_applicant/add'] = '/dashboard/langschoolapplicant/add';
+$route['adm/portal/jls_applicant/new'] = '/dashboard/langschoolapplicant/new';
+$route['adm/portal/jls_applicant/interview'] = '/dashboard/langschoolapplicant/interview';
+$route['adm/portal/jls_applicant/activated/(:any)'] = '/dashboard/langschoolapplicant/activated/$1';
+$route['adm/portal/jls_applicant/deactivated/(:any)'] = '/dashboard/langschoolapplicant/deactivated/$1';
+$route['adm/portal/jls_applicant/permission/activated/(:any)'] = '/dashboard/langschoolapplicant/permission_activated/$1';
+$route['adm/portal/jls_applicant/permission/deactivated/(:any)'] = '/dashboard/langschoolapplicant/permission_deactivated/$1';
+
+$route['adm/portal/jls_applicant/view/(:any)'] = '/dashboard/langschoolapplicant/view/$1';
+$route['adm/portal/jls_applicant/edit/(:any)'] = '/dashboard/langschoolapplicant/edit/$1';
+$route['adm/portal/jls_applicant/delete/(:any)'] = '/dashboard/langschoolapplicant/delete/$1';
 
 $route['adm/portal/student/invoice/view/(:any)'] = '/dashboard/student/invoice_view/$1';
 $route['adm/portal/student/purchase/add/(:any)'] = '/dashboard/student/purchase_add/$1';

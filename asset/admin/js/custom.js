@@ -325,6 +325,8 @@ $(window).on("load", function() {
 		*****************************************/
     $('#studentDataOnline').DataTable();
     $('#studentDataLocal').DataTable();
+    $('#ApplicantDataNew').DataTable();
+    $('#ApplicantDataInter').DataTable();
 
 
 })(jQuery);
