@@ -15,13 +15,14 @@ $html = '
         }
    
     body {
-                    font-size: 12px;
+                    font-size: 11px;
                     color: #111;
                     font-weight: normal;
                     font-family:firefly, DejaVu Sans, sans-serif;
-                    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif;
-                    /* font-family: "Lucida Console", "Courier New", monospace;
-                    font-family: 'MS PGothic', Arial, sans-serif; */
+                    /* font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif; */
+                    /* font-family: "Lucida Console", "Courier New", monospace; */
+                    /* font-family: 'MS PGothic', Arial, sans-serif; */
+                    font-family: 'Open Sans',sjis,sans-serif; 
                     /* font-family: 'Open Sans', sans-serif; */
                     line-height: 20px;
                 }
@@ -158,17 +159,17 @@ $html = '
 	<div class="logo">
 	</div>
 	<div class="application-title" style="text-align:center;">
-		<h3>Entry Questionnaire</h3>
+		<h3 style="font-size: 20px;font-weight:200;">Questionnaire</h3>
 	</div><br/>
-    <div style="display: inline;">
-        <span class="ecc_date"  style="padding: 20px;margin:20px;">Date:</span>
-        <span class="ecc_date"  style="padding: 20px;margin:20px;"><span>2022</span>year</span>
-        <span class="ecc_date"  style="padding: 20px;margin:20px;"><span>10</span>month</span>
-        <span class="ecc_date"  style="padding: 20px;margin:20px;"><span>09</span>date</span>
+    <div style="display: inline;padding: 0px;margin:0px;">
+        <span class="ecc_date"  style="">Date:</span>
+        <span class="ecc_date"  style=""><span>　　</span>year</span>
+        <span class="ecc_date"  style=""><span>　　</span>month</span>
+        <span class="ecc_date"  style=""><span>　　</span>date</span>
     </div>
 </section>
 <section class="eligibility">	
-<div class="eligibility-status" style="padding: 10px 0px;">        
+<div class="eligibility-status" style="padding: 0px 0px;">        
     </div>																	
 		<table style="width: 100%;">
             <tr>
@@ -212,14 +213,14 @@ $html = '
 </section>
 <section class="personal-info" style="width:100%;padding-top:22px;">
     <div class="personal" style="width: 100%;display:inline-block;">
-    <h4 style="margin:0px;">Educational History : from Elementary School to the Most Recent School</h4>
+    <h4 style="margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px; ">Educational History : from Elementary School to the Most Recent School</h4>
       <table style="width:100%;" class="tbl">
         <thead style="background: #f5f5f5; text-align:center;padding:1px;">
             <tr class="text-center" style="font-size: 12px;">
                 <th scope="col" style="width:35% !important; text-align: center; ">Name of Institution</th>
-                <th scope="col" class="align-middle" style="width: 10%; text-align: center;">Starting<br>Year/Month </th>
-                <th scope="col" style="width: 10%;border-left: none;text-align: center;">Finishing<br>Year/Month</th>	
-                <th scope="col" style="width: 10%;;">Term of Study </th>
+                <th scope="col" class="align-middle" style="width: 10%; text-align: center;border-right:0px;">Starting<br>Year/Month </th>
+                <th scope="col" style="width: 10%;border-left: none;text-align: center;border-left:0px;">Finishing<br>Year/Month</th>	
+                <th scope="col" style="width: 10%;text-align: center;">Term of Study </th>
             </tr>
         </thead>
         <tbody id="stockList">
@@ -260,15 +261,15 @@ $html = '
     </section> 
     <section class="personal-info" style="width:100%;padding-top:22px;">
     <div class="personal" style="width: 100%;display:inline-block;">
-    <h4 style="margin:0px;">Previous Japanese Language Study</h4>
+    <h4 style="margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Previous Japanese Language Study</h4>
       <table style="width:100%;" class="tbl">
         <thead style="background: #f5f5f5; text-align:center;padding:1px;">
             <tr class="text-center" style="font-size: 12px;">
                 <th scope="col" style="width:35% !important; text-align: center; ">Name of Institution</th>
-                <th scope="col" class="align-middle" style="width: 10%; text-align: center;">Starting<br>Year/Month </th>
-                <th scope="col" style="width: 10%;border-left: none;text-align: center;">Finishing<br>Year/Month		
+                <th scope="col" class="align-middle" style="width: 10%; text-align: center;border-right:0px;">Starting<br>Year/Month </th>
+                <th scope="col" style="width: 10%;border-left: none;text-align: center;border-left:0px;">Finishing<br>Year/Month		
                 </th>
-                <th scope="col" style="width: 10%;;">Total Hours of Study </th>
+                <th scope="col" style="width: 10%;text-align: center;">Total Hours of Study </th>
             </tr>
         </thead>
         <tbody id="stockList">
@@ -292,11 +293,11 @@ $html = '
     <section class="personal-info" style="width:100%;display:flex;padding-top:22px;">
     <div style="width:50%;float:left;">
     <div class="personal" style="width: 100%;">
-    <h4 style="margin:0px;">Previous Japanese Language Study</h4>
+    <h4 style="margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Achievement in Japanese language tests  :</h4>
       <table style="width:95%;" class="tbl">
         <thead style="background: #f5f5f5;text-align:center;padding:1px;">
             <tr class="text-center" style="font-size: 12px;">
-                <th scope="col" style="width:60% !important; text-align: center; ">Name of Japanese language test </th>
+                <th scope="col" style="width:60% !important; text-align: center;font-family: 'Open Sans',sjis,sans-serif;font-size:12px; ">Name of Japanese language test </th>
                 <th colspan="2" scope="col" style="width: 40%;text-align:center;">Level</th>
             </tr>
         </thead>
@@ -318,7 +319,7 @@ $html = '
     </div>
     <div style="width:50%;float:right;">
     <div class="personal" style="width: 100%;">
-    <h4 style="margin:0px;">Name of Japanese language tests you are going to take</h4>
+    <h4 style="margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Name of Japanese language tests you are going to take</h4>
       <table style="width:100%;padding-left:10px;" class="tbl">
         <thead style="background: #f5f5f5;text-align:center;padding:1px;padding-left:10px;">
             <tr class="text-center" style="font-size: 12px;">
@@ -345,15 +346,15 @@ $html = '
     </section>
     <section class="personal-info" style="width:100%;padding-top:22px;">
     <div class="personal" style="width: 100%;display:inline-block;">
-    <h4 style="margin:0px;">History of Employment (Write in order, ending with the most recent employment.):</h4>
+    <h4 style="margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">History of Employment (Write in order, ending with the most recent employment.):</h4>
       <table style="width:100%;" class="tbl">
         <thead style="background: #f5f5f5; text-align:center;padding:1px;">
             <tr class="text-center" style="font-size: 12px;">
                 <th scope="col" style="width:35% !important; text-align: center; ">Place of Employment</th>
-                <th scope="col" class="align-middle" style="width: 10%; text-align: center;">Starting<br>Year/Month ~</th>
-                <th scope="col" style="width: 10%;border-left: none;text-align: center;">Finishing<br>Year/Month		
+                <th scope="col" class="align-middle" style="width: 10%; text-align: center;border-right:0px;">Starting<br>Year/Month ~</th>
+                <th scope="col" style="width: 10%;border-left: none;text-align: center;border-left:0px;">Finishing<br>Year/Month		
                 </th>
-                <th scope="col" style="width: 10%;;">Job Description </th>
+                <th scope="col" style="width: 10%;text-align:center;">Job Description </th>
             </tr>
         </thead>
         <tbody id="">
@@ -379,7 +380,7 @@ $html = '
     </section> 
 <br><br>
     <div>
-<h4 style="padding: 0px;margin:0px;">Have you visited Japan?</h4> 	
+<h4 style="padding: 0px;margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Have you visited Japan?</h4> 	
 
 <div style="width:100%;display: inline;">
 <p  style="width:100%;display:inline;">
@@ -391,7 +392,7 @@ $html = '
 </p> 
 </div>
 
-<h4 style="padding: 0px;margin:0px;">Have you applied for Certificate of Eligibility? </h4>	
+<h4 style="padding: 0px;margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Have you applied for Certificate of Eligibility? </h4>	
 <div style="width:100%;display: inline;">
 <p>
     <p style="width:50px;float:left"> Yes / No</p>
@@ -401,22 +402,22 @@ $html = '
     <p style="width:150px;float:right;"> ) </p>
  </p> 
 </div>	
-<h4 style="width:400px;float:left;">Is it possible to provide all required documents in English? 	</h4>
+<h4 style="width:400px;float:left;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Is it possible to provide all required documents in English? 	</h4>
 <p style="width:250px;float:right;">   Yes / No	</p>							
 <h4 style="padding: 0px;margin:0px;width:400px;float:left;">Your future plan after completing a course in ECC:	</h4>								
 <p style="padding: 0px;margin:0px;width:400px;float:left;">
     <p style="width:400px;float: left;">(	</p>
     <p style="width:100px;float: right;">	)</p>	
 </p>
-<h4 style="padding: 0px;margin:0px;">Is there any your family member who understands at least one of the languages which we understand? And, who? </h4>		
+<h4 style="padding: 0px;margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Is there any your family member who understands at least one of the languages which we understand? And, who? </h4>		
 
-<p style="width:400px;float:left;">( Language : English / Chinese / Korean / Thai / Vietnamese / Japanese  </p>
+<p style="width:400px;float:left;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">( Language : English / Chinese / Korean / Thai / Vietnamese / Japanese  </p>
 <p style="width:280px;float:left;">Relationship:<span style="width:200px;float:right;"> )</span></p>	
 
 
 </div>   
 <section class="personal-info" class="personal-info" style="width:100%;padding-top:22px;">
-    <h4 style="margin:0px;">Family Member</h4>	
+    <h4 style="margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Family Member</h4>	
     <div class="personal" style="width: 100%;display:inline-block;">
     <table style="width:100%;" class="tbl">
         <thead style="background: #f5f5f5;padding:1px;">
@@ -485,7 +486,7 @@ $html = '
 
 
 <section class="eligibility"  style="width:100%;padding-top:22px;">	
-    <h4 style="margin:0px;">Financial Sponsor</h4>			
+    <h4 style="margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Financial Sponsor</h4>			
     <div class="personal" style="width: 100%;display:inline-block;">													
 		<table style="width: 100%;">
             <tr>
@@ -513,7 +514,7 @@ $html = '
         </table>
         <table style="width: 100%;">
             <tr>
-			  <th style="width: 20%;border-right:none !important;">Phone Number:</th>
+			  <th style="width: 10%;border-right:none !important;">Phone Number:</th>
 			  <td colspan="3" style="width: 30%;border-left:none !important;"></td>
               <th style="width: 10%;border-right:none !important;">Email:</th>
 			  <td colspan="3" style="width: 30%;border-left:none !important;"></td>
@@ -521,7 +522,7 @@ $html = '
         </table>
         <table style="width: 100%;">
             <tr>
-			  <th style="width: 20%;border-right:none !important;border-top:none !important;border-bottom:none !important;">Occupation:</th>
+			  <th style="width: 15%;border-right:none !important;border-top:none !important;border-bottom:none !important;">Occupation:</th>
 			  <td colspan="3" style="width: 30%;border-left:none !important;border-top:none !important;border-bottom:none !important;"></td>
               <th style="width: 15%;border-right:none !important;border-top:none !important;border-bottom:none !important;">Work Place:</th>
 			  <td colspan="3" style="width: 30%;border-left:none !important;border-top:none !important;border-bottom:none !important;"></td>
@@ -545,7 +546,7 @@ $html = '
 </section>
 <br><br>
 <section class="personal-info" style="width:100%;">
-<h4 style="width:500px;float:left;margin:0px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h4>
+<h4 style="width:500px;float:left;margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:12px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h4>
 <p style="width:100px;float:right;">   Yes / No	</p>	
     <p style="padding: 0px;margin:0px;width:400px;float:left;">If yes, fill in all the family members in Japan.</p>
     <p style="padding: 0px;margin:0px;width:400px;float:left;">Are you planning to stay with them in Japan? :   Yes / No</p>

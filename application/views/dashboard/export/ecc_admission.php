@@ -6,7 +6,7 @@ $html = '
 <link rel="stylesheet" href="asset/css/style.css">
 <style>
 @font-face {
-    font-family: sun-exta, sjis;
+    font-family: sun-exta, big5;
     font-style: normal;
     font-weight: normal;
     src: url('dompdf/dompdf/libs/fonts/DejaVuSans-Bold.ttf') format('truetype');
@@ -16,7 +16,7 @@ body {
     font-size: 14px;
     color: #111;
     font-weight: normal;
-    font-family: sjis;
+    font-family: big5;
     line-height: 20px;
 }
 
@@ -69,15 +69,14 @@ img{
         
 </style>
 </head>
-
 <body>
 <section class="header">
 	<div class="logo">
 	</div>
-	<div class="application-title" style="text-align:center;font-family:sjis;">
-		<h2 style="font-family: sjis;">入　学　願　書 </h2>
+	<div class="application-title" style="text-align:center;font-family:big5;font-size:16px;">
+		<h2 style="font-family: big5;">入　学　願　書 </h2>
 	</div>
-    <div class="application-title" style="text-align:center;">
+    <div class="application-title" style="text-align:center;font-size:14px;font-weight:normal;">
        <h2>Application for Admission</h2>
     </div>
 </section>
@@ -91,7 +90,7 @@ img{
     <div  style="width: 558px;float: left;margin:0px;padding:0px;">
 	<table style="border-bottom:none !important;">
       <tr  style="border-bottom:none !important;">
-        <th rowspan="3" style="text-align:center;float:left;width: 100%;border-right:none !important;">氏名 <br>Name in Full (Family → Given):</th>
+        <th rowspan="3" style="float:left;width: 100%;border-right:none !important;">氏名 <br>Name in Full (Family → Given):</th>
         <td rowspan="3" style="float:right;width: 28%;border-left:none !important;">Yoon Me Me aung Win </td>
         <th rowspan="3" style="width: 15%;border-right:none !important;">性別 <br>SEX</th>
         <td rowspan="3" style="width: 15%;border-left:none !important;">Female</td>
@@ -194,7 +193,7 @@ img{
 </section>
 <section class="personal-info" style="width:100%;padding-top:22px;">
     <div class="personal" style="width: 100%;display:inline-block;">
-    <h4 style="margin:0px;font-family: sjis;">学歴：初等教育(小学校)から順次最終学歴まで  <br/>Educational History : from Elementary School to the Most Recent School</h4>
+    <h4 style="margin:0px;font-family: big5;">学歴：初等教育(小学校)から順次最終学歴まで  <br/>Educational History : from Elementary School to the Most Recent School</h4>
 <table style="width:100%;">
     <tr class="text-center" style="font-size: 12px;">
         <th scope="col" style="width:35% !important; text-align: center; ">学校名<br/>Name of Institution</th>
@@ -243,7 +242,7 @@ img{
     </section> <br><br><br>
     <section class="personal-info" style="width:100%;padding-top:22px;">
     <div class="personal" style="width: 100%;display:inline-block;">
-    <h4 style="margin:0px;font-family: sjis;">日本語学習歴　Previous Japanese Language Study</h4>
+    <h4 style="margin:0px;font-family: big5;">日本語学習歴　Previous Japanese Language Study</h4>
 <table style="width:100%;">
     <tr class="text-center" style="font-size: 12px;">
         <th scope="col" style="width:35% !important; text-align: center; ">学校名<br/>Name of Institution</th>
@@ -286,7 +285,7 @@ img{
     </section> 
     <section class="personal-info" style="width:100%;padding-top:22px;">
     <div class="personal" style="width: 100%;display:inline-block;">
-    <h4 style="margin:0px;font-family: sjis;">職歴(就職年月日順に記載すること)<br/>History of Employment (Write in order, ending with the most recent employment.)</h4>
+    <h4 style="margin:0px;font-family: big5;">職歴(就職年月日順に記載すること)<br/>History of Employment (Write in order, ending with the most recent employment.)</h4>
 <table style="width:100%;">
     <tr class="text-center" style="font-size: 12px;">
         <th scope="col" style="width:35% !important; text-align: center; ">勤務先 <br/>Place of Employment</th>
@@ -328,7 +327,7 @@ img{
     </div>
     </section> 
     <section class="personal-info" class="personal-info" style="width:100%;padding-top:22px;">
-    <h4 style="margin:0px;font-family: sjis;">家族Family Member</h4>	
+    <h4 style="margin:0px;font-family: big5;">家族Family Member</h4>	
     <div class="personal" style="width: 100%;display:inline-block;">
     <table style="width:100%;" class="tbl">
         <thead style="background: #f5f5f5;padding:1px;">
@@ -388,12 +387,12 @@ img{
     </div>
 </section>
 
-<p style="margin:0px;font-family: sjis;">* 同居する全ての家族について記入してください。父母、兄弟姉妹は、別居していても記入してください。
+<p style="margin:0px;font-family: big5;">* 同居する全ての家族について記入してください。父母、兄弟姉妹は、別居していても記入してください。
 <br/>別居の場合は住所を記入してください (同居の場合は不要です)。</p>
-<p style="margin:0px;font-family: sjis;">* Write about every member of family who lives together (No need to write the address). Parents,<br/>　brothers and sisters must be written about even if they live separately (Write the address).</p>
+<p style="margin:0px;font-family: big5;">* Write about every member of family who lives together (No need to write the address). Parents,<br/>　brothers and sisters must be written about even if they live separately (Write the address).</p>
 
 <section class="personal-info" class="personal-info" style="width:100%;padding-top:22px;">
-    <h4 style="margin:0px;font-family: sjis;">在日親族 ( 父 ･ 母 ･ 配偶者 ・子 ･ 兄弟姉妹 ) 及び同居者<br/>Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) or Co-residents</h4>	
+    <h4 style="margin:0px;font-family: big5;">在日親族 ( 父 ･ 母 ･ 配偶者 ・子 ･ 兄弟姉妹 ) 及び同居者<br/>Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) or Co-residents</h4>	
     <div class="personal" style="width: 100%;display:inline-block;">
     <table style="width:100%;" class="tbl">
         <thead style="background: #f5f5f5;padding:1px;">
@@ -443,7 +442,7 @@ img{
 
 <section class="personal-info" style="width:100%;padding-top:22px;">
     <div class="personal" style="width: 100%;display:inline-block;">
-    <h4 style="margin:0px;font-family: sjis;">出入国歴<br/>Previous Stay in Japan</h4>
+    <h4 style="margin:0px;font-family: big5;">出入国歴<br/>Previous Stay in Japan</h4>
 <table style="width:100%;">
     <tr class="text-center" style="font-size: 12px;">
         <th scope="col" style="text-align: center; ">入国年月日 <br/>Date of Entry</th>
@@ -503,7 +502,7 @@ img{
         <td style="font-size: 11px; text-align: left;width:15%;">-</td>
         <th style="width:10%;">times</th>
         <td style="font-size: 11px; text-align: left;">-</td>
-        <th style="width:25%;font-family: sjis;">入国目的 Purpose of Entry：</th>
+        <th style="width:25%;font-family: big5;">入国目的 Purpose of Entry：</th>
         <td style="font-size: 11px; text-align: left;">-</td>
         </tr>
     </table>
@@ -526,21 +525,21 @@ img{
 
     <section class="personal-info" style="width:100%;"> 
     <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
-        <tr style="width: 100%;font-family: sjis;">
+        <tr style="width: 100%;font-family: big5;">
             <th >犯罪歴(日本または海外)  Criminal Record (in Japan or Overseas)</th>
         </tr>
     </table>
     <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
         <tr style="width: 100%;">
         <td style="font-size: 11px; text-align: left;width:15%;">-</td>
-        <th style="width:25%;font-family: sjis;">具体的内容 Details:</th>
+        <th style="width:25%;font-family: big5;">具体的内容 Details:</th>
         <td style="font-size: 11px; text-align: left;">-</td>
         </tr>
     </table>
     </section> 
     <section class="personal-info" style="width:100%;"> 
     <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
-        <tr style="width: 100%;font-family: sjis;">
+        <tr style="width: 100%;font-family: big5;">
             <th >犯罪歴(日本または海外)  Criminal Record (in Japan or Overseas)</th>
         </tr>
     </table>
@@ -552,7 +551,7 @@ img{
     </section> 
 <section class="personal-info" style="width:100%;"> 
     <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
-        <tr style="width: 100%;font-family: sjis;">
+        <tr style="width: 100%;font-family: big5;">
             <th >本校での学習終了後の予定<br/>Specific Plans after Graduating from ECC</th>
         </tr>
     </table>
@@ -563,10 +562,10 @@ img{
     </table>
 </section> 
 <section class="personal-info" style="width:100%;padding-top:22px;"> 
-<!-- <h4 style="width: 100%;font-family: sjis;">学習理由　Purpose of Study in Japan</h4>
+<!-- <h4 style="width: 100%;font-family: big5;">学習理由　Purpose of Study in Japan</h4>
 <textarea style="width:100%;padding:0px;margin:0px;" name="" id="" cols="30" rows="10"></textarea> -->
 <table style="border:none !important;padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
-    <tr style="border:none !important;width: 100%;font-family: sjis;">
+    <tr style="border:none !important;width: 100%;font-family: big5;">
      <th style="border:none !important;">学習理由　Purpose of Study in Japan</th>
     </tr>
     <tr>
@@ -574,7 +573,7 @@ img{
 
     </tr>
 </table>
-<p style="font-family: sjis;padding-top:12px;">
+<p style="font-family: big5;padding-top:12px;">
  上記は全て真実であり、私が直筆あるいはコンピュータで作成したものです。<br/>
  I hereby declare the above statement is true and correct, and I myself filled in by my own handwriting or by computer. 
 </p>
@@ -589,7 +588,7 @@ img{
             <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">-</td>
             <th style="border:none !important;width:10%;">月 Month</th>
             <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">-</td>
-            <th style="border:none !important;width:25%;font-family: sjis;width:10%;">日 Date</th> 
+            <th style="border:none !important;width:25%;font-family: big5;width:10%;">日 Date</th> 
         </tr>
     </table>
     </section> 
