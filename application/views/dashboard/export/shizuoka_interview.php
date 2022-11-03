@@ -16,7 +16,7 @@ body {
     font-size: 14px;
     color: #111;
     font-weight: normal;
-    font-family: sjis;
+    font-family: sjis ,sun-exta;
     line-height: 20px;
 }
 
