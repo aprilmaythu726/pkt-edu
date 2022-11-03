@@ -16,7 +16,7 @@ body {
     font-size: 14px;
     color: #111;
     font-weight: normal;
-    font-family: sjis;
+    font-family: sjis ,sun-exta;
     line-height: 20px;
 }
 
@@ -72,16 +72,14 @@ img{
 <body>
 <section class="header" style="border: 1px solid #080707;background-color: #e6e4e3">
 	<div class="application-title" style="text-align:center;font-family:sjis;">
-		<h2 style="padding:8px 0px ;margin:0px;font-family: sjis;">2023 年　4月生  エントリーシート</h2>
-        <h2 style="padding:0px 0px 8px 0px;margin:0px;font-family: sjis;">Entry form for 2023-April students</h2>
+		<h2 style="padding:8px 0px ;margin:0px;font-family: sjis;">2023年 4月生  エントリーシート</h2>
+    <h2 style="padding:0px 0px 8px 0px;margin:0px;font-family: sjis;">Entry form for 2023-April students</h2>
 	</div>
-    <div>
-    </div>
 </section>
-<section class="eligibility">	
+<!-- <section class="eligibility">	
   <table style="width: 100%;">
             <tr style="border-top: none !important;">
-                <th style="width:19%;background-color: #e6e4e3;text-align:center;border-right: none !important;">記入日<br/>date Y/M/D</th>
+                <th style="width:18%;background-color: #e6e4e3;text-align:center;">記入日<br/>date Y/M/D</th>
                 <td style="border-left: none !important;">2022年Y______月M ______日D</td>
             </tr>
   </table>
@@ -89,10 +87,10 @@ img{
 <section class="eligibility">	
   <table style="width: 100%;">
             <tr style="border-top: none !important;">
-                <th style="width:18%;background-color: #e6e4e3;text-align:center;border-right: none !important;">国<br/>Country</th>
+                <th style="width:18%;background-color: #e6e4e3;text-align:center;">国<br/>Country</th>
                 <td style="width:30%;border-left: none !important;border-right: none !important;"></td>
                 <th style="width:18%;background-color: #e6e4e3;text-align:center;border-right: none !important;border-left: none !important;">学校名（紹介者）<br/>Name of School<br/>or Introducer</th>
-                <td style="width:30%;border-left: none !important;"></td>
+                <td style="width:35%;border-left: none !important;"></td>
             </tr>
   </table>
 </section>
@@ -269,7 +267,7 @@ School staff or Introducer can fill out this form instead of Applicant. Please g
 ◆JLPTのN5、NAT-TEST5級のA・Bで合格している方は、面接は原則として免除します。<br/>
 Basically, the applicant who has already passed JLPT-N5 or NAT-5Q(A or B rank), will be excused from our Interview test.   <br/>                   
 </p>
-</section>
+</section> -->
 </body>
 
 </html>
