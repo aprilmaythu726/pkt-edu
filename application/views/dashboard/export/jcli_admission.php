@@ -13,27 +13,27 @@ $html = '
 <body>
 
 <section class="header" style="display: flex;height:100px;">
-        <img src="asset/admin/images/jcli-header.png">
-	<!-- <div class="logo" style="float:left;">
+        <!-- <img src="asset/admin/images/jcli-header.png"> -->
+	<div class="logo" style="float:left;">
     <img src="asset/admin/images/jcli-logo.png">
 	</div>
 	<div class="application-title" style="width:180px;margin: 0 auto;">
-		<h3 style="font-family: sun-exta, gb;font-size:30px;font-weight:bold;margin:0 0 10px;">入 学 願 書</h3>
-		<p style="">Application Form for Admission</p>
+		<h3 style="font-family: big5;font-size:36px;font-weight:bold;margin:0 0 10px;">入 学 願 書</h3>
+		<p style="text-align:center;">Application Form for Admission</p>
 	</div>
 	<div class="school-addr" style="width:300px;float:right;">
-		<h4 style="font-family: sun-exta, gb;">JCLI日本語学校	</h4>													
-		<h5>JCLI JAPANESE LANGUAGE SCHOOL	</h5>													
-		<p>〒114-0003 東京都北区豊島８丁目４番１号</p>
-		<p>TEL：03-5902-5151</p>
-		<p>FAX：03-5902-5152</p>														
+		<h5 style="margin:5px 0px;font-size:22px;font-family:big5;">JCLI 日本語学校</h5>													
+		<h5 style="font-size: 13px;font-weight:100;margin:5px 0px;">JCLI JAPANESE LANGUAGE SCHOOL	</h5>													
+		<p style="margin:0px;">〒114-0003 東京都北区豊島８丁目４番１号</p>
+		<p style="margin:0px;">TEL：03-5902-5151</p>
+		<p style="margin:0px;">FAX：03-5902-5152</p>														
 														
 														
-	</div> -->
+	</div>
     </section>
     <section class="personal-info" style="width:100%;display:block;">
         <img src="asset/admin/images/personal.png" style="width:30px;float:left;margin-right:10px;">
-        <h5 style="font-family: sun-exta, gb;margin-bottom:10px;">申請者情報　/　Personal Information</h5>
+        <h5 style="font-size:12px;font-family: sun-exta, gb;margin-bottom:10px;margin-top:5px;">申請者情報　/　Personal Information</h5>
         <div class="personal" style="width:73%;margin-right:10px;">
         <table style="">
             <tr>
@@ -90,7 +90,7 @@ $html = '
             </table>
         </div>
         <span class="applicant_image">
-            <p style="width:150px;height:100px;border:1p solid #000000;margin-left:20px;float:right;padding:10px 0px 10px 5px;font-size:11px;line-height:15px;">写真貼付欄${student_photo}
+            <p style="width:150px;height:100px;border:1p solid #000000;margin-left:20px;float:right;padding:10px 0px 10px 5px;font-size:10px;line-height:15px;">写真貼付欄${student_photo}
             <br>Photo
             <br>（４ｃｍ×３ｃm ）
             <br><br>・最近３ヶ月以内
@@ -107,27 +107,27 @@ $html = '
     <section class="address" style="width:100%;">
 		<table style="width:100%;">
         <tr>
-			<th style="width: 20%;border-top:0px;background:#f5f5f5;">本国の戸籍住所 <br>Home address</th>
+			<th style="width: 12.75%;border-top:0px;background:#f5f5f5;font-size:10px;">本国の戸籍住所 <br>Home address</th>
 			<td colspan="3"></td>
             </tr>
         <tr>
-			<th style="width: 20%;border-top:0px;background:#f5f5f5;">現在の住所 <br> Present address</th>
+			<th style="width: 12.75%;border-top:0px;background:#f5f5f5;font-size:10px;">現在の住所 <br> Present address</th>
 			<td colspan="3"></td>
             </tr>
 		<tr>
-			<th style="width: 20%;background:#f5f5f5;">電話番号 <br>Phone Number</th>
+			<th style="width: 12.75%;background:#f5f5f5;font-size:10px;">電話番号 <br>Phone Number</th>
 			<td></td>
-            <th style="width: 20%;background:#f5f5f5;">Ｅメール <br> E-mail</th>
+            <th style="width: 12.75%;background:#f5f5f5;font-size:10px;">Ｅメール <br> E-mail</th>
+			<td></td>
+            </tr> -->
+		<tr>
+			<th style="width: 12.75%;background:#f5f5f5;font-size:10px;">旅券番号 <br>Passport No</th>
+			<td></td>
+            <th style="width: 12.75%;background:#f5f5f5;font-size:10px;">有効期限 <br> Date of expiration</th>
 			<td></td>
             </tr>
 		<tr>
-			<th style="width: 20%;background:#f5f5f5;">旅券番号 <br>Passport No</th>
-			<td></td>
-            <th style="width: 20%;background:#f5f5f5;">有効期限 <br> Date of expiration</th>
-			<td></td>
-            </tr>
-		<tr>
-			<th style="width: 20%;background:#f5f5f5;">職業 <br> Occupation</th>
+			<th style="width: 12.75%;background:#f5f5f5;font-size:10px;">職業 <br> Occupation</th>
 			<td colspan="3"></td>
            
             </tr>
@@ -136,10 +136,10 @@ $html = '
 </section>
 <section class="eligibility">	
 <div class="eligibility-status" style="padding: 10px 0px 0px;">	
-<img src="asset/admin/images/past-history.png" style="width:30px;float:left;margin-right:10px;margin-top:10px;">																
+<img src="asset/admin/images/past-history.png" style="width:30px;float:left;margin-right:10px;margin-top:5px;">																
         <p class="badge badge-danger" style="float:left;width: 60%;"> 過去の在留資格認定証明書交付申請歴 <br>
             Past history of applying for a certificate of eligibility</p>
-        <div class="radio" style="width:200px;float:right;margin-top:20px;">
+        <div class="radio" style="width:200px;float:right;margin-top:10px;">
             <label class="col-md-4">
                 <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
             </label>
@@ -168,9 +168,9 @@ $html = '
 </section>
 <section class="eligibility">	
 <div class="eligibility-status" style="padding: 10px 0px 0px;">		
-        <img src="asset/admin/images/record_japan.png" style="width:30px;float:left;margin-right:10px;">															
+        <img src="asset/admin/images/record_japan.png" style="width:30px;float:left;margin-right:10px;margin-top:5px;">															
         <p class="badge badge-danger" style="float:left;width: 30%;"> 過去の来日歴　/　<br>Record of entry to Japan</p>
-        <div class="radio" style="width:200px;float:right;margin-top:20px;">
+        <div class="radio" style="width:200px;float:right;margin-top:10px;">
             <label class="col-md-4">
                 <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
             </label>
@@ -235,9 +235,9 @@ $html = '
     <div class="clearfix mb-5"></div>
     <div class="eligibility-status" style="height:45px;">	
         <img src="asset/admin/images/family.png" style="width:40px;float:left;margin-right:10px;margin-top:10px">															
-        <p class="badge badge-danger" style="float:left;width: 75%;">在日親族（父・母・配偶者・子・兄弟姉妹・祖父母・叔(伯)父・叔(伯)母など）及び同居者 <br>
+        <p class="badge badge-danger" style="float:left;width: 77.9%;">在日親族（父・母・配偶者・子・兄弟姉妹・祖父母・叔(伯)父・叔(伯)母など）及び同居者 <br>
             Family in Japan (father, mother, spouse, children, <br>siblings,grandparents,uncle, aunt or others) and cohabitants</p>
-        <div class="radio" style="width:170px;float:right;margin-top:20px;">
+        <div class="radio" style="width:150px;float:right;margin-top:20px;">
             <label class="col-md-4">
                 <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
             </label>
@@ -306,34 +306,34 @@ $html = '
                             <thead style="background: #f5f5f5; text-align:center;padding:1px;">
                                 <tr class="text-center" style="font-size: 12px;">
                                     <th scope="col" style="width:25% !important">学校名 <br>Name of School</th>
-                                    <th scope="col" class="align-middle" style="width: 10%;">入学年月<br> Enrollment<br>Year/Month ~</th>
-                                    <th scope="col" style="width: 10%;border-left: none">卒業年月<br>Completion<br>Year/Month		
+                                    <th scope="col" class="align-middle" style="width: 10%;border-right:0px;">入学年月<br> Enrollment<br>Year/Month ~</th>
+                                    <th scope="col" style="width: 10%;border-left: none;">卒業年月<br>Completion<br>Year/Month		
                                     </th>
                                     <th scope="col" style="width: 10%;;">修学年数 <br>Total school years</th>
-                                    <th scope="col" style="width: 35%;">"所在地 <br>Location</th>
+                                    <th scope="col" style="width: 35%;">所在地 <br>Location</th>
                                 </tr>
                             </thead>
                             <tbody id="stockList">
                                     <tr>
                                         <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                        <td style="font-size: 12px; text-align: left;border-right:0px;"></td>
+                                        <td style="font-size: 11px; text-align: left;border-left: none;">~</td>
                                         <td style="font-size: 11px; text-align: left;"></td>
                                        
                                         <td style="font-size: 11px; text-align: right;">-</td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                        <td style="font-size: 12px; text-align: left;border-right:0px;"></td>
+                                        <td style="font-size: 11px; text-align: left;border-left: none;">~</td>
                                         <td style="font-size: 11px; text-align: left;"></td>
                                        
                                         <td style="font-size: 11px; text-align: right;">-</td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                        <td style="font-size: 12px; text-align: left;border-right:0px;"></td>
+                                        <td style="font-size: 11px; text-align: left;border-left: none;">~</td>
                                         <td style="font-size: 11px; text-align: left;"></td>
                                        
                                         <td style="font-size: 11px; text-align: right;">-</td>
@@ -365,7 +365,7 @@ $html = '
     <div class="clearfix mb-5"></div>
     <div class="eligibility-status" style="padding: 10px 0px 0px;">	
         <img src="asset/admin/images/occupational.png" style="width:30px;float:left;margin-right:10px;">														
-        <p class="badge badge-danger" style="float:left;width: 40%;">職歴　/　Occupational experience</p>
+        <p class="badge badge-danger" style="float:left;width: 40%;margin-top:5px;">職歴　/　Occupational experience</p>
         <div class="radio" style="width:200px;float:right;">
             <label class="col-md-4">
                 <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
@@ -378,9 +378,9 @@ $html = '
                         <table style="width:100%;" class="tbl">
                             <thead style="background: #f5f5f5; text-align:center;padding:1px;">
                                 <tr class="text-center" style="font-size: 12px;">
-                                    <th scope="col" style="width:35% !important;">"会社・事業所名 <br>Name of company</th>
-                                    <th scope="col" class="align-middle" style="width: 10%;">入学年月<br> Enrollment<br>Year/Month ~</th>
-                                    <th scope="col" style="width: 10%;border-left: none">卒業年月<br>Completion<br>Year/Month		
+                                    <th scope="col" style="width:35% !important;">会社・事業所名 <br>Name of company</th>
+                                    <th scope="col" class="align-middle" style="width: 10%;border-right:0px;">入学年月<br> Enrollment<br>Year/Month ~</th>
+                                    <th scope="col" style="width: 10%;border-left: none;border-left:0px;">卒業年月<br>Completion<br>Year/Month		
                                     </th>
                                     <th scope="col" style="width: 10%;;">修学年数 <br>職業 <br>Job content</th>
                                     <th scope="col" style="width: 35%;">"所在地 <br>Location</th>
@@ -420,7 +420,7 @@ $html = '
     <div class="clearfix mb-5"></div>
     <div class="eligibility-status" style="padding: 10px 0px 0px;">		
         <img src="asset/admin/images/blank.png" style="width:30px;float:left;margin-right:10px;">														
-        <p class="badge badge-danger" style="float:left;width: 50%;">空白期間／兵役　Blank period／Military service																	
+        <p class="badge badge-danger" style="float:left;width: 50%;margin-top:5px;">空白期間／兵役　Blank period／Military service																	
         </p>
         <div class="radio" style="width:200px;float:right;">
             <label class="col-md-4">
@@ -434,7 +434,7 @@ $html = '
     </div>		
     <table>
         <tr style="width: 100%;">
-            <th style="width: 5%;">				
+            <th style="width: 15%;background:#f5f5f5;">				
                 詳細 <br> Details
             </th>
             <td colspan="6" style="width:700px;">
@@ -668,10 +668,10 @@ $html = '
     <p style="padding: 15px 10px 0px;">卒業後の進路　Plans for after graduation																			</p>
     <table style="width:100%; float: left;">
         <tr>
-			<th rowspan="3" style="width: 15%;background:#f5f5f5;">
+			<th rowspan="3" style="width: 25%;background:#f5f5f5;">
 				日本国内での進学 <br>Higher education in Japan
 			</th>			
-            <th colspan="1" style="width: 15%;background:#f5f5f5;">
+            <th colspan="1" style="width: 10%;background:#f5f5f5;">
 				学校種別 <br> Type of schools
 			</th>
             <td colspan="4"></td>
@@ -692,7 +692,7 @@ $html = '
 			<td colspan="4"></td>
         </tr>
         <tr>
-			<th colspan="1" style="width: 15%;background:#f5f5f5;">
+			<th colspan="1" style="width: 25%;background:#f5f5f5;">
                 就職 <br> Employment								
 			</th>			
             <th colspan="1" style="width: 15%;background:#f5f5f5;">
@@ -701,13 +701,13 @@ $html = '
 			<td colspan="4"></td>
         </tr>
         <tr>
-			<th colspan="1" style="width: 15%;background:#f5f5f5;">
+			<th colspan="1" style="width: 25%;background:#f5f5f5;">
 				帰国・復学 <br> Return to home country
 			</th>			
-            <th colspan="1" style="width: 30%;background:#f5f5f5;">
+            <th colspan="2" style="width: 30%;background:#f5f5f5;">
 				いつ頃帰国する予定ですか？<br> When will you return?
 			</th>	
-			<td colspan="4"></td>
+			<td colspan="3"></td>
         </tr>
         <tr>
 
@@ -745,8 +745,8 @@ $html = '
                     /* font-family:firefly, DejaVu Sans, sans-serif;
                     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif; */
                     /* font-family: "Lucida Console", "Courier New", monospace;*/               
-                    font-family: sjis;
-                    /* font-family: 'Open Sans', sans-serif; */
+                    /* font-family: sjis; */
+                    font-family: 'Open Sans',big5,sans-serif;
                     line-height: 20px;
                 }
                 

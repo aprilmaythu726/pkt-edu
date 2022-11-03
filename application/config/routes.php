@@ -232,6 +232,9 @@ $route['adm/portal/jls_applicant/fukuoka_admission'] = '/dashboard/pdf/fukuoka_a
 $route['adm/portal/jls_applicant/shizuoka_interview'] = '/dashboard/pdf/shizuoka_inter';
 $route['adm/portal/jls_applicant/shizuoka_admission'] = '/dashboard/pdf/shizuoka_admiss';
 
+$route['adm/portal/jls_applicant/employee'] = '/dashboard/employee/index';
+$route['adm/portal/jls_applicant/employee/createexcel'] = '/dashboard/employee/createExcel';
+
 $route['adm/portal/jls_applicant'] = '/dashboard/langschoolapplicant/index';
 $route['adm/portal/jls_applicant/add'] = '/dashboard/langschoolapplicant/add';
 $route['adm/portal/jls_applicant/new'] = '/dashboard/langschoolapplicant/new';

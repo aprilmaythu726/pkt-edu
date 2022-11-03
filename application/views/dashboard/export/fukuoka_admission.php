@@ -66,7 +66,7 @@ $html = '
             </td>
         </tr>
         <tr style="width: 80%;border-top:0px;border-bottom:0px;"> 
-			<td style="width: 80%;border-top:0px;">英字  In Roman Letters 
+			<td style="width: 80%;border-top:0px;padding:15px;">英字  In Roman Letters 
             <span></span>
             </td>
         </tr>
@@ -79,15 +79,15 @@ $html = '
     <table style="width:100%; padding_top:20px" class="tbl">
                                 
         <tr class="text-center" style="font-size: 12px;">
-            <th scope="col" colspan="2" style="text-align:left;border-right:0px;">3  生年月日<br>Date of Birth
+            <th scope="col" colspan="3" style="text-align:left;border-right:0px;">3  生年月日<br>Date of Birth
             </th>
-            <th scope="col" colspan="2" style="text-align:left;border-left:0px;">
+            <th scope="col" colspan="3" style="text-align:left;border-left:0px;">
                 <span>年　　　 月　　　日</span>
             </th>
             <th scope="col" colspan="3" class="align-middle" style="text-align:left;">4  出生地Place of Birth <br>
                 <span>test test</span>
             </th>
-            <th scope="col" colspan="3" style="text-align:left;">5  国籍Nationality<br>
+            <th scope="col" colspan="2" style="text-align:left;">5  国籍Nationality<br>
                 <span>Myanamar</span>
             </th>                                   
         </tr>
@@ -105,14 +105,14 @@ $html = '
                 <th scope="col" colspan="1" style="text-align:left;border-right:0px;">7  婚姻関係 <br>Marital
                 </th>
                 <th colspan="1" style="text-align:left;border-left:0px;border-right:0px;">  
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked=checked> 
+                    <input type="checkbox" id="vehicle1" nam e="vehicle1" value="Bike" style="float:left;" checked=checked> 
                     <br><label for="vehicle1">未婚  Single</label>
                 </th>
                 <th colspan="1" style="text-align:left;border-left:0px;">
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
                     <br><label for="vehicle1"> 既婚  Married </label>
                 </th>
-                <th colspan="2" scope="col" class="align-middle" style="text-align:cenleftter;">8  職業 <br>Occupation 
+                <th colspan="3" scope="col" class="align-middle" style="text-align:cenleftter;">8  職業 <br>Occupation 
                     <span>test</span>
                 </th>
                 <th colspan="2" scope="col" class="align-middle" style="text-align:cenleftter;">9  小学校入学年龄 <br>Entrance Age to　Elementary School<br>
@@ -122,12 +122,12 @@ $html = '
                      
             </tr>
             <tr style="border-bottom:0px;"> 
-                <td colspan="10" style="width: 100%;border-bottom:0px;">10  現住所Present Address　　　　　                   
+                <td colspan="11" style="width: 100%;border-bottom:0px;">10  現住所Present Address　　　　　                   
                     <span></span>
                 </td>
             </tr>
             <tr  style="width: 100%;border-top:0px;">
-                <td colspan="10" style="text-align: right;border-bottom:0px;">電話 Phone <span>_________________</span></td>
+                <td colspan="11" style="text-align: right;border-bottom:0px;">電話 Phone <span>_________________</span></td>
             </tr>
     </table>                  
 </section>
@@ -221,21 +221,21 @@ $html = '
                     </td>
             </tr>                                
             <tr class="text-center" style="font-size: 12px;border-top:0px;border-bottom:0px;">
-                <th scope="col" style="text-align:right;width:20%;border-right:0px;">
-                <span>None</span>
+                <th scope="col" style="text-align:right;width:25%;border-right:0px;">
+                <span></span>
                 級  
                 </th>
-                <th scope="col" class="align-middle" style="width:50%;text-align: left;"> 証書番号　Number <br>
+                <th scope="col" class="align-middle" style="width:40%;text-align: left;"> 証書番号　Number <br>
                 </th>
-                <th scope="col" style="text-align:right;width:30%;">　　　年　 　月　　日取得  <br>
+                <th scope="col" style="text-align:right;width:35%;">　　　年　 　月　　日取得  <br>
                 </th>                                   
             </tr>
             <tr class="text-center" style="font-size: 12px;border-top:0px;">
-                <th scope="col" style="text-align:right;width:20%;border-right:0px;">Level
+                <th scope="col" style="text-align:right;width:25%;border-right:0px;">Level
                 </th>
-                <th scope="col" class="align-middle" style="width:50%;text-align: right;">号
+                <th scope="col" class="align-middle" style="width:40%;text-align: right;">号
                 </th>
-                <th scope="col" style="text-align:center;width:30%;">Date of Qualification
+                <th scope="col" style="text-align:center;width:35%;">Date of Qualification
                 </th>                                   
             </tr>
         </table>                     
@@ -287,25 +287,25 @@ $html = '
                             </td>
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">·どんなビザですか  Status？ </th>
+                            <th style="width: 50%;border:none;">　　·どんなビザですか  Status？ </th>
                             <td colspan="4" style="border:none;">
                             _________________________________________________
                             </td>
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">·どこの学校(校名)　Name of school    </th>
+                            <th style="width: 50%;border:none;">　　·どこの学校(校名)　Name of school    </th>
                             <td colspan="4" style="border:none;">
                             _________________________________________________
                             </td>
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">·どこの入国管理局ですか  Which one？</th>
+                            <th style="width: 50%;border:none;">　　·どこの入国管理局ですか  Which one？</th>
                             <td colspan="4" style="border:none;">
                             _________________________________________________
                             </td>
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">·どこの入国管理局ですか  Which one？</th>
+                            <th style="width: 50%;border:none;">　　·どこの入国管理局ですか  Which one？</th>
                             <td colspan="4" style="border:none;">
                             _________________________________________________
                             </td>
@@ -317,7 +317,7 @@ $html = '
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
                             <td colspan="5" style="border:none;">
-                            　　<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked=checked>
+                            　　　　<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked=checked>
                             <label for="vehicle1">交付</label>
                             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
                             <label for="vehicle1"> 不交付 </label>
@@ -328,7 +328,7 @@ $html = '
                             </td>                         
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
-                        <td colspan="5" style="border-top:none;">　　Reasons(                                                            )</td>
+                        <td colspan="5" style="border-top:none;">　　　　Reasons(                                                            )</td>
                         </tr>
                         <tr style="border-top:none;">
                                     <th style="width: 50%;border:none;">				
@@ -403,7 +403,7 @@ $html = '
                                 <tr class="text-center" style="font-size: 12px;text-align:center;">
                                     <th scope="col" style="width:20% !important;text-align:center;">続柄 Relation</th>
                                     <th scope="col" class="align-middle" style="width: 25%;text-align:center;">氏名　Name</th>
-                                    <th scope="col" style="width: 10%;border-left: none;text-align:center;">年齢Age</th>
+                                    <th scope="col" style="width: 10%;border-left: none;text-align:center;">年齢<br>Age</th>
                                     <th scope="col" style="width: 45%;text-align:center;">現住所　 Address</th>
                                     <th scope="col" style="width: 10%;text-align:center;">職業 Occupation</th>
                                 </tr>
@@ -443,12 +443,12 @@ $html = '
                                     <td colspan="5" style="width: 100%;">19 在日親族(父・母・配偶者・子・兄弟姉妹など)及び同居者  Relatives residing in Japan</td>
                                 </tr>
                                 <tr class="text-center" style="font-size: 12px;text-align:center;">
-                                    <th scope="col" style="width:20% !important;text-align:center;">続柄 <br>Relation</th>
-                                    <th scope="col" class="align-middle" style="width: 25%;text-align:center;">氏名　<br> Name</th>
-                                    <th scope="col" style="width: 10%;border-left: none;text-align:center;">生年月日 <br> Date of Birth</th>
-                                    <th scope="col" style="width: 10%;border-left: none;text-align:center;">国籍 <br>Nationality </th>
-                                    <th scope="col" style="width: 45%;text-align:center;">勤務先 <br>Name of Employer</th>
-                                    <th scope="col" style="width: 10%;text-align:center;">外国人登録証明書番号 <br> Certificate of Alien <br> Registration No.</th>
+                                    <th scope="col" style="width:10% !important;text-align:center;">続柄 <br>Relation</th>
+                                    <th scope="col" class="align-middle" style="width: 13%;text-align:center;">氏名　<br> Name</th>
+                                    <th scope="col" style="width: 15%;border-left: none;text-align:center;">生年月日 <br> Date of Birth</th>
+                                    <th scope="col" style="width: 12%;border-left: none;text-align:center;">国籍 <br>Nationality </th>
+                                    <th scope="col" style="width: 25%;text-align:center;">勤務先 <br>Name of Employer</th>
+                                    <th scope="col" style="width: 25%;text-align:center;">外国人登録証明書番号 <br> Certificate of Alien <br> Registration No.</th>
                                 </tr>
                                 <tr>
                                     <td style="font-size: 11px; text-align: right;height:39px;"></td>
@@ -487,7 +487,7 @@ $html = '
                             __________________________________________
                             </td>
                         </tr>
-                        <tr style="border-bottom:none;border-top:none;">
+                        <tr style="border-top:none;">
                             <th style="width: 10%;border:none;">				
                               職業 <br> Occupation
                             </th>
@@ -501,7 +501,7 @@ $html = '
                             __________________________________________
                             </td>
                         </tr>
-                        <tr style="border-top:none;">
+                        <tr style="">
                             <th style="width: 10%;border:none;">				
                               住所 <br> Address
                             </th>
@@ -635,20 +635,36 @@ $html = '
                             <td colspan="5" style="width: 100%;height:39px;"></p>
                             </td>
                         </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
+                        <tr style=""> 
+                            <td colspan="5" style="width: 100%;height:39px;"></p>
+                            </td>
+                        </tr>
                     </table>                     
 </section>
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
-                        <tr style="width:80%;margin:0 auto;border-top:0px;border-bottom:none;"> 
-                                <td colspan="5" style="width: 100%;text-align:center;">
-                                上記のとおり相違ありません。I hereby declare the above statement is true and correct.<br>
-                                許可を受け、日本に入国後、日本国の法律を守り，学校の規則に従うことを誓います。<br>
-                        　　     I swear to abide Japanese law and schools’ rule after I obtain permission of Japan entrance.
+                        <tr style="width:100%;margin:0 auto;border-top:0px;border-bottom:none;"> 
+                                <td colspan="5" style="line-height:20px;letter-spacing: 1px;">
+                                <p style="width:100%;padding-left:100px;">　　　　　　上記のとおり相違ありません。I hereby declare the above statement is true and correct.<br>
+                                　　　　　　許可を受け、日本に入国後、日本国の法律を守り，学校の規則に従うことを誓います。</p>
+                                <p>　　　　　　　　I swear to abide Japanese law and schools’ rule after I obtain permission of Japan entrance.</p>
                                 </td>
                         </tr>
                         <tr style="width:80%;margin:0 auto;border-top:none;border-bottom:none;">
                             <!-- <th colspan="1" style="border:none;"></th> -->
-                            <td colspan="2" style="border:none;padding-left:100px;">				
+                            <td colspan="2" style="border:none;padding-left:85px;">				
                             申請日Date of Application
                             </td>
                             <td colspan="3" style="border:none;padding-left:50px;">年　    　　月　　   　日
@@ -657,7 +673,7 @@ $html = '
                         </tr>
                         <tr style="width:100%;margin:0 auto;border-bottom:none;border-top:none;">
                             <!-- <th colspan="1" style="border:none;"></th> -->
-                            <td colspan="2" style="border:none;padding-left:100px;">				
+                            <td colspan="3" style="border:none;padding-left:85px;">				
                             申請人署名　 Signature of Applicant
                             </td>
                             <td colspan="3" style="border:none;"></td>
@@ -667,6 +683,7 @@ $html = '
                         </tr>
                         </table>                     
 </section>
+<p>（各項目を必ず記入すること。空白の場合は該当内容はないものと見なす。用紙不足の場合は別紙利用可 ） </p>
 </body>
 <style>
     body {
@@ -676,9 +693,12 @@ $html = '
                     /* font-family:firefly, DejaVu Sans, sans-serif;
                     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif; */
                     /* font-family: "Lucida Console", "Courier New", monospace;*/               
-                    font-family: sjis;
+                    /* font-family: sjis; */
+                    font-family: "MS 明朝",sjis,serif; 
+                    /* font-family: "Gothicbi", sjis, sans-serif; */
                     /* font-family: 'Open Sans', sans-serif; */
                     line-height: 20px;
+                    letter-spacing: 1px;
                 }
                 
                 table {
