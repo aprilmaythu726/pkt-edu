@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Langschoolapplicant_Model extends CI_Model
 {
 // for globals header
-  private $db1 = "student";
+  private $db1 = "JLS_applicant_info";
   private $db2 = "std_course";
   private $db3 = "course";
   private $db4 = "batch";
@@ -205,9 +205,9 @@ class Langschoolapplicant_Model extends CI_Model
 		return true;
   }
 
-  public function studentNoteInsert($data)
+  public function JLSapplicantinfo($data)
   {
-    $this->db->insert($this->db10, $data);
+    $this->db->insert($this->db1, $data);
     return true;
   }
 

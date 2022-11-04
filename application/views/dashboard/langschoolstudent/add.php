@@ -39,7 +39,7 @@
 <div class="card-body">
     <?php
       $attributes = array('class' => 'form-horizontal form-label-left');
-      echo form_open_multipart('adm/portal/langschool_applicant/add', $attributes);
+      echo form_open_multipart('adm/portal/jls_applicant/add', $attributes);
     ?>
 <div class="col-md-12">
 <div class="col-md-6" style="display: flex;padding-top: 32px;">
@@ -102,7 +102,7 @@
   <!-- JLS Name -->
 <div class="col-md-6 school_list" name="" >
 <p class="list_label">JLS Name </p>
-<select name="" class="form-group col-md-6 school_select">
+<select name="jls_name" class="form-group col-md-6 school_select">
     <option value="">Please Select!</option>
     <option value="ECC">ECC</option>
     <option value="JCLI">JCLI</option>
@@ -146,12 +146,12 @@
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'applicant_name',
+            'name' => 'applicant_name_kanji',
             'type' => 'text',
             'value' => html_escape(set_value('applicant_name',isset($result)?$result->applicant_name:''), ENT_QUOTES),
             'placeholder' => 'Enter student name!',
             'class' => 'form-control',
-            'id' => 'applicant_name',
+            'id' => 'applicant_name_kanji',
             'autocomplete' => ''));
           ?>
         <span class="text-danger"><?php echo form_error('std_name'); ?></span>
@@ -272,7 +272,7 @@ $(function() {
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'email',
+            'name' => 'std_email',
             'type' => 'text',
             'value' => html_escape(set_value('email',isset($result)?$result->email:''), ENT_QUOTES),
             'placeholder' => 'Enter email account!',

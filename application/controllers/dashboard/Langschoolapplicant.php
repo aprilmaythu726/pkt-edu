@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Langschoolapplicant extends CI_Controller
 {
-  private $private_db = "dashboard/Student_Model";
+  private $private_db = "dashboard/Langschoolapplicant_Model";
 	private $data, $key, $url;
   //Initial auth session
 	protected $current_id, $current_user, $current_role, $current_csrf_key, $current_permission, $current_session_count, $current_login_time, $current_log_id, $session_checker, $user_config;
@@ -59,11 +59,11 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config
 		);
 		
-		$list = $this->Student_Model->getStudentList();
+		$list = $this->Langschoolapplicant_Model->getStudentList();
 		//*** Generate necessary key and value
 		$Q_list = _transfer_key_prepare(array_keys_checker($list));
 		$this->data['lists'] = array_transfer($list, $Q_list);
-    $this->data['course'] = $this->Student_Model->getStudentCourseRequest();	
+    $this->data['course'] = $this->Langschoolapplicant_Model->getStudentCourseRequest();	
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
 
     // For data showing (course, )
@@ -83,11 +83,11 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config
 		);
 		
-		$list = $this->Student_Model->getStudentList();
+		$list = $this->Langschoolapplicant_Model->getStudentList();
 		//*** Generate necessary key and value
 		$Q_list = _transfer_key_prepare(array_keys_checker($list));
 		$this->data['lists'] = array_transfer($list, $Q_list);
-    $this->data['course'] = $this->Student_Model->getStudentCourseRequest();	
+    $this->data['course'] = $this->Langschoolapplicant_Model->getStudentCourseRequest();	
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
 
     // For data showing (course, )
@@ -106,11 +106,11 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config
 		);
 		
-		$list = $this->Student_Model->getStudentList();
+		$list = $this->Langschoolapplicant_Model->getStudentList();
 		//*** Generate necessary key and value
 		$Q_list = _transfer_key_prepare(array_keys_checker($list));
 		$this->data['lists'] = array_transfer($list, $Q_list);
-    $this->data['course'] = $this->Student_Model->getStudentCourseRequest();	
+    $this->data['course'] = $this->Langschoolapplicant_Model->getStudentCourseRequest();	
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
 
     // For data showing (course, )
@@ -132,65 +132,46 @@ class Langschoolapplicant extends CI_Controller
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, []);
 
 		if($_POST) {
-			$this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
-			$this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
-      $this->form_validation->set_rules('std_password', 'password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
-      $this->form_validation->set_rules('conf_password', 'confirm password', 'trim|required|min_length[6]|max_length[30]|xss_clean|matches[std_password]');
-      $this->form_validation->set_rules('address', 'address', 'trim|xss_clean');      
-      $this->form_validation->set_rules('std_birthday', 'birthday', 'trim|xss_clean');
-      $this->form_validation->set_rules('std_edu', 'education', 'trim|xss_clean');
-      $this->form_validation->set_rules('std_nrc', 'NRC no.', 'trim|xss_clean');
-      $this->form_validation->set_rules('std_batch', 'batch', 'trim|xss_clean');
-			$this->form_validation->set_rules('phone', 'phone number', 'trim|required|numeric|xss_clean');
-      $this->form_validation->set_rules('std_facebook', 'facebook account', 'trim|xss_clean');
-      $this->form_validation->set_rules('userfile', 'Student photo', 'trim|xss_clean');
+			// $this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
+			// $this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
+      // $this->form_validation->set_rules('std_password', 'password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
+      // $this->form_validation->set_rules('conf_password', 'confirm password', 'trim|required|min_length[6]|max_length[30]|xss_clean|matches[std_password]');
+      // $this->form_validation->set_rules('address', 'address', 'trim|xss_clean');      
+      // $this->form_validation->set_rules('std_birthday', 'birthday', 'trim|xss_clean');
+      // $this->form_validation->set_rules('std_edu', 'education', 'trim|xss_clean');
+      // $this->form_validation->set_rules('std_nrc', 'NRC no.', 'trim|xss_clean');
+      // $this->form_validation->set_rules('std_batch', 'batch', 'trim|xss_clean');
+			// $this->form_validation->set_rules('phone', 'phone number', 'trim|required|numeric|xss_clean');
+      // $this->form_validation->set_rules('std_facebook', 'facebook account', 'trim|xss_clean');
+      // $this->form_validation->set_rules('userfile', 'Student photo', 'trim|xss_clean');
 
-			$this->form_validation->set_message('required', 'You must enter %s!');
-			$this->form_validation->set_message('is_unique', 'Your %s is already exits!');
-			$this->form_validation->set_message('numeric', 'The %s always allow only numbers!');
-			$this->form_validation->set_message('valid_email', 'The %s must be valid!');
+			// $this->form_validation->set_message('required', 'You must enter %s!');
+			// $this->form_validation->set_message('is_unique', 'Your %s is already exits!');
+			// $this->form_validation->set_message('numeric', 'The %s always allow only numbers!');
+			// $this->form_validation->set_message('valid_email', 'The %s must be valid!');
 
 			if ($this->form_validation->run() === false) {
 				$this->load->view('dashboard/langschoolstudent/add', $this->data);
 			} else {
-        $lastid = $this->Student_Model->getLastID();   
-        $lastid = (isset($lastid->id)?$lastid->id:0);
-        $lastid = serial_id_generate("sdid_", $lastid, 5);
-				$password = $this->__passwordDataHashing($this->input->post('std_password'));
-
-				if($this->input->post('std_status') == 1) {
-					$activate_date = date('Y-m-d H:i:s');
-				}else{
-					$activate_date = "0000-00-00 00:00:00";
-				}
-
-        $authData = array(
-          'std_auth_key' => $this->__generate_auth_key($this->input->post('std_email')),
-          'email' => $this->input->post('std_email'),
-          'password' => $password,
-          'created_at' => date('Y-m-d H:i:s'),
-          'updated_at' => date('Y-m-d H:i:s'),
-        );
-        $authData = $this->__Xss($authData);
-        $std_id = $this->Student_Model->studentInsert($authData);
+        
 
 				$data = array(
-          'std_id' => $std_id,
-          'user_id' => $lastid,
-					'name' => $this->input->post('std_name'),
+					'jls_name' => $this->input->post('jls_name'),
+          'applicant_name' => $this->input->post('applicant_name'),
+          'applicant_name_kanji' => $this->input->post('applicant_name_kanji'),
+          'date_of_birthday' => $this->input->post('date_of_birthday'),
+          'place_birth' => $this->input->post('place_birth'),
+          'age' => $this->input->post('age'),
+          'nationality' => $this->input->post('nationality'),
+          'gender' => $this->input->post('gender'),
+          'martial_status' => $this->input->post('martial_status'),
+          'partaner_name' => $this->input->post('partaner_name'),
+          'std_email' => $this->input->post('std_email'),
           'phone' => $this->input->post('phone'),
-          'address' => $this->input->post('address'),
-          'birthday' => $this->input->post('std_birthday'),
-          'nrc' => $this->input->post('std_nrc'),
-          'education' => $this->input->post('std_edu'),
-          'social' => $this->input->post('std_facebook'),
-          'request_date' => date('Y-m-d H:i:s'),
-          'activate_date' => $activate_date,
-          'expired_date' => "0000-00-00 00:00:00",
-          'created_at' => date('Y-m-d H:i:s'),
-          'updated_at' => date('Y-m-d H:i:s'),
-          'status' => $this->input->post('std_status'),
-          'permission' => $this->input->post('std_permission')
+          // 'created_at' => date('Y-m-d H:i:s'),
+          // 'updated_at' => date('Y-m-d H:i:s'),
+          // 'status' => $this->input->post('std_status'),
+          // 'permission' => $this->input->post('std_permission')
         );
         $data = $this->__Xss($data);
 
@@ -211,9 +192,9 @@ class Langschoolapplicant extends CI_Controller
         //   $this->sendAutoMail(1, $this->input->post('std_email'), 'regConf');
         // }
 
-        $this->Student_Model->studentAuthInsert($data);
+        $this->Langschoolapplicant_Model->JLSapplicantinfo($data);
         $this->session->set_flashdata('msg_success', 'Your data has been insert!');
-        redirect('adm/portal/langschoolstudent');
+        redirect('adm/portal/jls_applicant/add');
 			}
 		} else {
 			$this->load->view('dashboard/langschoolstudent/add', $this->data);
@@ -233,7 +214,7 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config,
 		);
 		
-		$list = $this->Student_Model->studentDetail($id);
+		$list = $this->Langschoolapplicant_Model->studentDetail($id);
 		//*** Current query value checker
 		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
 		//*** Generate necessary key and value
@@ -288,8 +269,8 @@ class Langschoolapplicant extends CI_Controller
         $data = $this->__Xss($data);
 
         //Check validation
-        $checkdata = $this->Student_Model->studentCheck($data, $id);
-        $checkemail = $this->Student_Model->studentEmailCheck($this->input->post('std_email'),$id);
+        $checkdata = $this->Langschoolapplicant_Model->studentCheck($data, $id);
+        $checkemail = $this->Langschoolapplicant_Model->studentEmailCheck($this->input->post('std_email'),$id);
      
         if($this->input->post('std_status') == 1) {
           $data['activate_date'] = date('Y-m-d H:i:s');
@@ -326,8 +307,8 @@ class Langschoolapplicant extends CI_Controller
         } 
           
         if(empty($checkdata) || empty($checkemail)) {
-          $this->Student_Model->studentAuthUpdate($usrData, $id);
-          $this->Student_Model->studentUpdate($data, $id);
+          $this->Langschoolapplicant_Model->studentAuthUpdate($usrData, $id);
+          $this->Langschoolapplicant_Model->studentUpdate($data, $id);
           $this->session->set_flashdata('msg_success', 'Your data has been update!');
           redirect("adm/portal/langschoolstudent");
         }
@@ -355,19 +336,19 @@ class Langschoolapplicant extends CI_Controller
 		  'config' => $this->user_config
 	  );
 	
-	  $list = $this->Student_Model->studentViewDetail($id);
+	  $list = $this->Langschoolapplicant_Model->studentViewDetail($id);
 	  //*** Current query value checker
 	  $this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
 	  //*** Generate necessary key and value
 	  $Q_list = _transfer_key_prepare(object_key_checker($list));
 	  $this->data['result'] = object_transfer($list, $Q_list);
 
-    $course = $this->Student_Model->studentViewCourse($id);
+    $course = $this->Langschoolapplicant_Model->studentViewCourse($id);
 		$Q_list = _transfer_key_prepare(array_keys_checker($course));
 		$this->data['course'] = array_transfer($course, $Q_list);
-    $this->data['record'] = $this->Student_Model->studentViewRecord($id);
-    $this->data['noted'] = $this->Student_Model->studentViewNotes($id);
-    $this->data['batch'] = $this->Student_Model->getBatch();
+    $this->data['record'] = $this->Langschoolapplicant_Model->studentViewRecord($id);
+    $this->data['noted'] = $this->Langschoolapplicant_Model->studentViewNotes($id);
+    $this->data['batch'] = $this->Langschoolapplicant_Model->getBatch();
 	  $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
 
     if($_POST) {
@@ -380,10 +361,10 @@ class Langschoolapplicant extends CI_Controller
         $data['msg'] = "Something wrong!";
 				$this->load->view('dashboard/langschoolstudent/views', $this->data);
 			} else {
-        $lastid = $this->Student_Model->getCourseID();   
+        $lastid = $this->Langschoolapplicant_Model->getCourseID();   
         $lastid = (isset($lastid)?$lastid:1);
         $invoice_number = serial_id_generate("Inv-", $lastid-1, 6);
-        $courseinfo = $this->Student_Model->getBatchDetail($this->input->post('batch_id'));
+        $courseinfo = $this->Langschoolapplicant_Model->getBatchDetail($this->input->post('batch_id'));
 
         $data = array(
 					'std_id' => $this->input->post('std_id'),
@@ -403,13 +384,13 @@ class Langschoolapplicant extends CI_Controller
         }
       
         $data = $this->security->xss_clean($data);        
-				$checkdata = $this->Student_Model->batchCheck($data);
+				$checkdata = $this->Langschoolapplicant_Model->batchCheck($data);
 
 				if ($checkdata){
 					$this->session->set_flashdata('msg_error', 'Your data already exits! please fill other data!');
 					redirect('adm/portal/langschoolstudent/view/'.$id);
         }
-				$cos_id = $this->Student_Model->insertBatch($data);
+				$cos_id = $this->Langschoolapplicant_Model->insertBatch($data);
 
         $invoice = array(
           'std_id' => $this->input->post('std_id'),
@@ -426,7 +407,7 @@ class Langschoolapplicant extends CI_Controller
           'created_at' => date('Y-m-d H:i:s'),
           'updated_at' => date('Y-m-d H:i:s'),
         );
-        $this->Student_Model->insertInvoice($invoice);
+        $this->Langschoolapplicant_Model->insertInvoice($invoice);
 
 				$this->session->set_flashdata('msg_success', 'Your data has been insert!');
 				redirect('adm/portal/langschoolstudent/view/'.$id);
@@ -449,7 +430,7 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config,
 		);
 
-    $list = $this->Student_Model->studentDetail($id);
+    $list = $this->Langschoolapplicant_Model->studentDetail($id);
 		//*** Current query value checker
 		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
     $recent_cover = $list->image_file;
@@ -461,13 +442,13 @@ class Langschoolapplicant extends CI_Controller
       }
     }
 
-		$this->Student_Model->Delete($id);
-    $this->Student_Model->stdAuthDelete($id);
-    $this->Student_Model->stdConfigDelete($id);
-    $this->Student_Model->stdCourseDelete($id);
-    $this->Student_Model->stdInvoiceDelete($id);
-    $this->Student_Model->stdNoteDelete($id);
-    $this->Student_Model->stdPaymentDelete($id);
+		$this->Langschoolapplicant_Model->Delete($id);
+    $this->Langschoolapplicant_Model->stdAuthDelete($id);
+    $this->Langschoolapplicant_Model->stdConfigDelete($id);
+    $this->Langschoolapplicant_Model->stdCourseDelete($id);
+    $this->Langschoolapplicant_Model->stdInvoiceDelete($id);
+    $this->Langschoolapplicant_Model->stdNoteDelete($id);
+    $this->Langschoolapplicant_Model->stdPaymentDelete($id);
 
 		$this->session->set_flashdata('msg_success', 'Your data has been delete!');
     redirect('adm/portal/langschoolstudent');
@@ -488,7 +469,7 @@ class Langschoolapplicant extends CI_Controller
       "status" => 1
     );
 
-    $data['result'] = $this->Student_Model->studentUpdate($data, $id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been activated!');
     redirect("adm/portal/langschoolstudent", $data);
   }
@@ -508,7 +489,7 @@ class Langschoolapplicant extends CI_Controller
 			"status" => 0
 		);
 
-		$data['result'] = $this->Student_Model->studentUpdate($data, $id);
+		$data['result'] = $this->Langschoolapplicant_Model->studentUpdate($data, $id);
 		$this->session->set_flashdata('msg_success', 'Your data has been deactivated!');
 		redirect("adm/portal/langschoolstudent", $data);
 	}
@@ -528,7 +509,7 @@ class Langschoolapplicant extends CI_Controller
       "permission" => 1
     );
 
-    $data['result'] = $this->Student_Model->studentUpdate($data, $id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been activated!');
     redirect("adm/portal/langschoolstudent", $data);
   }
@@ -548,7 +529,7 @@ class Langschoolapplicant extends CI_Controller
       "permission" => 0
     );
 
-    $data['result'] = $this->Student_Model->studentUpdate($data, $id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been deactivated!');
     redirect("adm/portal/langschoolstudent", $data);
   }
@@ -566,22 +547,22 @@ class Langschoolapplicant extends CI_Controller
 		  'config' => $this->user_config
 	  );
 	
-	  $list = $this->Student_Model->studentCourseDetail($id);
+	  $list = $this->Langschoolapplicant_Model->studentCourseDetail($id);
 	  //*** Current query value checker
 	  $this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
 	  //*** Generate necessary key and value
 	  $Q_list = _transfer_key_prepare(object_key_checker($list));
 	  $this->data['result'] = object_transfer($list, $Q_list);
 
-    $invoice = $this->Student_Model->studentInvoiceDetail($id);
+    $invoice = $this->Langschoolapplicant_Model->studentInvoiceDetail($id);
 		$Q_list = _transfer_key_prepare(object_key_checker($invoice));
 		$this->data['invoice'] = object_transfer($invoice, $Q_list);
     
-    $payment = $this->Student_Model->studentPaymentLists($id);
+    $payment = $this->Langschoolapplicant_Model->studentPaymentLists($id);
 		$Q_list = _transfer_key_prepare(array_keys_checker($payment));
     
 		$this->data['payment'] = array_transfer($payment, $Q_list);
-    $this->data['type'] = $this->Student_Model->getStudentPaymentMethod();
+    $this->data['type'] = $this->Langschoolapplicant_Model->getStudentPaymentMethod();
     
 	  $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
   
@@ -612,11 +593,11 @@ class Langschoolapplicant extends CI_Controller
         $this->session->set_flashdata('msg_error', 'Empty Data! please fill data!');
         redirect('adm/portal/langschoolstudent/invoice/view/'.$id);
 			} else {
-        $lastid = $this->Student_Model->getStudentPaymentID();   
+        $lastid = $this->Langschoolapplicant_Model->getStudentPaymentID();   
         $lastid = (isset($lastid)?$lastid:1);
         $pay_number = serial_id_generate("Pay-", $lastid-1, 6);
-        $c_total = $this->Student_Model->CourseTotalPrice($id);
-        $s_cash = $this->Student_Model->studentPurchaseTotal($id);
+        $c_total = $this->Langschoolapplicant_Model->CourseTotalPrice($id);
+        $s_cash = $this->Langschoolapplicant_Model->studentPurchaseTotal($id);
 
        $this->__CheckStudentPurchaseChecker($c_total->total_price, $s_cash[0]->total_cash, $this->input->post('cash'), 'adm/portal/student/course/view/'.$id);
 
@@ -632,14 +613,14 @@ class Langschoolapplicant extends CI_Controller
           'updated_at' => date('Y-m-d H:i:s'),
 				);
         $data = $this->security->xss_clean($data);        
-				$checkdata = $this->Student_Model->studentPaymentCheck($data);
+				$checkdata = $this->Langschoolapplicant_Model->studentPaymentCheck($data);
 
 				if ($checkdata){
 					$this->session->set_flashdata('msg_error', 'Your data already exits! please fill other data!');
 					redirect('adm/portal/langschoolstudent/invoice/view/'.$id);
         }
 
-				$this->Student_Model->insertStdPayment($data);
+				$this->Langschoolapplicant_Model->insertStdPayment($data);
 				$this->session->set_flashdata('msg_success', 'Your data has been insert!');
 				redirect('adm/portal/langschoolstudent/invoice/view/'.$id);
 			}
@@ -668,11 +649,11 @@ class Langschoolapplicant extends CI_Controller
       "status" => 1
     );
 
-    $student_course = $this->Student_Model->studentCourseDetail($id);
-    $target = $this->Student_Model->studentCourseTargetDate($student_course->bat_id);
+    $student_course = $this->Langschoolapplicant_Model->studentCourseDetail($id);
+    $target = $this->Langschoolapplicant_Model->studentCourseTargetDate($student_course->bat_id);
     
-    $data['result'] = $this->Student_Model->studentEnrollUpdate($data, $id);
-    $std_id = $this->Student_Model->getStudentID($id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentEnrollUpdate($data, $id);
+    $std_id = $this->Langschoolapplicant_Model->getStudentID($id);
 
     if($target->liveclass == "on") {
       $initial = $target->start_date;
@@ -689,7 +670,7 @@ class Langschoolapplicant extends CI_Controller
         'created_at' => date('Y-m-d H:i:s'),
         'updated_at' => date('Y-m-d H:i:s'),
       );
-      $this->Student_Model->insertLocalClass($data);
+      $this->Langschoolapplicant_Model->insertLocalClass($data);
     }
     $this->session->set_flashdata('msg_success', 'Your data has been activated!');
     redirect("adm/portal/langschoolstudent/view/".$std_id->std_id, $data);
@@ -714,12 +695,12 @@ class Langschoolapplicant extends CI_Controller
       "status" => 0
     );
 
-    $std_id = $this->Student_Model->getStudentID($id);
+    $std_id = $this->Langschoolapplicant_Model->getStudentID($id);
 
     if(!empty($std_id->std_id)) {
-      $this->Student_Model->studentCalenderDelete($std_id->id, $std_id->std_id);
+      $this->Langschoolapplicant_Model->studentCalenderDelete($std_id->id, $std_id->std_id);
     }
-    $data['result'] = $this->Student_Model->studentEnrollUpdate($data, $id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentEnrollUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been deactivated!');
     redirect("adm/portal/langschoolstudent/view/".$std_id->std_id, $data);
   }
@@ -738,15 +719,15 @@ class Langschoolapplicant extends CI_Controller
 		);
 
 		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $globalHeader);
-    $parentChecker = $this->Student_Model->checkParentCourseInvoice($id);
-    $Checker = $this->Student_Model->checkParentCoursePayment($parentChecker[0]->id);
+    $parentChecker = $this->Langschoolapplicant_Model->checkParentCourseInvoice($id);
+    $Checker = $this->Langschoolapplicant_Model->checkParentCoursePayment($parentChecker[0]->id);
 
     if(count($Checker) > 0 ) {
       $this->session->set_flashdata('msg_error', "Request data can't delete! Purchase has value");
       redirect('adm/portal/langschoolstudent/view/'.$stdid);
     } else {
-      $this->Student_Model->studentCourseDelete($id);
-      $this->Student_Model->studentCourseEnrollDelete($id);
+      $this->Langschoolapplicant_Model->studentCourseDelete($id);
+      $this->Langschoolapplicant_Model->studentCourseEnrollDelete($id);
       $this->session->set_flashdata('msg_success', 'Your data has been delete!');
       redirect("adm/portal/langschoolstudent/view/".$stdid);
     }
@@ -766,7 +747,7 @@ class Langschoolapplicant extends CI_Controller
 		);
 
 		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $globalHeader);
-		$this->Student_Model->studentEnrollDelete($id);
+		$this->Langschoolapplicant_Model->studentEnrollDelete($id);
 		$this->session->set_flashdata('msg_success', 'Your data has been delete!');
     redirect("adm/portal/langschoolstudent/invoice/view/".$invid);
   }
@@ -774,8 +755,8 @@ class Langschoolapplicant extends CI_Controller
 //Auto Mail System
   public function sendAutoMail($admin, $email, $key) 
   {
-    $adminemail = $this->Student_Model->selectAdminEmail($admin);
-    $subject = $this->Student_Model->selectEmailContent($key);
+    $adminemail = $this->Langschoolapplicant_Model->selectAdminEmail($admin);
+    $subject = $this->Langschoolapplicant_Model->selectEmailContent($key);
     $message = '
     <!DOCTYPE html>
     <html>
