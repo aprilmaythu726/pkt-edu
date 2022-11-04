@@ -96,6 +96,9 @@ $route['student/enroll/complete'] = 'enroll/complete';
 $route['student/enroll/cancel'] = 'enroll/course_cancel';
 $route['enroll/fetch_payment'] = 'enroll/fetch_payment';
 
+$route['api/user/(:any)'] = '/dashboard/api/index_get/$1';
+
+
 /*** Admin Panel Route List ***/
 /**** Admin Dashboard ****/
 $route['root/portal/url/generate/ipaccess'] = '/dashboard/secrect/loader';
