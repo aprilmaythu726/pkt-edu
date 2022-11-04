@@ -17,6 +17,10 @@ class ComposerStaticInit9c67eeebd27d359cae4e8b08fbf8ba29
         array (
             'setasign\\Fpdi\\' => 14,
         ),
+        'c' => 
+        array (
+            'chriskacerguis\\RestServer\\' => 26,
+        ),
         'Z' => 
         array (
             'ZipStream\\' => 10,
@@ -58,6 +62,10 @@ class ComposerStaticInit9c67eeebd27d359cae4e8b08fbf8ba29
         array (
             0 => __DIR__ . '/..' . '/setasign/fpdi/src',
         ),
+        'chriskacerguis\\RestServer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chriskacerguis/codeigniter-restserver/src',
+        ),
         'ZipStream\\' => 
         array (
             0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
@@ -76,8 +84,8 @@ class ComposerStaticInit9c67eeebd27d359cae4e8b08fbf8ba29
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (

@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	// 'hostname' => 'localhost',
+	// 'hostname' => '192.168.0.222',
 	// 'username' => 'root',
 	// 'password' => '',
 	// 'database' => 'OSL_pktedcuation_v_2',
