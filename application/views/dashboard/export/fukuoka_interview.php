@@ -111,7 +111,7 @@ $html = '
 </section>	
 <section class="family-japan">
     <div class="clearfix mb-5"></div>
-                            <table style="width:100%; padding_top:20px" class="tbl">
+                            <table style="width:100%; padding-top:20px" class="tbl">
                                 <tr style="border-top: 0px;">
                                     <th colspan="7" style="text-align: center;">学歴・職歴（小学校卒業から年代順に記入）<br>
                                     Education, employment history （List in order all the schools, starting with the elementary school）</th>
@@ -276,9 +276,6 @@ $html = '
                     position: relative;
                     margin: 0 auto;
                 }
-                section.personal-info {
-                    /* margin-bottom: 20px; */
-                }
                 .logo {
                     width: 200px;
                     position: absolute;
@@ -316,11 +313,6 @@ $html = '
 				/* margin-right: 5px; */
 				display: block;
 			}
-            .note{
-                /* width: 100%;
-                height: 500px;
-                border: 1px solid #000000; */
-            }
 </style>
 </html>';
 

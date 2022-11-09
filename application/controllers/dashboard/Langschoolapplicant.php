@@ -220,6 +220,111 @@ class Langschoolapplicant extends CI_Controller
 		}
   }
 
+
+  // confirm
+  public function confirm()
+	{
+    /** User Permission Checker **/
+		$this->__permissionChecker($this->key,$this->url);
+
+		$globalHeader = array(
+			"alert" => $this->mainconfig->_DefaultNotic(),
+			'title' => "Add Student",
+			'msg' => "",
+			'uri' => array("langschoolapplicant","jls_confirm"),
+			'config' => $this->user_config,
+		);
+		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, []);
+
+		if($_POST) {
+			$this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
+			$this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
+      $this->form_validation->set_rules('std_password', 'password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
+      $this->form_validation->set_rules('conf_password', 'confirm password', 'trim|required|min_length[6]|max_length[30]|xss_clean|matches[std_password]');
+      $this->form_validation->set_rules('address', 'address', 'trim|xss_clean');      
+      $this->form_validation->set_rules('std_birthday', 'birthday', 'trim|xss_clean');
+      $this->form_validation->set_rules('std_edu', 'education', 'trim|xss_clean');
+      $this->form_validation->set_rules('std_nrc', 'NRC no.', 'trim|xss_clean');
+      $this->form_validation->set_rules('std_batch', 'batch', 'trim|xss_clean');
+			$this->form_validation->set_rules('phone', 'phone number', 'trim|required|numeric|xss_clean');
+      $this->form_validation->set_rules('std_facebook', 'facebook account', 'trim|xss_clean');
+      $this->form_validation->set_rules('userfile', 'Student photo', 'trim|xss_clean');
+
+			$this->form_validation->set_message('required', 'You must enter %s!');
+			$this->form_validation->set_message('is_unique', 'Your %s is already exits!');
+			$this->form_validation->set_message('numeric', 'The %s always allow only numbers!');
+			$this->form_validation->set_message('valid_email', 'The %s must be valid!');
+
+			if ($this->form_validation->run() === false) {
+				$this->load->view('dashboard/langschoolstudent/add', $this->data);
+			} else {
+        $lastid = $this->Student_Model->getLastID();   
+        $lastid = (isset($lastid->id)?$lastid->id:0);
+        $lastid = serial_id_generate("sdid_", $lastid, 5);
+				$password = $this->__passwordDataHashing($this->input->post('std_password'));
+
+				if($this->input->post('std_status') == 1) {
+					$activate_date = date('Y-m-d H:i:s');
+				}else{
+					$activate_date = "0000-00-00 00:00:00";
+				}
+
+        $authData = array(
+          'std_auth_key' => $this->__generate_auth_key($this->input->post('std_email')),
+          'email' => $this->input->post('std_email'),
+          'password' => $password,
+          'created_at' => date('Y-m-d H:i:s'),
+          'updated_at' => date('Y-m-d H:i:s'),
+        );
+        $authData = $this->__Xss($authData);
+        $std_id = $this->Student_Model->studentInsert($authData);
+
+				$data = array(
+          'std_id' => $std_id,
+          'user_id' => $lastid,
+					'name' => $this->input->post('std_name'),
+          'phone' => $this->input->post('phone'),
+          'address' => $this->input->post('address'),
+          'birthday' => $this->input->post('std_birthday'),
+          'nrc' => $this->input->post('std_nrc'),
+          'education' => $this->input->post('std_edu'),
+          'social' => $this->input->post('std_facebook'),
+          'request_date' => date('Y-m-d H:i:s'),
+          'activate_date' => $activate_date,
+          'expired_date' => "0000-00-00 00:00:00",
+          'created_at' => date('Y-m-d H:i:s'),
+          'updated_at' => date('Y-m-d H:i:s'),
+          'status' => $this->input->post('std_status'),
+          'permission' => $this->input->post('std_permission')
+        );
+        $data = $this->__Xss($data);
+
+        if (!empty($_FILES['userfile']['name'])) {
+          //image upload sever and add database
+          $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, TRUE, TRUE, FALSE);
+
+          if (!empty($imgupload['msg_error'])) {
+            $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
+            redirect('adm/portal/langschoolstudent/confirm');
+          } else {
+            $data['image_file'] = $imgupload['file_name'];
+          }
+        }
+
+        // Auto Mail Sending
+        // if($this->input->post('std_email') != "") {
+        //   $this->sendAutoMail(1, $this->input->post('std_email'), 'regConf');
+        // }
+
+        $this->Student_Model->studentAuthInsert($data);
+        $this->session->set_flashdata('msg_success', 'Your data has been insert!');
+        redirect('adm/portal/langschoolstudent');
+			}
+		} else {
+			$this->load->view('dashboard/langschoolstudent/confirm', $this->data);
+		}
+  }
+// confirm
   public function edit($id)
 	{
     /** User Permission Checker **/
