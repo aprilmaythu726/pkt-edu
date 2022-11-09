@@ -82,8 +82,8 @@ th{
 </section>
 <section class="header" style="padding: 0px;margin:0px;">
 <div class="application-title" style="width:20%;height:160px;border:1px solid #000000;margin-left:550px;">
-		<p>Photo</p>
-        <p>4cm×3cm</p>
+		<p style="text-align: center;padding-top:30px;">Photo</p>
+        <p style="text-align: center;padding-top:10px;">4cm×3cm</p>
 </div>
 </section>
 <section class="personal-info" style="width:100%;">

@@ -175,12 +175,77 @@ class Langschoolapplicant extends CI_Controller
           'partaner_name' => $this->input->post('partaner_name'),
           'std_email' => $this->input->post('std_email'),
           'phone' => $this->input->post('phone'),
+          'address' => $this->input->post('address'),
+          'course_study_lengh' => $this->input->post('course_study_lengh'),
+          //'have_you_visited_jp' => $this->input->post('have_you_visited_jp'),
+         // 'visited_date' => $this->input->post('visited_date'),
+         // 'date_of_departure' => $this->input->post('date_of_departure'),
+          //'visa type' => $this->input->post('visa type'),
+          'departure_deportation' => $this->input->post('departure_deportation'),
+          'current_status' => $this->input->post('current_status'),
+          'expected_month' => $this->input->post('expected_month'),
+          'expected_year' => $this->input->post('expected_year'),
+          'current_status_school_name' => $this->input->post('current_status_school_name'),
+          'current_status_school_major' => $this->input->post('current_status_school_major'),
+          'current_status_school_grade' => $this->input->post('current_status_school_grade'),
+          'specific_plans_after_graduating' => $this->input->post('specific_plans_after_graduating'),
+          'specific_plan_type_schools' => $this->input->post('specific_plan_type_schools'),
+          'specific_plan_major ' => $this->input->post('specific_plan_major '),
+          'occupation' => $this->input->post('occupation'),
+          'place_employment_school' => $this->input->post('place_employment_school'),
+          'addr_employment_school' => $this->input->post('addr_employment_school'),
+          'tel_employment_school' => $this->input->post('tel_employment_school'),
+          'entry_age_ele_school' => $this->input->post('entry_age_ele_school'),
+          'duration_jp_language_study' => $this->input->post('duration_jp_language_study'),
+          'passport' => $this->input->post('passport'),
+          'educational_school_name' => $this->input->post('educational_school_name'),
+          'passport_no' => $this->input->post('passport_no'),
+          'passport_data_issue' => $this->input->post('passport_data_issue'),
+          'passport_data_exp' => $this->input->post('passport_data_exp'),
+          'military_service' => $this->input->post('military_service'),
+          'accompanying_person' => $this->input->post('accompanying_person'),
+          //'school_apply_before_japan' => $this->input->post('school_apply_before_japan'),
+          //'school_apply_date' => $this->input->post('school_apply_date'),
+          //'school_apply_status' => $this->input->post('school_apply_status'),
+         // 'school_apply_name' => $this->input->post('school_apply_name'),
+          //'immigration_office' => $this->input->post('immigration_office'),
+        //  'immigration_result' => $this->input->post('immigration_result'),
+         // 'COE_reject' => $this->input->post('COE_reject'),
+          //'place_apply_visa' => $this->input->post('place_apply_visa'),
+          
+          
           // 'created_at' => date('Y-m-d H:i:s'),
           // 'updated_at' => date('Y-m-d H:i:s'),
           // 'status' => $this->input->post('std_status'),
           // 'permission' => $this->input->post('std_permission')
         );
         $data = $this->__Xss($data);
+
+        $data = array(
+					'family_language' => $this->input->post('family_language'),
+          'eligibility_have' => $this->input->post('eligibility_have'),
+          'eligibility_time' => $this->input->post('eligibility_time'),
+          'eligibility_date' => $this->input->post('eligibility_date'),
+          'provide_english' => $this->input->post('provide_english'),
+          'place_apply_visa' => $this->input->post('place_apply_visa'),
+          'accompanying_person' => $this->input->post('accompanying_person'),
+          'criminal_record' => $this->input->post('criminal_record'),
+          'criminal_record_details' => $this->input->post('criminal_record_details'),
+          'departure_deportation' => $this->input->post('departure_deportation'),
+          'current_status' => $this->input->post('current_status'),
+          'current_status_school_name' => $this->input->post('current_status_school_name'),
+          'current_status_school_major' => $this->input->post('current_status_school_major'),
+          'current_status_school_grade' => $this->input->post('current_status_school_grade'),
+          'expected_month_year_graduating' => $this->input->post('expected_month_year_graduating'),
+          'specific_plans_after_graduating	' => $this->input->post('specific_plans_after_graduating	'),
+          'specific_plan_type_schools' => $this->input->post('specific_plan_type_schools'),
+          'specific_plan_school_name' => $this->input->post('specific_plan_school_name'),
+          'specific_plan_major' => $this->input->post('specific_plan_major'),
+          'will_you_return' => $this->input->post('will_you_return'),
+          'purpose_studying_in_japanese	' => $this->input->post('purpose_studying_in_japanese	'),
+        );
+        $data = $this->__Xss($data);
+        
 
         if (!empty($_FILES['userfile']['name'])) {
           //image upload sever and add database
@@ -219,6 +284,110 @@ class Langschoolapplicant extends CI_Controller
 		}
   }
 
+
+  // confirm
+  public function confirm()
+	{
+    /** User Permission Checker **/
+		$this->__permissionChecker($this->key,$this->url);
+
+		$globalHeader = array(
+			"alert" => $this->mainconfig->_DefaultNotic(),
+			'title' => "Add JLS Student",
+			'msg' => "",
+			'uri' => array("langschoolapplicant","jls_add"),
+			'config' => $this->user_config,
+		);
+		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, []);
+
+		if($_POST) {
+			// $this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
+			// $this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
+      // $this->form_validation->set_rules('std_password', 'password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
+      // $this->form_validation->set_rules('conf_password', 'confirm password', 'trim|required|min_length[6]|max_length[30]|xss_clean|matches[std_password]');
+      $this->form_validation->set_rules('jls_name', 'jls name', 'trim|required|xss_clean');      
+      $this->form_validation->set_rules('applicant_name', 'applicant name', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('applicant_name_kanji', 'applicant name kanji', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('date_of_birthday', 'date of birthday.', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('place_birth', 'place birth', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('age', 'age', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('nationality', 'nationality', 'trim|required|xss_clean');   
+      $this->form_validation->set_rules('gender', 'gender', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('martial_status', 'martial status', 'trim|required|xss_clean');
+      //$this->form_validation->set_rules('partaner_name', 'partaner name.', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('place_birth', 'place birth', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('std_email', 'std email', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('phone', 'phone', 'trim|required|numeric|xss_clean');
+      // $this->form_validation->set_rules('std_facebook', 'facebook account', 'trim|xss_clean');
+      // $this->form_validation->set_rules('userfile', 'Student photo', 'trim|xss_clean');
+
+			// $this->form_validation->set_message('required', 'You must enter %s!');
+			// $this->form_validation->set_message('is_unique', 'Your %s is already exits!');
+			// $this->form_validation->set_message('numeric', 'The %s always allow only numbers!');
+			// $this->form_validation->set_message('valid_email', 'The %s must be valid!');
+
+			if ($this->form_validation->run() === false) {
+				$this->load->view('dashboard/langschoolstudent/confirm', $this->data);
+			} else {
+        
+
+				$data = array(
+					'jls_name' => $this->input->post('jls_name'),
+          'applicant_name' => $this->input->post('applicant_name'),
+          'applicant_name_kanji' => $this->input->post('applicant_name_kanji'),
+          'date_of_birthday' => $this->input->post('date_of_birthday'),
+          'place_birth' => $this->input->post('place_birth'),
+          'age' => $this->input->post('age'),
+          'nationality' => $this->input->post('nationality'),
+          'gender' => $this->input->post('gender'),
+          'martial_status' => $this->input->post('martial_status'),
+          'partaner_name' => $this->input->post('partaner_name'),
+          'std_email' => $this->input->post('std_email'),
+          'phone' => $this->input->post('phone'),
+          // 'created_at' => date('Y-m-d H:i:s'),
+          // 'updated_at' => date('Y-m-d H:i:s'),
+          // 'status' => $this->input->post('std_status'),
+          // 'permission' => $this->input->post('std_permission')
+        );
+        $data = $this->__Xss($data);
+
+        if (!empty($_FILES['userfile']['name'])) {
+          //image upload sever and add database
+          $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, TRUE, TRUE, FALSE);
+
+          if (!empty($imgupload['msg_error'])) {
+            $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
+            redirect('adm/portal/jls_applicant/confirm');
+          } else {
+            $data['image_file'] = $imgupload['file_name'];
+          }
+        }
+        if (!empty($_FILES['signfile']['name'])) {
+          //image upload sever and add database
+          $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, TRUE, TRUE, FALSE);
+
+          if (!empty($imgupload['msg_error'])) {
+            $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
+            redirect('adm/portal/jls_applicant/confirm');
+          } else {
+            $data['sign_file'] = $imgupload['file_name'];
+          }
+        }
+
+        // Auto Mail Sending
+        // if($this->input->post('std_email') != "") {
+        //   $this->sendAutoMail(1, $this->input->post('std_email'), 'regConf');
+        // }
+
+        $this->Langschoolapplicant_Model->JLSapplicantinfo($data);
+        $this->session->set_flashdata('msg_success', 'Your data has been insert!');
+        redirect('adm/portal/jls_applicant/add');
+			}
+		} else {
+			$this->load->view('dashboard/langschoolstudent/confirm', $this->data);
+		}
+  }
+// confirm
   public function edit($id)
 	{
     /** User Permission Checker **/

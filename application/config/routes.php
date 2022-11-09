@@ -240,6 +240,7 @@ $route['adm/portal/jls_applicant/employee/createexcel'] = '/dashboard/employee/c
 
 $route['adm/portal/jls_applicant'] = '/dashboard/langschoolapplicant/index';
 $route['adm/portal/jls_applicant/add'] = '/dashboard/langschoolapplicant/add';
+$route['adm/portal/jls_applicant/confirm'] = '/dashboard/langschoolapplicant/confirm';
 $route['adm/portal/jls_applicant/new'] = '/dashboard/langschoolapplicant/new';
 $route['adm/portal/jls_applicant/interview'] = '/dashboard/langschoolapplicant/interview';
 $route['adm/portal/jls_applicant/activated/(:any)'] = '/dashboard/langschoolapplicant/activated/$1';
