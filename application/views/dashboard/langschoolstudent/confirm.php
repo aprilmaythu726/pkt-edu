@@ -35,8 +35,9 @@
 <style>
 
 label {
-font-weight: initial;
-}       
+    font-weight: 400;
+    font-size: 16px !important;
+}      
 .std_img{
     padding-top: 12px;
 }
@@ -44,8 +45,14 @@ font-weight: initial;
     padding-top: 12px;
 }
 .comfirm_val{
-    padding-left: 12px;
-    font-size: 1rem;
+    /* padding-left: 12px; */
+    font-size: 14px;
+}
+.tbl_comfirmVal{
+  font-size: 14px;
+}
+p{
+  margin-bottom: 0px;
 }
 </style>
 <div class="content">
@@ -83,7 +90,7 @@ font-weight: initial;
 
 <!-- JLS Name  -->
 <div class="col-md-6 school_list" name="" >
-    <p class="list_label">JLS Name </p>
+    <label class="list_label">JLS Name </label>
     <p name="" class="list_label">ECC</p>
 </div>
 <!-- JLS Name -->
@@ -102,19 +109,16 @@ font-weight: initial;
    <div class="col-md-6 float-left">
       <div class="form-group">
         <?php echo form_label('Name (アルファベット)', 'applicant_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <span class="badge badge-danger">Required</span>
-        <p class="comfirm_val" id="applicant_name" name="applicant_name">MIN THANT</p>
+        <p class="comfirm_val" id="applicant_name" name="applicant_name">MIN MIN</p>
     </div>
 
     <div class="form-group">
         <?php echo form_label(' Name (漢字)', 'applicant_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <span class="badge badge-danger">Required</span>
-        <p class="comfirm_val" id="applicant_name" name="applicant_name">MIN THANT</p>
+        <p class="comfirm_val" id="applicant_name" name="applicant_name">MIN MIN</p>
     </div>
 
     <div class="form-group">
         <?php echo form_label('Date Of Birth', 'date_of_birthday', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_birthday')); ?>
-        <span class="badge badge-danger">Required</span>
         <p class="comfirm_val" id="date_of_birthday" name="date_of_birthday">01/01/2004</p>
     </div>
 
@@ -125,7 +129,6 @@ font-weight: initial;
 
     <div class="form-group">
         <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <span class="badge badge-danger">Required</span>
         <p class="comfirm_val" id="age" name="age">21</p>
     </div>
 
@@ -136,13 +139,11 @@ font-weight: initial;
 
     <div class="form-group">
        <?php echo form_label('Gender', 'gender', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-       <span class="badge badge-danger">Required</span>
        <p class="comfirm_val" id="gender" name="gender">Female</p>
     </div> 
 
     <div class="form-group">
       <?php echo form_label('Martial Status', 'martial_status', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-      <span class="badge badge-danger">Required</span>
       <p class="comfirm_val" id="gender" name="gender">Single</p>
     </div> 
      
@@ -153,19 +154,16 @@ font-weight: initial;
 
     <div class="form-group">
         <?php echo form_label('Email', 'email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
-        <span class="badge badge-danger">Required</span>
         <p class="comfirm_val" id="std_email" name="email">yoonmem86@gmail.com</p>
     </div>
 
     <div class="form-group">
         <?php echo form_label('Phone Number', 'phone', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <span class="badge badge-danger">Required</span>
         <p class="comfirm_val" id="phone" name="phone">09420229743</p>
     </div>
 
     <div class="form-group">
         <?php echo form_label('Address','address', array('class' => '')); ?>
-        <span class="badge badge-danger">Required</span>
         <p class="comfirm_val" id="address" name="address">No(44),Testing,Yangon</p>
     </div>
 
@@ -380,12 +378,11 @@ font-weight: initial;
 
   <div class="form-group">
   <?php echo form_label('Have you ever experienced COE rejection?', 'COE_reject', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-  <span class="badge badge-danger">Required</span>
   <p class="comfirm_val" id="COE_reject" name="COE_reject">No</p>   
   </div>
   
-  <br><br><br><br><br><br><br><br><br>
-  <h6 class="spec_plan">Employment</h6>
+  <br><br><br><br><br><br>
+  <h6 class="spec_plan" style="padding-top: 36px;">Employment</h6>
   <div class="form-group">
         <?php echo form_label('Aimed occupational category', 'aimed_occupational_category', array( 'class' => 'employment', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <p class="comfirm_val" id="aimed_occupational_category" name="aimed_occupational_category">-</p>   
@@ -398,13 +395,7 @@ font-weight: initial;
 
   <div class="form-group">
   <?php echo form_label('Is it possible to provide in English? ', 'provide_english', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-  <span class="badge badge-danger">Required</span>
   <p class="comfirm_val" id="provide_english" name="provide_english">Yes</p>   
-
-    <!-- <select name="provide_english" id="provide_english" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-    </select> -->
   </div>
 
 </div> 
@@ -414,106 +405,67 @@ font-weight: initial;
 <div class="float-left">
     <h6 class="txt" style="padding: 33px 10px 12px;">Is there any your family member who understands at least one  of the languages which we understand?And, who?</h6>
 </div>
-<style>
-  .wholanguage{
-    margin-bottom: 19px;
-  }
-</style>
 <div class="col-md-6 float-left">
   <div class="form-group">
         <?php echo form_label('Who?', 'understand_language', array( 'class' => 'wholanguage', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <?php
-          echo form_input(array(
-            'name' => 'understand_language',
-            'type' => 'text',
-            // 'value' => html_escape(set_value('understand_language',isset($result)?$result->understand_language:''), ENT_QUOTES),
-            'placeholder' => 'Please Enter!',
-            'class' => 'form-control',
-            'id' => 'understand_language',
-            'autocomplete' => ''));
-        ?>
-        <span class="text-danger"><?php echo form_error('understand_language'); ?></span>
+        <p class="comfirm_val" id="understand_language" name="understand_language">Father</p>   
   </div>
 
   <div class="form-group">
-  <?php echo form_label('Criminal Record in Japan or Overseas', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-    <span class="badge badge-danger">Required</span>
-      <select name="criminal_record" id="criminal_record" class="admission_select">
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-      </select>
-    </div>
+        <?php echo form_label('Criminal Record in Japan or Overseas', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <p class="comfirm_val" id="criminal_record" name="criminal_record">No</p>   
+  </div>
    
-<div class="criminal form-group float-left">
-    <div class="">
-    <?php echo form_label('Have you applied for Certificate of Eligibility?', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-      <span class="badge badge-danger">Required</span>
-    </div>
-  
-    <div class="radio_record">
-        <div class="criminal_record01">
-          <select name="criminal_record" id="criminal_record" class="col-md-12 admission_select">
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-          </select>
-        </div>
-        <div class="">
-            <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Details</span>
-                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked">
-            </label> 
-        </div>
-    </div>  
+  <div class="criminal form-group float-left">
+  <div class="">
+        <?php echo form_label('Have you applied for Certificate of Eligibility?', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+  </div>
+  <div class="radio_record">
+  <div class="criminal_record01">
+      <p class="comfirm_val" id="criminal_record" name="criminal_record">No</p>   
+  </div>        
+  <div class="">
+      <label class="col-rd cri_text"><span>Details</span>
+      <p class="comfirm_val" id="criminal_record_details" name="criminal_record_details">-</p>   
+      </label> 
+  </div>
+  </div>  
+</div>  
 </div>
-    
-</div>
-
-
-
 <div class="col-md-6 float-left">
  <div class="form-group">
-    <p class="addmission">Language</p>
-    <select name="family_language" class="admission_select">
-        <option value="English">English</option>
-        <option value="Chinese">Chinese</option>
-        <option value="Korean">Korean</option>
-        <option value="Thai">Thai</option>
-        <option value="Vietnamese">Vietnamese</option>
-        <option value="Japanese">Japanese</option>
-    </select>
+    <label class="addmission">Language</label>
+    <p class="comfirm_val" id="family_language" name="family_language">English</p>   
   </div>
-  <!-- <div class="criminal_record02">
-            <label class="col-rd cri_text"><span style="padding-left:4px ;">Details</span>
-                <input type="text" class="details form-control col-md-12" name="criminal_record_details" value="" checked="checked">
-            </label> 
-        </div> -->
-        <div class="form-group">
-        <?php echo form_label('Details', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'phone')); ?>
-        <?php
-          echo form_input(array(
-            'name' => 'criminal_record_details ',
-            'type' => 'text',
-            'placeholder' => 'Please Enter!',
-            'class' => 'form-control',
-            'id' => ' criminal_record_details',
-            'autocomplete' => ''));
-        ?>
-        <span class="text-danger"><?php echo form_error('criminal_record_details '); ?></span>
+  <div class="form-group">
+    <?php echo form_label('Details', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'phone')); ?>
+    <p class="comfirm_val" id="criminal_record_details" name="criminal_record_details">-</p>   
+    <!-- <?php
+      echo form_input(array(
+        'name' => 'criminal_record_details ',
+        'type' => 'text',
+        'placeholder' => 'Please Enter!',
+        'class' => 'form-control',
+        'id' => ' criminal_record_details',
+        'autocomplete' => ''));
+    ?>
+    <span class="text-danger"><?php echo form_error('criminal_record_details '); ?></span> -->
   </div>
   <div class="criminal form-group float-left">
     <div class="">
     <?php echo form_label('Have you applied for Certificate of Eligibility?', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-      <span class="badge badge-danger">Required</span>
     </div>
   
     <div class="radio_record">
         <div class="">
-            <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
-                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
-            </label> 
+            <label class="col-rd cri_text"><span>When:</span>
+            <p class="comfirm_val" id="criminal_record_details" name="criminal_record_details">-</p>
+            </label>                
         </div>
         <div class="">
             <label class="col-rd cri_text"><span>Purpose of Entry:</span>
-                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin: 0px;">
+            <p class="comfirm_val" id="criminal_record_details" name="criminal_record_details">-</p>
+                <!-- <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin: 0px;"> -->
             </label> 
         </div>
     </div>  
@@ -521,121 +473,49 @@ font-weight: initial;
   <style>
   .criminal_record01 {
     width: 34%;
-    /* position: absolute; */
   }
-  /* .criminal_record02 {
-    position: relative;
-    top: 0px;
-    left: 25%;
-  } */
   .criminal_record03{
     position: relative;
     top: 0px;
     left: 25%;
   }
-  /* .eli_text{
-    padding-left: 37px;
-
-  } */
 </style> 
   
 </div>
 <!-- co_leftside -->
 
 <div class="criminal form-group float-left">
-      <!-- <div class="">
-      <label>Have you applied for Certificate of Eligibility?</label>
-      <span class="badge badge-danger">Required</span>
-    </div> -->
-  
-      <!-- <div class="radio_record">
-          <div class="criminal_record01">
-          <select name="criminal_record" id="criminal_record" class="col-md-12 admission_select">
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-          </select>
-        </div>
-          <div class="criminal_record03  ">
-              <label class="cri_text muti_txt">Times:
-                  <input type="text" class="appli form-control " name="criminal_record_times" value="" checked="checked">
-              </label>
-          </div>
-          <div class="criminal_record03  ">
-              <label class="cri_text muti_txt">When:
-                  <input type="text" class="appli form-control " name="criminal_record_when" value="" checked="checked">
-              </label>
-          </div>
-          <div class="criminal_record03  ">
-              <label class="cri_text muti_txt">Purpose of Entry:
-                  <input type="text" class="appli form-control " name="criminal_record_details" value="" checked="checked">
-              </label>
-          </div> 
-      </div>   -->
-      <label>Purpose of studying in Japanese </label>
-      <div class="col-md-12 col-sm-12 p-0">
-          <?php 
-            $data = array(
-            'name' => '',
-            'value' => ' ',
-            'type' => 'text',
-            'placeholder' => 'Please Enter!',
-            'class' => "form-control",
-            // 'value' => set_value('purpose_studying_in_japanese ',isset($result)?$result->purpose_studying_in_japanese :'')
-          );
-          echo form_textarea($data); ?>
-          <span class="text-danger"><?php echo form_error('purpose_studying_in_japanese '); ?></span>
-      </div>
-      
+  <label>Purpose of studying in Japanese </label>
+  <div class="col-md-12 col-sm-12 p-0">
+  <p class="comfirm_val" id="purpose_studying_in_japanese" name="purpose_studying_in_japanese">
+  "Hobby". Hobby is something people enjoy the most. Different people have different kind of hobbies such as drawing, language and watching movies.
+  And people also tend to have more than one hobby. As a human being living in society, I, with no exception, also have my hobbies. 
+  Obviously, Japanese language is one of my hobbies. Since my childhood days, there was no day passed by without talking about "Japan" related topics in Myanmar conversations as Myanmar had very close ties with Japan historically. 
+  So as a child, Japan had always been in my mind and I became eager to learn more about Japan. When it comes to accumulate knowledge, the best way is from Media such as TV programmes, video games and literature.
+  Therefore, I watched a vast majority of Japanese TV programmes which made me fall in love with Japanese language. To study Japanese has always been my dream since then. A curry is best to eat when it is still hot. The same goes for Japanese language. 
+  Japanese language is best to study in Japan as it is the origin of the language. Hence, I have decided to go to study in Japan. Moreover, I like Osaka among other cities in Japan. Osaka is a historically prestigious city. 
+  The main historical events of Japan took place in Osaka such as the Siege of Osaka(1614) in which Toyotomi clan fell and Tokugawa clan rose to Shogunate. For me to study Japanese in such historically prestigious city is more than "dream". Therefore, I am eager to learn at Language school of Osaka. Moreover, IT is also one of hobbies.
+  IT is much alike organizing the festivals. We need to write codes with critical ways to represent what we intend to. Without thorough knowledge of festivity and history, we cannot organize the festivals well. Hence, without proper and thorough knowledge of IT, we cannot write programmes we intended well.
+  This is the beauty of IT. Because of that knowledge, I appreciate IT professionals very much for the technologies we use today. Admiring someone makes the person to strive to become like who he admires. Therefore, I want to take the step of IT professionals I admire. As Japan is one of the leading IT countires around the globe and my favourite country, I intend to study IT at senmon gakkou after I have finished Language school.
+  </p>
+  </div>   
 </div>
 <div class="col-md-6 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Contact details of your family</h6>
 <div class="form-group">
-        <?php echo form_label('Email', 'family_mail', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'family_mail',
-            'type' => 'text',
-            'value' => html_escape(set_value('family_mail',isset($result)?$result->family_mail:''), ENT_QUOTES),
-            'placeholder' => 'Enter email account!',
-            'class' => 'form-control',
-            'id' => 'family_mail',
-            'autocomplete' => ''));
-        ?>
-        <span class="text-danger"><?php echo form_error('family_mail'); ?></span>
-       </div>
-
-       <div class="form-group">
-        <?php echo form_label('Phone Number', 'family_tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'family_tel',
-            'type' => 'text',
-            'value' => html_escape(set_value('family_tel',isset($result)?$result->family_tel:''), ENT_QUOTES),
-            'placeholder' => 'Enter phone number!',
-            'class' => 'form-control',
-            'id' => 'family_tel',
-            'autocomplete' => ''));
-        ?>
-        <span class="text-danger"><?php echo form_error('family_tel'); ?></span>
-       </div>
+    <?php echo form_label('Email', 'family_mail', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
+    <p class="comfirm_val" id="family_mail" name="family_mail">testing123@gmail.com</p>
+</div>
 
 <div class="form-group">
-        <?php echo form_label('Address','family_address', array('class' => 'col-form-label')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'address',
-            'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->address:''), ENT_QUOTES),
-            'placeholder' => 'Enter address!',
-            'class' => 'form-control',
-            'id' => 'address',
-            'autocomplete' => ''));
-        ?>
-        <span class="text-danger"><?php echo form_error('address'); ?></span>
-       </div>
+    <?php echo form_label('Phone Number', 'family_tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+    <p class="comfirm_val" id="family_tel" name="family_tel">09410393440</p>
+</div>
+
+<div class="form-group">
+    <?php echo form_label('Address','family_address', array('class' => '')); ?>
+    <p class="comfirm_val" id="family_address" name="family_address">N0(44),Bokalay zayy,Yangon</p>
+</div>
 </div>
 <!-- co_leftside -->
 
@@ -645,108 +525,116 @@ font-weight: initial;
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head" >
-    <tr>
-      <th>Name of institution</th>
-      <th>Address</th>
-      <th>Starting <br>Year/Month  </th>
-      <th>Finishing <br>Year/Month </th>
-      <th>Term of Study</th>
-    </tr>
+  <tr>
+    <th>Name of institution</th>
+    <th>Address</th>
+    <th>Starting <br>Year/Month  </th>
+    <th>Finishing <br>Year/Month </th>
+    <th>Term of Study</th>
+  </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="year" value=""><span class="study_year">year</span> 
-      </td>
-    </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;">No.3 Basic Education Elementary School</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;">Bahan Township, Yangon</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;">01/06/2009</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;">01/02/2014</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >5       
+        <span class="study_year">years</span> 
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;">No.2 Basic Education Hight School</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;">Bahan Township, Yangon</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;">01/06/2014</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;">01/02/2018</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >5       
+        <span class="study_year">years</span> 
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;">No.2 Basic Education Hight School</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;">Bahan Township, Yangon</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;">01/06/2018</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;">01/03/2020</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >3      
+        <span class="study_year">years</span> 
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;">PKT Education Center (Dip.in IT)</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;">MingalarTaungNyunt Township,Yangon</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;">01/04/2020</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;">01/03/2022</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >2      
+        <span class="study_year">years</span> 
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;"></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;"></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;"></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;"></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >      
+        <span class="study_year">years</span> 
+      </p>
+    </td>
+  </tr>
   </tbody>
 </table>
-</div>
-      
-
-       
+</div> 
 </div>
 <!-- Table -->
+
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Previous Japanese Language Study</h6>
@@ -762,91 +650,101 @@ font-weight: initial;
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="hour" value=""><span class="study_year">hour</span> 
-      </td>
-    </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >PKT Education Center</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" >MingalarTaungNyunt Township,Yangon</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;" >01/04/2020</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;" >01/08/2022</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="hour" style="text-align: right;" >160
+         <span class="study_year">hours</span> 
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="hour" style="text-align: right;" >
+         <span class="study_year">hours</span> 
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="hour" style="text-align: right;" >
+         <span class="study_year">hours</span> 
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="hour" style="text-align: right;" >
+         <span class="study_year">hours</span> 
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="hour" style="text-align: right;" >
+         <span class="study_year">hours</span> 
+      </p>
+    </td>
+  </tr>
   </tbody>
 </table>
 </div>
@@ -854,123 +752,120 @@ font-weight: initial;
 </div>
 <!-- Table -->
 
-
-<div class="col-md-8 float-left">
+<!-- Table -->
+<div class="col-md-7 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Achievement in JP language tests</h6>
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
-    <tr>
-      <th>Name of Japanese language test</th>
-      <th>Level</th>
-      <th>Exam Years</th>
-      <th >Score</th>
-      <th>Result</th>
-      <th>Date of Qualification</th>
-    </tr>
+  <tr>
+    <th>Name of Japanese language test</th>
+    <th>Level</th>
+    <th>Exam Years</th>
+    <th >Score</th>
+    <th>Result</th>
+    <th>Date of Qualification</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="level" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="exam_year" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="score" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="result" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="date_qualification" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="level" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="exam_year" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="score" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="result" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="date_qualification" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="level" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="exam_year" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="score" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="result" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="date_qualification" value="">
-      </td>
-    </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;">JLPT</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="level" style="text-align: center;" >N4</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="exam_year" style="text-align: center;" >2021</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="score" style="text-align: center;" >120</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="result" style="text-align: center;">B</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="date_qualification" style="text-align: center;" >12/02/2022</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;">-</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="level" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="exam_year" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="score" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="result" style="text-align: center;"></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="date_qualification" style="text-align: center;" ></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;">-</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="level" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="exam_year" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="score" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="result" style="text-align: center;"></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="date_qualification" style="text-align: center;" ></p>
+    </td>
+  </tr>
   </tbody>
 </table>
 </div>
 </div>
-<div class="col-md-4 float-left">
+<div class="col-md-5 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Name of JP language tests you are going to take</h6>
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
-      <th>Name of Japanese language test</th>
+      <th>Name of Japanese language <br>test</th>
       <th>Level</th>
-      
     </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-      <input type="text" class=" table-control term" name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="level" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control term" name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="level" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control term" name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="level" value="">
-      </td>
-    </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >JLPT</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="level" style="text-align: center;" >N3</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="level" style="text-align: center;" ></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="level" style="text-align: center;" ></p>
+    </td>
+  </tr>
   </tbody>
 </table>
 </div>
@@ -983,77 +878,76 @@ font-weight: initial;
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
-    <tr>
-      <th>Placement of Employment</th>
-      <th>Address</th>
-      <th>Years</th>
-      <th>Starting <br>Year/Month  </th>
-      <th >Finishing <br>Year/Month </th>
-      <th>Job Description</th>
-    </tr>
+  <tr>
+    <th>Placement of Employment</th>
+    <th>Address</th>
+    <th>Years</th>
+    <th>Starting <br>Year/Month  </th>
+    <th >Finishing <br>Year/Month </th>
+    <th>Job Description</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="year" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="job_description" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="year" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="job_description" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="start_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="end_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="year" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="job_description" value="">
-      </td>
-    </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >May Myanmarlin Co.Limited</p>  
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" >MingalarTaungNyunt Township,Yangon</p>  
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="year" style="text-align: center;" >1year</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;" >2021</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;" >2022</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="job_description" style="text-align: center;" >-</p> 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p>  
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" ></p>  
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="year" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="job_description" style="text-align: center;" ></p> 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p>  
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" ></p>  
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="year" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="job_description" style="text-align: center;" ></p> 
+    </td>
+  </tr>
   </tbody>
 </table>
 </div>
@@ -1066,149 +960,148 @@ font-weight: initial;
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
-    <tr>
-      <th>Name</th>
-      <th>Relationship	</th>
-      <th>Work Place	</th>
-      <th>Date Of Birth</th>
-      <th >Occupation </th>
-      <th>Annual Income</th>
-      <th>Address</th>
-      <th>Length of service</th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Relationship	</th>
+    <th>Work Place	</th>
+    <th>Date Of Birth</th>
+    <th >Occupation </th>
+    <th>Annual Income</th>
+    <th>Address</th>
+    <th>Length of service</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="relationship" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="work_place" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="birthday" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="occupation" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="annual_income" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control " name="address" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="length_sevice" value="">
-      </td>
-    </tr>
-    <tr>
+  <tr>
     <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="relationship" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="work_place" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="birthday" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="occupation" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="annual_income" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control " name="address" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="length_sevice" value="">
-      </td>
-    </tr>
-    <tr>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >U Aye</p> 
+    </td>
     <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="relationship" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="work_place" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="birthday" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="occupation" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="annual_income" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control " name="address" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="length_sevice" value="">
-      </td>
-    </tr>
-    <tr>
+      <p class="tbl_comfirmVal" name="relationship" style="text-align: center;" >Father</p> 
+    </td>
     <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="relationship" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="work_place" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="birthday" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="occupation" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="annual_income" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control " name="address" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="length_sevice" value="">
-      </td>
-    </tr>
-    <tr>
+      <p class="tbl_comfirmVal" name="work_place" style="text-align: center;" >Yangon</p> 
+    </td>
     <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="relationship" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="work_place" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="birthday" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="occupation" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="annual_income" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control " name="address" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="length_sevice" value="">
-      </td>
-    </tr>
+      <p class="tbl_comfirmVal" name="birthday" style="text-align: center;" >10/05/1965</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="occupation" style="text-align: center;" >Officer</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="annual_income" style="text-align: center;" >200000</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" >No(44),Bokalay Zayy</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="length_sevice" style="text-align: center;" >-</p> 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >Daw Hla</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="relationship" style="text-align: center;" >Mother</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="work_place" style="text-align: center;" >Yangon</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="birthday" style="text-align: center;" >10/05/1966</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="occupation" style="text-align: center;" >Officer</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="annual_income" style="text-align: center;" >200000</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" >No(44),Bokalay Zayy</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="length_sevice" style="text-align: center;" >-</p> 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >Ko Kyaw Kyaw</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="relationship" style="text-align: center;" >Brother</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="work_place" style="text-align: center;" >Yangon</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="birthday" style="text-align: center;" >10/05/1999</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="occupation" style="text-align: center;" >Teacher</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="annual_income" style="text-align: center;" >300000</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" >No(44),Bokalay Zayy</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="length_sevice" style="text-align: center;" >-</p> 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="relationship" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="work_place" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="birthday" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="occupation" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="annual_income" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="length_sevice" style="text-align: center;" ></p> 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="relationship" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="work_place" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="birthday" style="text-align: center;"> </p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="occupation" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="annual_income" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="address" style="text-align: center;" ></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="length_sevice" style="text-align: center;" ></p> 
+    </td>
+  </tr>
   </tbody>
 </table>
 </div>
@@ -1217,149 +1110,117 @@ font-weight: initial;
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h6>
-<p >If yes, fill in all the family members in Japan.</p>
+<p>If yes, fill in all the family members in Japan.</p>
   <div class="form-group">
-  <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
-    <select name="plan_to_stay_with_them" id="plan_to_stay_with_them" class="planning_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-    </select>
+    <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
+    <p class="comfirm_val" id="plan_to_stay_with_them" name="plan_to_stay_with_them">No</p>
   </div>
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
-    <tr>
-      <th>Name</th>
-      <th>Age	</th>
-      <th>Relatonship</th>
-      <th>Residing with Applicant or Not	</th>
-      <th >Nationality </th>
-      <th>Visa status	</th>
-      <th>Work Place	</th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Age	</th>
+    <th>Relatonship</th>
+    <th>Residing with Applicant or Not	</th>
+    <th >Nationality </th>
+    <th>Visa status	</th>
+    <th>Work Place	</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="age" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="relationship" value="">
-      </td>
-      <td>
-      <div class="">
-      <select name="residing_applicant" class="table-control col-md-12">
-            <option value=""></option>
-            <option value="0">Yes</option>
-            <option value="1">No</option>
-        </select>
-     </div>
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="nationality" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control " name="visa_status" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="work_place" value="">
-      </td>
-    </tr>
-    <tr>
-    
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="age" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="relationship" value="">
-      </td>
-      <td>
-      <div class="">
-      <select name="residing_applicant" class="table-control col-md-12">
-            <option value=""></option>
-            <option value="0">Yes</option>
-            <option value="1">No</option>
-        </select>
-     </div>
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="nationality" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control " name="visa_status" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="work_place" value="">
-      </td>
-    </tr>
-    <tr>
-    
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="age" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="relationship" value="">
-      </td>
-      <td>
-      <div class="">
-      <select name="residing_applicant" class="table-control col-md-12">
-            <option value=""></option>
-            <option value="0">Yes</option>
-            <option value="1">No</option>
-        </select>
-     </div>
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="nationality" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control " name="visa_status" value=""> 
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="work_place" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="name" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="age" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="relationship" value="">
-      </td>
-      <td>
-      <div class="">
-        <select name="residing_applicant " class="table-control col-md-12">
-            <option value=""></option>
-            <option value="0">Yes</option>
-            <option value="1">No</option>
-        </select>
-     </div>
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="nationality" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="visa_status" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control " name="work_place" value=""> 
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+     <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p> 
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="age" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="relationship" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="residing_applicant" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="nationality" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="visa_status" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="work_place" style="text-align: center;" ></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+     <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p> 
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="age" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="relationship" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="residing_applicant" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="nationality" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="visa_status" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="work_place" style="text-align: center;" ></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+     <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p> 
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="age" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="relationship" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="residing_applicant" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="nationality" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="visa_status" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="work_place" style="text-align: center;" ></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+     <p class="tbl_comfirmVal" name="name" style="text-align: center;" >-</p> 
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="age" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="relationship" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="residing_applicant" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="nationality" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="visa_status" style="text-align: center;" ></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="work_place" style="text-align: center;" ></p>
+    </td>
+  </tr>
   </tbody>
 </table>
 </div>
@@ -1371,76 +1232,72 @@ font-weight: initial;
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
-    <tr>
-      <th>Date of Entry	</th>
-      <th>Date of Arrival	</th>
-      <th>Date of Depature </th>
-      <th >Status	 </th>
-      <th>Purpose of Entry</th>
-    </tr>
+  <tr>
+    <th>Date of Entry	</th>
+    <th>Date of Arrival	</th>
+    <th>Date of Depature </th>
+    <th >Status	 </th>
+    <th>Purpose of Entry</th>
+  </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="entry_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="arrival_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="depature_data" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="status" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="entry_purpose" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="entry_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="arrival_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="depature_data" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="status" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="entry_purpose" value="">
-      </td>
-     
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="entry_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="arrival_date" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="depature_data" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="status" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="entry_purpose" value="">
-      </td>
-    </tr>
+  <tr>
+    <td>
+     <p class="tbl_comfirmVal" name="entry_date" style="text-align: center;" >-</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="arrival_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="depature_data" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="status" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="entry_purpose" style="text-align: center;" ></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+     <p class="tbl_comfirmVal" name="entry_date" style="text-align: center;" >-</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="arrival_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="depature_data" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="status" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="entry_purpose" style="text-align: center;" ></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+     <p class="tbl_comfirmVal" name="entry_date" style="text-align: center;" >-</p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="arrival_date" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="depature_data" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="status" style="text-align: center;" ></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="entry_purpose" style="text-align: center;" ></p>
+    </td>
+  </tr>
   </tbody>
 </table>
 </div>
 
 </div>
 <!-- Table -->
-
-
-
 </div>
 </div>
 
@@ -1468,14 +1325,6 @@ font-weight: initial;
     border: 1px solid #ced4db;
     border-radius: 3px;
 }
-/* #expected_year {
-    margin-left: 17px;
-    width: 40%;
-} */
-/* #expected_month{
-  width: 40%;
-
-} */
 .graduating_month_year{
   display: flex;
 }
@@ -1492,16 +1341,12 @@ font-weight: initial;
     border-radius: 3px;
     margin: 0px 54px 12px 27px;
 }
-.employment{
-  padding-bottom: 12px;
-}
 .radio_record{
   width: 100%;
   margin-bottom: 20px;
   display: flex;
 }
 .criminal{
-  /* padding-left: 12px; */
   width: 100%;
 }
 .cri_text{
@@ -1517,15 +1362,8 @@ font-weight: initial;
 .table-control{
   width: 84%;
     border: none;
-  }
- 
-/* .tbl{
-   width: 100%;
-  } */
+}
 
-/* .term{
-  position: relative;
-} */
 .tbl_head{
   text-align: center;
 }
@@ -1545,8 +1383,6 @@ font-weight: initial;
 </style>
 
 
-
-
 <!-- dropdown FINANICIAL SPONSOR -->
 <div class="content_detail">
   <input class="dropdown" type="checkbox" id="faq-3">
@@ -1554,183 +1390,53 @@ font-weight: initial;
   <div class="drop_txt">
   <h5 class="finial_ttl">Finanicial Sponsor</h5>
   <div class="col-md-6 float-left" name="applicant_id">
-      <div class="form-group">
-        <?php echo form_label('Name', 'name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'name',
-            'type' => 'text',
-            'value' => html_escape(set_value('name',isset($result)?$result->name:''), ENT_QUOTES),
-            'placeholder' => 'Enter name!',
-            'class' => 'form-control',
-            'id' => 'name',
-            'autocomplete' => ''));
-          ?>
-        <span class="text-danger"><?php echo form_error('name'); ?></span>
-      </div>
-      <div class="form-group">
-        <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'age',
-            'type' => 'text',
-            'value' => html_escape(set_value('age',isset($result)?$result->age:''), ENT_QUOTES),
-            'placeholder' => "Enter Age!",
-            'class' => 'form-control',
-            'id' => 'age',
-            'autocomplete' => ''));
-          ?>
-        <span class="text-danger"><?php echo form_error('age'); ?></span>
-      </div>
-      <div class="form-group">
-        <?php echo form_label('Relationship', 'relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'relationship',
-            'type' => 'text',
-            'value' => html_escape(set_value('relationship',isset($result)?$result->relationship:''), ENT_QUOTES),
-            'placeholder' => "Enter student's Age!",
-            'class' => 'form-control',
-            'id' => 'relationship',
-            'autocomplete' => ''));
-          ?>
-        <span class="text-danger"><?php echo form_error('relationship'); ?></span>
-      </div>
-      <div class="form-group">
-        <?php
-          echo form_label('Address','address', array('class' => 'col-form-label'));
-        ?>
-        <div class="col-md-12 col-sm-12 p-0">
-          <?php 
-            $data = array(
-            'name' => 'address',
-            'value' => '',
-            'rows' => '3',
-            'cols' => '',
-            'placeholder' => 'Enter address',
-            'class' => "form-control",
-            'value' => set_value('address',isset($result)?$result->address:'')
-          );
-          echo form_textarea($data); ?>
-          <span class="text-danger"><?php echo form_error('address'); ?></span>
-        </div>
-       </div>
-       <div class="form-group">
-        <?php echo form_label('Phone Number', 'tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'tel',
-            'type' => 'text',
-            'value' => html_escape(set_value('tel',isset($result)?$result->tel:''), ENT_QUOTES),
-            'placeholder' => 'Enter phone number!',
-            'class' => 'form-control',
-            'id' => 'tel',
-            'autocomplete' => ''));
-        ?>
-        <span class="text-danger"><?php echo form_error('tel'); ?></span>
-       </div>
-       <div class="form-group">
-        <?php echo form_label('Email', 'email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'email',
-            'type' => 'text',
-            'value' => html_escape(set_value('email',isset($result)?$result->email:''), ENT_QUOTES),
-            'placeholder' => 'Enter email account!',
-            'class' => 'form-control',
-            'id' => 'email',
-            'autocomplete' => ''));
-        ?>
-        <span class="text-danger"><?php echo form_error('email'); ?></span>
-       </div>
-       <div class="form-group">
-      <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <?php
-        echo form_input(array(
-          'name' => 'occupation',
-          'type' => 'text',
-          'value' => html_escape(set_value('occupation',isset($result)?$result->occupation:''), ENT_QUOTES),
-          'placeholder' => 'Please Enter!',
-          'class' => 'form-control',
-          'id' => 'occupation',
-          'autocomplete' => ''));
-      ?>
-      <span class="text-danger"><?php echo form_error('occupation'); ?></span>
+  <div class="form-group">
+    <?php echo form_label('Name', 'name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+    <p class="comfirm_val" id="name" name="name">-</p>
   </div>
   <div class="form-group">
-      <?php echo form_label('Work Place', 'work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <?php
-        echo form_input(array(
-          'name' => 'work_place',
-          'type' => 'text',
-          'value' => html_escape(set_value('work_place',isset($result)?$result->work_place:''), ENT_QUOTES),
-          'placeholder' => 'Please Enter!',
-          'class' => 'form-control',
-          'id' => 'work_place',
-          'autocomplete' => ''));
-      ?>
-      <span class="text-danger"><?php echo form_error('work_place'); ?></span>
+    <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+    <p class="comfirm_val" id="age" name="age">-</p>   
   </div>
   <div class="form-group">
-      <?php echo form_label('Annual Income', 'annual_income', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <?php
-        echo form_input(array(
-          'name' => 'annual_income',
-          'type' => 'text',
-          'value' => html_escape(set_value('annual_income',isset($result)?$result->annual_income:''), ENT_QUOTES),
-          'placeholder' => 'Please Enter!',
-          'class' => 'form-control',
-          'id' => 'annual_income',
-          'autocomplete' => ''));
-      ?>
-      <span class="text-danger"><?php echo form_error('annual_income'); ?></span>
+    <?php echo form_label('Relationship', 'relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+    <p class="comfirm_val" id="relationship" name="relationship">-</p>   
   </div>
   <div class="form-group">
-      <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <?php
-        echo form_input(array(
-          'name' => 'amount_saving_for_study_abroad ',
-          'type' => 'text',
-          'value' => html_escape(set_value('amount_saving_for_study_abroad ',isset($result)?$result->amount_saving_for_study_abroad :''), ENT_QUOTES),
-          'placeholder' => 'Please Enter!',
-          'class' => 'form-control',
-          'id' => 'amount_saving_for_study_abroad ',
-          'autocomplete' => ''));
-      ?>
-      <span class="text-danger"><?php echo form_error('amount_saving_for_study_abroad '); ?></span>
+    <?php echo form_label('Address','address', array('class' => 'col-form-label'));?>
+    <p class="comfirm_val" id="address" name="address">-</p>   
   </div>
   <div class="form-group">
-      <?php echo form_label('The amount of saving which can be proved ', 'amount_of_saving_which_proved', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <?php
-        echo form_input(array(
-          'name' => 'amount_of_saving_which_proved',
-          'type' => 'text',
-          'value' => html_escape(set_value('amount_of_saving_which_proved',isset($result)?$result->amount_of_saving_which_proved:''), ENT_QUOTES),
-          'placeholder' => 'Please Enter!',
-          'class' => 'form-control',
-          'id' => 'amount_of_saving_which_proved',
-          'autocomplete' => ''));
-      ?>
-      <span class="text-danger"><?php echo form_error('amount_of_saving_which_proved'); ?></span>
+  <?php echo form_label('Phone Number', 'tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+    <p class="comfirm_val" id="tel" name="tel">0988890887</p>   
+  </div>
+  <div class="form-group">
+    <?php echo form_label('Email', 'email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
+    <p class="comfirm_val" id="email" name="email">test123456@gmail.com</p>   
+  </div>
+  <div class="form-group">
+    <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+    <p class="comfirm_val" id="occupation" name="occupation">-</p>   
+  </div>
+  <div class="form-group">
+    <?php echo form_label('Work Place', 'work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+    <p class="comfirm_val" id="work_place" name="work_place">-</p>      
+  </div>
+  <div class="form-group">
+    <?php echo form_label('Annual Income', 'annual_income', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+    <p class="comfirm_val" id="annual_income" name="annual_income">-</p> 
+  </div>
+  <div class="form-group">
+    <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+    <p class="comfirm_val" id="amount_saving_for_study_abroad" name="amount_saving_for_study_abroad">-</p> 
+  </div>
+  <div class="form-group">
+    <?php echo form_label('The amount of saving which can be proved ', 'amount_of_saving_which_proved', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+    <p class="comfirm_val" id="amount_of_saving_which_proved" name="amount_of_saving_which_proved">-</p> 
   </div>
   <div class="form-group">
       <?php echo form_label('Start of Work date', 'start_work_date ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <?php
-        echo form_input(array(
-          'name' => 'start_work_date  ',
-          'type' => 'text',
-          'value' => html_escape(set_value('start_work_date ',isset($result)?$result->start_work_date :''), ENT_QUOTES),
-          'placeholder' => 'Please Enter!',
-          'class' => 'form-control',
-          'id' => 'start_work_date ',
-          'autocomplete' => ''));
-      ?>
-      <span class="text-danger"><?php echo form_error('start_work_date '); ?></span>
+      <p class="comfirm_val" id="start_work_date" name="start_work_date">-</p> 
   </div>
   </div>
 </div>
@@ -1740,7 +1446,7 @@ font-weight: initial;
 
           <div class="text-right">
             <button type="submit" class="btn btn-primary text-white btn-sm py-1 px-2">
-              <span class="material-icons align-top md-18 mr-1">add_circle</span>Confirm
+              <span class="material-icons align-top md-18 mr-1">add_circle</span>Submit
             </button>
             <button type="reset" class="btn btn-secondary text-white btn-sm py-1 px-2">
               <span class="material-icons align-top md-18 mr-1">sync</span>Reset
