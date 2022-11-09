@@ -32,16 +32,21 @@
     </button>
   </div>
 <?php } ?>
+<?php
+      $attributes = array('class' => 'form-horizontal form-label-left');
+      echo form_open_multipart('adm/portal/jls_applicant/add', $attributes);
+    ?>
 <div class="content">
 <div class="row">
 <div class="col-lg-12 col-md-12 mb-4 mb-lg-0">
 <div class="card">
 <div class="card-body">
-    <?php
-      $attributes = array('class' => 'form-horizontal form-label-left');
-      echo form_open_multipart('adm/portal/jls_applicant/add', $attributes);
-    ?>
 <div class="col-md-12">
+
+<span class="text-danger"><?php echo form_error('applicant_name'); ?></span>
+<span class="text-danger"><?php echo form_error('applicant_name_kanji'); ?></span>
+ <span class="text-danger"><?php echo form_error('date_of_birthday'); ?></span>
+
 <div class="col-md-6" style="display: flex;padding-top: 32px;">
   <!-- Student Photo -->
     <?php
@@ -63,26 +68,25 @@
   <span class="text-danger"><?php echo form_error('userfile'); ?></span>
   </div>
   <!-- Student Photo -->  
-  <div class="col-md-6" style="display: flex;padding-top: 12px;">
-  <!-- Student Photo -->
+  <!-- <div class="col-md-6" style="display: flex;padding-top: 12px;">
     <?php
-      echo form_label('Applicant Sign','userfile', array('class' => 'col-form-label')) ;
+      echo form_label('Applicant Sign','signfile', array('class' => 'col-form-label')) ;
       
     ?>
     <div class="col-md-6" style="width: 100%;padding-left:0px;padding-right: 0px;">
       <?php
         echo form_input(array(
-        'name' => 'userfile',
+        'name' => 'signfile',
         'type' => 'file',
         'class' => 'form-control stu_label',
-        'id' => 'clickImg',
+        'id' => 'clickImgs',
         'accept' => 'image/*'
         ));
       ?>
-      <div class="form-group col-md-12 col-sm-12 p-0" id="showImg1"> </div>   
+      <div class="form-group col-md-12 col-sm-12 p-0" id="showImg2"> </div>   
     </div>
-  <span class="text-danger"><?php echo form_error('userfile'); ?></span>
-  </div>
+  <span class="text-danger"><?php echo form_error('signfile'); ?></span>
+  </div> -->
   <!-- Student Photo -->  
   <style>
     .stu_label{
@@ -138,7 +142,7 @@
             'id' => 'applicant_name',
             'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('applicant_name'); ?></span>
+        <!-- <span class="text-danger"><?php echo form_error('applicant_name'); ?></span> -->
       </div>
 
       <div class="form-group">
@@ -154,7 +158,7 @@
             'id' => 'applicant_name_kanji',
             'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('std_name'); ?></span>
+        <!-- <span class="text-danger"><?php echo form_error('applicant_name_kanji'); ?></span> -->
       </div>
       <div class="form-group">
         <?php echo form_label('Date Of Birth', 'date_of_birthday', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_birthday')); ?>
@@ -169,7 +173,7 @@
             'id' => 'date_of_birthday',
             'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('date_of_birthday'); ?></span>
+        <!-- <span class="text-danger"><?php echo form_error('date_of_birthday'); ?></span> -->
       </div>
 
       <div class="form-group">
@@ -188,7 +192,7 @@
       </div>
 
       <div class="form-group">
-        <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'age')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
@@ -204,7 +208,7 @@
       </div>
 
       <div class="form-group">
-        <?php echo form_label('Nationality', 'nationality', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Nationality', 'nationality', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'nationality')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
@@ -239,7 +243,7 @@
      
       <div class="form-group " id="partaner">
         <?php echo form_label('Name of your Partaner', 'partaner_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <span class="badge badge-danger">Required</span>
+        <!-- <span class="badge badge-danger">Required</span> -->
         <?php
           echo form_input(array(
             'name' => 'partaner_name',
@@ -274,7 +278,7 @@ $(function() {
           echo form_input(array(
             'name' => 'std_email',
             'type' => 'text',
-            'value' => html_escape(set_value('email',isset($result)?$result->email:''), ENT_QUOTES),
+            'value' => html_escape(set_value('std_email',isset($result)?$result->std_email:''), ENT_QUOTES),
             'placeholder' => 'Enter email account!',
             'class' => 'form-control',
             'id' => 'std_email',
@@ -1057,34 +1061,6 @@ $(function() {
 <!-- co_leftside -->
 
 <div class="criminal form-group float-left">
-      <!-- <div class="">
-      <label>Have you applied for Certificate of Eligibility?</label>
-      <span class="badge badge-danger">Required</span>
-    </div> -->
-  
-      <!-- <div class="radio_record">
-          <div class="criminal_record01">
-          <select name="criminal_record" id="criminal_record" class="col-md-12 admission_select">
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-          </select>
-        </div>
-          <div class="criminal_record03  ">
-              <label class="cri_text muti_txt">Times:
-                  <input type="text" class="appli form-control " name="criminal_record_times" value="" checked="checked">
-              </label>
-          </div>
-          <div class="criminal_record03  ">
-              <label class="cri_text muti_txt">When:
-                  <input type="text" class="appli form-control " name="criminal_record_when" value="" checked="checked">
-              </label>
-          </div>
-          <div class="criminal_record03  ">
-              <label class="cri_text muti_txt">Purpose of Entry:
-                  <input type="text" class="appli form-control " name="criminal_record_details" value="" checked="checked">
-              </label>
-          </div> 
-      </div>   -->
       <label>Purpose of studying in Japanese </label>
       <div class="col-md-12 col-sm-12 p-0">
           <?php 
@@ -1760,7 +1736,7 @@ $(function() {
       <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="age" value="">
+      <input type="text" class=" table-control"  name="fa_age" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="relationship" value="">
@@ -1775,7 +1751,7 @@ $(function() {
      </div>
       </td>
       <td>
-      <input type="text" class=" table-control"  name="nationality" value="">
+      <input type="text" class=" table-control"  name="nationalitys" value="">
       </td>
       <td>
       <input type="text" class=" table-control " name="visa_status" value="">
@@ -1790,7 +1766,7 @@ $(function() {
       <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="age" value="">
+      <input type="text" class=" table-control"  name="fa_age" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="relationship" value="">
@@ -1805,7 +1781,7 @@ $(function() {
      </div>
       </td>
       <td>
-      <input type="text" class=" table-control"  name="nationality" value="">
+      <input type="text" class=" table-control"  name="nationalitys" value="">
       </td>
       <td>
       <input type="text" class=" table-control " name="visa_status" value=""> 
@@ -1820,7 +1796,7 @@ $(function() {
       <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="age" value="">
+      <input type="text" class=" table-control"  name="fa_age" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="relationship" value="">
@@ -1835,7 +1811,7 @@ $(function() {
      </div>
       </td>
       <td>
-      <input type="text" class=" table-control"  name="nationality" value="">
+      <input type="text" class=" table-control"  name="nationalitys" value="">
       </td>
       <td>
       <input type="text" class=" table-control " name="visa_status" value=""> 
@@ -1849,7 +1825,7 @@ $(function() {
       <input type="text" class=" table-control"  name="name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="age" value="">
+      <input type="text" class=" table-control"  name="fa_age" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="relationship" value="">
@@ -1864,7 +1840,7 @@ $(function() {
      </div>
       </td>
       <td>
-      <input type="text" class=" table-control"  name="nationality" value="">
+      <input type="text" class=" table-control"  name="nationalitys" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="visa_status" value="">
@@ -2086,19 +2062,19 @@ $(function() {
         <span class="text-danger"><?php echo form_error('name'); ?></span>
       </div>
       <div class="form-group">
-        <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Age', 'fin_age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_age')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'age',
+            'name' => 'fin_age',
             'type' => 'text',
-            'value' => html_escape(set_value('age',isset($result)?$result->age:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fin_age',isset($result)?$result->fin_age:''), ENT_QUOTES),
             'placeholder' => "Enter Age!",
             'class' => 'form-control',
-            'id' => 'age',
+            'id' => 'fin_age',
             'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('age'); ?></span>
+        <span class="text-danger"><?php echo form_error('fin_age'); ?></span>
       </div>
       <div class="form-group">
         <?php echo form_label('Relationship', 'relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
@@ -2262,8 +2238,9 @@ $(function() {
               <span class="material-icons align-top md-18 mr-1">sync</span>Reset
             </button>
           </div>
-     <?php echo form_close(); ?> 
+     
 </div>
+<?php echo form_close(); ?> 
 </div>
 </div>
 </div>
@@ -2303,7 +2280,7 @@ input#clickImg {
   padding-bottom: 10px;
 }
 #showImg1 {
-    margin: 10px 140px 0px;
+    /* margin: 10px 140px 0px; */
 }
 div.content_detail{
 position: relative;

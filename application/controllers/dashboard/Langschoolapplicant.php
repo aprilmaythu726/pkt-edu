@@ -124,7 +124,7 @@ class Langschoolapplicant extends CI_Controller
 
 		$globalHeader = array(
 			"alert" => $this->mainconfig->_DefaultNotic(),
-			'title' => "Add Student",
+			'title' => "Add JLS Student",
 			'msg' => "",
 			'uri' => array("langschoolapplicant","jls_add"),
 			'config' => $this->user_config,
@@ -136,12 +136,19 @@ class Langschoolapplicant extends CI_Controller
 			// $this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
       // $this->form_validation->set_rules('std_password', 'password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
       // $this->form_validation->set_rules('conf_password', 'confirm password', 'trim|required|min_length[6]|max_length[30]|xss_clean|matches[std_password]');
-      // $this->form_validation->set_rules('address', 'address', 'trim|xss_clean');      
-      // $this->form_validation->set_rules('std_birthday', 'birthday', 'trim|xss_clean');
-      // $this->form_validation->set_rules('std_edu', 'education', 'trim|xss_clean');
-      // $this->form_validation->set_rules('std_nrc', 'NRC no.', 'trim|xss_clean');
-      // $this->form_validation->set_rules('std_batch', 'batch', 'trim|xss_clean');
-			// $this->form_validation->set_rules('phone', 'phone number', 'trim|required|numeric|xss_clean');
+      $this->form_validation->set_rules('jls_name', 'jls name', 'trim|required|xss_clean');      
+      $this->form_validation->set_rules('applicant_name', 'applicant name', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('applicant_name_kanji', 'applicant name kanji', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('date_of_birthday', 'date of birthday.', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('place_birth', 'place birth', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('age', 'age', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('nationality', 'nationality', 'trim|required|xss_clean');   
+      $this->form_validation->set_rules('gender', 'gender', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('martial_status', 'martial status', 'trim|required|xss_clean');
+      //$this->form_validation->set_rules('partaner_name', 'partaner name.', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('place_birth', 'place birth', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('std_email', 'std email', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('phone', 'phone', 'trim|required|numeric|xss_clean');
       // $this->form_validation->set_rules('std_facebook', 'facebook account', 'trim|xss_clean');
       // $this->form_validation->set_rules('userfile', 'Student photo', 'trim|xss_clean');
 
@@ -181,9 +188,20 @@ class Langschoolapplicant extends CI_Controller
 
           if (!empty($imgupload['msg_error'])) {
             $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
-            redirect('adm/portal/langschoolstudent/add');
+            redirect('adm/portal/jls_applicant/add');
           } else {
             $data['image_file'] = $imgupload['file_name'];
+          }
+        }
+        if (!empty($_FILES['signfile']['name'])) {
+          //image upload sever and add database
+          $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, TRUE, TRUE, FALSE);
+
+          if (!empty($imgupload['msg_error'])) {
+            $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
+            redirect('adm/portal/jls_applicant/add');
+          } else {
+            $data['sign_file'] = $imgupload['file_name'];
           }
         }
 
