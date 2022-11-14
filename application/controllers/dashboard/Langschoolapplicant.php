@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Langschoolapplicant extends CI_Controller
 {
-  private $private_db = "dashboard/Student_Model";
+  private $private_db = "dashboard/Langschoolapplicant_Model";
 	private $data, $key, $url;
   //Initial auth session
 	protected $current_id, $current_user, $current_role, $current_csrf_key, $current_permission, $current_session_count, $current_login_time, $current_log_id, $session_checker, $user_config;
@@ -59,11 +59,11 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config
 		);
 		
-		$list = $this->Student_Model->getStudentList();
+		$list = $this->Langschoolapplicant_Model->getStudentList();
 		//*** Generate necessary key and value
 		$Q_list = _transfer_key_prepare(array_keys_checker($list));
 		$this->data['lists'] = array_transfer($list, $Q_list);
-    $this->data['course'] = $this->Student_Model->getStudentCourseRequest();	
+    $this->data['course'] = $this->Langschoolapplicant_Model->getStudentCourseRequest();	
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
 
     // For data showing (course, )
@@ -83,11 +83,11 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config
 		);
 		
-		$list = $this->Student_Model->getStudentList();
+		$list = $this->Langschoolapplicant_Model->getStudentList();
 		//*** Generate necessary key and value
 		$Q_list = _transfer_key_prepare(array_keys_checker($list));
 		$this->data['lists'] = array_transfer($list, $Q_list);
-    $this->data['course'] = $this->Student_Model->getStudentCourseRequest();	
+    $this->data['course'] = $this->Langschoolapplicant_Model->getStudentCourseRequest();	
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
 
     // For data showing (course, )
@@ -106,11 +106,11 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config
 		);
 		
-		$list = $this->Student_Model->getStudentList();
+		$list = $this->Langschoolapplicant_Model->getStudentList();
 		//*** Generate necessary key and value
 		$Q_list = _transfer_key_prepare(array_keys_checker($list));
 		$this->data['lists'] = array_transfer($list, $Q_list);
-    $this->data['course'] = $this->Student_Model->getStudentCourseRequest();	
+    $this->data['course'] = $this->Langschoolapplicant_Model->getStudentCourseRequest();	
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
 
     // For data showing (course, )
@@ -124,7 +124,7 @@ class Langschoolapplicant extends CI_Controller
 
 		$globalHeader = array(
 			"alert" => $this->mainconfig->_DefaultNotic(),
-			'title' => "Add Student",
+			'title' => "Add JLS Student",
 			'msg' => "",
 			'uri' => array("langschoolapplicant","jls_add"),
 			'config' => $this->user_config,
@@ -132,67 +132,74 @@ class Langschoolapplicant extends CI_Controller
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, []);
 
 		if($_POST) {
-			$this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
-			$this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
-      $this->form_validation->set_rules('std_password', 'password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
-      $this->form_validation->set_rules('conf_password', 'confirm password', 'trim|required|min_length[6]|max_length[30]|xss_clean|matches[std_password]');
-      $this->form_validation->set_rules('address', 'address', 'trim|xss_clean');      
-      $this->form_validation->set_rules('std_birthday', 'birthday', 'trim|xss_clean');
-      $this->form_validation->set_rules('std_edu', 'education', 'trim|xss_clean');
-      $this->form_validation->set_rules('std_nrc', 'NRC no.', 'trim|xss_clean');
-      $this->form_validation->set_rules('std_batch', 'batch', 'trim|xss_clean');
-			$this->form_validation->set_rules('phone', 'phone number', 'trim|required|numeric|xss_clean');
-      $this->form_validation->set_rules('std_facebook', 'facebook account', 'trim|xss_clean');
-      $this->form_validation->set_rules('userfile', 'Student photo', 'trim|xss_clean');
+			// $this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
+			// $this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
+      // $this->form_validation->set_rules('std_password', 'password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
+      // $this->form_validation->set_rules('conf_password', 'confirm password', 'trim|required|min_length[6]|max_length[30]|xss_clean|matches[std_password]');
+      $this->form_validation->set_rules('jls_name', 'jls name', 'trim|required|xss_clean');      
+      // $this->form_validation->set_rules('applicant_name', 'applicant name', 'trim|required|xss_clean');
+      // $this->form_validation->set_rules('applicant_name_kanji', 'applicant name kanji', 'trim|required|xss_clean');
+      // $this->form_validation->set_rules('date_of_birthday', 'date of birthday.', 'trim|required|xss_clean');
+      // $this->form_validation->set_rules('place_birth', 'place birth', 'trim|required|xss_clean');
+			// $this->form_validation->set_rules('age', 'age', 'trim|required|xss_clean');
+      // $this->form_validation->set_rules('nationality', 'nationality', 'trim|required|xss_clean');   
+      // $this->form_validation->set_rules('gender', 'gender', 'trim|required|xss_clean');
+      // $this->form_validation->set_rules('martial_status', 'martial status', 'trim|required|xss_clean');
+      // //$this->form_validation->set_rules('partaner_name', 'partaner name.', 'trim|required|xss_clean');
+      // $this->form_validation->set_rules('place_birth', 'place birth', 'trim|required|xss_clean');
+			// $this->form_validation->set_rules('std_email', 'std email', 'trim|required|xss_clean');
+      // $this->form_validation->set_rules('phone', 'phone', 'trim|required|numeric|xss_clean');
+      // $this->form_validation->set_rules('std_facebook', 'facebook account', 'trim|xss_clean');
+      // $this->form_validation->set_rules('userfile', 'Student photo', 'trim|xss_clean');
 
-			$this->form_validation->set_message('required', 'You must enter %s!');
-			$this->form_validation->set_message('is_unique', 'Your %s is already exits!');
-			$this->form_validation->set_message('numeric', 'The %s always allow only numbers!');
-			$this->form_validation->set_message('valid_email', 'The %s must be valid!');
+			// $this->form_validation->set_message('required', 'You must enter %s!');
+			// $this->form_validation->set_message('is_unique', 'Your %s is already exits!');
+			// $this->form_validation->set_message('numeric', 'The %s always allow only numbers!');
+			// $this->form_validation->set_message('valid_email', 'The %s must be valid!');
 
 			if ($this->form_validation->run() === false) {
 				$this->load->view('dashboard/langschoolstudent/add', $this->data);
 			} else {
-        $lastid = $this->Student_Model->getLastID();   
-        $lastid = (isset($lastid->id)?$lastid->id:0);
-        $lastid = serial_id_generate("sdid_", $lastid, 5);
-				$password = $this->__passwordDataHashing($this->input->post('std_password'));
+        
 
-				if($this->input->post('std_status') == 1) {
-					$activate_date = date('Y-m-d H:i:s');
-				}else{
-					$activate_date = "0000-00-00 00:00:00";
-				}
-
-        $authData = array(
-          'std_auth_key' => $this->__generate_auth_key($this->input->post('std_email')),
-          'email' => $this->input->post('std_email'),
-          'password' => $password,
-          'created_at' => date('Y-m-d H:i:s'),
-          'updated_at' => date('Y-m-d H:i:s'),
-        );
-        $authData = $this->__Xss($authData);
-        $std_id = $this->Student_Model->studentInsert($authData);
-
-				$data = array(
-          'std_id' => $std_id,
-          'user_id' => $lastid,
-					'name' => $this->input->post('std_name'),
+				$data_info = array(
+					'jls_name' => $this->input->post('jls_name'),
+          'applicant_name' => $this->input->post('applicant_name'),
+          'applicant_name_kanji' => $this->input->post('applicant_name_kanji'),
+          'date_of_birthday' => $this->input->post('date_of_birthday'),
+          'place_birth' => $this->input->post('place_birth'),
+          'age' => $this->input->post('age'),
+          'nationality' => $this->input->post('nationality'),
+          'gender' => $this->input->post('gender'),
+          'martial_status' => $this->input->post('martial_status'),
+          'partaner_name' => $this->input->post('partaner_name'),
+          'std_email' => $this->input->post('std_email'),
           'phone' => $this->input->post('phone'),
           'address' => $this->input->post('address'),
-          'birthday' => $this->input->post('std_birthday'),
-          'nrc' => $this->input->post('std_nrc'),
-          'education' => $this->input->post('std_edu'),
-          'social' => $this->input->post('std_facebook'),
-          'request_date' => date('Y-m-d H:i:s'),
-          'activate_date' => $activate_date,
-          'expired_date' => "0000-00-00 00:00:00",
-          'created_at' => date('Y-m-d H:i:s'),
-          'updated_at' => date('Y-m-d H:i:s'),
-          'status' => $this->input->post('std_status'),
-          'permission' => $this->input->post('std_permission')
+          'course_study_lengh' => $this->input->post('course_study_lengh'),
+          'occupation' => $this->input->post('occupation'),
+          'place_employment_school' => $this->input->post('place_employment_school'),
+          'addr_employment_school' => $this->input->post('addr_employment_school'),
+          'tel_employment_school' => $this->input->post('tel_employment_school'),
+          'entry_age_ele_school' => $this->input->post('entry_age_ele_school'),
+          'duration_jp_language_study' => $this->input->post('duration_jp_language_study'),
+          'passport' => $this->input->post('passport'),
+          'educational_school_name' => $this->input->post('educational_school_name'),
+          'passport_no' => $this->input->post('passport_no'),
+          'passport_data_issue' => $this->input->post('passport_data_issue'),
+          'passport_data_exp' => $this->input->post('passport_data_exp'),
+          'military_service' => $this->input->post('military_service'),
+          'family_mail' => $this->input->post('family_mail'),
+          'family_tel' => $this->input->post('family_tel'),
+          'family_address' => $this->input->post('family_address'),
+          
+          
+          // 'created_at' => date('Y-m-d H:i:s'),
+          // 'updated_at' => date('Y-m-d H:i:s'),
+          // 'status' => $this->input->post('std_status'),
+          // 'permission' => $this->input->post('std_permission')
         );
-        $data = $this->__Xss($data);
+        $data_info = $this->__Xss($data_info);
 
         if (!empty($_FILES['userfile']['name'])) {
           //image upload sever and add database
@@ -200,20 +207,268 @@ class Langschoolapplicant extends CI_Controller
 
           if (!empty($imgupload['msg_error'])) {
             $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
-            redirect('adm/portal/langschoolstudent/add');
+            redirect('adm/portal/jls_applicant/add');
           } else {
-            $data['image_file'] = $imgupload['file_name'];
+            $data_info['image_file'] = $imgupload['file_name'];
+          }
+        }
+        if (!empty($_FILES['signfile']['name'])) {
+          //image upload sever and add database
+          $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, TRUE, TRUE, FALSE);
+
+          if (!empty($imgupload['msg_error'])) {
+            $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
+            redirect('adm/portal/jls_applicant/add');
+          } else {
+            $data_info['sign_file'] = $imgupload['file_name'];
           }
         }
 
-        // Auto Mail Sending
-        // if($this->input->post('std_email') != "") {
-        //   $this->sendAutoMail(1, $this->input->post('std_email'), 'regConf');
-        // }
+        $applicant_id = $this->Langschoolapplicant_Model->JLSapplicantinfo($data_info);
 
-        $this->Student_Model->studentAuthInsert($data);
+        $data_details = array(
+          'applicant_id' => $applicant_id,
+          'have_you_visited_jp' => $this->input->post('have_you_visited_jp'),
+          'visited_date' => $this->input->post('visited_date'),
+          'date_of_departure' => $this->input->post('date_of_departure'),
+          'visa_type' => $this->input->post('visa_type'),
+          'school_apply_before_japan' => $this->input->post('school_apply_before_japan'),
+          'school_apply_date' => $this->input->post('school_apply_date'),
+          'school_apply_status' => $this->input->post('school_apply_status'),
+          'school_apply_name' => $this->input->post('school_apply_name'),
+          'immigration_office' => $this->input->post('immigration_office'),
+          'immigration_result' => $this->input->post('immigration_result'),
+          'COE_reject' => $this->input->post('COE_reject'),
+          'place_apply_visa' => $this->input->post('place_apply_visa'),
+					'family_language' => $this->input->post('family_language'),
+          'eligibility_have' => $this->input->post('eligibility_have'),
+          'eligibility_time' => $this->input->post('eligibility_time'),
+          'eligibility_purpose' => $this->input->post('eligibility_purpose'),
+          'eligibility_date' => $this->input->post('eligibility_date'),
+          'provide_english' => $this->input->post('provide_english'),
+          'accompanying_person' => $this->input->post('accompanying_person'),
+          'criminal_record' => $this->input->post('criminal_record'),
+          'criminal_record_details' => $this->input->post('criminal_record_details'),
+          'departure_deportation' => $this->input->post('departure_deportation'),
+          'current_status' => $this->input->post('current_status'),
+          'current_status_school_name' => $this->input->post('current_status_school_name'),
+          'current_status_school_major' => $this->input->post('current_status_school_major'),
+          'current_status_school_grade' => $this->input->post('current_status_school_grade'),
+          'expected_month' => $this->input->post('expected_month'),
+          'expected_year' => $this->input->post('expected_year'),
+          'specific_plans_after_graduating	' => $this->input->post('specific_plans_after_graduating	'),
+          'specific_plan_type_schools' => $this->input->post('specific_plan_type_schools'),
+          'specific_plan_school_name' => $this->input->post('specific_plan_school_name'),
+          'specific_plan_major' => $this->input->post('specific_plan_major'),
+          'will_you_return' => $this->input->post('will_you_return'),
+          'purpose_studying_in_japanese	' => $this->input->post('purpose_studying_in_japanese	'),
+        );
+        $data_details = $this->__Xss($data_details);      
+        $this->Langschoolapplicant_Model->JLSapplicantdetails($data_details);
+
+        $data_financial_sponsor = array(
+          'applicant_id' => $applicant_id,
+          'name' => $this->input->post('name'),
+          'age' => $this->input->post('age'),
+          'address' => $this->input->post('address'),
+          'tel' => $this->input->post('tel'),
+          'email' => $this->input->post('email'),
+          'occupation' => $this->input->post('occupation'),
+          'work_place' => $this->input->post('work_place'),
+          'annual_income' => $this->input->post('annual_income'),
+          'amount_saving_for_study_abroad' => $this->input->post('amount_saving_for_study_abroad'),
+          'amount_of_saving_which_proved' => $this->input->post('amount_of_saving_which_proved'),
+          'start_work_date' => $this->input->post('start_work_date'),
+      ); 
+      $data_financial_sponsor = $this->__Xss($data_financial_sponsor);      
+      $this->Langschoolapplicant_Model->JLSfinancialsponser($data_financial_sponsor);
+
+        $edu_name=$_POST['edu_name'];
+        $edu_address=$_POST['edu_address'];
+        $edu_start_date=$_POST['edu_start_date'];
+        $edu_end_date=$_POST['edu_end_date'];
+        $edu_year=$_POST['edu_year'];
+        $count1 = count($_POST['edu_name']);
+
+        for($i=0; $i<$count1; $i++) {
+          $data_edu_history = array(
+            'applicant_id' => $applicant_id,
+            'edu_name' => $edu_name[$i], 
+            'address' => $edu_address[$i],
+            'start_date' => $edu_start_date[$i],
+            'end_date' => $edu_end_date[$i],
+            'year' => $edu_year[$i],
+          ); 
+          $this->db->insert('JLS_educational_history', $data_edu_history);
+          
+        }
+        $jp_name=$_POST['jp_name'];
+        $jp_address=$_POST['jp_address'];
+        $jp_start_date=$_POST['jp_start_date'];
+        $jp_end_date=$_POST['jp_end_date'];
+        $jp_hour=$_POST['jp_hour'];
+        $count1 = count($_POST['jp_name']);
+
+        for($i=0; $i<$count1; $i++) {
+          $data_lang_study = array(
+            'applicant_id' => $applicant_id,
+            'jp_name' => $jp_name[$i], 
+            'address' => $jp_address[$i],
+            'start_date' => $jp_start_date[$i],
+            'end_date' => $jp_end_date[$i],
+            'hour' => $jp_hour[$i],
+          ); 
+          $this->db->insert('JLS_previous_jp_lang_study', $data_lang_study);
+          
+        }
+        // JLS_achievement_jp_lang_test
+        $achiv_name=$_POST['achiv_name'];
+        $level=$_POST['achiv_level'];
+        $exam_year=$_POST['achiv_exam_year'];
+        $score=$_POST['achiv_score'];
+        $result=$_POST['achiv_result'];
+        $date_qualification=$_POST['achiv_date_qualification'];
+        $count1 = count($_POST['achiv_name']);
+
+        for($i=0; $i<$count1; $i++) {
+          $data_achievement_jp = array(
+            'applicant_id' => $applicant_id,
+            'name' => $achiv_name[$i], 
+            'level' => $level[$i],
+            'exam_year' => $exam_year[$i],
+            'score' => $score[$i],
+            'result' => $result[$i],
+            'date_qualification' => $date_qualification[$i],
+          ); 
+          $this->db->insert('JLS_achievement_jp_lang_test', $data_achievement_jp);
+          
+        }
+        // JLS_achievement_jp_lang_test  
+        //JLS_name_jp_lang_tests_going_to_take
+        $going_name=$_POST['going_name'];
+        $going_level=$_POST['going_level'];
+        $count1 = count($_POST['going_name']);
+
+        for($i=0; $i<$count1; $i++) {
+          $data_jp_lang_going_to_take = array(
+            'applicant_id' => $applicant_id,
+            'going_name' => $going_name[$i], 
+            'going_level' => $going_level[$i],
+          ); 
+          $this->db->insert('JLS_name_jp_lang_tests_going_to_take', $data_jp_lang_going_to_take);
+          
+        }
+        //JLS_name_jp_lang_tests_going_to_take
+        //JLS_history_employment
+        $emp_name=$_POST['emp_name'];
+        $emp_address=$_POST['emp_address'];
+        $emp_start_date=$_POST['emp_start_date'];
+        $emp_end_date=$_POST['emp_start_date'];
+        $emp_year=$_POST['emp_year'];
+        $emp_job_description=$_POST['emp_job_description'];
+        $count1 = count($_POST['emp_name']);
+
+        for($i=0; $i<$count1; $i++) {
+          $data_history_employment = array(
+            'applicant_id' => $applicant_id,
+            'name' => $emp_name[$i], 
+            'address' => $emp_address[$i],
+            'start_date' => $emp_start_date[$i],
+            'end_date' => $emp_end_date[$i],
+            'year' => $emp_year[$i],
+            'job_description' => $emp_job_description[$i],
+          ); 
+          $this->db->insert('JLS_history_employment', $data_history_employment);
+          
+        }
+        //JLS_history_employment
+
+        //JLS_family_member
+        $fam_name=$_POST['fam_name'];
+        $relationship=$_POST['fam_relationship'];
+        $work_place=$_POST['fam_work_place'];
+        $birthday=$_POST['fam_birthday'];
+        $occupation=$_POST['fam_occupation'];
+        $annual_income=$_POST['fam_annual_income'];
+        $address=$_POST['fam_address'];
+        $length_sevice=$_POST['fam_length_sevice'];
+        $count1 = count($_POST['fam_name']);
+        
+
+        for($i=0; $i<$count1; $i++) {
+          $data_family_member = array(
+            'applicant_id' => $applicant_id,
+            'name' => $fam_name[$i], 
+            'relationship' => $relationship[$i],
+            'work_place' => $work_place[$i],
+            'birthday' => $birthday[$i],
+            'occupation' => $occupation[$i],
+            'annual_income' => $annual_income[$i],
+            'address' => $address[$i],
+            'length_sevice' => $length_sevice[$i],
+          ); 
+          $this->db->insert('JLS_family_member', $data_family_member);
+          
+        }
+        //JLS_family_member
+
+        //JLS_family_in_japan
+         $plan_to_stay_with_them=$_POST['ja_plan_to_stay_with_them'];
+         $name=$_POST['ja_fam_name'];
+         $age=$_POST['ja_fam_age'];
+         $relationship=$_POST['ja_fam_relationship'];
+         $residing_applicant=$_POST['ja_fam_residing_applicant'];
+         $nationality=$_POST['ja_fam_nationality'];
+         $visa_status=$_POST['ja_fam_visa_status'];
+         $work_place=$_POST['ja_fam_work_place'];
+         $count1 = count($_POST['ja_fam_name']);
+         
+ 
+         for($i=0; $i<$count1; $i++) {
+           $data_family_japan = array(
+             'applicant_id' => $applicant_id,
+             'plan_to_stay_with_them' => $plan_to_stay_with_them[$i], 
+             'name' => $name[$i],
+             'age' => $age[$i],
+             'relationship' => $relationship[$i],
+             'residing_applicant' => $residing_applicant[$i],
+             'nationality' => $nationality[$i],
+             'visa_status' => $visa_status[$i],
+             'work_place' => $work_place[$i],
+           ); 
+           $this->db->insert('JLS_family_in_japan', $data_family_japan);
+           
+         }
+        //JLS_family_in_japan
+
+        //JLS_previous_stay_in_japan
+        $entry_date=$_POST['entry_date'];
+        $arrival_date=$_POST['arrival_date'];
+        $depature_date=$_POST['depature_date'];
+        $status=$_POST['status'];
+        $entry_purpose=$_POST['entry_purpose'];
+        $count1 = count($_POST['entry_date']);
+        
+
+        for($i=0; $i<$count1; $i++) {
+          $data_previous_stay_japan = array(
+            'applicant_id' => $applicant_id,
+            'entry_date' => $entry_date[$i], 
+            'arrival_date' => $arrival_date[$i],
+            'depature_date' => $depature_date[$i],
+            'status' => $status[$i],
+            'entry_purpose' => $entry_purpose[$i],
+          ); 
+          $this->db->insert('JLS_previous_stay_in_japan', $data_previous_stay_japan);
+          
+        }
+       //JLS_previous_stay_in_japan 
+
+      // $data_edu_history = $this->__Xss($data_edu_history);      
+      // $this->Langschoolapplicant_Model->JLSeduhistory($data_edu_history);
+        
         $this->session->set_flashdata('msg_success', 'Your data has been insert!');
-        redirect('adm/portal/langschoolstudent');
+        redirect('adm/portal/jls_applicant/add');
 			}
 		} else {
 			$this->load->view('dashboard/langschoolstudent/add', $this->data);
@@ -229,73 +484,61 @@ class Langschoolapplicant extends CI_Controller
 
 		$globalHeader = array(
 			"alert" => $this->mainconfig->_DefaultNotic(),
-			'title' => "Add Student",
+			'title' => "Add JLS Student",
 			'msg' => "",
-			'uri' => array("langschoolapplicant","jls_confirm"),
+			'uri' => array("langschoolapplicant","jls_add"),
 			'config' => $this->user_config,
 		);
 		$this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, []);
 
 		if($_POST) {
-			$this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
-			$this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
-      $this->form_validation->set_rules('std_password', 'password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
-      $this->form_validation->set_rules('conf_password', 'confirm password', 'trim|required|min_length[6]|max_length[30]|xss_clean|matches[std_password]');
-      $this->form_validation->set_rules('address', 'address', 'trim|xss_clean');      
-      $this->form_validation->set_rules('std_birthday', 'birthday', 'trim|xss_clean');
-      $this->form_validation->set_rules('std_edu', 'education', 'trim|xss_clean');
-      $this->form_validation->set_rules('std_nrc', 'NRC no.', 'trim|xss_clean');
-      $this->form_validation->set_rules('std_batch', 'batch', 'trim|xss_clean');
-			$this->form_validation->set_rules('phone', 'phone number', 'trim|required|numeric|xss_clean');
-      $this->form_validation->set_rules('std_facebook', 'facebook account', 'trim|xss_clean');
-      $this->form_validation->set_rules('userfile', 'Student photo', 'trim|xss_clean');
+			// $this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
+			// $this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
+      // $this->form_validation->set_rules('std_password', 'password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
+      // $this->form_validation->set_rules('conf_password', 'confirm password', 'trim|required|min_length[6]|max_length[30]|xss_clean|matches[std_password]');
+      $this->form_validation->set_rules('jls_name', 'jls name', 'trim|required|xss_clean');      
+      $this->form_validation->set_rules('applicant_name', 'applicant name', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('applicant_name_kanji', 'applicant name kanji', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('date_of_birthday', 'date of birthday.', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('place_birth', 'place birth', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('age', 'age', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('nationality', 'nationality', 'trim|required|xss_clean');   
+      $this->form_validation->set_rules('gender', 'gender', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('martial_status', 'martial status', 'trim|required|xss_clean');
+      //$this->form_validation->set_rules('partaner_name', 'partaner name.', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('place_birth', 'place birth', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('std_email', 'std email', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('phone', 'phone', 'trim|required|numeric|xss_clean');
+      // $this->form_validation->set_rules('std_facebook', 'facebook account', 'trim|xss_clean');
+      // $this->form_validation->set_rules('userfile', 'Student photo', 'trim|xss_clean');
 
-			$this->form_validation->set_message('required', 'You must enter %s!');
-			$this->form_validation->set_message('is_unique', 'Your %s is already exits!');
-			$this->form_validation->set_message('numeric', 'The %s always allow only numbers!');
-			$this->form_validation->set_message('valid_email', 'The %s must be valid!');
+			// $this->form_validation->set_message('required', 'You must enter %s!');
+			// $this->form_validation->set_message('is_unique', 'Your %s is already exits!');
+			// $this->form_validation->set_message('numeric', 'The %s always allow only numbers!');
+			// $this->form_validation->set_message('valid_email', 'The %s must be valid!');
 
 			if ($this->form_validation->run() === false) {
-				$this->load->view('dashboard/langschoolstudent/add', $this->data);
+				$this->load->view('dashboard/langschoolstudent/confirm', $this->data);
 			} else {
-        $lastid = $this->Student_Model->getLastID();   
-        $lastid = (isset($lastid->id)?$lastid->id:0);
-        $lastid = serial_id_generate("sdid_", $lastid, 5);
-				$password = $this->__passwordDataHashing($this->input->post('std_password'));
-
-				if($this->input->post('std_status') == 1) {
-					$activate_date = date('Y-m-d H:i:s');
-				}else{
-					$activate_date = "0000-00-00 00:00:00";
-				}
-
-        $authData = array(
-          'std_auth_key' => $this->__generate_auth_key($this->input->post('std_email')),
-          'email' => $this->input->post('std_email'),
-          'password' => $password,
-          'created_at' => date('Y-m-d H:i:s'),
-          'updated_at' => date('Y-m-d H:i:s'),
-        );
-        $authData = $this->__Xss($authData);
-        $std_id = $this->Student_Model->studentInsert($authData);
+        
 
 				$data = array(
-          'std_id' => $std_id,
-          'user_id' => $lastid,
-					'name' => $this->input->post('std_name'),
+					'jls_name' => $this->input->post('jls_name'),
+          'applicant_name' => $this->input->post('applicant_name'),
+          'applicant_name_kanji' => $this->input->post('applicant_name_kanji'),
+          'date_of_birthday' => $this->input->post('date_of_birthday'),
+          'place_birth' => $this->input->post('place_birth'),
+          'age' => $this->input->post('age'),
+          'nationality' => $this->input->post('nationality'),
+          'gender' => $this->input->post('gender'),
+          'martial_status' => $this->input->post('martial_status'),
+          'partaner_name' => $this->input->post('partaner_name'),
+          'std_email' => $this->input->post('std_email'),
           'phone' => $this->input->post('phone'),
-          'address' => $this->input->post('address'),
-          'birthday' => $this->input->post('std_birthday'),
-          'nrc' => $this->input->post('std_nrc'),
-          'education' => $this->input->post('std_edu'),
-          'social' => $this->input->post('std_facebook'),
-          'request_date' => date('Y-m-d H:i:s'),
-          'activate_date' => $activate_date,
-          'expired_date' => "0000-00-00 00:00:00",
-          'created_at' => date('Y-m-d H:i:s'),
-          'updated_at' => date('Y-m-d H:i:s'),
-          'status' => $this->input->post('std_status'),
-          'permission' => $this->input->post('std_permission')
+          // 'created_at' => date('Y-m-d H:i:s'),
+          // 'updated_at' => date('Y-m-d H:i:s'),
+          // 'status' => $this->input->post('std_status'),
+          // 'permission' => $this->input->post('std_permission')
         );
         $data = $this->__Xss($data);
 
@@ -305,9 +548,20 @@ class Langschoolapplicant extends CI_Controller
 
           if (!empty($imgupload['msg_error'])) {
             $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
-            redirect('adm/portal/langschoolstudent/confirm');
+            redirect('adm/portal/jls_applicant/confirm');
           } else {
             $data['image_file'] = $imgupload['file_name'];
+          }
+        }
+        if (!empty($_FILES['signfile']['name'])) {
+          //image upload sever and add database
+          $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, TRUE, TRUE, FALSE);
+
+          if (!empty($imgupload['msg_error'])) {
+            $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
+            redirect('adm/portal/jls_applicant/confirm');
+          } else {
+            $data['sign_file'] = $imgupload['file_name'];
           }
         }
 
@@ -316,9 +570,9 @@ class Langschoolapplicant extends CI_Controller
         //   $this->sendAutoMail(1, $this->input->post('std_email'), 'regConf');
         // }
 
-        $this->Student_Model->studentAuthInsert($data);
+        $this->Langschoolapplicant_Model->JLSapplicantinfo($data);
         $this->session->set_flashdata('msg_success', 'Your data has been insert!');
-        redirect('adm/portal/langschoolstudent');
+        redirect('adm/portal/jls_applicant/add');
 			}
 		} else {
 			$this->load->view('dashboard/langschoolstudent/confirm', $this->data);
@@ -338,7 +592,7 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config,
 		);
 		
-		$list = $this->Student_Model->studentDetail($id);
+		$list = $this->Langschoolapplicant_Model->studentDetail($id);
 		//*** Current query value checker
 		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
 		//*** Generate necessary key and value
@@ -393,8 +647,8 @@ class Langschoolapplicant extends CI_Controller
         $data = $this->__Xss($data);
 
         //Check validation
-        $checkdata = $this->Student_Model->studentCheck($data, $id);
-        $checkemail = $this->Student_Model->studentEmailCheck($this->input->post('std_email'),$id);
+        $checkdata = $this->Langschoolapplicant_Model->studentCheck($data, $id);
+        $checkemail = $this->Langschoolapplicant_Model->studentEmailCheck($this->input->post('std_email'),$id);
      
         if($this->input->post('std_status') == 1) {
           $data['activate_date'] = date('Y-m-d H:i:s');
@@ -431,8 +685,8 @@ class Langschoolapplicant extends CI_Controller
         } 
           
         if(empty($checkdata) || empty($checkemail)) {
-          $this->Student_Model->studentAuthUpdate($usrData, $id);
-          $this->Student_Model->studentUpdate($data, $id);
+          $this->Langschoolapplicant_Model->studentAuthUpdate($usrData, $id);
+          $this->Langschoolapplicant_Model->studentUpdate($data, $id);
           $this->session->set_flashdata('msg_success', 'Your data has been update!');
           redirect("adm/portal/langschoolstudent");
         }
@@ -460,19 +714,19 @@ class Langschoolapplicant extends CI_Controller
 		  'config' => $this->user_config
 	  );
 	
-	  $list = $this->Student_Model->studentViewDetail($id);
+	  $list = $this->Langschoolapplicant_Model->studentViewDetail($id);
 	  //*** Current query value checker
 	  $this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
 	  //*** Generate necessary key and value
 	  $Q_list = _transfer_key_prepare(object_key_checker($list));
 	  $this->data['result'] = object_transfer($list, $Q_list);
 
-    $course = $this->Student_Model->studentViewCourse($id);
+    $course = $this->Langschoolapplicant_Model->studentViewCourse($id);
 		$Q_list = _transfer_key_prepare(array_keys_checker($course));
 		$this->data['course'] = array_transfer($course, $Q_list);
-    $this->data['record'] = $this->Student_Model->studentViewRecord($id);
-    $this->data['noted'] = $this->Student_Model->studentViewNotes($id);
-    $this->data['batch'] = $this->Student_Model->getBatch();
+    $this->data['record'] = $this->Langschoolapplicant_Model->studentViewRecord($id);
+    $this->data['noted'] = $this->Langschoolapplicant_Model->studentViewNotes($id);
+    $this->data['batch'] = $this->Langschoolapplicant_Model->getBatch();
 	  $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
 
     if($_POST) {
@@ -485,10 +739,10 @@ class Langschoolapplicant extends CI_Controller
         $data['msg'] = "Something wrong!";
 				$this->load->view('dashboard/langschoolstudent/views', $this->data);
 			} else {
-        $lastid = $this->Student_Model->getCourseID();   
+        $lastid = $this->Langschoolapplicant_Model->getCourseID();   
         $lastid = (isset($lastid)?$lastid:1);
         $invoice_number = serial_id_generate("Inv-", $lastid-1, 6);
-        $courseinfo = $this->Student_Model->getBatchDetail($this->input->post('batch_id'));
+        $courseinfo = $this->Langschoolapplicant_Model->getBatchDetail($this->input->post('batch_id'));
 
         $data = array(
 					'std_id' => $this->input->post('std_id'),
@@ -508,13 +762,13 @@ class Langschoolapplicant extends CI_Controller
         }
       
         $data = $this->security->xss_clean($data);        
-				$checkdata = $this->Student_Model->batchCheck($data);
+				$checkdata = $this->Langschoolapplicant_Model->batchCheck($data);
 
 				if ($checkdata){
 					$this->session->set_flashdata('msg_error', 'Your data already exits! please fill other data!');
 					redirect('adm/portal/langschoolstudent/view/'.$id);
         }
-				$cos_id = $this->Student_Model->insertBatch($data);
+				$cos_id = $this->Langschoolapplicant_Model->insertBatch($data);
 
         $invoice = array(
           'std_id' => $this->input->post('std_id'),
@@ -531,7 +785,7 @@ class Langschoolapplicant extends CI_Controller
           'created_at' => date('Y-m-d H:i:s'),
           'updated_at' => date('Y-m-d H:i:s'),
         );
-        $this->Student_Model->insertInvoice($invoice);
+        $this->Langschoolapplicant_Model->insertInvoice($invoice);
 
 				$this->session->set_flashdata('msg_success', 'Your data has been insert!');
 				redirect('adm/portal/langschoolstudent/view/'.$id);
@@ -554,7 +808,7 @@ class Langschoolapplicant extends CI_Controller
 			'config' => $this->user_config,
 		);
 
-    $list = $this->Student_Model->studentDetail($id);
+    $list = $this->Langschoolapplicant_Model->studentDetail($id);
 		//*** Current query value checker
 		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
     $recent_cover = $list->image_file;
@@ -566,13 +820,13 @@ class Langschoolapplicant extends CI_Controller
       }
     }
 
-		$this->Student_Model->Delete($id);
-    $this->Student_Model->stdAuthDelete($id);
-    $this->Student_Model->stdConfigDelete($id);
-    $this->Student_Model->stdCourseDelete($id);
-    $this->Student_Model->stdInvoiceDelete($id);
-    $this->Student_Model->stdNoteDelete($id);
-    $this->Student_Model->stdPaymentDelete($id);
+		$this->Langschoolapplicant_Model->Delete($id);
+    $this->Langschoolapplicant_Model->stdAuthDelete($id);
+    $this->Langschoolapplicant_Model->stdConfigDelete($id);
+    $this->Langschoolapplicant_Model->stdCourseDelete($id);
+    $this->Langschoolapplicant_Model->stdInvoiceDelete($id);
+    $this->Langschoolapplicant_Model->stdNoteDelete($id);
+    $this->Langschoolapplicant_Model->stdPaymentDelete($id);
 
 		$this->session->set_flashdata('msg_success', 'Your data has been delete!');
     redirect('adm/portal/langschoolstudent');
@@ -593,7 +847,7 @@ class Langschoolapplicant extends CI_Controller
       "status" => 1
     );
 
-    $data['result'] = $this->Student_Model->studentUpdate($data, $id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been activated!');
     redirect("adm/portal/langschoolstudent", $data);
   }
@@ -613,7 +867,7 @@ class Langschoolapplicant extends CI_Controller
 			"status" => 0
 		);
 
-		$data['result'] = $this->Student_Model->studentUpdate($data, $id);
+		$data['result'] = $this->Langschoolapplicant_Model->studentUpdate($data, $id);
 		$this->session->set_flashdata('msg_success', 'Your data has been deactivated!');
 		redirect("adm/portal/langschoolstudent", $data);
 	}
@@ -633,7 +887,7 @@ class Langschoolapplicant extends CI_Controller
       "permission" => 1
     );
 
-    $data['result'] = $this->Student_Model->studentUpdate($data, $id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been activated!');
     redirect("adm/portal/langschoolstudent", $data);
   }
@@ -653,7 +907,7 @@ class Langschoolapplicant extends CI_Controller
       "permission" => 0
     );
 
-    $data['result'] = $this->Student_Model->studentUpdate($data, $id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been deactivated!');
     redirect("adm/portal/langschoolstudent", $data);
   }
@@ -671,22 +925,22 @@ class Langschoolapplicant extends CI_Controller
 		  'config' => $this->user_config
 	  );
 	
-	  $list = $this->Student_Model->studentCourseDetail($id);
+	  $list = $this->Langschoolapplicant_Model->studentCourseDetail($id);
 	  //*** Current query value checker
 	  $this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $list);
 	  //*** Generate necessary key and value
 	  $Q_list = _transfer_key_prepare(object_key_checker($list));
 	  $this->data['result'] = object_transfer($list, $Q_list);
 
-    $invoice = $this->Student_Model->studentInvoiceDetail($id);
+    $invoice = $this->Langschoolapplicant_Model->studentInvoiceDetail($id);
 		$Q_list = _transfer_key_prepare(object_key_checker($invoice));
 		$this->data['invoice'] = object_transfer($invoice, $Q_list);
     
-    $payment = $this->Student_Model->studentPaymentLists($id);
+    $payment = $this->Langschoolapplicant_Model->studentPaymentLists($id);
 		$Q_list = _transfer_key_prepare(array_keys_checker($payment));
     
 		$this->data['payment'] = array_transfer($payment, $Q_list);
-    $this->data['type'] = $this->Student_Model->getStudentPaymentMethod();
+    $this->data['type'] = $this->Langschoolapplicant_Model->getStudentPaymentMethod();
     
 	  $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
   
@@ -717,11 +971,11 @@ class Langschoolapplicant extends CI_Controller
         $this->session->set_flashdata('msg_error', 'Empty Data! please fill data!');
         redirect('adm/portal/langschoolstudent/invoice/view/'.$id);
 			} else {
-        $lastid = $this->Student_Model->getStudentPaymentID();   
+        $lastid = $this->Langschoolapplicant_Model->getStudentPaymentID();   
         $lastid = (isset($lastid)?$lastid:1);
         $pay_number = serial_id_generate("Pay-", $lastid-1, 6);
-        $c_total = $this->Student_Model->CourseTotalPrice($id);
-        $s_cash = $this->Student_Model->studentPurchaseTotal($id);
+        $c_total = $this->Langschoolapplicant_Model->CourseTotalPrice($id);
+        $s_cash = $this->Langschoolapplicant_Model->studentPurchaseTotal($id);
 
        $this->__CheckStudentPurchaseChecker($c_total->total_price, $s_cash[0]->total_cash, $this->input->post('cash'), 'adm/portal/student/course/view/'.$id);
 
@@ -737,14 +991,14 @@ class Langschoolapplicant extends CI_Controller
           'updated_at' => date('Y-m-d H:i:s'),
 				);
         $data = $this->security->xss_clean($data);        
-				$checkdata = $this->Student_Model->studentPaymentCheck($data);
+				$checkdata = $this->Langschoolapplicant_Model->studentPaymentCheck($data);
 
 				if ($checkdata){
 					$this->session->set_flashdata('msg_error', 'Your data already exits! please fill other data!');
 					redirect('adm/portal/langschoolstudent/invoice/view/'.$id);
         }
 
-				$this->Student_Model->insertStdPayment($data);
+				$this->Langschoolapplicant_Model->insertStdPayment($data);
 				$this->session->set_flashdata('msg_success', 'Your data has been insert!');
 				redirect('adm/portal/langschoolstudent/invoice/view/'.$id);
 			}
@@ -773,11 +1027,11 @@ class Langschoolapplicant extends CI_Controller
       "status" => 1
     );
 
-    $student_course = $this->Student_Model->studentCourseDetail($id);
-    $target = $this->Student_Model->studentCourseTargetDate($student_course->bat_id);
+    $student_course = $this->Langschoolapplicant_Model->studentCourseDetail($id);
+    $target = $this->Langschoolapplicant_Model->studentCourseTargetDate($student_course->bat_id);
     
-    $data['result'] = $this->Student_Model->studentEnrollUpdate($data, $id);
-    $std_id = $this->Student_Model->getStudentID($id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentEnrollUpdate($data, $id);
+    $std_id = $this->Langschoolapplicant_Model->getStudentID($id);
 
     if($target->liveclass == "on") {
       $initial = $target->start_date;
@@ -794,7 +1048,7 @@ class Langschoolapplicant extends CI_Controller
         'created_at' => date('Y-m-d H:i:s'),
         'updated_at' => date('Y-m-d H:i:s'),
       );
-      $this->Student_Model->insertLocalClass($data);
+      $this->Langschoolapplicant_Model->insertLocalClass($data);
     }
     $this->session->set_flashdata('msg_success', 'Your data has been activated!');
     redirect("adm/portal/langschoolstudent/view/".$std_id->std_id, $data);
@@ -819,12 +1073,12 @@ class Langschoolapplicant extends CI_Controller
       "status" => 0
     );
 
-    $std_id = $this->Student_Model->getStudentID($id);
+    $std_id = $this->Langschoolapplicant_Model->getStudentID($id);
 
     if(!empty($std_id->std_id)) {
-      $this->Student_Model->studentCalenderDelete($std_id->id, $std_id->std_id);
+      $this->Langschoolapplicant_Model->studentCalenderDelete($std_id->id, $std_id->std_id);
     }
-    $data['result'] = $this->Student_Model->studentEnrollUpdate($data, $id);
+    $data['result'] = $this->Langschoolapplicant_Model->studentEnrollUpdate($data, $id);
     $this->session->set_flashdata('msg_success', 'Your data has been deactivated!');
     redirect("adm/portal/langschoolstudent/view/".$std_id->std_id, $data);
   }
@@ -843,15 +1097,15 @@ class Langschoolapplicant extends CI_Controller
 		);
 
 		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $globalHeader);
-    $parentChecker = $this->Student_Model->checkParentCourseInvoice($id);
-    $Checker = $this->Student_Model->checkParentCoursePayment($parentChecker[0]->id);
+    $parentChecker = $this->Langschoolapplicant_Model->checkParentCourseInvoice($id);
+    $Checker = $this->Langschoolapplicant_Model->checkParentCoursePayment($parentChecker[0]->id);
 
     if(count($Checker) > 0 ) {
       $this->session->set_flashdata('msg_error', "Request data can't delete! Purchase has value");
       redirect('adm/portal/langschoolstudent/view/'.$stdid);
     } else {
-      $this->Student_Model->studentCourseDelete($id);
-      $this->Student_Model->studentCourseEnrollDelete($id);
+      $this->Langschoolapplicant_Model->studentCourseDelete($id);
+      $this->Langschoolapplicant_Model->studentCourseEnrollDelete($id);
       $this->session->set_flashdata('msg_success', 'Your data has been delete!');
       redirect("adm/portal/langschoolstudent/view/".$stdid);
     }
@@ -871,7 +1125,7 @@ class Langschoolapplicant extends CI_Controller
 		);
 
 		$this->__resultEmptyChecker($id, $globalHeader,"adm/portal/langschoolstudent", $globalHeader);
-		$this->Student_Model->studentEnrollDelete($id);
+		$this->Langschoolapplicant_Model->studentEnrollDelete($id);
 		$this->session->set_flashdata('msg_success', 'Your data has been delete!');
     redirect("adm/portal/langschoolstudent/invoice/view/".$invid);
   }
@@ -879,8 +1133,8 @@ class Langschoolapplicant extends CI_Controller
 //Auto Mail System
   public function sendAutoMail($admin, $email, $key) 
   {
-    $adminemail = $this->Student_Model->selectAdminEmail($admin);
-    $subject = $this->Student_Model->selectEmailContent($key);
+    $adminemail = $this->Langschoolapplicant_Model->selectAdminEmail($admin);
+    $subject = $this->Langschoolapplicant_Model->selectEmailContent($key);
     $message = '
     <!DOCTYPE html>
     <html>

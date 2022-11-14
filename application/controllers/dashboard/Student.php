@@ -772,7 +772,7 @@ class Student extends CI_Controller
 		$this->current_login_time = isset($_SESSION['__admin_user_data']['login_time'])?$_SESSION['__admin_user_data']['login_time']:"";
 		$this->session_checker = isset($_SESSION['__pre_session_check']['check_point'])?$_SESSION['__pre_session_check']['check_point']:"";
 	}
-	
+
 	/******* Site Configuration Reassign and Distibute *********/
 	private function __preSiteConfigDataSet(){
 		$config = $this->mainconfig->_getInitialSiteConfigData();
