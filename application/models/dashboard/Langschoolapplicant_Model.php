@@ -5,9 +5,9 @@ class Langschoolapplicant_Model extends CI_Model
 {
 // for globals header
   private $db1 = "JLS_applicant_info";
-  private $db2 = "std_course";
-  private $db3 = "course";
-  private $db4 = "batch";
+  private $db2 = "JLS_other_details";
+  private $db3 = "JLS_financial_sponsor";
+  private $db4 = "JLS_previous_jp_lang_study";
   private $db5 = "trainer";
   private $db6 = "level";
   private $db7 = "lessons";
@@ -21,6 +21,27 @@ class Langschoolapplicant_Model extends CI_Model
   private $db15 = "std_calendar";
   private $db16 = "payment";
 
+  public function JLSapplicantinfo($data_info)
+  {
+    $this->db->insert($this->db1, $data_info);
+    $id = $this->db->insert_id();
+	  return (isset($id)) ? $id : FALSE;
+  }
+  public function JLSapplicantdetails($data_details)
+  {
+    $this->db->insert($this->db2,$data_details);
+    return true;
+  }
+  public function JLSfinancialsponser($data_financial_sponsor)
+  {
+    $this->db->insert($this->db3,$data_financial_sponsor);
+    return true;
+  }
+  public function JLSlangstudy($data_jp_lang_study)
+  {
+    // $this->db->insert($this->db4,$data_jp_lang_study);
+    // return true;
+  }
   public function getStudentBatchList($limit, $page, $id)
   {
     $this->db->select('std_course.id,std_id,bat_id,cos_id,std_course.activate_date,std_course.status,cos_title,cos_image,ref_key,batch_id,days,start_time,end_time,month_duration,day_duration,start_date,liveclass,batch.released_date,slug_name,trainer.name as trainer,fees');
@@ -204,13 +225,6 @@ class Langschoolapplicant_Model extends CI_Model
 		$this->db->update($this->db10, $data);
 		return true;
   }
-
-  public function JLSapplicantinfo($data)
-  {
-    $this->db->insert($this->db1, $data);
-    return true;
-  }
-
   public function getStudentPermission($id)
   {
     $this->db->select('permission,status');
