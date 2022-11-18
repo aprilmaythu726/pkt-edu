@@ -21,15 +21,14 @@ class Langschoolapplicant_Model extends CI_Model
   private $db15 = "std_calendar";
   private $db16 = "payment";
 
-  public function JLSapplicantinfo($data_info)
+  public function JLSapplicantinfo($userData)
   {
-    $this->db->insert($this->db1, $data_info);
-    $id = $this->db->insert_id();
-	  return (isset($id)) ? $id : FALSE;
+    $this->db->insert($this->db1, $userData);
+    return true;
   }
-  public function JLSapplicantdetails($data_details)
+  public function JLSapplicantdetails($userData1)
   {
-    $this->db->insert($this->db2,$data_details);
+    $this->db->insert($this->db2,$userData1);
     return true;
   }
   public function JLSfinancialsponser($data_financial_sponsor)
