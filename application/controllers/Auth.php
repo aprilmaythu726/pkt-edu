@@ -296,6 +296,11 @@ class Auth extends CI_Controller {
 		  'msg' => "သင်ဖြည့်စွက်ထားသော အချက်အလက်များကိုအတည်ပြုပြီးပါက ကျောင်းမှဆက်သွယ်အကြောင်းကြားပေးပါမည်",
 	  );
     $this->data = $this->userconfig->_ArrayDataMarge($globalHeader, []);
+
+    if($this->session->has_userdata('__initial_regist_data')) {
+      $enroll = array('__initial_regist_data');
+      $this->session->unset_userdata($enroll);
+    }
     
     $this->load->view('page/register_complete', $this->data);
   }

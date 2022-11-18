@@ -15,37 +15,16 @@
     </div>
   </div> 
 
-<?php if(!empty($_SESSION['msg_success'])){ ?>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Success!</strong>  <?php echo $_SESSION['msg_success']; ?> 
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true" class="material-icons md-18">clear</span>
-    </button>
-  </div>
-<?php } ?>    
 
-<?php if(!empty($_SESSION['msg_error'])){ ?>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <strong>Warning!</strong>  <?php echo $_SESSION['msg_error']; ?> 
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true" class="material-icons md-18">clear</span>
-    </button>
-  </div>
-<?php } ?>
 <?php
       $attributes = array('class' => 'form-horizontal form-label-left');
       echo form_open_multipart('adm/portal/jls_applicant/add', $attributes);
-    ?>
+?>
 <div class="content">
 <div class="row">
 <div class="col-lg-12 col-md-12 mb-4 mb-lg-0">
 <div class="card">
 <div class="card-body">
-
-    <?php
-      $attributes = array('class' => 'form-horizontal form-label-left');
-      echo form_open_multipart('adm/portal/jls_applicant/confirm', $attributes);
-    ?>
 <div class="col-md-12">
 
 <span class="text-danger"><?php echo form_error('applicant_name'); ?></span>
@@ -1149,36 +1128,36 @@ $(function() {
   <tbody>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="edu_name[0]" id="edu_name" value="">
+      <input type="text" class=" table-control"  name="edu_name[]" id="edu_name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="edu_address[0]" id="address" value="">
+      <input type="text" class=" table-control"  name="edu_address[]" id="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="edu_start_date[0]" id="start_date" value="">
+      <input type="text" class=" table-control"  name="edu_start_date[]" id="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="edu_end_date[0]" id="end_date" value="">
+      <input type="text" class=" table-control"  name="edu_end_date[]" id="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="edu_year[0]" id="year" value=""><span class="study_year">year</span> 
+      <input type="text" class=" table-control term" name="edu_year[]" id="year" value=""><span class="study_year">year</span> 
       </td>
     </tr>
     <tr>
-    <td>
-      <input type="text" class=" table-control"  name="edu_name[1]" id="edu_name" value="">
+      <td>
+      <input type="text" class=" table-control"  name="edu_name[]" id="edu_name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="edu_address[1]" id="address" value="">
+      <input type="text" class=" table-control"  name="edu_address[]" id="address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="edu_start_date[1]" id="start_date" value="">
+      <input type="text" class=" table-control"  name="edu_start_date[]" id="start_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="edu_end_date[1]" id="end_date" value="">
+      <input type="text" class=" table-control"  name="edu_end_date[]" id="end_date" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="edu_year[1]" id="year" value=""><span class="study_year">year</span> 
+      <input type="text" class=" table-control term" name="edu_year[]" id="year" value=""><span class="study_year">year</span> 
       </td>
     </tr>
     <tr>
