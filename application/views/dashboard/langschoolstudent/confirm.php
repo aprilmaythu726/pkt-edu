@@ -60,6 +60,73 @@ p{
 <div class="col-lg-12 col-md-12 mb-4 mb-lg-0">
 <div class="card">
 <div class="card-body">
+<?php 
+                $attr = array('class' => "");
+                echo form_open('adm/portal/jls_applicant/store', $attr); 
+            
+                $data = array(
+                  'name'  => 'jls_name',
+                  'type' => 'hidden',
+                  'value' => $lists['jls_name'],
+                );
+                $data = array(
+                  'name'  => 'jls_name',
+                  'type' => 'hidden',
+                  'value' => $lists['jls_name'],
+                );
+                echo form_input($data);
+                $data = array(
+                  'name'  => 'image_file',
+                  'type' => 'hidden',
+                  'value' => $lists['image_file'],
+                );
+                echo form_input($data);
+                $data = array(
+                  'name'  => 'sign_file',
+                  'type' => 'hidden',
+                  'value' => $lists['sign_file'],
+                );
+                echo form_input($data);
+                $data = array(
+                  'name'  => 'applicant_name',
+                  'type' => 'hidden',
+                  'value' => $lists['applicant_name'],
+                );
+                echo form_input($data);
+                  
+                $data = array(
+                  'name'  => 'applicant_name_kanji',
+                  'type' => 'hidden',
+                  'value' => $lists['applicant_name_kanji'],
+                );
+                echo form_input($data);
+                
+                $data = array(
+                  'name'  => 'date_of_birthday',
+                  'type' => 'hidden',
+                  'value' => $lists['date_of_birthday'],
+                );
+                echo form_input($data);
+                
+                $data = array(
+                  'name'  => 'place_birth',
+                  'type' => 'hidden',
+                  'value' => $lists['place_birth'],
+                );
+                echo form_input($data);   
+                $data = array(
+                  'name'  => 'have_you_visited_jp',
+                  'type' => 'hidden',
+                  'value' => $lists1['have_you_visited_jp'],
+                );
+                echo form_input($data);
+                $data = array(
+                  'name'  => 'visited_date',
+                  'type' => 'hidden',
+                  'value' => $lists1['visited_date'],
+                );
+                echo form_input($data);               
+              ?> 
     <?php
       $attributes = array('class' => 'form-horizontal form-label-left');
       echo form_open_multipart('adm/portal/jls_applicant/confirm', $attributes);
@@ -69,10 +136,10 @@ p{
 <!-- Student Photo -->
 <div class="col-md-6" style="display: flex;padding-top: 32px;">
 <?php
-    echo form_label('Applicant Photo','userfile', array('class' => 'col-form-label')) ;
+    echo form_label('Applicant Photo','image_file', array('class' => 'col-form-label')) ;
 ?>
 <div class="std_img">
-    <img src="../../../asset/admin/images/user.png" style="width:140px;height:auto;">
+<?php echo $lists['image_file']; ?>
 </div>
 </div>
 <!-- Student Photo -->  
@@ -83,7 +150,7 @@ p{
     echo form_label('Applicant Sign','userfile', array('class' => 'col-form-label')) ;
 ?>
 <div class="std_img">
-    <img src="../../../asset/admin/images/testerSign.jpg" style="width:140px;height:auto;">
+<?php echo $lists['sign_file']; ?>
 </div>  
 </div>
 <!-- Student Sign -->
@@ -91,7 +158,7 @@ p{
 <!-- JLS Name  -->
 <div class="col-md-6 school_list" name="" >
     <label class="list_label">JLS Name </label>
-    <p name="" class="list_label">ECC</p>
+    <p name="jls_name" id="jls_name" class="list_label"><?php echo $lists['jls_name']; ?></p>
 </div>
 <!-- JLS Name -->
 
@@ -109,22 +176,22 @@ p{
    <div class="col-md-6 float-left">
       <div class="form-group">
         <?php echo form_label('Name (アルファベット)', 'applicant_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <p class="comfirm_val" id="applicant_name" name="applicant_name">MIN MIN</p>
+        <p class="comfirm_val" id="applicant_name" name="applicant_name"><?php echo $lists['applicant_name']; ?></p>
     </div>
 
     <div class="form-group">
         <?php echo form_label(' Name (漢字)', 'applicant_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <p class="comfirm_val" id="applicant_name" name="applicant_name">MIN MIN</p>
+        <p class="comfirm_val" id="applicant_name_kanji" name="applicant_name_kanji"><?php echo $lists['applicant_name_kanji']; ?></p>
     </div>
 
     <div class="form-group">
         <?php echo form_label('Date Of Birth', 'date_of_birthday', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_birthday')); ?>
-        <p class="comfirm_val" id="date_of_birthday" name="date_of_birthday">01/01/2004</p>
+        <p class="comfirm_val" id="date_of_birthday" name="date_of_birthday"><?php echo $lists['date_of_birthday']; ?></p>
     </div>
 
     <div class="form-group">
         <?php echo form_label('Place Of Birth', 'place_birth', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-        <p class="comfirm_val" id="place_birth" name="place_birth">Botahtaung Township,Yangon</p>
+        <p class="comfirm_val" id="place_birth" name="place_birth"><?php echo $lists['place_birth']; ?></p>
     </div>
 
     <div class="form-group">
@@ -179,12 +246,12 @@ p{
 
    <div class="form-group">
         <?php echo form_label('Have you visited Japan?', 'have_you_visited_jp', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-        <p class="comfirm_val" id="have_you_visited_jp" name="have_you_visited_jp">No</p>
+        <p class="comfirm_val" id="have_you_visited_jp" name="have_you_visited_jp"><?php echo $lists1['have_you_visited_jp']; ?></p>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Date of Entry', 'visited_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="visited_date" name="visited_date">-</p>
+        <p class="comfirm_val" id="visited_date" name="visited_date"><?php echo $lists1['visited_date']; ?></p>
   </div>
  
   <div class="form-group">
@@ -534,101 +601,35 @@ p{
   </tr>
   </thead>
   <tbody>
+  
+  <?php
+        $x=1;
+        $y=0;
+        // var_dump($lists3['edu_name']);
+          foreach($lists3['edu_name'] as $key=>$rowData){
+  ?>      
+        
   <tr>
     <td>
-      <p class="tbl_comfirmVal" name="name" style="text-align: center;">No.3 Basic Education Elementary School</p>
+      <p class="tbl_comfirmVal" name="edu_name[]" style="text-align: center;"><?php echo $lists3['edu_name'][$key] . "<br>";?></p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="address" style="text-align: center;">Bahan Township, Yangon</p>
+      <p class="tbl_comfirmVal" name="edu_address[]" style="text-align: center;"><?php echo $lists3['edu_address'][$key];?></p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;">01/06/2009</p>
+      <p class="tbl_comfirmVal" name="edu_start_date[]" style="text-align: center;"><?php echo $lists3['edu_start_date'][$key];?></p>
     </td>
     <td>
-      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;">01/02/2014</p>
+      <p class="tbl_comfirmVal"  name="edu_end_date[]" style="text-align: center;"><?php echo $lists3['edu_end_date'][$key];?></p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >5       
+      <p class="tbl_comfirmVal" name="edu_year[]" style="text-align: right;" ><?php echo $lists3['edu_year'][$key];?>  
         <span class="study_year">years</span> 
       </p>
     </td>
   </tr>
-  <tr>
-    <td>
-      <p class="tbl_comfirmVal" name="name" style="text-align: center;">No.2 Basic Education Hight School</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="address" style="text-align: center;">Bahan Township, Yangon</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;">01/06/2014</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;">01/02/2018</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >5       
-        <span class="study_year">years</span> 
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p class="tbl_comfirmVal" name="name" style="text-align: center;">No.2 Basic Education Hight School</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="address" style="text-align: center;">Bahan Township, Yangon</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;">01/06/2018</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;">01/03/2020</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >3      
-        <span class="study_year">years</span> 
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p class="tbl_comfirmVal" name="name" style="text-align: center;">PKT Education Center (Dip.in IT)</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="address" style="text-align: center;">MingalarTaungNyunt Township,Yangon</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;">01/04/2020</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;">01/03/2022</p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >2      
-        <span class="study_year">years</span> 
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p class="tbl_comfirmVal" name="name" style="text-align: center;"></p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="address" style="text-align: center;"></p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="start_date" style="text-align: center;"></p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal"  name="end_date" style="text-align: center;"></p>
-    </td>
-    <td>
-      <p class="tbl_comfirmVal" name="year" style="text-align: right;" >      
-        <span class="study_year">years</span> 
-      </p>
-    </td>
-  </tr>
+  <?php } 
+  ?>
   </tbody>
 </table>
 </div> 
