@@ -422,9 +422,9 @@ $(function() {
         <div class="graduating_month_year">
         <?php
           echo form_input(array(
-            'name' => 'expected_month_year_graduating',
+            'name' => 'expected_month',
             'type' => 'text',
-            'value' => html_escape(set_value('expected_month_year_graduating',isset($result)?$result->expected_month_year_graduating:''), ENT_QUOTES),
+            'value' => html_escape(set_value('expected_month',isset($result)?$result->expected_month:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
             'id' => 'expected_month',
@@ -432,9 +432,9 @@ $(function() {
         ?><p class="expected_txt" style="padding-left: 22px;font-size:17px">月</p>
         <?php
           echo form_input(array(
-            'name' => 'expected_month_year_graduating',
+            'name' => 'expected_year',
             'type' => 'text',
-            'value' => html_escape(set_value('expected_month_year_graduating',isset($result)?$result->expected_month_year_graduating:''), ENT_QUOTES),
+            'value' => html_escape(set_value('expected_year',isset($result)?$result->expected_year:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
             'id' => 'expected_year',
@@ -442,7 +442,7 @@ $(function() {
         ?>
          <p class="expected_txt" style="padding-left: 22px;font-size:17px">年</p>
           </div>
-        <span class="text-danger"><?php echo form_error('expected_month_year_graduating'); ?></span>
+        <span class="text-danger"><?php echo form_error('expected_year'); ?></span>
   </div>
 
   <div class="form-group">
@@ -529,12 +529,12 @@ $(function() {
         <?php echo form_label('Major', 'specific_plan_major ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => 'specific_plan_major ',
+            'name' => 'specific_plan_major',
             'type' => 'text',
-            'value' => html_escape(set_value('specific_plan_major ',isset($result)?$result->specific_plan_major :''), ENT_QUOTES),
+            'value' => html_escape(set_value('specific_plan_major',isset($result)?$result->specific_plan_major :''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'specific_plan_major ',
+            'id' => 'specific_plan_major',
             'autocomplete' => ''));
         ?>
         <span class="text-danger"><?php echo form_error('specific_plan_major '); ?></span>
@@ -950,14 +950,14 @@ $(function() {
   
     <div class="radio_record">
         <div class="criminal_record01">
-          <select name="criminal_record" id="criminal_record" class="col-md-12 admission_select">
+          <select name="eligibility_have" id="eligibility_have" class="col-md-12 admission_select">
               <option value="1">Yes</option>
               <option value="0">No</option>
           </select>
         </div>
         <div class="">
             <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Details</span>
-                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked">
+                <input type="text" class="details form-control col-md-8" name="eligibility_time" value="" checked="checked">
             </label> 
         </div>
     </div>  
@@ -985,10 +985,10 @@ $(function() {
             </label> 
         </div> -->
         <div class="form-group">
-        <?php echo form_label('Details', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Details', 'criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => 'criminal_record_details ',
+            'name' => 'criminal_record_details',
             'type' => 'text',
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
@@ -1006,12 +1006,12 @@ $(function() {
     <div class="radio_record">
         <div class="">
             <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
-                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
+                <input type="text" class="details form-control col-md-8" name="eligibility_date" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
             </label> 
         </div>
         <div class="">
             <label class="col-rd cri_text"><span>Purpose of Entry:</span>
-                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin: 0px;">
+                <input type="text" class="details form-control col-md-8" name="eligibility_purpose" value="" checked="checked" style="margin: 0px;">
             </label> 
         </div>
     </div>  
@@ -1047,10 +1047,10 @@ $(function() {
             $data = array(
             'name' => 'purpose_studying_in_japanese',
             'type' => 'text',
+            'value' => set_value('purpose_studying_in_japanese',isset($result)?$result->purpose_studying_in_japanese:'',ENT_QUOTES),
             'id'=> 'purpose_studying_in_japanese',
             'placeholder' => 'Please Enter!',
             'class' => "form-control",
-            'value' => set_value('purpose_studying_in_japanese',isset($result)?$result->purpose_studying_in_japanese:'')
             //'value' => html_escape(set_value('purpose_studying_in_japanese',isset($result)?$result->purpose_studying_in_japanese:''), ENT_QUOTES),
           );
           echo form_textarea($data); ?>
@@ -1692,7 +1692,7 @@ $(function() {
 <p >If yes, fill in all the family members in Japan.</p>
   <div class="form-group">
   <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
-    <select name="ja_plan_to_stay_with_them" id="plan_to_stay_with_them" class="planning_select">
+    <select name="ja_plan_to_stay_with_them" id="ja_plan_to_stay_with_them" class="planning_select">
         <option value="1">Yes</option>
         <option value="0">No</option>
     </select>
