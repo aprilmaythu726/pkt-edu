@@ -8,18 +8,13 @@ class Langschoolapplicant_Model extends CI_Model
   private $db2 = "JLS_other_details";
   private $db3 = "JLS_financial_sponsor";
   private $db4 = "JLS_previous_jp_lang_study";
-  private $db5 = "trainer";
-  private $db6 = "level";
-  private $db7 = "lessons";
-  private $db8 = "less_part";
-  private $db9 = "less_list";
-  private $db10 = "std_note";
-  private $db11 = "std_profile";
-  private $db12 = "std_config";
-  private $db13 = "std_invoice";
-  private $db14 = "std_payment";
-  private $db15 = "std_calendar";
-  private $db16 = "payment";
+  private $db5 = "JLS_achievement_jp_lang_test";
+  private $db6 = "JLS_previous_stay_in_japan";
+  private $db7 = "JLS_name_jp_lang_tests_going_to_take";
+  private $db8 = "JLS_history_employment";
+  private $db9 = "JLS_family_member";
+  private $db10 = "JLS_family_in_japan";
+  private $db11 = "JLS_educational_history";
 
   public function JLSapplicantinfo($userData)
   {
@@ -40,6 +35,30 @@ class Langschoolapplicant_Model extends CI_Model
   {
     // $this->db->insert($this->db4,$data_jp_lang_study);
     // return true;
+  }
+  public function getJLSList()
+  {
+    $this->db->select('applicant_name,applicant_name_kanji,jls_name,phone,address,std_email,created_at,updated_at');
+    $this->db->from($this->db1);
+    $query=$this->db->get();
+    return $query->result();
+  }
+  public function getJLSDetail($id)
+  {
+    $this->db->select('*');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db2.'.id', 'left' );
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db3.'.id', 'left' );
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db4.'.id', 'left' );
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db5.'.id', 'left' );
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db6.'.id', 'left' );
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db7.'.id', 'left' );
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db8.'.id', 'left' );
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db9.'.id', 'left' );
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db10.'.id', 'left' );
+    $this->db->join($this->db2, $this->db12.'.applicant_id = '.$this->db11.'.id', 'left' );
+    $query=$this->db->get();
+    return $query->result();
   }
   public function getStudentBatchList($limit, $page, $id)
   {
@@ -65,9 +84,9 @@ class Langschoolapplicant_Model extends CI_Model
 
   public function getstudentDetail($id)
   {
-    $this->db->select('*, user_id as student_id');
+    $this->db->select('*,student.id');
 		$this->db->where($this->db1.'.id', $id);
-    $this->db->join($this->db11, $this->db11.'.std_id = '.$this->db1.'.id', 'left');
+    $this->db->join($this->db16, $this->db16.'.std_id = '.$this->db1.'.id', 'left' );
 		return $this->db->get($this->db1)->row();
   }
 

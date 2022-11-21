@@ -144,7 +144,7 @@
         <?php 
           $x = 1;
           $y = 0;
-          foreach ($lists as $row) {
+          foreach ($list as $row) {
         ?>
         <tr>
           <th class="text-right"><?php echo $x; ?></th>
@@ -162,7 +162,7 @@
             </span>
           </th>
           <td class="text-left">
-            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">Min Thant</a>
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">$row['applicant_name']</a>
           </td>
           <td class="text-left">
             <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">ECC</a>
