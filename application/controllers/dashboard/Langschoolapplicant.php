@@ -168,10 +168,10 @@ class Langschoolapplicant extends CI_Controller
           'COE_reject' => $this->input->post('COE_reject'),
           'place_apply_visa' => $this->input->post('place_apply_visa'),
 					'family_language' => $this->input->post('family_language'),
-          'eligibility_have' => $this->input->post('eligibility_have'),
-          'eligibility_time' => $this->input->post('eligibility_time'),
-          'eligibility_purpose' => $this->input->post('eligibility_purpose'),
-          'eligibility_date' => $this->input->post('eligibility_date'),
+          // 'eligibility_have' => $this->input->post('eligibility_have'),
+          // 'eligibility_time' => $this->input->post('eligibility_time'),
+          // 'eligibility_purpose' => $this->input->post('eligibility_purpose'),
+          // 'eligibility_date' => $this->input->post('eligibility_date'),
           'provide_english' => $this->input->post('provide_english'),
           'accompanying_person' => $this->input->post('accompanying_person'),
           'understand_language' => $this->input->post('understand_language'),
@@ -440,10 +440,10 @@ class Langschoolapplicant extends CI_Controller
       'COE_reject' => $this->session->userdata('__initial_regist_data1')['COE_reject'],
       'place_apply_visa' => $this->session->userdata('__initial_regist_data1')['place_apply_visa'],
       'family_language' => $this->session->userdata('__initial_regist_data1')['family_language'],
-      'eligibility_have' => $this->session->userdata('__initial_regist_data1')['eligibility_have'],
-      'eligibility_time' => $this->session->userdata('__initial_regist_data1')['eligibility_time'],
-      'eligibility_purpose' => $this->session->userdata('__initial_regist_data1')['eligibility_purpose'],
-      'eligibility_date' => $this->session->userdata('__initial_regist_data1')['eligibility_date'],
+      // 'eligibility_have' => $this->session->userdata('__initial_regist_data1')['eligibility_have'],
+      // 'eligibility_time' => $this->session->userdata('__initial_regist_data1')['eligibility_time'],
+      // 'eligibility_purpose' => $this->session->userdata('__initial_regist_data1')['eligibility_purpose'],
+      // 'eligibility_date' => $this->session->userdata('__initial_regist_data1')['eligibility_date'],
       'provide_english' => $this->session->userdata('__initial_regist_data1')['provide_english'],
       'accompanying_person' => $this->session->userdata('__initial_regist_data1')['accompanying_person'],
       'understand_language' => $this->session->userdata('__initial_regist_data1')['understand_language'],
@@ -635,10 +635,10 @@ class Langschoolapplicant extends CI_Controller
           'COE_reject' => $this->session->userdata('__initial_regist_data1')['COE_reject'],
           'place_apply_visa' => $this->session->userdata('__initial_regist_data1')['place_apply_visa'],
           'family_language' => $this->session->userdata('__initial_regist_data1')['family_language'],
-          'eligibility_have' => $this->session->userdata('__initial_regist_data1')['eligibility_have'],
-          'eligibility_time' => $this->session->userdata('__initial_regist_data1')['eligibility_time'],
-          'eligibility_purpose' => $this->session->userdata('__initial_regist_data1')['eligibility_purpose'],
-          'eligibility_date' => $this->session->userdata('__initial_regist_data1')['eligibility_date'],
+          // 'eligibility_have' => $this->session->userdata('__initial_regist_data1')['eligibility_have'],
+          // 'eligibility_time' => $this->session->userdata('__initial_regist_data1')['eligibility_time'],
+          // 'eligibility_purpose' => $this->session->userdata('__initial_regist_data1')['eligibility_purpose'],
+          // 'eligibility_date' => $this->session->userdata('__initial_regist_data1')['eligibility_date'],
           'provide_english' => $this->session->userdata('__initial_regist_data1')['provide_english'],
           'accompanying_person' => $this->session->userdata('__initial_regist_data1')['accompanying_person'],
           'understand_language' => $this->session->userdata('__initial_regist_data1')['understand_language'],
@@ -679,6 +679,7 @@ class Langschoolapplicant extends CI_Controller
         );
         $insertChecker2 = $this->Langschoolapplicant_Model->JLSfinancialsponser($data_financial_sponsor);
 
+        
         $edu_name=$this->session->userdata('__initial_regist_data3')['edu_name'];
         $edu_address=$this->session->userdata('__initial_regist_data3')['edu_address'];
         $edu_start_date=$this->session->userdata('__initial_regist_data3')['edu_start_date'];
