@@ -1,7 +1,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php include(dirname(__FILE__) ."/../templates/header.php"); ?>
-
 <div class="content-wrapper">
   <div class="row page-tilte align-items-center">
     <div class="col-md-auto">
@@ -1006,12 +1005,12 @@ $(function() {
     <div class="radio_record">
         <div class="">
             <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
-                <input type="text" class="details form-control col-md-8" name="eligibility_date" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
+                <input type="text" class="details form-control col-md-8" name="criminal_record_when" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
             </label> 
         </div>
         <div class="">
             <label class="col-rd cri_text"><span>Purpose of Entry:</span>
-                <input type="text" class="details form-control col-md-8" name="eligibility_purpose" value="" checked="checked" style="margin: 0px;">
+                <input type="text" class="details form-control col-md-8" name="entry_purpose1" value="" checked="checked" style="margin: 0px;">
             </label> 
         </div>
     </div>  

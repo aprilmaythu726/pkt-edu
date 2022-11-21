@@ -117,13 +117,13 @@ p{
                 $data = array(
                   'name'  => 'have_you_visited_jp',
                   'type' => 'hidden',
-                  'value' => $lists1['have_you_visited_jp'],
+                  'value' => $data_details['have_you_visited_jp'],
                 );
                 echo form_input($data);
                 $data = array(
                   'name'  => 'visited_date',
                   'type' => 'hidden',
-                  'value' => $lists1['visited_date'],
+                  'value' => $data_details['visited_date'],
                 );
                 echo form_input($data);               
               ?> 
@@ -221,7 +221,7 @@ p{
 
     <div class="form-group">
         <?php echo form_label('Email', 'email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
-        <p class="comfirm_val" id="std_email" name="email"><?php echo $lists['email']; ?></p>
+        <p class="comfirm_val" id="std_email" name="email"><?php echo $lists['std_email']; ?></p>
     </div>
 
     <div class="form-group">
@@ -230,12 +230,13 @@ p{
     </div>
 
     <div class="form-group">
-        <?php echo form_label('Address','address', array('class' => '')); ?>
+        <?php echo form_label('Address','address', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'address')); ?>
         <p class="comfirm_val" id="address" name="address"><?php echo $lists['address']; ?></p>
     </div>
 
     <div class="form-group">
-        <p class="addmission">Course of Admission</p>
+        <?php echo form_label('Course of Admission','course_admission', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'course_admission')); ?>
+        <!-- <p class="addmission">Course of Admission</p> -->
         <p class="comfirm_val" id="course_admission" name="course_admission"><?php echo $lists['course_admission']; ?></p>
     </div>
 
@@ -246,79 +247,79 @@ p{
 
    <div class="form-group">
         <?php echo form_label('Have you visited Japan?', 'have_you_visited_jp', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-        <p class="comfirm_val" id="have_you_visited_jp" name="have_you_visited_jp"><?php echo $lists1['have_you_visited_jp']; ?></p>
+        <p class="comfirm_val" id="have_you_visited_jp" name="have_you_visited_jp"><?php echo $data_details['have_you_visited_jp']; ?></p>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Date of Entry', 'visited_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="visited_date" name="visited_date"><?php echo $lists1['visited_date']; ?></p>
+        <p class="comfirm_val" id="visited_date" name="visited_date"><?php echo $data_details['visited_date']; ?></p>
   </div>
  
   <div class="form-group">
         <?php echo form_label('Date of Departure', 'date_of_departure', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="date_of_departure" name="date_of_departure"><?php echo $lists1['date_of_departure']; ?></p>
+        <p class="comfirm_val" id="date_of_departure" name="date_of_departure"><?php echo $data_details['date_of_departure']; ?></p>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Enter visa type if you visited Japan', 'visa type', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="visa_type" name="visa_type"><?php echo $lists1['visa_type']; ?></p>
+        <p class="comfirm_val" id="visa_type" name="visa_type"><?php echo $data_details['visa_type']; ?></p>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Departure by deportation / departure order or not', 'departure_deportation', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-        <p class="comfirm_val" id="departure_deportation" name="departure_deportation"><?php echo $lists1['departure_deportation']; ?></p>
+        <p class="comfirm_val" id="departure_deportation" name="departure_deportation"><?php echo $data_details['departure_deportation']; ?></p>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Current Status', 'current_status', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="current_status" name="current_status"><?php echo $lists1['current_status']; ?></p>
+        <p class="comfirm_val" id="current_status" name="current_status"><?php echo $data_details['current_status']; ?></p>
   </div>
  
   <div class="form-group">
         <?php echo form_label('(Expected month and year of graduating from the school.) ', 'expected_month_year_graduating', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <div class="graduating_month_year">
-            <p class="comfirm_val" id="expected_month" name="expected_month" style="text-align: center;"><?php echo $lists1['expected_month']; ?></p>
-            <p class="expected_txt"><?php echo $lists1['expected_month']; ?></p>
-            <p class="comfirm_val" id="expected_year" name="expected_year" style="text-align: center;"><?php echo $lists1['expected_year']; ?></p>
-            <p class="expected_txt" ><?php echo $lists1['expected_year']; ?></p>
+            <p class="comfirm_val" id="expected_month" name="expected_month" style="text-align: center;"><?php echo $data_details['expected_month']; ?></p>
+            <p class="expected_txt">月</p>
+            <p class="comfirm_val" id="expected_year" name="expected_year" style="text-align: center;"><?php echo $data_details['expected_year']; ?></p>
+            <p class="expected_txt" >年</p>
         </div>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Name of School', 'current_status_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="current_status_school_name" name="current_status_school_name"><?php echo $lists1['current_status_school_name']; ?></p>
+        <p class="comfirm_val" id="current_status_school_name" name="current_status_school_name"><?php echo $data_details['current_status_school_name']; ?></p>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Department/Major', 'current_status_school_major', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="current_status_school_major" name="current_status_school_major"><?php echo $lists1['current_status_school_major']; ?></p>
+        <p class="comfirm_val" id="current_status_school_major" name="current_status_school_major"><?php echo $data_details['current_status_school_major']; ?></p>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Grade', 'current_status_school_grade', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="current_status_school_grade" name="current_status_school_grade"><?php echo $lists1['current_status_school_grade']; ?></p>
+        <p class="comfirm_val" id="current_status_school_grade" name="current_status_school_grade"><?php echo $data_details['current_status_school_grade']; ?></p>
   </div>
 
   <h6 class="spec_plan">Specific Plans after Graduating</h6>
   <div class="form-group">
         <?php echo form_label('Specific Plans after Graduating', 'specific_plans_after_graduating', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="specific_plans_after_graduating" name="specific_plans_after_graduating"><?php echo $lists1['specific_plans_after_graduating']; ?></p>
+        <p class="comfirm_val" id="specific_plans_after_graduating" name="specific_plans_after_graduating"><?php echo $data_details['specific_plans_after_graduating']; ?></p>
   </div>
 
   <h6 class="spec_plan">Higher Education in Japan</h6>
   <div class="form-group">
         <?php echo form_label('Type of Schools', 'specific_plan_type_schools', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="specific_plan_type_schools" name="specific_plan_type_schools"><?php echo $lists1['specific_plan_type_schools']; ?></p>
+        <p class="comfirm_val" id="specific_plan_type_schools" name="specific_plan_type_schools"><?php echo $data_details['specific_plan_type_schools']; ?></p>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Name of School', 'specific_plan_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="specific_plan_school_name" name="specific_plan_school_name"><?php echo $lists1['specific_plan_school_name']; ?></p>
+        <p class="comfirm_val" id="specific_plan_school_name" name="specific_plan_school_name"><?php echo $data_details['specific_plan_school_name']; ?></p>
   </div>
 
   <div class="form-group">
         <?php echo form_label('Major', 'specific_plan_major ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="specific_plan_major" name="specific_plan_major"><?php echo $lists1['specific_plan_major']; ?></p>
+        <p class="comfirm_val" id="specific_plan_major" name="specific_plan_major"><?php echo $data_details['specific_plan_major']; ?></p>
   </div>
 </div>
 <!-- leftside -->
@@ -326,18 +327,18 @@ p{
 <!-- rightside -->
 <div class="col-md-6 float-left">
   <div class="form-group">
-      <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="occupation" name="occupation"><?php echo $lists1['occupation']; ?></p>
+      <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'occupation')); ?>
+      <p class="comfirm_val" id="occupation" name="occupation"><?php echo $lists['occupation']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('Place of Employment or School', 'place_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="place_employment_school" name="place_employment_school"><?php echo $lists1['place_employment_school']; ?></p>
+      <p class="comfirm_val" id="place_employment_school" name="place_employment_school"><?php echo $lists['place_employment_school']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('Address of Employment or School', 'addr_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="addr_employment_school" name="addr_employment_school"><?php echo $lists1['addr_employment_school']; ?></p>
+      <p class="comfirm_val" id="addr_employment_school" name="addr_employment_school"><?php echo $lists['addr_employment_school']; ?></p>
   </div>
 
   <style>
@@ -348,22 +349,22 @@ p{
 
   <div class="form-group">
       <?php echo form_label('Tel of Employment or School', 'tel_employment_school', array( 'class' => 'employment_text', 'id'=> '', 'style' => '', 'for' => 'phone'));?>
-      <p class="comfirm_val" id="tel_employment_school" name="tel_employment_school"><?php echo $lists1['tel_employment_school']; ?></p>
+      <p class="comfirm_val" id="tel_employment_school" name="tel_employment_school"><?php echo $lists['tel_employment_school']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('Entrance Age to Elementary School', 'entry_age_ele_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="entry_age_ele_school" name="entry_age_ele_school"><?php echo $lists1['entry_age_ele_school']; ?></p>
+      <p class="comfirm_val" id="entry_age_ele_school" name="entry_age_ele_school"><?php echo $lists['entry_age_ele_school']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('Lastest Educational history School name', 'educational_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="educational_school_name" name="educational_school_name"><?php echo $lists1['educational_school_name']; ?></p>
+      <p class="comfirm_val" id="educational_school_name" name="educational_school_name"><?php echo $lists['educational_school_name']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('Duration of JP Language study', 'duration_jp_language_study', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="duration_jp_language_study" name="duration_jp_language_study"><?php echo $lists1['duration_jp_language_study']; ?></p>
+      <p class="comfirm_val" id="duration_jp_language_study" name="duration_jp_language_study"><?php echo $lists['duration_jp_language_study']; ?></p>
   </div>
 
   <style>
@@ -374,22 +375,22 @@ p{
 
   <div class="form-group">
   <?php echo form_label('Passport', 'passport', array( 'class' => 'passport_text', 'id'=> '')); ?>
-  <p class="comfirm_val" id="passport" name="passport"><?php echo $lists1['passport']; ?></p>
+  <p class="comfirm_val" id="passport" name="passport"><?php echo $lists['passport']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('Passport Number', 'passport_no', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="passport_no" name="passport_no"><?php echo $lists1['passport_no']; ?></p>
+      <p class="comfirm_val" id="passport_no" name="passport_no"><?php echo $lists['passport_no']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('Date of issue', 'passport_data_issue', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="passport_data_issue" name="passport_data_issue"><?php echo $lists1['passport_data_issue']; ?></p>
+      <p class="comfirm_val" id="passport_data_issue" name="passport_data_issue"><?php echo $lists['passport_data_issue']; ?></p>
   </div> 
 
   <div class="form-group">
       <?php echo form_label('Date of expiration', 'passport_data_exp', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="passport_data_exp" name="passport_data_exp"><?php echo $lists1['passport_data_exp']; ?></p>
+      <p class="comfirm_val" id="passport_data_exp" name="passport_data_exp"><?php echo $lists['passport_data_exp']; ?></p>
   </div>  
 
   <style>
@@ -400,69 +401,69 @@ p{
 
   <div class="form-group">
       <?php echo form_label('Blank period／Military service', 'military_service', array( 'class' => 'military_txt', 'id'=> '')); ?>
-      <p class="comfirm_val" id="military_service" name="military_service"><?php echo $lists1['military_service']; ?></p>
+      <p class="comfirm_val" id="military_service" name="military_service"><?php echo $lists['military_service']; ?></p>
   </div>
 
   <div class="form-group">
-      <?php echo form_label('Place to Apply for VISA', 'place_apply_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="place_apply_visa" name="place_apply_visa"><?php echo $lists1['place_apply_visa']; ?></p>
+      <?php echo form_label('Place to Apply for VISA', 'place_apply_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'place_apply_visa')); ?>
+      <p class="comfirm_val" id="place_apply_visa" name="place_apply_visa"><?php echo $data_details['place_apply_visa']; ?></p>
   </div>
   
   <div class="form-group">
       <?php echo form_label('Accompanying Persons,if Any', 'accompanying_person', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-      <p class="comfirm_val" id="accompanying_person" name="accompanying_person"><?php echo $lists1['accompanying_person']; ?></p>
+      <p class="comfirm_val" id="accompanying_person" name="accompanying_person"><?php echo $data_details['accompanying_person']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('Did you apply before in Japan?', 'school_apply_before_japan', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-      <p class="comfirm_val" id="school_apply_before_japan" name="school_apply_before_japan"><?php echo $lists1['school_apply_before_japan']; ?></p>
+      <p class="comfirm_val" id="school_apply_before_japan" name="school_apply_before_japan"><?php echo $data_details['school_apply_before_japan']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('when?', 'school_apply_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="school_apply_date" name="school_apply_date"><?php echo $lists1['school_apply_date']; ?></p>
+      <p class="comfirm_val" id="school_apply_date" name="school_apply_date"><?php echo $data_details['school_apply_date']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('status?', 'school_apply_status', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="school_apply_status" name="school_apply_status"><?php echo $lists1['school_apply_status']; ?></p>
+      <p class="comfirm_val" id="school_apply_status" name="school_apply_status"><?php echo $data_details['school_apply_status']; ?></p>
   </div>
 
   <div class="form-group">
       <?php echo form_label('Name of School?', 'school_apply_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="school_apply_name" name="school_apply_name"><?php echo $lists1['school_apply_name']; ?></p>   
+      <p class="comfirm_val" id="school_apply_name" name="school_apply_name"><?php echo $data_details['school_apply_name']; ?></p>   
   </div>
 
   <div class="form-group">
-      <?php echo form_label('Which immigration office?', 'immigration_office', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="immigration_office" name="immigration_office"><?php echo $lists1['immigration_office']; ?></p>   
+      <?php echo form_label('Which immigration office?', 'immigration_office', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'immigration_office')); ?>
+      <p class="comfirm_val" id="immigration_office" name="immigration_office"><?php echo $data_details['immigration_office']; ?></p>   
   </div>
 
   <div class="form-group">
-     <?php echo form_label('Result?', 'immigration_result', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-     <p class="comfirm_val" id="immigration_result" name="immigration_result"><?php echo $lists1['immigration_result']; ?></p>   
+     <?php echo form_label('Result?', 'immigration_result', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'immigration_result')); ?>
+     <p class="comfirm_val" id="immigration_result" name="immigration_result"><?php echo $data_details['immigration_result']; ?></p>   
   </div>
 
   <div class="form-group">
-  <?php echo form_label('Have you ever experienced COE rejection?', 'COE_reject', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-  <p class="comfirm_val" id="COE_reject" name="COE_reject"><?php echo $lists1['COE_reject']; ?></p>   
+  <?php echo form_label('Have you ever experienced COE rejection?', 'COE_reject', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'COE_reject')); ?>
+  <p class="comfirm_val" id="COE_reject" name="COE_reject"><?php echo $data_details['COE_reject']; ?></p>   
   </div>
   
   <br><br><br><br><br><br>
   <h6 class="spec_plan" style="padding-top: 36px;">Employment</h6>
   <div class="form-group">
-        <?php echo form_label('Aimed occupational category', 'aimed_occupational_category', array( 'class' => 'employment', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="aimed_occupational_category" name="aimed_occupational_category"><?php echo $lists1['aimed_occupational_category']; ?></p>   
+        <?php echo form_label('Aimed occupational category', 'aimed_occupational_category', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'aimed_occupational_category')); ?>
+        <p class="comfirm_val" id="aimed_occupational_category" name="aimed_occupational_category"><?php echo $data_details['aimed_occupational_category']; ?></p>   
   </div>
   <h6 class="spec_plan" style="padding: 0px;margin-bottom:10px;">Return to home country</h6>
   <div class="form-group">
-        <?php echo form_label('When will you return', 'will_you_return', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="will_you_return" name="will_you_return"><?php echo $lists1['will_you_return']; ?></p>   
+        <?php echo form_label('When will you return', 'will_you_return', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'will_you_return')); ?>
+        <p class="comfirm_val" id="will_you_return" name="will_you_return"><?php echo $data_details['will_you_return']; ?></p>   
   </div>
 
   <div class="form-group">
   <?php echo form_label('Is it possible to provide in English? ', 'provide_english', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-  <p class="comfirm_val" id="provide_english" name="provide_english"><?php echo $lists1['provide_english']; ?></p>   
+  <p class="comfirm_val" id="provide_english" name="provide_english"><?php echo $data_details['provide_english']; ?></p>   
   </div>
 
 </div> 
@@ -474,13 +475,13 @@ p{
 </div>
 <div class="col-md-6 float-left">
   <div class="form-group">
-        <?php echo form_label('Who?', 'understand_language', array( 'class' => 'wholanguage', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="understand_language" name="understand_language"><?php echo $lists1['understand_language']; ?></p>   
+        <?php echo form_label('Who?', 'understand_language', array( 'class' => 'understand_language', 'id'=> '', 'style' => '', 'for' => 'understand_language')); ?>
+        <p class="comfirm_val" id="understand_language" name="understand_language"><?php echo $data_details['understand_language']; ?></p>   
   </div>
 
   <div class="form-group">
         <?php echo form_label('Criminal Record in Japan or Overseas', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-        <p class="comfirm_val" id="criminal_record" name="criminal_record"><?php echo $lists1['criminal_record']; ?></p>   
+        <p class="comfirm_val" id="criminal_record" name="criminal_record"><?php echo $data_details['criminal_record']; ?></p>   
   </div>
    
   <div class="criminal form-group float-left">
@@ -489,11 +490,11 @@ p{
   </div>
   <div class="radio_record">
   <div class="criminal_record01">
-      <p class="comfirm_val" id="criminal_record" name="criminal_record"><?php echo $lists1['criminal_record']; ?></p>   
+      <p class="comfirm_val" id="criminal_record" name="criminal_record"><?php echo $data_details['criminal_record']; ?></p>   
   </div>        
   <div class="">
       <label class="col-rd cri_text"><span>Details</span>
-      <p class="comfirm_val" id="criminal_record_details" name="criminal_record_details"><?php echo $lists1['criminal_record_details']; ?></p>   
+      <p class="comfirm_val" id="criminal_record_details" name="criminal_record_details"><?php echo $data_details['criminal_record_details']; ?></p>   
       </label> 
   </div>
   </div>  
@@ -502,11 +503,11 @@ p{
 <div class="col-md-6 float-left">
  <div class="form-group">
     <label class="addmission">Language</label>
-    <p class="comfirm_val" id="family_language" name="family_language"><?php echo $lists1['family_language']; ?></p>   
+    <p class="comfirm_val" id="family_language" name="family_language"><?php echo $data_details['family_language']; ?></p>   
   </div>
   <div class="form-group">
     <?php echo form_label('Details', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'phone')); ?>
-    <p class="comfirm_val" id="criminal_record_details" name="criminal_record_details"><?php echo $lists1['criminal_record_details']; ?></p>   
+    <p class="comfirm_val" id="criminal_record_details" name="criminal_record_details"><?php echo $data_details['criminal_record_details']; ?></p>   
   </div>
   <div class="criminal form-group float-left">
     <div class="">
@@ -516,12 +517,12 @@ p{
   <div class="radio_record">
         <div class="">
             <label class="col-rd cri_text"><span>When:</span>
-            <p class="comfirm_val" id="criminal_record_when" name="criminal_record_when"><?php echo $lists1['criminal_record_when']; ?></p> 
+            <p class="comfirm_val" id="criminal_record_when" name="criminal_record_when"><?php echo $data_details['criminal_record_when']; ?></p> 
             </label>                
         </div>
         <div class="">
             <label class="col-rd cri_text"><span>Purpose of Entry:</span>
-            <p class="comfirm_val" id="entry_purpose" name="entry_purpose"><?php echo $lists1['entry_purpose']; ?></p>
+            <p class="comfirm_val" id="entry_purpose" name="entry_purpose1"><?php echo $data_details['entry_purpose1']; ?></p>
             </label> 
         </div>
     </div>  
@@ -544,7 +545,7 @@ p{
   <label>Purpose of studying in Japanese </label>
   <div class="col-md-12 col-sm-12 p-0">
   <p class="comfirm_val" id="purpose_studying_in_japanese" name="purpose_studying_in_japanese">
-  <?php echo $lists1['purpose_studying_in_japanese']; ?>
+  <?php echo $data_details['purpose_studying_in_japanese']; ?>
   </p>
   </div>   
 </div>
@@ -553,17 +554,17 @@ p{
 <h6 class="" style="padding: 33px 0px 12px;">Contact details of your family</h6>
 <div class="form-group">
     <?php echo form_label('Email', 'family_mail', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'family_mail')); ?>
-    <p class="comfirm_val" id="family_mail" name="family_mail"><?php echo $lists1['family_mail']; ?></p>
+    <p class="comfirm_val" id="family_mail" name="family_mail"><?php echo $lists['family_mail']; ?></p>
 </div>
 
 <div class="form-group">
     <?php echo form_label('Phone Number', 'family_tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'family_tel')); ?>
-    <p class="comfirm_val" id="family_tel" name="family_tel"><?php echo $lists1['family_tel']; ?></p>
+    <p class="comfirm_val" id="family_tel" name="family_tel"><?php echo $lists['family_tel']; ?></p>
 </div>
 
 <div class="form-group">
     <?php echo form_label('Address','family_address', array('class' => '')); ?>
-    <p class="comfirm_val" id="family_address" name="family_address"><?php echo $lists1['family_address']; ?></p>
+    <p class="comfirm_val" id="family_address" name="family_address"><?php echo $lists['family_address']; ?></p>
 </div>
 </div>
 <!-- co_leftside -->
@@ -636,24 +637,24 @@ p{
   <?php
         $x=1;
         $y=0;
-        // var_dump($lists4['edu_name']);
-          foreach($lists4['edu_name'] as $key=>$rowData){
+        // var_dump($data_lang_study['edu_name']);
+          foreach($data_lang_study['jp_name'] as $key=>$rowData){
   ?>  
   <tr>
     <td>
-      <p class="tbl_comfirmVal" name="name[]" style="text-align: center;" ><?php echo $lists4['name'][$key];?></p>
+      <p class="tbl_comfirmVal" name="jp_name[]" style="text-align: center;" ><?php echo $data_lang_study['jp_name'][$key] . "<br>";?></p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="address[]" style="text-align: center;" ><?php echo $lists4['address'][$key];?>  </p>
+      <p class="tbl_comfirmVal" name="jp_address[]" style="text-align: center;" ><?php echo $data_lang_study['jp_address'][$key];?>  </p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="start_date[]" style="text-align: center;" ><?php echo $lists4['start_date'][$key];?>  </p>
+      <p class="tbl_comfirmVal" name="jp_start_date[]" style="text-align: center;" ><?php echo $data_lang_study['jp_start_date'][$key];?>  </p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="end_date[]" style="text-align: center;" ><?php echo $lists4['end_date'][$key];?>  </p>
+      <p class="tbl_comfirmVal" name="jp_end_date[]" style="text-align: center;" ><?php echo $data_lang_study['jp_end_date'][$key];?>  </p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="hour[]" style="text-align: right;" ><?php echo $lists4['hour'][$key];?>  
+      <p class="tbl_comfirmVal" name="jp_hour[]" style="text-align: right;" ><?php echo $data_lang_study['jp_hour'][$key];?>  
          <span class="study_year">hours</span> 
       </p>
     </td>
@@ -686,27 +687,27 @@ p{
   <?php
         $x=1;
         $y=0;
-        // var_dump($lists5['edu_name']);
-          foreach($lists5['edu_name'] as $key=>$rowData){
+        // var_dump($data_achievement_jp['edu_name']);
+          foreach($data_achievement_jp['achiv_name'] as $key=>$rowData){
   ?>  
   <tr>
     <td>
-      <p class="tbl_comfirmVal" name="end_date" style="text-align: center;"><?php echo $lists5['end_date'][$key];?></p>
+      <p class="tbl_comfirmVal" name="achiv_name[]" style="text-align: center;"><?php echo $data_achievement_jp['achiv_name'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="level" style="text-align: center;" ><?php echo $lists5['level'][$key];?></p>
+     <p class="tbl_comfirmVal" name="level[]" style="text-align: center;" ><?php echo $data_achievement_jp['level'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="exam_year" style="text-align: center;" ><?php echo $lists5['exam_year'][$key];?></p>
+     <p class="tbl_comfirmVal" name="exam_year[]" style="text-align: center;" ><?php echo $data_achievement_jp['exam_year'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="score" style="text-align: center;" ><?php echo $lists5['score'][$key];?></p>
+     <p class="tbl_comfirmVal" name="score[]" style="text-align: center;" ><?php echo $data_achievement_jp['score'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="result" style="text-align: center;"><?php echo $lists5['result'][$key];?></p>
+     <p class="tbl_comfirmVal" name="result[]" style="text-align: center;"><?php echo $data_achievement_jp['result'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="date_qualification" style="text-align: center;" ><?php echo $lists5['date_qualification'][$key];?></p>
+     <p class="tbl_comfirmVal" name="date_qualification[]" style="text-align: center;" ><?php echo $data_achievement_jp['date_qualification'][$key];?></p>
     </td>
   </tr>
   <?php } 
@@ -729,15 +730,15 @@ p{
   <?php
         $x=1;
         $y=0;
-        // var_dump($lists6['edu_name']);
-          foreach($lists6['edu_name'] as $key=>$rowData){
+        // var_dump($data_jp_lang_going_to_take['edu_name']);
+          foreach($data_jp_lang_going_to_take['going_name'] as $key=>$rowData){
   ?>  
   <tr>
     <td>
-      <p class="tbl_comfirmVal" name="name[]" style="text-align: center;" ><?php echo $lists6['name'][$key];?></p>
+      <p class="tbl_comfirmVal" name="going_name[]" style="text-align: center;" ><?php echo $data_jp_lang_going_to_take['going_name'][$key];?></p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="level[]" style="text-align: center;" ><?php echo $lists6['level'][$key];?></p>
+      <p class="tbl_comfirmVal" name="going_level[]" style="text-align: center;" ><?php echo $data_jp_lang_going_to_take['going_level'][$key];?></p>
     </td>
   </tr>
   <?php } 
@@ -767,27 +768,27 @@ p{
   <?php
         $x=1;
         $y=0;
-        // var_dump($lists7['edu_name']);
-          foreach($lists7['edu_name'] as $key=>$rowData){
+        // var_dump($data_history_employment['edu_name']);
+          foreach($data_history_employment['emp_name'] as $key=>$rowData){
   ?>  
   <tr>
     <td>
-      <p class="tbl_comfirmVal" name="name[]" style="text-align: center;" ><?php echo $lists7['name'][$key];?></p>  
+      <p class="tbl_comfirmVal" name="emp_name[]" style="text-align: center;" ><?php echo $data_history_employment['emp_name'][$key];?></p>  
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="address[]" style="text-align: center;" ><?php echo $lists7['address'][$key];?></p>  
+      <p class="tbl_comfirmVal" name="emp_address[]" style="text-align: center;" ><?php echo $data_history_employment['emp_address'][$key];?></p>  
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="year[]" style="text-align: center;" ><?php echo $lists7['year'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="emp_year[]" style="text-align: center;" ><?php echo $data_history_employment['emp_year'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="start_date[]" style="text-align: center;" ><?php echo $lists7['start_date'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="emp_start_date[]" style="text-align: center;" ><?php echo $data_history_employment['emp_start_date'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="end_date[]" style="text-align: center;" ><?php echo $lists7['end_date'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="emp_end_date[]" style="text-align: center;" ><?php echo $data_history_employment['emp_end_date'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="job_description[]" style="text-align: center;" ><?php echo $lists7['job_description'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="emp_job_description[]" style="text-align: center;" ><?php echo $data_history_employment['emp_job_description'][$key];?></p> 
     </td>
   </tr>
   <?php } 
@@ -819,33 +820,33 @@ p{
   <?php
         $x=1;
         $y=0;
-        // var_dump($lists8['edu_name']);
-          foreach($lists8['edu_name'] as $key=>$rowData){
+        // var_dump($data_family_member['edu_name']);
+          foreach($data_family_member['fam_name'] as $key=>$rowData){
   ?>  
   <tr>
     <td>
-      <p class="tbl_comfirmVal" name="name[]" style="text-align: center;" ><?php echo $lists8['name'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="fam_name[]" style="text-align: center;" ><?php echo $data_family_member['fam_name'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="relationship[]" style="text-align: center;" ><?php echo $lists8['relationship'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="fam_relationship[]" style="text-align: center;" ><?php echo $data_family_member['fam_relationship'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="work_place[]" style="text-align: center;" ><?php echo $lists8['work_place'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="fam_work_place[]" style="text-align: center;" ><?php echo $data_family_member['fam_work_place'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="birthday[]" style="text-align: center;" ><?php echo $lists8['birthday'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="fam_birthday[]" style="text-align: center;" ><?php echo $data_family_member['fam_birthday'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="occupation[]" style="text-align: center;" ><?php echo $lists8['occupation'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="fam_occupation[]" style="text-align: center;" ><?php echo $data_family_member['fam_occupation'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="annual_income[]" style="text-align: center;" ><?php echo $lists8['annual_income'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="fam_annual_income[]" style="text-align: center;" ><?php echo $data_family_member['fam_annual_income'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="address[]" style="text-align: center;" ><?php echo $lists8['address'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="fam_address[]" style="text-align: center;" ><?php echo $data_family_member['fam_address'][$key];?></p> 
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="length_sevice[]" style="text-align: center;" ><?php echo $lists8['length_sevice'][$key];?></p> 
+      <p class="tbl_comfirmVal" name="fam_length_sevice[]" style="text-align: center;" ><?php echo $data_family_member['fam_length_sevice'][$key];?></p> 
     </td>
   </tr>
   <?php } 
@@ -861,7 +862,7 @@ p{
 <p>If yes, fill in all the family members in Japan.</p>
   <div class="form-group">
     <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
-    <p class="comfirm_val" id="plan_to_stay_with_them" name="plan_to_stay_with_them">No</p>
+    <p class="comfirm_val" id="plan_to_stay_with_them" name="plan_to_stay_with_them"><?php echo $data_family_japan['ja_plan_to_stay_with_them']; ?></p>
   </div>
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
@@ -880,30 +881,30 @@ p{
   <?php
         $x=1;
         $y=0;
-        // var_dump($lists9['edu_name']);
-          foreach($lists9['edu_name'] as $key=>$rowData){
+        // var_dump($data_family_japan['edu_name']);
+          foreach($data_family_japan['ja_fam_name'] as $key=>$rowData){
   ?>  
   <tr>
     <td>
-     <p class="tbl_comfirmVal" name="name[]" style="text-align: center;" ><?php echo $lists9['name'][$key];?></p> 
+     <p class="tbl_comfirmVal" name="ja_fam_name[]" style="text-align: center;" ><?php echo $data_family_japan['ja_fam_name'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="age[]" style="text-align: center;" ><?php echo $lists9['age'][$key];?></p>
+     <p class="tbl_comfirmVal" name="ja_fam_age[]" style="text-align: center;" ><?php echo $data_family_japan['ja_fam_age'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="relationship[]" style="text-align: center;" ><?php echo $lists9['relationship'][$key];?></p>
+     <p class="tbl_comfirmVal" name="ja_fam_relationship[]" style="text-align: center;" ><?php echo $data_family_japan['ja_fam_relationship'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="residing_applicant[]" style="text-align: center;" ><?php echo $lists9['residing_applicant'][$key];?></p>
+      <p class="tbl_comfirmVal" name="ja_fam_residing_applicant[]" style="text-align: center;" ><?php echo $data_family_japan['ja_fam_residing_applicant'][$key];?></p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="nationality[]" style="text-align: center;" ><?php echo $lists9['nationality'][$key];?></p>
+      <p class="tbl_comfirmVal" name="ja_fam_nationality[]" style="text-align: center;" ><?php echo $data_family_japan['ja_fam_nationality'][$key];?></p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="visa_status[]" style="text-align: center;" ><?php echo $lists9['visa_status'][$key];?></p>
+      <p class="tbl_comfirmVal" name="ja_fam_visa_status[]" style="text-align: center;" ><?php echo $data_family_japan['ja_fam_visa_status'][$key];?></p>
     </td>
     <td>
-      <p class="tbl_comfirmVal" name="work_place[]" style="text-align: center;" ><?php echo $lists9['work_place'][$key];?></p>
+      <p class="tbl_comfirmVal" name="ja_fam_work_place[]" style="text-align: center;" ><?php echo $data_family_japan['ja_fam_work_place'][$key];?></p>
     </td>
   </tr>
   <?php } 
@@ -931,24 +932,24 @@ p{
   <?php
         $x=1;
         $y=0;
-        // var_dump($lists10['edu_name']);
-          foreach($lists10['edu_name'] as $key=>$rowData){
+        // var_dump($data_previous_stay_japan['edu_name']);
+          foreach($data_previous_stay_japan['entry_date'] as $key=>$rowData){
   ?>  
   <tr>
     <td>
-     <p class="tbl_comfirmVal" name="entry_date[]" style="text-align: center;" ><?php echo $lists10['entry_date'][$key];?></p>
+     <p class="tbl_comfirmVal" name="entry_date[]" style="text-align: center;" ><?php echo $data_previous_stay_japan['entry_date'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="arrival_date[]" style="text-align: center;" ><?php echo $lists10['arrival_date'][$key];?></p>
+     <p class="tbl_comfirmVal" name="arrival_date[]" style="text-align: center;" ><?php echo $data_previous_stay_japan['arrival_date'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="depature_data[]" style="text-align: center;" ><?php echo $lists10['depature_data'][$key];?></p>
+     <p class="tbl_comfirmVal" name="depature_date[]" style="text-align: center;" ><?php echo $data_previous_stay_japan['depature_date'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="status[]" style="text-align: center;" ><?php echo $lists10['status'][$key];?></p>
+     <p class="tbl_comfirmVal" name="status[]" style="text-align: center;" ><?php echo $data_previous_stay_japan['status'][$key];?></p>
     </td>
     <td>
-     <p class="tbl_comfirmVal" name="entry_purpose[]" style="text-align: center;" ><?php echo $lists10['entry_purpose'][$key];?></p>
+     <p class="tbl_comfirmVal" name="entry_purpose[]" style="text-align: center;" ><?php echo $data_previous_stay_japan['entry_purpose'][$key];?></p>
     </td>
   </tr>
   <?php } 
@@ -1052,52 +1053,52 @@ p{
   <h5 class="finial_ttl">Finanicial Sponsor</h5>
   <div class="col-md-6 float-left" name="applicant_id">
   <div class="form-group">
-    <?php echo form_label('Name', 'name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-    <p class="comfirm_val" id="name" name="name"><?php echo $lists2['name']; ?></p>
+    <?php echo form_label('Name', 'name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'name')); ?>
+    <p class="comfirm_val" id="name" name="name"><?php echo $data_financial_sponsor['name']; ?></p>
   </div>
   <div class="form-group">
-    <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-    <p class="comfirm_val" id="age" name="age"><?php echo $lists2['age']; ?></p>   
+    <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'age')); ?>
+    <p class="comfirm_val" id="age" name="age"><?php echo $data_financial_sponsor['age']; ?></p>   
   </div>
   <div class="form-group">
-    <?php echo form_label('Relationship', 'relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
-    <p class="comfirm_val" id="relationship" name="relationship"><?php echo $lists2['relationship']; ?></p>   
+    <?php echo form_label('Relationship', 'relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'relationship')); ?>
+    <p class="comfirm_val" id="relationship" name="relationship"><?php echo $data_financial_sponsor['relationship']; ?></p>   
   </div>
   <div class="form-group">
     <?php echo form_label('Address','address', array('class' => 'col-form-label'));?>
-    <p class="comfirm_val" id="address" name="address"><?php echo $lists2['address']; ?></p>   
+    <p class="comfirm_val" id="address" name="address"><?php echo $data_financial_sponsor['address']; ?></p>   
   </div>
   <div class="form-group">
-  <?php echo form_label('Phone Number', 'tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-    <p class="comfirm_val" id="tel" name="tel"><?php echo $lists2['tel']; ?></p>   
+  <?php echo form_label('Phone Number', 'tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'tel')); ?>
+    <p class="comfirm_val" id="tel" name="tel"><?php echo $data_financial_sponsor['tel']; ?></p>   
   </div>
   <div class="form-group">
-    <?php echo form_label('Email', 'email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
-    <p class="comfirm_val" id="email" name="email"><?php echo $lists2['email']; ?></p>   
+    <?php echo form_label('Email', 'email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'email')); ?>
+    <p class="comfirm_val" id="email" name="email"><?php echo $data_financial_sponsor['email']; ?></p>   
   </div>
   <div class="form-group">
-    <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-    <p class="comfirm_val" id="occupation" name="occupation"><?php echo $lists2['occupation']; ?></p>   
+    <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'occupation')); ?>
+    <p class="comfirm_val" id="occupation" name="occupation"><?php echo $data_financial_sponsor['occupation']; ?></p>   
   </div>
   <div class="form-group">
-    <?php echo form_label('Work Place', 'work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-    <p class="comfirm_val" id="work_place" name="work_place"><?php echo $lists2['work_place']; ?></p>      
+    <?php echo form_label('Work Place', 'work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'work_place')); ?>
+    <p class="comfirm_val" id="work_place" name="work_place"><?php echo $data_financial_sponsor['work_place']; ?></p>      
   </div>
   <div class="form-group">
-    <?php echo form_label('Annual Income', 'annual_income', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-    <p class="comfirm_val" id="annual_income" name="annual_income"><?php echo $lists2['annual_income']; ?></p> 
+    <?php echo form_label('Annual Income', 'annual_income', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'annual_income')); ?>
+    <p class="comfirm_val" id="annual_income" name="annual_income"><?php echo $data_financial_sponsor['annual_income']; ?></p> 
   </div>
   <div class="form-group">
-    <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-    <p class="comfirm_val" id="amount_saving_for_study_abroad" name="amount_saving_for_study_abroad"><?php echo $lists2['amount_saving_for_study_abroad']; ?></p> 
+    <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'amount_saving_for_study_abroad')); ?>
+    <p class="comfirm_val" id="amount_saving_for_study_abroad" name="amount_saving_for_study_abroad"><?php echo $data_financial_sponsor['amount_saving_for_study_abroad']; ?></p> 
   </div>
   <div class="form-group">
-    <?php echo form_label('The amount of saving which can be proved ', 'amount_of_saving_which_proved', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-    <p class="comfirm_val" id="amount_of_saving_which_proved" name="amount_of_saving_which_proved"><?php echo $lists2['amount_of_saving_which_proved']; ?></p> 
+    <?php echo form_label('The amount of saving which can be proved ', 'amount_of_saving_which_proved', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'amount_of_saving_which_proved')); ?>
+    <p class="comfirm_val" id="amount_of_saving_which_proved" name="amount_of_saving_which_proved"><?php echo $data_financial_sponsor['amount_of_saving_which_proved']; ?></p> 
   </div>
   <div class="form-group">
-      <?php echo form_label('Start of Work date', 'start_work_date ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-      <p class="comfirm_val" id="start_work_date" name="start_work_date"><?php echo $lists2['start_work_date']; ?></p> 
+      <?php echo form_label('Start of Work date', 'start_work_date ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'start_work_date')); ?>
+      <p class="comfirm_val" id="start_work_date" name="start_work_date"><?php echo $data_financial_sponsor['start_work_date']; ?></p> 
   </div>
   </div>
 </div>

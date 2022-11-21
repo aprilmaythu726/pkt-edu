@@ -113,6 +113,7 @@ class Langschoolapplicant extends CI_Controller
           'std_email' => $this->input->post('std_email'),
           'phone' => $this->input->post('phone'),
           'address' => $this->input->post('address'),
+          'course_admission' => $this->input->post('course_admission'),
           'course_study_lengh' => $this->input->post('course_study_lengh'),
           'occupation' => $this->input->post('occupation'),
           'place_employment_school' => $this->input->post('place_employment_school'),
@@ -158,6 +159,7 @@ class Langschoolapplicant extends CI_Controller
           'date_of_departure' => $this->input->post('date_of_departure'),
           'visa_type' => $this->input->post('visa_type'),
           'school_apply_before_japan' => $this->input->post('school_apply_before_japan'),
+          'aimed_occupational_category' => $this->input->post('aimed_occupational_category'),
           'school_apply_date' => $this->input->post('school_apply_date'),
           'school_apply_status' => $this->input->post('school_apply_status'),
           'school_apply_name' => $this->input->post('school_apply_name'),
@@ -172,8 +174,10 @@ class Langschoolapplicant extends CI_Controller
           'eligibility_date' => $this->input->post('eligibility_date'),
           'provide_english' => $this->input->post('provide_english'),
           'accompanying_person' => $this->input->post('accompanying_person'),
+          'understand_language' => $this->input->post('understand_language'),
           'criminal_record' => $this->input->post('criminal_record'),
           'criminal_record_details' => $this->input->post('criminal_record_details'),
+          'criminal_record_when' => $this->input->post('criminal_record_when'),
           'departure_deportation' => $this->input->post('departure_deportation'),
           'current_status' => $this->input->post('current_status'),
           'current_status_school_name' => $this->input->post('current_status_school_name'),
@@ -187,10 +191,13 @@ class Langschoolapplicant extends CI_Controller
           'specific_plan_major' => $this->input->post('specific_plan_major'),
           'will_you_return' => $this->input->post('will_you_return'),
           'purpose_studying_in_japanese' => $this->input->post('purpose_studying_in_japanese'),
+          'entry_purpose1' => $this->input->post('entry_purpose1'),
+          
         );
         $data_financial_sponsor = array(
           'name' => $this->input->post('name'),
           'age' => $this->input->post('age'),
+          'relationship' => $this->input->post('relationship'),
           'address' => $this->input->post('address'),
           'tel' => $this->input->post('tel'),
           'email' => $this->input->post('email'),
@@ -392,6 +399,7 @@ class Langschoolapplicant extends CI_Controller
       'date_of_birthday' => $this->session->userdata('__initial_regist_data')['date_of_birthday'],
       'place_birth' => $this->session->userdata('__initial_regist_data')['place_birth'],
       'age' => $this->session->userdata('__initial_regist_data')['age'],
+      'course_admission' => $this->session->userdata('__initial_regist_data')['course_admission'],
       'nationality' => $this->session->userdata('__initial_regist_data')['nationality'],
       'gender' => $this->session->userdata('__initial_regist_data')['gender'],
       'martial_status' => $this->session->userdata('__initial_regist_data')['martial_status'],
@@ -422,6 +430,8 @@ class Langschoolapplicant extends CI_Controller
       'date_of_departure' => $this->session->userdata('__initial_regist_data1')['date_of_departure'],
       'visa_type' => $this->session->userdata('__initial_regist_data1')['visa_type'],
       'school_apply_before_japan' => $this->session->userdata('__initial_regist_data1')['school_apply_before_japan'],
+      'aimed_occupational_category' => $this->session->userdata('__initial_regist_data1')['aimed_occupational_category'],
+      'will_you_return' => $this->session->userdata('__initial_regist_data1')['will_you_return'],
       'school_apply_date' => $this->session->userdata('__initial_regist_data1')['school_apply_date'],
       'school_apply_status' => $this->session->userdata('__initial_regist_data1')['school_apply_status'],
       'school_apply_name' => $this->session->userdata('__initial_regist_data1')['school_apply_name'],
@@ -436,8 +446,10 @@ class Langschoolapplicant extends CI_Controller
       'eligibility_date' => $this->session->userdata('__initial_regist_data1')['eligibility_date'],
       'provide_english' => $this->session->userdata('__initial_regist_data1')['provide_english'],
       'accompanying_person' => $this->session->userdata('__initial_regist_data1')['accompanying_person'],
+      'understand_language' => $this->session->userdata('__initial_regist_data1')['understand_language'],
       'criminal_record' => $this->session->userdata('__initial_regist_data1')['criminal_record'],
       'criminal_record_details' => $this->session->userdata('__initial_regist_data1')['criminal_record_details'],
+      'criminal_record_when' => $this->session->userdata('__initial_regist_data1')['criminal_record_when'],
       'departure_deportation' => $this->session->userdata('__initial_regist_data1')['departure_deportation'],
       'current_status' => $this->session->userdata('__initial_regist_data1')['current_status'],
       'current_status_school_name' => $this->session->userdata('__initial_regist_data1')['current_status_school_name'],
@@ -449,14 +461,12 @@ class Langschoolapplicant extends CI_Controller
       'specific_plan_type_schools' => $this->session->userdata('__initial_regist_data1')['specific_plan_type_schools'],
       'specific_plan_school_name' => $this->session->userdata('__initial_regist_data1')['specific_plan_school_name'],
       'specific_plan_major' => $this->session->userdata('__initial_regist_data1')['specific_plan_major'],
-      'purpose_studying_in_japanese' => $this->session->userdata('__initial_regist_data1')['purpose_studying_in_japanese']
+      'purpose_studying_in_japanese' => $this->session->userdata('__initial_regist_data1')['purpose_studying_in_japanese'],
+      'entry_purpose1' => $this->session->userdata('__initial_regist_data1')['entry_purpose1']
+
+
     );
-    $data['lists1'] = array(
-      'have_you_visited_jp' => $this->session->userdata('__initial_regist_data1')['have_you_visited_jp'],
-      'visited_date' => $this->session->userdata('__initial_regist_data1')['visited_date'],
-      'date_of_departure' => $this->session->userdata('__initial_regist_data1')['date_of_departure'],
-      'visa_type' => $this->session->userdata('__initial_regist_data1')['visa_type']
-    );
+    
     $data['lists2'] = array(
       'name' => $this->session->userdata('__initial_regist_data2')['name'],
       'age' => $this->session->userdata('__initial_regist_data2')['age'],
@@ -473,12 +483,12 @@ class Langschoolapplicant extends CI_Controller
     $data['data_lang_study'] = array(
       'jp_name' => $this->session->userdata('__initial_regist_data4')['jp_name'],
       'jp_address' => $this->session->userdata('__initial_regist_data4')['jp_address'],
-      'start_date' => $this->session->userdata('__initial_regist_data4')['jp_start_date'],
-      'end_date' => $this->session->userdata('__initial_regist_data4')['jp_end_date'],
-      'hour' => $this->session->userdata('__initial_regist_data4')['jp_hour']
+      'jp_start_date' => $this->session->userdata('__initial_regist_data4')['jp_start_date'],
+      'jp_end_date' => $this->session->userdata('__initial_regist_data4')['jp_end_date'],
+      'jp_hour' => $this->session->userdata('__initial_regist_data4')['jp_hour']
     );
     $data['data_achievement_jp'] = array(
-      'name' => $this->session->userdata('__initial_regist_data5')['achiv_name'],
+      'achiv_name' => $this->session->userdata('__initial_regist_data5')['achiv_name'],
       'level' => $this->session->userdata('__initial_regist_data5')['level'],
       'exam_year' => $this->session->userdata('__initial_regist_data5')['exam_year'],
       'score' => $this->session->userdata('__initial_regist_data5')['score'],
@@ -524,9 +534,10 @@ class Langschoolapplicant extends CI_Controller
       'status' => $this->session->userdata('__initial_regist_data10')['status'],
       'entry_purpose' => $this->session->userdata('__initial_regist_data10')['entry_purpose']
     );
-    $data['lists1'] = array(
+    $data['data_financial_sponsor'] = array(
       'name' => $this->session->userdata('__initial_regist_data2')['name'],
           'age' => $this->session->userdata('__initial_regist_data2')['age'],
+          'relationship' => $this->session->userdata('__initial_regist_data2')['relationship'],
           'address' => $this->session->userdata('__initial_regist_data2')['address'],
           'tel' => $this->session->userdata('__initial_regist_data2')['tel'],
           'email' => $this->session->userdata('__initial_regist_data2')['email'],
@@ -535,11 +546,16 @@ class Langschoolapplicant extends CI_Controller
           'annual_income' => $this->session->userdata('__initial_regist_data2')['annual_income'],
           'amount_saving_for_study_abroad' => $this->session->userdata('__initial_regist_data2')['amount_saving_for_study_abroad'],
           'amount_of_saving_which_proved' => $this->session->userdata('__initial_regist_data2')['amount_of_saving_which_proved'],
+          'start_work_date' => $this->session->userdata('__initial_regist_data2')['start_work_date'],
     );
    
     $this->session->userdata('__initial_regist_data3')['edu_name'];
     $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $data);
     $this->load->view('dashboard/langschoolstudent/confirm', $this->data);
+
+    // $this->session->userdata('__initial_regist_data4')['jp_name'];
+    // $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $data);
+    // $this->load->view('dashboard/langschoolstudent/confirm', $this->data);
 		
   }
   public function store()
@@ -582,6 +598,7 @@ class Langschoolapplicant extends CI_Controller
           'std_email' => $this->session->userdata('__initial_regist_data')['std_email'],
           'phone' => $this->session->userdata('__initial_regist_data')['phone'],
           'address' => $this->session->userdata('__initial_regist_data')['address'],
+          'course_admission' => $this->session->userdata('__initial_regist_data')['course_admission'],
           'course_study_lengh' => $this->session->userdata('__initial_regist_data')['course_study_lengh'],
 					'occupation' => $this->session->userdata('__initial_regist_data')['occupation'],
           'place_employment_school' => $this->session->userdata('__initial_regist_data')['place_employment_school'],
@@ -609,6 +626,7 @@ class Langschoolapplicant extends CI_Controller
           'date_of_departure' => $this->session->userdata('__initial_regist_data1')['date_of_departure'],
           'visa_type' => $this->session->userdata('__initial_regist_data1')['visa_type'],
           'school_apply_before_japan' => $this->session->userdata('__initial_regist_data1')['school_apply_before_japan'],
+          'aimed_occupational_category' => $this->session->userdata('__initial_regist_data1')['aimed_occupational_category'],
           'school_apply_date' => $this->session->userdata('__initial_regist_data1')['school_apply_date'],
           'school_apply_status' => $this->session->userdata('__initial_regist_data1')['school_apply_status'],
           'school_apply_name' => $this->session->userdata('__initial_regist_data1')['school_apply_name'],
@@ -623,8 +641,10 @@ class Langschoolapplicant extends CI_Controller
           'eligibility_date' => $this->session->userdata('__initial_regist_data1')['eligibility_date'],
           'provide_english' => $this->session->userdata('__initial_regist_data1')['provide_english'],
           'accompanying_person' => $this->session->userdata('__initial_regist_data1')['accompanying_person'],
+          'understand_language' => $this->session->userdata('__initial_regist_data1')['understand_language'],
           'criminal_record' => $this->session->userdata('__initial_regist_data1')['criminal_record'],
           'criminal_record_details' => $this->session->userdata('__initial_regist_data1')['criminal_record_details'],
+          'criminal_record_when' => $this->session->userdata('__initial_regist_data1')['criminal_record_when'],
           'departure_deportation' => $this->session->userdata('__initial_regist_data1')['departure_deportation'],
           'current_status' => $this->session->userdata('__initial_regist_data1')['current_status'],
           'current_status_school_name' => $this->session->userdata('__initial_regist_data1')['current_status_school_name'],
@@ -637,7 +657,8 @@ class Langschoolapplicant extends CI_Controller
           'specific_plan_school_name' => $this->session->userdata('__initial_regist_data1')['specific_plan_school_name'],
           'specific_plan_major' => $this->session->userdata('__initial_regist_data1')['specific_plan_major'],
           'will_you_return' => $this->session->userdata('__initial_regist_data1')['will_you_return'],
-          'purpose_studying_in_japanese' => $this->session->userdata('__initial_regist_data1')['purpose_studying_in_japanese']
+          'purpose_studying_in_japanese' => $this->session->userdata('__initial_regist_data1')['purpose_studying_in_japanese'],
+          'entry_purpose1' => $this->session->userdata('__initial_regist_data1')['entry_purpose1']
         );
         $insertChecker = $this->Langschoolapplicant_Model->JLSapplicantdetails($userdata1);
 
@@ -645,6 +666,7 @@ class Langschoolapplicant extends CI_Controller
           'applicant_id' => $applicant_id,
           'name' => $this->session->userdata('__initial_regist_data2')['name'],
           'age' => $this->session->userdata('__initial_regist_data2')['age'],
+          'relationship' => $this->session->userdata('__initial_regist_data2')['relationship'],
           'address' => $this->session->userdata('__initial_regist_data2')['address'],
           'tel' => $this->session->userdata('__initial_regist_data2')['tel'],
           'email' => $this->session->userdata('__initial_regist_data2')['email'],
@@ -653,6 +675,7 @@ class Langschoolapplicant extends CI_Controller
           'annual_income' => $this->session->userdata('__initial_regist_data2')['annual_income'],
           'amount_saving_for_study_abroad' => $this->session->userdata('__initial_regist_data2')['amount_saving_for_study_abroad'],
           'amount_of_saving_which_proved' => $this->session->userdata('__initial_regist_data2')['amount_of_saving_which_proved'],
+          'start_work_date' => $this->session->userdata('__initial_regist_data2')['start_work_date'],
         );
         $insertChecker2 = $this->Langschoolapplicant_Model->JLSfinancialsponser($data_financial_sponsor);
 
@@ -758,7 +781,7 @@ class Langschoolapplicant extends CI_Controller
           $data_family_member = array(
             'applicant_id' => $insertChecker,
             'fam_name' => $fam_name[$i], 
-            'relationship' => $fam_relationship[$i], 
+            'fam_relationship' => $fam_relationship[$i], 
             'work_place' => $fam_work_place[$i],
             'birthday' => $fam_birthday[$i],
             'occupation' => $fam_occupation[$i],
