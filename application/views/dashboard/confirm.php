@@ -147,7 +147,7 @@ p{
 <!-- Student Sign -->
 <div class="col-md-6" style="display: flex;padding-top: 12px;">
 <?php
-    echo form_label('Applicant Sign','userfile', array('class' => 'col-form-label')) ;
+    echo form_label('Applicant Sign','signfile', array('class' => 'col-form-label')) ;
 ?>
 <div class="std_img">
 <?php echo $lists['sign_file']; ?>

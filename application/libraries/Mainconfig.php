@@ -125,19 +125,11 @@
         $this->__resizeImage($data);
       }
     }
-      if(!$this->CI->upload->do_upload('signfile')) {
-        $data['msg_error1'] = $this->CI->upload->display_errors();
-      } else {
-        $data = $this->CI->upload->data(); //data upload
-        if($resize == TRUE) {
-          $this->__resizeImage($data);
-        }
-    }
     return $data;
   }
   public function _fileUpload1($filename1, $upload_path1, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
   {
-    $config['file_name'] = $filename1;
+    $config['file_name1'] = $filename1;
     $config['upload_path1'] = $upload_path1;
     $config['encrypt_name'] = $encrypt;
     $config['overwrite'] = $overwrite;
