@@ -54,13 +54,13 @@
   <!-- Student Photo -->  
     <div class="col-md-6" style="display: flex;padding-top: 12px;">
     <?php
-      echo form_label('Applicant Sign','signfile', array('class' => 'col-form-label')) ;
+      echo form_label('Applicant Sign','sign_file', array('class' => 'col-form-label')) ;
       
     ?>
     <div class="col-md-6" style="width: 100%;padding-left:0px;padding-right: 0px;">
       <?php
         echo form_input(array(
-        'name' => 'signfile',
+        'name' => 'sign_file',
         'type' => 'file',
         'class' => 'form-control stu_label',
         'id' => 'clickImgs',
@@ -69,7 +69,7 @@
       ?>
       <div class="form-group col-md-12 col-sm-12 p-0" id="showImg2"> </div>   
     </div>
-  <span class="text-danger"><?php echo form_error('signfile'); ?></span>
+  <span class="text-danger"><?php echo form_error('sign_file'); ?></span>
   </div> 
   <!-- Student Photo -->  
 <!-- date -->
@@ -2163,18 +2163,18 @@ $(function() {
       <span class="text-danger"><?php echo form_error('annual_income'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => 'amount_saving_for_study_abroad',
+          'name' => 'amount_saving_for_study_abroad ',
           'type' => 'text',
-          'value' => html_escape(set_value('amount_saving_for_study_abroad',isset($result)?$result->amount_saving_for_study_abroad:''), ENT_QUOTES),
+          'value' => html_escape(set_value('amount_saving_for_study_abroad ',isset($result)?$result->amount_saving_for_study_abroad :''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'amount_saving_for_study_abroad',
+          'id' => 'amount_saving_for_study_abroad ',
           'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('amount_saving_for_study_abroad'); ?></span>
+      <span class="text-danger"><?php echo form_error('amount_saving_for_study_abroad '); ?></span>
   </div>
   <div class="form-group">
       <?php echo form_label('The amount of saving which can be proved ', 'amount_of_saving_which_proved', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
@@ -2191,18 +2191,18 @@ $(function() {
       <span class="text-danger"><?php echo form_error('amount_of_saving_which_proved'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Start of Work date', 'start_work_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Start of Work date', 'start_work_date ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
       <?php
         echo form_input(array(
-          'name' => 'start_work_date',
+          'name' => 'start_work_date  ',
           'type' => 'text',
-          'value' => html_escape(set_value('start_work_date',isset($result)?$result->start_work_date :''), ENT_QUOTES),
+          'value' => html_escape(set_value('start_work_date ',isset($result)?$result->start_work_date :''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
           'id' => 'start_work_date ',
           'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('start_work_date'); ?></span>
+      <span class="text-danger"><?php echo form_error('start_work_date '); ?></span>
   </div>
   </div>
 </div>
