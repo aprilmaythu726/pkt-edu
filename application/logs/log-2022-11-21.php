@@ -4676,3 +4676,4 @@ ERROR - 2022-11-21 11:06:53 --> 404 Page Not Found: Asset/admin
 ERROR - 2022-11-21 11:06:53 --> 404 Page Not Found: Asset/admin
 ERROR - 2022-11-21 11:06:59 --> 404 Page Not Found: Pkt-edu/adm
 ERROR - 2022-11-21 16:37:25 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\pkt-edu\application\controllers\dashboard\Langschoolapplicant.php 808
+ERROR - 2022-11-21 16:52:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\pkt-edu\application\controllers\dashboard\Langschoolapplicant.php 808

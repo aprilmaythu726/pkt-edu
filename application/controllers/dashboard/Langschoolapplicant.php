@@ -486,7 +486,7 @@ class Langschoolapplicant extends CI_Controller
       'jp_start_date' => $this->session->userdata('__initial_regist_data4')['jp_start_date'],
       'jp_end_date' => $this->session->userdata('__initial_regist_data4')['jp_end_date'],
       'jp_hour' => $this->session->userdata('__initial_regist_data4')['jp_hour']
-    );
+    );   
     $data['data_achievement_jp'] = array(
       'achiv_name' => $this->session->userdata('__initial_regist_data5')['achiv_name'],
       'level' => $this->session->userdata('__initial_regist_data5')['level'],
@@ -679,7 +679,7 @@ class Langschoolapplicant extends CI_Controller
         );
         $insertChecker2 = $this->Langschoolapplicant_Model->JLSfinancialsponser($data_financial_sponsor);
 
-        
+
         $edu_name=$this->session->userdata('__initial_regist_data3')['edu_name'];
         $edu_address=$this->session->userdata('__initial_regist_data3')['edu_address'];
         $edu_start_date=$this->session->userdata('__initial_regist_data3')['edu_start_date'];

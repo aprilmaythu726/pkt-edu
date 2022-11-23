@@ -180,7 +180,7 @@ p{
     </div>
 
     <div class="form-group">
-        <?php echo form_label(' Name (漢字)', 'applicant_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label(' Name (漢字)', 'applicant_name_kanji', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <p class="comfirm_val" id="applicant_name_kanji" name="applicant_name_kanji"><?php echo $lists['applicant_name_kanji']; ?></p>
     </div>
 
@@ -200,7 +200,7 @@ p{
     </div>
 
     <div class="form-group">
-        <?php echo form_label('Nationality', 'nationality', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Nationality', 'nationality', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'nationality')); ?>
         <p class="comfirm_val" id="nationality" name="nationality"><?php echo $lists['nationality']; ?></p>
     </div>
 
@@ -220,7 +220,7 @@ p{
     </div>
 
     <div class="form-group">
-        <?php echo form_label('Email', 'email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
+        <?php echo form_label('Email', 'std_email', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
         <p class="comfirm_val" id="std_email" name="email"><?php echo $lists['std_email']; ?></p>
     </div>
 
@@ -251,17 +251,17 @@ p{
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Date of Entry', 'visited_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Date of Entry', 'visited_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'visited_date')); ?>
         <p class="comfirm_val" id="visited_date" name="visited_date"><?php echo $data_details['visited_date']; ?></p>
   </div>
  
   <div class="form-group">
-        <?php echo form_label('Date of Departure', 'date_of_departure', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Date of Departure', 'date_of_departure', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'date_of_departure')); ?>
         <p class="comfirm_val" id="date_of_departure" name="date_of_departure"><?php echo $data_details['date_of_departure']; ?></p>
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Enter visa type if you visited Japan', 'visa type', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Enter visa type if you visited Japan', 'visa_type', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'visa_type')); ?>
         <p class="comfirm_val" id="visa_type" name="visa_type"><?php echo $data_details['visa_type']; ?></p>
   </div>
 
@@ -286,17 +286,17 @@ p{
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Name of School', 'current_status_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Name of School', 'current_status_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'current_status_school_name')); ?>
         <p class="comfirm_val" id="current_status_school_name" name="current_status_school_name"><?php echo $data_details['current_status_school_name']; ?></p>
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Department/Major', 'current_status_school_major', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Department/Major', 'current_status_school_major', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'current_status_school_major')); ?>
         <p class="comfirm_val" id="current_status_school_major" name="current_status_school_major"><?php echo $data_details['current_status_school_major']; ?></p>
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Grade', 'current_status_school_grade', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Grade', 'current_status_school_grade', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'current_status_school_grade')); ?>
         <p class="comfirm_val" id="current_status_school_grade" name="current_status_school_grade"><?php echo $data_details['current_status_school_grade']; ?></p>
   </div>
 
