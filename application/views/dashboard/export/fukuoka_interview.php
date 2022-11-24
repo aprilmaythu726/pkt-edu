@@ -24,96 +24,94 @@ $html = '
         </dl>
         <dl style="margin:0px;">
             <dt style="width:250px;float:left;"><h2 style="font-family: sjis;margin-bottom:0px;font-size:16px;">Entrance Interview Sheet</h2></dt>
-            <dd style="width:55%;float: right;"><p style="font-family: sjis;margin-bottom:0px;">* 東京日本橋校志望の場合で選考に漏れた場合、<br>
-	福岡本校での入学を　希望する ・ 希望しない</p></dd>
+            <dd style="width:55%;float: right;">
+            <p style="font-family: sjis;margin-bottom:0px;">* 東京日本橋校志望の場合で選考に漏れた場合、</p>
+            <p style="padding-left: 10px;">福岡本校での入学を　希望する ・ 希望しない</p>
+            </dd>
         </dl>
-        <dl>
-            <dt style="width:400px;float:left;"><h3 style="font-family: sjis;margin-bottom:0px;">日本語センター名： <span>__________________________________</span></h3></dt>
-            <dd style="width:30%;float: right;"><h3 style="font-family: sjis;margin-bottom:0px;">年　　　月　　　日</h3></dd>
+        <dl style="margin:0px;">
+            <dt style="width:450px;float:left;"><h3 style="font-family: sjis;margin-bottom:0px;padding-top:0px;">日本語センター名： <span>__________________________________________</span></h3></dt>
+            <dd style="width:25%;float: right;"><h3 style="font-family: sjis;margin-bottom:0px;padding-top:0px;">年　　　月　　　日</h3></dd>
         </dl>
     </section>
     <section class="address" style="width:100%;">
-    <p>The mediation company</p>
+    <p style="margin:0px;">The mediation company</p>
 		<table style="width:100%;">
 		<tr>
-			<th style="width: 20%;">氏名 <br> NAME</th>
-			<td></td>
-            <th style="width: 20%;">性別 <br> SEX</th>
-			<td></td>
-            <td rowspan="4" style="width:15%;text-align: center;">（写真）<br>Photo</td>
+			<th style="width: 10%;">氏名 <br> NAME</th>
+			<td colspan="2"></td>
+            <th style="width: 10%;">性別 <br> SEX</th>
+			<td colspan="4"></td>
+            <td colspan="3" rowspan="4" style="text-align: center;">（写真）<br>Photo</td>
             </tr>
 		<tr>
-			<th style="width: 20%;">国籍 <br> Nationality</th>
-			<td></td>
-            <th style="width: 20%;">生年月日 <br> Birthday</th>
-			<td style="text-align: right;">　　年　　月　　日</td>
+			<th style="width: 10%;">国籍 <br> Nationality</th>
+			<td colspan="2"></td>
+            <th style="width: 10%;">生年月日 <br> Birthday</th>
+			<td colspan="4" style="text-align: right;">　　年　　月　　日</td>
             </tr>
 		<tr>
-			<th style="width: 20%;">固定電話 <br> Phone</th>
-			<td></td>
-            <th style="width: 20%;">携帯電話 <br> Mobile</th>
-			<td></td>
+			<th style="width: 10%;">固定電話 <br> Phone</th>
+			<td colspan="2"></td>
+            <th style="width: 10%;">携帯電話 <br> Mobile</th>
+			<td colspan="4"></td>
         </tr>
-            <tr>
-			<th style="width: 20%;">E-mail</th>
-			<td colspan="3"></td>
+        <tr>
+			<th style="width: 10%;">E-mail</th>
+			<td colspan="7"></td>
            
-            </tr>
-         <tr>
-			<th colspan="2" style="text-align: left;">本人現住所 <br> Present address</th>
-			<td colspan="3"></td>
         </tr>
         <tr>
-			<th colspan="2" style="text-align: left;">保護者住所 <br>Parents address</th>
-			<td colspan="3"></td>
+			<th colspan="2" style="width:20%;text-align: left;">保護者住所 <br>Parents address</th>
+			<td colspan="9"></td>
         </tr>
         <tr>
-			<th colspan="2" style="text-align: left;">在学年数 <br>Period of study</th>
-			<td colspan="3"></td>
+			<th colspan="2" style="width:20%;text-align: left;">在学年数 <br>Period of study</th>
+			<td colspan="9"></td>
         </tr>
         <tr style="border-top: 0px;">
-			<th colspan="2" style="text-align: left;">本人現住所 <br> Present address</th>
-			<td colspan="3"></td>
+			<th colspan="2" style="width:20%;text-align: left;">本人現住所 <br> Present address</th>
+			<td colspan="9"></td>
         </tr>
         <tr>
-			<th colspan="2" style="text-align: left;">最終学歴 <br> Latest educational history School name
+			<th colspan="2" style="width:20%;text-align: left;">最終学歴 <br> Latest educational history School name
 </th>
-			<td colspan="3"></td>
+			<td colspan="9"></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">日本語学習期間 <br>Duration of Japanese language study</th>
-			<td colspan="3">　 年　　 ヶ月 ＊日本語能力試験、Nat, TOP-J TEST→ <span>(        )</span></td>
+			<td colspan="9">　 年　　 ヶ月 ＊日本語能力試験、Nat, TOP-J TEST→ <span>(　　　　　　)</span></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者氏名 <br> The name of financial supporter</th>
-			<td colspan="3"></td>
+			<td colspan="9"></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者職業・勤務先 <br>Job of financial supporter</th>
-			<td colspan="3"></td>
+			<td colspan="9"></td>
         </tr>
         <tr>
-			<th colspan="2" style="text-align: left;">本人との続柄 <br> your relation of the financial supporter  e.g. father, mother </th>
-			<td colspan="3"></td>
+			<th colspan="2" style="text-align: left;">本人との続柄 your relation of the <br>financial supporter  e.g. father, mother </th>
+			<td colspan="9"></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者勤務先電話番号 <br> phone of financial supporter</th>
-			<td colspan="3"></td>
+			<td colspan="9"></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者年間収入 <br> financial supporter salary of a year</th>
-			<td colspan="3"></td>
+			<td colspan="9"></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">過去申請歴（取下げ歴を含む）<br> Have you already tried an application for certificate of eligibility.</th>
-			<td colspan="3" style="text-align: center;">有（　　　　年　　　月）　　　　無</td>
+			<td colspan="9" style="text-align: center;">有（　　　　年　　　月）　　　　無</td>
         </tr>
         </table>
 		
 </section>	
 <section class="family-japan">
     <div class="clearfix mb-5"></div>
-                            <table style="width:100%; padding_top:20px" class="tbl">
+                            <table style="width:100%; padding-top:20px" class="tbl">
                                 <tr style="border-top: 0px;">
                                     <th colspan="7" style="text-align: center;">学歴・職歴（小学校卒業から年代順に記入）<br>
                                     Education, employment history （List in order all the schools, starting with the elementary school）</th>
@@ -127,20 +125,42 @@ $html = '
                                 </tr>
                             <tbody id="stockList">
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
+                                        <td style="font-size: 11px; text-align: right;"></td>
+                                        <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
+
+</td>
                                         <td style="font-size: 11px; text-align: left;"></td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
+                                        <td style="font-size: 11px; text-align: right;"></td>
+                                        <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
+
+</td>
                                         <td style="font-size: 11px; text-align: left;"></td>
                                     </tr>
                                     <tr>
                                              
-                                        <td style="font-size: 11px; text-align: right;">-</td>
+                                        <td style="font-size: 11px; text-align: right;"></td>
+                                        <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
+
+</td>
                                         <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
+                                    </tr>
+                                    <tr>
+                                             
+                                             <td style="font-size: 11px; text-align: right;"></td>
+                                             <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
+     
+     </td>
+                                             <td style="font-size: 11px; text-align: left;"></td>
+                                    </tr>
+                                    <tr>
+                                             
+                                             <td style="font-size: 11px; text-align: right;"></td>
+                                             <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
+     
+     </td>
+                                             <td style="font-size: 11px; text-align: left;"></td>
                                     </tr>
                                
                             </tbody>
@@ -167,7 +187,9 @@ $html = '
                     /* font-family:firefly, DejaVu Sans, sans-serif;
                     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif; */
                     /* font-family: "Lucida Console", "Courier New", monospace;*/               
-                    font-family: sjis;
+                    /* font-family: sjis ; */
+                    font-family: "Gothicbi", sjis, sans-serif;
+                    /* font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;  */
                     /* font-family: 'Open Sans', sans-serif; */
                     line-height: 20px;
                 }
@@ -254,9 +276,6 @@ $html = '
                     position: relative;
                     margin: 0 auto;
                 }
-                section.personal-info {
-                    /* margin-bottom: 20px; */
-                }
                 .logo {
                     width: 200px;
                     position: absolute;
@@ -294,11 +313,6 @@ $html = '
 				/* margin-right: 5px; */
 				display: block;
 			}
-            .note{
-                /* width: 100%;
-                height: 500px;
-                border: 1px solid #000000; */
-            }
 </style>
 </html>';
 

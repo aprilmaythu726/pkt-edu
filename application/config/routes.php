@@ -96,6 +96,9 @@ $route['student/enroll/complete'] = 'enroll/complete';
 $route['student/enroll/cancel'] = 'enroll/course_cancel';
 $route['enroll/fetch_payment'] = 'enroll/fetch_payment';
 
+$route['api/user/(:any)'] = '/dashboard/api/index_get/$1';
+
+
 /*** Admin Panel Route List ***/
 /**** Admin Dashboard ****/
 $route['root/portal/url/generate/ipaccess'] = '/dashboard/secrect/loader';
@@ -232,8 +235,14 @@ $route['adm/portal/jls_applicant/fukuoka_admission'] = '/dashboard/pdf/fukuoka_a
 $route['adm/portal/jls_applicant/shizuoka_interview'] = '/dashboard/pdf/shizuoka_inter';
 $route['adm/portal/jls_applicant/shizuoka_admission'] = '/dashboard/pdf/shizuoka_admiss';
 
+$route['adm/portal/jls_applicant/employee'] = '/dashboard/employee/index';
+$route['adm/portal/jls_applicant/employee/createexcel'] = '/dashboard/employee/createExcel';
+
 $route['adm/portal/jls_applicant'] = '/dashboard/langschoolapplicant/index';
 $route['adm/portal/jls_applicant/add'] = '/dashboard/langschoolapplicant/add';
+$route['adm/portal/jls_applicant/confirm'] = '/dashboard/langschoolapplicant/confirm';
+$route['adm/portal/jls_applicant/store'] = '/dashboard/langschoolapplicant/store';
+$route['adm/portal/jls_applicant/complete'] = '/dashboard/langschoolapplicant/complete';
 $route['adm/portal/jls_applicant/new'] = '/dashboard/langschoolapplicant/new';
 $route['adm/portal/jls_applicant/interview'] = '/dashboard/langschoolapplicant/interview';
 $route['adm/portal/jls_applicant/activated/(:any)'] = '/dashboard/langschoolapplicant/activated/$1';
