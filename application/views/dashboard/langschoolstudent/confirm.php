@@ -195,13 +195,13 @@ p{
     </div>
 
     <div class="form-group">
-        <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'age')); ?>
-        <p class="comfirm_val" id="age" name="age"><?php echo $lists['age']; ?></p>
+        <?php echo form_label('Age', 'info_age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'info_age')); ?>
+        <p class="comfirm_val" id="info_age" name="info_age"><?php echo $lists['info_age']; ?></p>
     </div>
 
     <div class="form-group">
-        <?php echo form_label('Nationality', 'nationality', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'nationality')); ?>
-        <p class="comfirm_val" id="nationality" name="nationality"><?php echo $lists['nationality']; ?></p>
+        <?php echo form_label('Nationality', 'info_nationality', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'info_nationality')); ?>
+        <p class="comfirm_val" id="info_nationality" name="info_nationality"><?php echo $lists['info_nationality']; ?></p>
     </div>
 
     <div class="form-group">
@@ -861,8 +861,8 @@ p{
 <h6 class="" style="padding: 33px 0px 12px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h6>
 <p>If yes, fill in all the family members in Japan.</p>
   <div class="form-group">
-    <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
-    <p class="comfirm_val" id="plan_to_stay_with_them" name="plan_to_stay_with_them"><?php echo $data_family_japan['ja_plan_to_stay_with_them']; ?></p>
+    <?php echo form_label('Are you planning to stay with them in Japan? : ', 'ja_plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
+    <p class="comfirm_val" id="ja_plan_to_stay_with_them" name="ja_plan_to_stay_with_them"><?php echo $data_family_japan['ja_plan_to_stay_with_them']; ?></p>
   </div>
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
@@ -1057,12 +1057,12 @@ p{
     <p class="comfirm_val" id="name" name="name"><?php echo $data_financial_sponsor['name']; ?></p>
   </div>
   <div class="form-group">
-    <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'age')); ?>
-    <p class="comfirm_val" id="age" name="age"><?php echo $data_financial_sponsor['age']; ?></p>   
+    <?php echo form_label('Age', 'fin_age', array( 'class' => '', 'id'=> 'fin_age', 'style' => '', 'for' => 'fin_age')); ?>
+    <p class="comfirm_val" id="fin_age" name="fin_age"><?php echo $data_financial_sponsor['fin_age']; ?></p>   
   </div>
   <div class="form-group">
-    <?php echo form_label('Relationship', 'relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'relationship')); ?>
-    <p class="comfirm_val" id="relationship" name="relationship"><?php echo $data_financial_sponsor['relationship']; ?></p>   
+    <?php echo form_label('Relationship', 'fin_relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_relationship')); ?>
+    <p class="comfirm_val" id="fin_relationship" name="fin_relationship"><?php echo $data_financial_sponsor['fin_relationship']; ?></p>   
   </div>
   <div class="form-group">
     <?php echo form_label('Address','address', array('class' => 'col-form-label'));?>
