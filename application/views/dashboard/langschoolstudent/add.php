@@ -171,19 +171,19 @@
       </div>
 
       <div class="form-group">
-        <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'age')); ?>
+        <?php echo form_label('Age', 'info_age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'info_age')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'age',
+            'name' => 'info_age',
             'type' => 'text',
-            'value' => html_escape(set_value('age',isset($result)?$result->age:''), ENT_QUOTES),
+            'value' => html_escape(set_value('info_age',isset($result)?$result->info_age:''), ENT_QUOTES),
             'placeholder' => "Enter student's Age!",
             'class' => 'form-control',
-            'id' => 'age',
+            'id' => 'info_age',
             'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('age'); ?></span>
+        <span class="text-danger"><?php echo form_error('info_age'); ?></span>
       </div>
 
       <div class="form-group">
@@ -191,12 +191,12 @@
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'nationality',
+            'name' => 'info_nationality',
             'type' => 'text',
-            'value' => html_escape(set_value('nationality',isset($result)?$result->nationality:''), ENT_QUOTES),
+            'value' => html_escape(set_value('info_nationality',isset($result)?$result->info_nationality:''), ENT_QUOTES),
             'placeholder' => "Enter student's Nationality!",
             'class' => 'form-control',
-            'id' => 'nationality',
+            'id' => 'info_nationality',
             'autocomplete' => ''));
           ?>
         <span class="text-danger"><?php echo form_error('nationality'); ?></span>
@@ -1234,36 +1234,36 @@ $(function() {
   <tbody>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="jp_name[0]" id="jp_name" value="">
+      <input type="text" class=" table-control"  name="jp_name[]" id="jp_name" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_address[0]" id="jp_address" value="">
+      <input type="text" class=" table-control"  name="jp_address[]" id="jp_address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_start_date[0]" id="jp_address" value="">
+      <input type="text" class=" table-control"  name="jp_start_date[]" id="jp_address" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_end_date[0]" value="">
+      <input type="text" class=" table-control"  name="jp_end_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="jp_hour[0]" value=""><span class="study_year">hour</span> 
+      <input type="text" class=" table-control term" name="jp_hour[]" value=""><span class="study_year">hour</span> 
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="jp_name[1]" value="">
+      <input type="text" class=" table-control"  name="jp_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_address[1]" value="">
+      <input type="text" class=" table-control"  name="jp_address[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_start_date[1]" value="">
+      <input type="text" class=" table-control"  name="jp_start_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_end_date[1]" value="">
+      <input type="text" class=" table-control"  name="jp_end_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="jp_hour[1]" value=""><span class="study_year">hour</span> 
+      <input type="text" class=" table-control term" name="jp_hour[]" value=""><span class="study_year">hour</span> 
       </td>
     </tr>
     <tr>
@@ -1343,42 +1343,42 @@ $(function() {
     
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="achiv_name[0]" value="">
+      <input type="text" class=" table-control"  name="achiv_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="achiv_level[0]" value="">
+      <input type="text" class=" table-control"  name="achiv_level[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="achiv_exam_year[0]" value="">
+      <input type="text" class=" table-control"  name="achiv_exam_year[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="achiv_score[0]" value="">
+      <input type="text" class=" table-control"  name="achiv_score[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="achiv_result[0]" value="">
+      <input type="text" class=" table-control term" name="achiv_result[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="achiv_date_qualification[0]" value="">
+      <input type="text" class=" table-control" name="achiv_date_qualification[]" value="">
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="achiv_name[1]" value="">
+      <input type="text" class=" table-control"  name="achiv_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="achiv_level[1]" value="">
+      <input type="text" class=" table-control"  name="achiv_level[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="achiv_exam_year[1]" value="">
+      <input type="text" class=" table-control"  name="achiv_exam_year[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="achiv_score[1]" value="">
+      <input type="text" class=" table-control"  name="achiv_score[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="achiv_result[1]" value=""> 
+      <input type="text" class=" table-control term" name="achiv_result[]" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="achiv_date_qualification[1]" value="">
+      <input type="text" class=" table-control" name="achiv_date_qualification[]" value="">
       </td>
     </tr>
     <tr>
@@ -1419,18 +1419,18 @@ $(function() {
     
     <tr>
       <td>
-      <input type="text" class=" table-control term" name="going_name[0]" value="">
+      <input type="text" class=" table-control term" name="going_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="going_level[0]" value="">
+      <input type="text" class=" table-control" name="going_level[]" value="">
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control term" name="going_name[1]" value="">
+      <input type="text" class=" table-control term" name="going_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="going_level[1]" value="">
+      <input type="text" class=" table-control" name="going_level[]" value="">
       </td>
     </tr>
     <tr>
@@ -1466,42 +1466,42 @@ $(function() {
     
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="emp_name[0]" value="">
+      <input type="text" class=" table-control"  name="emp_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="emp_address[0]" value="">
+      <input type="text" class=" table-control"  name="emp_address[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="emp_start_date[0]" value="">
+      <input type="text" class=" table-control"  name="emp_start_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="emp_end_date[0]" value="">
+      <input type="text" class=" table-control"  name="emp_end_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="emp_year[0]" value="">
+      <input type="text" class=" table-control term" name="emp_year[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="emp_job_description[0]" value="">
+      <input type="text" class=" table-control" name="emp_job_description[]" value="">
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="emp_name[1]" value="">
+      <input type="text" class=" table-control"  name="emp_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="emp_address[1]" value="">
+      <input type="text" class=" table-control"  name="emp_address[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="emp_start_date[1]" value="">
+      <input type="text" class=" table-control"  name="emp_start_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="emp_end_date[1]" value="">
+      <input type="text" class=" table-control"  name="emp_end_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control term" name="emp_year[1]" value=""> 
+      <input type="text" class=" table-control term" name="emp_year[]" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="emp_job_description[1]" value="">
+      <input type="text" class=" table-control" name="emp_job_description[]" value="">
       </td>
     </tr>
     <tr>
@@ -1551,54 +1551,54 @@ $(function() {
     
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="fam_name[0]" value="">
+      <input type="text" class=" table-control"  name="fam_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_relationship[0]" value="">
+      <input type="text" class=" table-control"  name="fam_relationship[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_work_place[0]" value="">
+      <input type="text" class=" table-control"  name="fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_birthday[0]" value="">
+      <input type="text" class=" table-control"  name="fam_birthday[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_occupation[0]" value="">
+      <input type="text" class=" table-control"  name="fam_occupation[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_annual_income[0]" value="">
+      <input type="text" class=" table-control"  name="fam_annual_income[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control " name="fam_address[0]" value="">
+      <input type="text" class=" table-control " name="fam_address[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="fam_length_sevice[0]" value="">
+      <input type="text" class=" table-control" name="fam_length_sevice[]" value="">
       </td>
     </tr>
     <tr>
     <td>
-      <input type="text" class=" table-control"  name="fam_fam_name[1]" value="">
+      <input type="text" class=" table-control"  name="fam_fam_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_relationship[1]" value="">
+      <input type="text" class=" table-control"  name="fam_relationship[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_work_place[1]" value="">
+      <input type="text" class=" table-control"  name="fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_birthday[1]" value="">
+      <input type="text" class=" table-control"  name="fam_birthday[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_occupation[1]" value="">
+      <input type="text" class=" table-control"  name="fam_occupation[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_annual_income[1]" value="">
+      <input type="text" class=" table-control"  name="fam_annual_income[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control " name="fam_address[1]" value=""> 
+      <input type="text" class=" table-control " name="fam_address[]" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="fam_length_sevice[1]" value="">
+      <input type="text" class=" table-control" name="fam_length_sevice[]" value="">
       </td>
     </tr>
     <tr>
@@ -1689,7 +1689,7 @@ $(function() {
 <h6 class="" style="padding: 33px 0px 12px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h6>
 <p >If yes, fill in all the family members in Japan.</p>
   <div class="form-group">
-  <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
+  <?php echo form_label('Are you planning to stay with them in Japan? : ', 'ja_plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
     <select name="ja_plan_to_stay_with_them" id="ja_plan_to_stay_with_them" class="planning_select">
         <option value="1">Yes</option>
         <option value="0">No</option>
@@ -1713,13 +1713,13 @@ $(function() {
     <tr>
       
       <td>
-      <input type="text" class=" table-control"  name="ja_fam_name[0]" value="">
+      <input type="text" class=" table-control"  name="ja_fam_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="ja_fam_age[0]" value="">
+      <input type="text" class=" table-control"  name="ja_fam_age[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="ja_fam_relationship[0]" value="">
+      <input type="text" class=" table-control"  name="ja_fam_relationship[]" value="">
       </td>
       <td>
       <div class="">
@@ -1731,25 +1731,25 @@ $(function() {
      </div>
       </td>
       <td>
-      <input type="text" class=" table-control"  name="ja_fam_nationality[0]" value="">
+      <input type="text" class=" table-control"  name="ja_fam_nationality[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control " name="ja_fam_visa_status[0]" value="">
+      <input type="text" class=" table-control " name="ja_fam_visa_status[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="ja_fam_work_place[0]" value="">
+      <input type="text" class=" table-control" name="ja_fam_work_place[]" value="">
       </td>
     </tr>
     <tr>
     
       <td>
-      <input type="text" class=" table-control"  name="ja_fam_name[1]" value="">
+      <input type="text" class=" table-control"  name="ja_fam_name[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="ja_fam_age[1]" value="">
+      <input type="text" class=" table-control"  name="ja_fam_age[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="ja_fam_relationship[1]" value="">
+      <input type="text" class=" table-control"  name="ja_fam_relationship[]" value="">
       </td>
       <td>
       <div class="">
@@ -1761,13 +1761,13 @@ $(function() {
      </div>
       </td>
       <td>
-      <input type="text" class=" table-control"  name="ja_fam_nationality[1]" value="">
+      <input type="text" class=" table-control"  name="ja_fam_nationality[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control " name="ja_fam_visa_status[1]" value=""> 
+      <input type="text" class=" table-control " name="ja_fam_visa_status[]" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="ja_fam_work_place[1]" value="">
+      <input type="text" class=" table-control" name="ja_fam_work_place[]" value="">
       </td>
     </tr>
     <tr>
@@ -1852,36 +1852,36 @@ $(function() {
   <tbody>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="entry_date[0]" value="">
+      <input type="text" class=" table-control"  name="entry_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="arrival_date[0]" value="">
+      <input type="text" class=" table-control"  name="arrival_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="depature_date[0]" value="">
+      <input type="text" class=" table-control"  name="depature_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="status[0]" value="">
+      <input type="text" class=" table-control"  name="status[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="entry_purpose[0]" value="">
+      <input type="text" class=" table-control"  name="entry_purpose[]" value="">
       </td>
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="entry_date[1]" value="">
+      <input type="text" class=" table-control"  name="entry_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="arrival_date[1]" value="">
+      <input type="text" class=" table-control"  name="arrival_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="depature_date[1]" value="">
+      <input type="text" class=" table-control"  name="depature_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="status[1]" value="">
+      <input type="text" class=" table-control"  name="status[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="entry_purpose[1]" value="">
+      <input type="text" class=" table-control"  name="entry_purpose[]" value="">
       </td>
      
     </tr>
@@ -2057,19 +2057,19 @@ $(function() {
         <span class="text-danger"><?php echo form_error('fin_age'); ?></span>
       </div>
       <div class="form-group">
-        <?php echo form_label('Relationship', 'relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Relationship', 'fin_relationship', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'relationship',
+            'name' => 'fin_relationship',
             'type' => 'text',
-            'value' => html_escape(set_value('relationship',isset($result)?$result->relationship:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fin_relationship',isset($result)?$result->fin_relationship:''), ENT_QUOTES),
             'placeholder' => "Enter student's Age!",
             'class' => 'form-control',
-            'id' => 'relationship',
+            'id' => 'fin_relationship',
             'autocomplete' => ''));
           ?>
-        <span class="text-danger"><?php echo form_error('relationship'); ?></span>
+        <span class="text-danger"><?php echo form_error('fin_relationship'); ?></span>
       </div>
       <div class="form-group">
         <?php
