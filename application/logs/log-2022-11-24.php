@@ -7161,3 +7161,61 @@ ERROR - 2022-11-24 05:57:15 --> 404 Page Not Found: Asset/admin
 ERROR - 2022-11-24 05:57:39 --> 404 Page Not Found: Asset/admin
 ERROR - 2022-11-24 05:57:39 --> 404 Page Not Found: Asset/admin
 ERROR - 2022-11-24 05:57:39 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$edu_address C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1254
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$edu_start_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1265
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$edu_end_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1276
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$edu_year C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1287
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$jp_address C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1334
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$jp_start_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1345
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$jp_end_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1356
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$jp_hour C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1367
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$emp_address C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1545
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$emp_year C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1556
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$emp_start_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1567
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$emp_end_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1578
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$emp_job_description C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1589
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$fam_work_place C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1649
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$fam_birthday C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1660
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$fam_occupation C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1671
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$emp_job_description C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1682
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$fam_address C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1693
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$fam_length_sevice C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1704
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_name C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1748
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_age C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1759
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_relationship C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1770
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_nationality C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1790
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_visa_status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1801
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_work_place C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1812
+ERROR - 2022-11-24 11:34:12 --> Severity: Notice --> Undefined property: stdClass::$depature_data C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1868
+ERROR - 2022-11-24 06:04:13 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-11-24 06:04:13 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-11-24 06:04:13 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$edu_address C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1254
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$edu_start_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1265
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$edu_end_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1276
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$edu_year C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1287
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$jp_address C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1334
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$jp_start_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1345
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$jp_end_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1356
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$jp_hour C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1367
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$emp_address C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1545
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$emp_year C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1556
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$emp_start_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1567
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$emp_end_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1578
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$emp_job_description C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1589
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$fam_work_place C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1649
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$fam_birthday C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1660
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$fam_occupation C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1671
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$emp_job_description C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1682
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$fam_address C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1693
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$fam_length_sevice C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1704
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_name C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1748
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_age C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1759
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_relationship C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1770
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_nationality C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1790
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_visa_status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1801
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$ja_fam_work_place C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1812
+ERROR - 2022-11-24 11:39:35 --> Severity: Notice --> Undefined property: stdClass::$depature_data C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\edit.php 1868
+ERROR - 2022-11-24 06:09:35 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-11-24 06:09:35 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-11-24 06:09:35 --> 404 Page Not Found: Asset/admin

@@ -39,8 +39,8 @@
 <div class="card">
 <div class="card-body">
     <?php
-      $attributes = array('class' => 'form-horizontal form-label-left');
-      echo form_open_multipart('adm/portal/langschool_applicant/add', $attributes);
+        $attributes = array('class' => 'form-horizontal form-label-left');
+				echo form_open_multipart('adm/portal/jls_applicant/edit/'.$result->id, $attributes);
     ?>
 <div class="col-md-12">
 <div class="col-md-6 " style="display: flex;padding-top: 32px;">
