@@ -1,6 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php include(dirname(__FILE__) ."/../templates/header.php"); ?>
-
+<?php
+  print_r ($result);
+  ?>
 <div class="content-wrapper">
   <div class="row page-tilte align-items-center">
     <div class="col-md-auto">
@@ -39,8 +41,8 @@
 <div class="card">
 <div class="card-body">
     <?php
-        $attributes = array('class' => 'form-horizontal form-label-left');
-				echo form_open_multipart('adm/portal/jls_applicant/edit/'.$result->id, $attributes);
+      $attributes = array('class' => 'form-horizontal form-label-left');
+      echo form_open_multipart('adm/portal/langschool_applicant/add', $attributes);
     ?>
 <div class="col-md-12">
 <div class="col-md-6 " style="display: flex;padding-top: 32px;">
@@ -85,27 +87,17 @@
   <span class="text-danger"><?php echo form_error('userfile'); ?></span>
   </div>
   <!-- Student Photo -->  
-<!-- date -->
-  <!-- <div class="col-md-6 float-left">
-      <div class="form-group" style="padding-left: 165px;">
-          <label class="weight-400" for="release" style="margin-bottom:10px">Date</label> 
-          <span class="badge badge-danger">Required</span>
-          <input type="datetime-local" step="1" name="release" id="release" class="form-control" placeholder="" value="">
-          <span class="text-danger"><?php echo form_error( 'release' ); ?></span>
-      </div>
-  </div> -->
-<!-- date-->
 
 <!-- JLS Name -->
 <div class="school_list" name="" >
 <p class="list_label">JLS Name  </p>
-<select name="" class="school_select">
-    <option value="">Please Select!</option>
-    <option value="ECC">ECC</option>
-    <option value="JCLI">JCLI</option>
-    <option value="OJLS">OJLS</option>
-    <option value="Fukuoka">fukuoka</option>
-    <option value="Shizuoka">shizuoka</option>
+<select name="jls_name" class="school_select">
+    <option value="" <?php if($result->jls_name== "") echo "selected"; ?>>Please Select!</option>
+    <option value="ECC" <?php if($result->jls_name== "ECC") echo "selected"; ?>>ECC</option>
+    <option value="JCLI" <?php if($result->jls_name== "JCLI") echo "selected"; ?>>JCLI</option>
+    <option value="OJLS" <?php if($result->jls_name== "OJLS") echo "selected"; ?>>OJLS</option>
+    <option value="Fukuoka" <?php if($result->jls_name== "Fukuoka") echo "selected"; ?>>fukuoka</option>
+    <option value="Shizuoka" <?php if($result->jls_name== "Shizuoka") echo "selected"; ?>>shizuoka</option>
 </select>
 </div>
 <!-- JLS Name -->
@@ -115,16 +107,16 @@
 <div class="school_list status_select" name="" >
 <p class="list_label">Status </p>
 <select name="" id="sele_popup " class="school_select">
-<option value="">Please Select!</option>
-        <option value="Register">Register</option>
-        <option value="Interview">Interview</option>
-        <option value="Interview Failed">Interview Failed</option>
-        <option value="Admission">Admission</option>
-        <option value="Admission Complete">Admission Complete</option>
-        <option value="COE Waiting">COE Waiting</option>
-        <option value="Cancel">Cancel</option>
-        <option value="COE Failed">COE Failed</option>
-        <option value="COE Passed">COE Passed</option>
+<option value="" <?php if($result->status== "") echo "selected"; ?>>Please Select!</option>
+        <option value="Register" <?php if($result->status== "Register") echo "selected"; ?>>Register</option>
+        <option value="Interview" <?php if($result->status== "Interview") echo "selected"; ?>>Interview</option>
+        <option value="Interview Failed" <?php if($result->status== "Interview Failed") echo "selected"; ?>>Interview Failed</option>
+        <option value="Admission" <?php if($result->status== "Admission") echo "selected"; ?>>Admission</option>
+        <option value="Admission Complete" <?php if($result->status== "Admission Complete") echo "selected"; ?>>Admission Complete</option>
+        <option value="COE Waiting" <?php if($result->status== "COE Waiting") echo "selected"; ?>>COE Waiting</option>
+        <option value="Cancel" <?php if($result->status== "Cancel") echo "selected"; ?>>Cancel</option>
+        <option value="COE Failed" <?php if($result->status== "COE Failed") echo "selected"; ?>>COE Failed</option>
+        <option value="COE Passed" <?php if($result->status== "COE Passed") echo "selected"; ?>>COE Passed</option>
 </select>
 </div>
   <!-- Status Name -->
@@ -310,7 +302,7 @@ select.form-group.col-md-9.school_select{
             'name' => 'applicant_name',
             'type' => 'text',
             'value' => html_escape(set_value('applicant_name',isset($result)?$result->applicant_name:''), ENT_QUOTES),
-            'placeholder' => "Enter student's Age!",
+            'placeholder' => "Please Enter",
             'class' => 'form-control',
             'id' => 'applicant_name',
             'autocomplete' => ''));
@@ -379,22 +371,6 @@ select.form-group.col-md-9.school_select{
         <span class="text-danger"><?php echo form_error('age'); ?></span>
       </div>
 
-      <!-- <div class="form-group">
-        <?php echo form_label('Age', 'age', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'age')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'age',
-            'type' => 'text',
-            'value' => html_escape(set_value('age',isset($result)?$result->age:''), ENT_QUOTES),
-            'placeholder' => "",
-            'class' => 'form-control',
-            'id' => 'age',
-            'autocomplete' => ''));
-          ?>
-        <span class="text-danger"><?php echo form_error('age'); ?></span>
-      </div> -->
-
       <div class="form-group">
         <?php echo form_label('Nationality', 'nationality', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <span class="badge badge-danger">Required</span>
@@ -410,13 +386,12 @@ select.form-group.col-md-9.school_select{
           ?>
         <span class="text-danger"><?php echo form_error('nationality'); ?></span>
       </div>
-
       <div class="form-group">
        <?php echo form_label('Gender', 'gender', array( 'class' => 'form-control-label', 'id'=> '')); ?>
        <span class="badge badge-danger">Required</span>
         <select name="gender" id="gender" class="admission_select">
-          <option value="1">Male</option>
-          <option value="0">Female</option>
+          <option value="1" <?php if($result->gender== "1") {echo "selected";} ?>>Male</option>
+          <option value="0" <?php if($result->gender== "0") {echo "selected";} ?>>Female</option>
         </select>
       </div> 
 
@@ -424,8 +399,9 @@ select.form-group.col-md-9.school_select{
       <?php echo form_label('Martial Status', 'martial_status', array( 'class' => 'form-control-label', 'id'=> '')); ?>
       <span class="badge badge-danger">Required</span>
         <select name="martial_status" id="martial_status" class="admission_select">
-            <option value="1">Single</option>
-            <option value="0">Married</option>
+            <option value=""></option>
+            <option value="1" <?php if($result->martial_status== "1") {echo "selected";} ?>>Single</option>
+            <option value="0" <?php if($result->martial_status== "0") {echo "selected";} ?>>Married</option>
         </select>
       </div> 
 
@@ -510,10 +486,10 @@ $(function() {
   <div class="form-group">
     <p class="addmission">Course of Admission</p>
     <select name="course_admission" id="course_admission" class="admission_select">
-        <option value="一般">一般</option>
-        <option value="進学">進学</option>
-        <option value="ビジネス">ビジネス</option>
-        <option value="SSW">SSW</option>
+        <option value="一般" <?php if($result->course_admission == "一般") {echo "selected";} ?>>一般</option>
+        <option value="進学" <?php if($result->course_admission == "進学") {echo "selected";} ?>>進学</option>
+        <option value="ビジネス" <?php if($result->course_admission == "ビジネス") {echo "selected";} ?>>ビジネス</option>
+        <option value="SSW" <?php if($result->course_admission == "SSW") {echo "selected";} ?>>SSW</option>
     </select>
   </div>
 
@@ -537,8 +513,8 @@ $(function() {
   <div class="form-group">
   <?php echo form_label('Have you visited Japan?', 'have_you_visited_jp', array( 'class' => 'form-control-label', 'id'=> '')); ?>
     <select name="have_you_visited_jp" id="have_you_visited_jp" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+        <option value="1" <?php if($result->have_you_visited_jp== "1") {echo "selected";} ?>>Yes</option>
+        <option value="0" <?php if($result->have_you_visited_jp== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
 
@@ -590,9 +566,9 @@ $(function() {
 
 <div class="form-group">
   <?php echo form_label('Departure by deportation / departure order or not', 'departure_deportation', array( 'class' => 'form-control-label', 'id'=> '')); ?>
-    <select name="departure_deportation" id="departure_deportation" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+  <select name="have_you_visited_jp" id="have_you_visited_jp" class="admission_select">
+        <option value="1" <?php if($result->have_you_visited_jp== "1") {echo "selected";} ?>>Yes</option>
+        <option value="0" <?php if($result->have_you_visited_jp== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
 
@@ -685,10 +661,10 @@ $(function() {
   <h6 class="spec_plan">Specific Plans after Graduating</h6>
   <div class="form-group">
    <p class="addmission" style="margin-bottom:19px ;">Specific Plans after Graduating</p>
-     <select name="specific_plans_after_graduating" class="admission_select" value="">
-        <option value="">帰国 /Return to Home Country</option>
-        <option value="">日本での進学 /Attend School in Japan</option>
-        <option value="">その他 /Other</option>
+     <select name="specific_plans_after_graduating" class="admission_select">
+        <option value="Return to Home Country" <?php if($result->specific_plans_after_graduating== "Return to Home Country") {echo "selected";} ?>>帰国 /Return to Home Country</option>
+        <option value="Attend School in Japan" <?php if($result->specific_plans_after_graduating== "Attend School in Japan") {echo "selected";} ?>>日本での進学 /Attend School in Japan</option>
+        <option value="Other" <?php if($result->specific_plans_after_graduating== "Other") {echo "selected";} ?>>その他 /Other</option>
     </select>
   </div>
   <h6 class="spec_plan">Higher Education in Japan</h6>
@@ -842,8 +818,8 @@ $(function() {
   <div class="form-group">
   <?php echo form_label('Passport', 'passport', array( 'class' => 'passport_text', 'id'=> '')); ?>
     <select name="passport" id="passport" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+          <option value="1" <?php if($result->passport== "1") {echo "selected";} ?>>Yes</option>
+          <option value="0" <?php if($result->passport== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
   <div class="form-group">
@@ -892,8 +868,8 @@ $(function() {
   <div class="form-group">
   <?php echo form_label('Blank period／Military service', 'military_service', array( 'class' => 'military_txt', 'id'=> '')); ?>
     <select name="military_service" id="military_service" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+          <option value="1" <?php if($result->military_service== "1") {echo "selected";} ?>>Yes</option>
+          <option value="0" <?php if($result->military_service== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
   <div class="form-group">
@@ -913,15 +889,15 @@ $(function() {
   <div class="form-group">
   <?php echo form_label('Accompanying Persons,if Any', 'accompanying_person', array( 'class' => 'form-control-label', 'id'=> '')); ?>
     <select name="accompanying_person" id="accompanying_person" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+          <option value="1" <?php if($result->accompanying_person== "1") {echo "selected";} ?>>Yes</option>
+          <option value="0" <?php if($result->accompanying_person== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
   <div class="form-group">
   <?php echo form_label('Did you apply before in Japan?', 'school_apply_before_japan', array( 'class' => 'form-control-label', 'id'=> '')); ?>
     <select name="school_apply_before_japan" id="school_apply_before_japan" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+          <option value="1" <?php if($result->school_apply_before_japan== "1") {echo "selected";} ?>>Yes</option>
+          <option value="0" <?php if($result->school_apply_before_japan== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
   <div class="form-group">
@@ -983,18 +959,18 @@ $(function() {
   <div class="form-group">
     <p class="addmission"  style="margin-bottom: 7px;">Result?</p>
     <select name="immigration_result" class="admission_select">
-        <option value="交付">交付</option>
-        <option value="不交付">不交付</option>
-        <option value="取下げ">取下げ</option>
-        <option value="交付後の未入国">交付後の未入国</option>
+        <option value="交付" <?php if($result->immigration_result== "交付") {echo "selected";} ?>>交付</option>
+        <option value="不交付" <?php if($result->immigration_result== "不交付") {echo "selected";} ?>>不交付</option>
+        <option value="取下げ" <?php if($result->immigration_result== "取下げ") {echo "selected";} ?>>取下げ</option>
+        <option value="交付後の未入国" <?php if($result->immigration_result== "交付後の未入国") {echo "selected";} ?>>交付後の未入国</option>
     </select>
   </div>
   <div class="form-group">
   <?php echo form_label('Have you ever experienced COE rejection?', 'COE_reject', array( 'class' => 'form-control-label', 'id'=> '')); ?>
   <span class="badge badge-danger">Required</span>
     <select name="COE_reject" id="COE_reject" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+          <option value="1" <?php if($result->COE_reject== "1") {echo "selected";} ?>>Yes</option>
+          <option value="0" <?php if($result->COE_reject== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
     <br><br><br><br><br><br><br><br><br><br>
@@ -1032,8 +1008,8 @@ $(function() {
   <?php echo form_label('Is it possible to provide in English? ', 'provide_english', array( 'class' => 'form-control-label', 'id'=> '')); ?>
   <span class="badge badge-danger">Required</span>
     <select name="provide_english" id="provide_english" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+        <option value="1" <?php if($result->provide_english== "1") {echo "selected";} ?>>Yes</option>
+        <option value="0" <?php if($result->provide_english== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
 
@@ -1065,8 +1041,8 @@ $(function() {
   <?php echo form_label('Criminal Record in Japan or Overseas', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
     <span class="badge badge-danger">Required</span>
       <select name="criminal_record" id="criminal_record" class="admission_select">
-          <option value="1">Yes</option>
-          <option value="0">No</option>
+          <option value="1" <?php if($result->criminal_record== "1") {echo "selected";} ?>>Yes</option>
+          <option value="0" <?php if($result->criminal_record== "0") {echo "selected";} ?>>No</option>
       </select>
     </div>
    
@@ -1078,10 +1054,10 @@ $(function() {
   
     <div class="radio_record">
         <div class="criminal_record01">
-          <select name="criminal_record" id="criminal_record" class="col-md-12 admission_select">
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-          </select>
+        <select name="criminal_record" id="criminal_record" class="admission_select">
+          <option value="1" <?php if($result->criminal_record== "1") {echo "selected";} ?>>Yes</option>
+          <option value="0" <?php if($result->criminal_record== "0") {echo "selected";} ?>>No</option>
+        </select>
         </div>
         <div class="">
             <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Details</span>
@@ -1099,12 +1075,12 @@ $(function() {
  <div class="form-group">
     <p class="addmission">Language</p>
     <select name="family_language" class="admission_select">
-        <option value="English">English</option>
-        <option value="Chinese">Chinese</option>
-        <option value="Korean">Korean</option>
-        <option value="Thai">Thai</option>
-        <option value="Vietnamese">Vietnamese</option>
-        <option value="Japanese">Japanese</option>
+        <option value="English" <?php if($result->family_language== "English") {echo "selected";} ?>>English</option>
+        <option value="Chinese" <?php if($result->family_language== "Chinese") {echo "selected";} ?>>Chinese</option>
+        <option value="Korean" <?php if($result->family_language== "Korean") {echo "selected";} ?>>Korean</option>
+        <option value="Thai" <?php if($result->family_language== "Thai") {echo "selected";} ?>>Thai</option>
+        <option value="Vietnamese" <?php if($result->family_language== "Vietnamese") {echo "selected";} ?>>Vietnamese</option>
+        <option value="Japanese" <?php if($result->family_language== "Japanese") {echo "selected";} ?>>Japanese</option>
     </select>
   </div>
   <!-- <div class="criminal_record02">
@@ -1132,15 +1108,38 @@ $(function() {
     </div>
   
     <div class="radio_record">
-        <div class="">
-            <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
+            <!-- <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
                 <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
-            </label> 
+            </label>  -->
+        <div class="form-group">
+        <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
+        <?php
+          echo form_input(array(
+            'name' => 'criminal_record_when',
+            'type' => 'text',
+            'value' => html_escape(set_value('criminal_record_when',isset($result)?$result->criminal_record_when:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'criminal_record_when',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('criminal_record_when'); ?></span>
+        </label>
         </div>
-        <div class="">
-            <label class="col-rd cri_text"><span>Purpose of Entry:</span>
-                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin: 0px;">
-            </label> 
+      
+       <div class="form-group" style=" padding-left: 22px;">
+        <label class="col-rd cri_text"><span style="width: 85%;">Purpose of Entry:</span>
+        <?php
+          echo form_input(array(
+            'name' => 'entry_purpose1',
+            'type' => 'text',
+            'value' => html_escape(set_value('entry_purpose1',isset($result)?$result->entry_purpose1:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'entry_purpose1',
+            'autocomplete' => ''));
+        ?>
+        </label> 
         </div>
     </div>  
 </div>
@@ -1251,7 +1250,7 @@ $(function() {
           echo form_input(array(
             'name' => 'edu_address',
             'type' => 'text',
-            'value' => html_escape(set_value('edu_address',isset($result)?$result->edu_address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('edu_address',isset($result)?$result->address:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'edu_address',
             'autocomplete' => ''));
@@ -1262,7 +1261,7 @@ $(function() {
           echo form_input(array(
             'name' => 'edu_start_date',
             'type' => 'text',
-            'value' => html_escape(set_value('edu_start_date',isset($result)?$result->edu_start_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('edu_start_date',isset($result)?$result->start_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'edu_start_date',
             'autocomplete' => ''));
@@ -1273,7 +1272,7 @@ $(function() {
           echo form_input(array(
             'name' => 'edu_end_date',
             'type' => 'text',
-            'value' => html_escape(set_value('edu_end_date',isset($result)?$result->edu_end_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('edu_end_date',isset($result)?$result->end_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'edu_end_date',
             'autocomplete' => ''));
@@ -1284,7 +1283,7 @@ $(function() {
           echo form_input(array(
             'name' => 'edu_year',
             'type' => 'text',
-            'value' => html_escape(set_value('edu_year',isset($result)?$result->edu_year:''), ENT_QUOTES),
+            'value' => html_escape(set_value('edu_year',isset($result)?$result->year:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'edu_year',
             'autocomplete' => ''));
@@ -1331,7 +1330,7 @@ $(function() {
           echo form_input(array(
             'name' => 'jp_address',
             'type' => 'text',
-            'value' => html_escape(set_value('jp_address',isset($result)?$result->jp_address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('jp_address',isset($result)?$result->address:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'jp_address',
             'autocomplete' => ''));
@@ -1342,7 +1341,7 @@ $(function() {
           echo form_input(array(
             'name' => 'jp_start_date',
             'type' => 'text',
-            'value' => html_escape(set_value('jp_start_date',isset($result)?$result->jp_start_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('jp_start_date',isset($result)?$result->start_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'jp_start_date',
             'autocomplete' => ''));
@@ -1353,7 +1352,7 @@ $(function() {
           echo form_input(array(
             'name' => 'jp_end_date',
             'type' => 'text',
-            'value' => html_escape(set_value('jp_end_date',isset($result)?$result->jp_end_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('jp_end_date',isset($result)?$result->end_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'jp_end_date',
             'autocomplete' => ''));
@@ -1364,7 +1363,7 @@ $(function() {
           echo form_input(array(
             'name' => 'jp_hour',
             'type' => 'text',
-            'value' => html_escape(set_value('jp_hour',isset($result)?$result->jp_hour:''), ENT_QUOTES),
+            'value' => html_escape(set_value('jp_hour',isset($result)?$result->hour:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'jp_hour',
             'autocomplete' => ''));
@@ -1542,7 +1541,7 @@ $(function() {
           echo form_input(array(
             'name' => 'emp_address',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_address',isset($result)?$result->emp_address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_address',isset($result)?$result->address:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_address',
             'autocomplete' => ''));
@@ -1553,7 +1552,7 @@ $(function() {
           echo form_input(array(
             'name' => 'emp_year',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_year',isset($result)?$result->emp_year:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_year',isset($result)?$result->year:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_year',
             'autocomplete' => ''));
@@ -1564,7 +1563,7 @@ $(function() {
           echo form_input(array(
             'name' => 'emp_start_date',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_start_date',isset($result)?$result->emp_start_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_start_date',isset($result)?$result->start_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_start_date',
             'autocomplete' => ''));
@@ -1575,7 +1574,7 @@ $(function() {
           echo form_input(array(
             'name' => 'emp_end_date',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_end_date',isset($result)?$result->emp_end_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_end_date',isset($result)?$result->end_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_end_date',
             'autocomplete' => ''));
@@ -1586,7 +1585,7 @@ $(function() {
           echo form_input(array(
             'name' => 'emp_job_description',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_job_description',isset($result)?$result->emp_job_description:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_job_description',isset($result)?$result->job_description:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_job_description',
             'autocomplete' => ''));
@@ -1646,7 +1645,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_work_place',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_work_place',isset($result)?$result->fam_work_place:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_work_place',isset($result)?$result->work_place:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_work_place',
             'autocomplete' => ''));
@@ -1657,7 +1656,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_birthday',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_birthday',isset($result)?$result->fam_birthday:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_birthday',
             'autocomplete' => ''));
@@ -1668,7 +1667,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_occupation',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_occupation',isset($result)?$result->fam_occupation:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_occupation',isset($result)?$result->occupation:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_occupation',
             'autocomplete' => ''));
@@ -1677,11 +1676,11 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'emp_job_description',
+            'name' => 'fam_job_description',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_job_description',isset($result)?$result->emp_job_description:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_job_description',isset($result)?$result->job_description:''), ENT_QUOTES),
             'class' => 'table-control',
-            'id' => 'emp_job_description',
+            'id' => 'fam_job_description',
             'autocomplete' => ''));
         ?>
       </td>
@@ -1690,7 +1689,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_address',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_address',isset($result)?$result->fam_address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_address',isset($result)?$result->address:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_address',
             'autocomplete' => ''));
@@ -1701,7 +1700,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_length_sevice',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_length_sevice',isset($result)?$result->fam_length_sevice:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_length_sevice',isset($result)?$result->length_sevice:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_length_sevice',
             'autocomplete' => ''));
@@ -1720,9 +1719,8 @@ $(function() {
 <div class="form-group">
   <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
     <select name="plan_to_stay_with_them" id="plan_to_stay_with_them" class="planning_select">
-        <option value="0" <?php if($result== "0") echo "selected"; ?>>list</option>
-        <option value="1" <?php if($result== "1") echo "selected"; ?>>Yes</option>
-        <option value="" <?php if($result== "") echo "selected"; ?>>No</option>
+        <option value="1" <?php if($result->plan_to_stay_with_them== "1") {echo "selected";} ?>>Yes</option>
+        <option value="0" <?php if($result->plan_to_stay_with_them== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
 <div class="tbl">
@@ -1745,7 +1743,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_name',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_name',isset($result)?$result->ja_fam_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_name',isset($result)?$result->fam_name:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_name',
             'autocomplete' => ''));
@@ -1756,7 +1754,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_age',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_age',isset($result)?$result->ja_fam_age:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_age',isset($result)?$result->age:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_age',
             'autocomplete' => ''));
@@ -1767,7 +1765,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_relationship',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_relationship',isset($result)?$result->ja_fam_relationship:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_relationship',isset($result)?$result->relationship:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_relationship',
             'autocomplete' => ''));
@@ -1775,10 +1773,9 @@ $(function() {
       </td>
       <td>
       <div class="">
-      <select name="ja_fam_residing_applicant" class="table-control col-md-12">
-            <option value="" <?php if($result== "") echo "selected"; ?>></option>
-            <option value="0"  <?php if($result== "0") echo "selected"; ?>>Yes</option>
-            <option value="1"  <?php if($result== "1") echo "selected"; ?>>No</option>
+      <select name="residing_applicant" class="table-control col-md-12">
+        <option value="1" <?php if($result->residing_applicant== "1") {echo "selected";} ?>>Yes</option>
+        <option value="0" <?php if($result->residing_applicant== "0") {echo "selected";} ?>>No</option>
       </select>
      </div>
       </td>
@@ -1787,7 +1784,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_nationality',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_nationality',isset($result)?$result->ja_fam_nationality:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_nationality',isset($result)?$result->nationality:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_nationality',
             'autocomplete' => ''));
@@ -1798,7 +1795,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_visa_status',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_visa_status',isset($result)?$result->ja_fam_visa_status:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_visa_status',isset($result)?$result->visa_status:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_visa_status',
             'autocomplete' => ''));
@@ -1809,7 +1806,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_work_place',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_work_place',isset($result)?$result->ja_fam_work_place:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_work_place',isset($result)?$result->work_place:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_work_place',
             'autocomplete' => ''));
@@ -1863,11 +1860,11 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'depature_data',
+            'name' => 'depature_date',
             'type' => 'text',
-            'value' => html_escape(set_value('depature_data',isset($result)?$result->depature_data:''), ENT_QUOTES),
+            'value' => html_escape(set_value('depature_date',isset($result)?$result->depature_date:''), ENT_QUOTES),
             'class' => 'table-control',
-            'id' => 'depature_data',
+            'id' => 'depature_date',
             'autocomplete' => ''));
         ?>
       </td>
@@ -2259,7 +2256,7 @@ color:#48a1af;
     padding: 8px 10px 7px 9px;
     border: 1px solid #ced4db;
     border-radius: 3px;
-    margin: 0px 54px 12px 27px;
+    /* margin: 0px 54px 12px 27px; */
 }
 .employment{
   padding-bottom: 12px;
@@ -2340,7 +2337,6 @@ color:#48a1af;
         reader.readAsDataURL(input.files[0]);
     }
   }
-
   $("#clickImg").change(10,function () {
     filePreview(this,"#showImg1");
     $(".pb-1").hide(100);
