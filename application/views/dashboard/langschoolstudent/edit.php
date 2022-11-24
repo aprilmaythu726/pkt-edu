@@ -684,26 +684,12 @@ $(function() {
   </div>
   <h6 class="spec_plan">Specific Plans after Graduating</h6>
   <div class="form-group">
-    <!--<p class="addmission" style="margin-bottom:19px ;">Specific Plans after Graduating</p>
-     <select name="specific_plans_after_graduating" class="admission_select">
-        <option value="html_escape(set_value('current_status_school_grade',isset($result)?$result->current_status_school_grade:''), ENT_QUOTES),">帰国 /Return to Home Country</option>
+   <p class="addmission" style="margin-bottom:19px ;">Specific Plans after Graduating</p>
+     <select name="specific_plans_after_graduating" class="admission_select" value="">
+        <option value="">帰国 /Return to Home Country</option>
         <option value="">日本での進学 /Attend School in Japan</option>
         <option value="">その他 /Other</option>
-    </select> -->
-    <div class="form-group">
-              <?php echo form_label('Specific Plans after Graduating', 'specific_plans_after_graduating', array( 'class' => '', 'id'=> '', 'style' => 'margin-bottom:10px')); ?>
-              <span class="badge badge-danger">Required</span>
-              <?php
-              $setarray = array( 'class' => 'form-control', 'style' => '');
-              echo form_dropdown(
-                'tags',  //dropdown name
-                $tags,
-                set_value('specific_plans_after_graduating',isset($result)?$result->specific_plans_after_graduating:''),
-                $setarray
-              );
-              ?>
-              <span class="text-danger"><?php echo form_error('specific_plans_after_graduating'); ?></span>
-    </div>
+    </select>
   </div>
   <h6 class="spec_plan">Higher Education in Japan</h6>
   <div class="form-group">
@@ -1250,6 +1236,17 @@ $(function() {
     <tr>
       <td>
       <input type="text" class=" table-control"  name="edu_name[]" value="">
+      <!-- <p class=" table-control"  name="edu_name[]"></p> -->
+      <?php
+          echo form_input(array(
+            'name' => 'edu_name',
+            'type' => 'text',
+            'value' => html_escape(set_value('edu_name',isset($result)?$result->edu_name:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'edu_name',
+            'autocomplete' => ''));
+        ?>
       </td>
       <td>
       <input type="text" class=" table-control"  name="edu_address[]" value="">
