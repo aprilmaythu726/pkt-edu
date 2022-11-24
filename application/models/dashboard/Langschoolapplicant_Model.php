@@ -105,9 +105,32 @@ class Langschoolapplicant_Model extends CI_Model
 		$this->db->where('applicant_name', $data_info['applicant_name']);
     $this->db->where('applicant_name_kanji', $data_info['applicant_name_kanji']);
 		$this->db->where('jls_name', $data_info['jls_name']);
-    $this->db->where('phone', $data_info['phone']);
-    $this->db->where('address', $data_info['address']);
+    $this->db->where('date_of_birthday', $data_info['date_of_birthday']);
+    $this->db->where('info_age', $data_info['info_age']);
+    $this->db->where('info_nationality', $data_info['info_nationality']);
+    $this->db->where('gender', $data_info['gender']);
+    $this->db->where('martial_status', $data_info['martial_status']);
+		$this->db->where('partaner_name', $data_info['partaner_name']);
     $this->db->where('std_email', $data_info['std_email']);
+    $this->db->where('phone', $data_info['phone']);
+    $this->db->where('course_admission', $data_info['address']);
+    $this->db->where('course_study_lengh', $data_info['course_study_lengh']);
+    $this->db->where('occupation', $data_info['occupation']);
+		$this->db->where('jls_name', $data_info['jls_name']);
+    $this->db->where('place_employment_school', $data_info['place_employment_school']);
+    $this->db->where('addr_employment_school', $data_info['addr_employment_school']);
+    $this->db->where('tel_employment_school', $data_info['tel_employment_school']);
+    $this->db->where('entry_age_ele_school', $data_info['entry_age_ele_school']);
+    $this->db->where('duration_jp_language_study', $data_info['duration_jp_language_study']);
+		$this->db->where('passport', $data_info['passport']);
+    $this->db->where('educational_school_name', $data_info['educational_school_name']);
+    $this->db->where('passport_no', $data_info['passport_no']);
+    $this->db->where('passport_data_issue', $data_info['passport_data_issue']);
+    $this->db->where('passport_data_exp', $data_info['passport_data_exp']);
+    $this->db->where('military_service', $data_info['military_service']);
+		$this->db->where('family_mail', $data_info['family_mail']);
+    $this->db->where('family_tel', $data_info['family_tel']);
+    $this->db->where('family_address', $data_info['family_address']);
     $this->db->where('id !=', $id);
 		$query=$this->db->get();
 		return $query->result();
@@ -156,7 +179,8 @@ class Langschoolapplicant_Model extends CI_Model
 		$this->db->select('*');
 		$this->db->from($this->db3);
 		$this->db->where('name', $data_financial_sponsor['name']);
-    $this->db->where('relationship', $data_financial_sponsor['relationship']);
+    $this->db->where('fin_age', $data_financial_sponsor['fin_age']);
+    $this->db->where('fin_relationship', $data_financial_sponsor['fin_relationship']);
 		$this->db->where('address', $data_financial_sponsor['address']);
     $this->db->where('tel', $data_financial_sponsor['tel']);
     $this->db->where('email', $data_financial_sponsor['email']);
@@ -254,7 +278,7 @@ class Langschoolapplicant_Model extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from($this->db10);
-		$this->db->where('plan_to_stay_with_them', $data_family_japan['plan_to_stay_with_them']);
+		$this->db->where('ja_plan_to_stay_with_them', $data_family_japan['ja_plan_to_stay_with_them']);
     $this->db->where('name', $data_family_japan['name']);
 		$this->db->where('age', $data_family_japan['age']);
     $this->db->where('relationship', $data_family_japan['relationship']);
@@ -284,65 +308,72 @@ class Langschoolapplicant_Model extends CI_Model
   {
     $this->db->where('id', $id);
 		$this->db->update($this->db1, $data_info);
-		return true;
+    if($this->db->affected_rows() > 0){
+      return $id;
+      // $id is your updated record id because it is unique.
+    }else{
+      return false;
+    }  
+    // $id = $this->db->insert_id();
+	  // return $id;
   }
   public function jlsAuthUpdate1($data_details, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db2, $data_details);
 		return true;
   }
   public function jlsAuthUpdate2($data_financial_sponsor, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db3, $data_financial_sponsor);
 		return true;
   }
   public function jlsAuthUpdate3($data_edu_history, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db4, $data_edu_history);
 		return true;
   }
   public function jlsAuthUpdate4($data_lang_study, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db5, $data_lang_study);
 		return true;
   }
   public function jlsAuthUpdate5($data_achievement_jp, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db6, $data_achievement_jp);
 		return true;
   }
   public function jlsAuthUpdate6($data_jp_lang_going_to_take, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db7, $data_jp_lang_going_to_take);
 		return true;
   }
   public function jlsAuthUpdate7($data_history_employment, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db8, $data_history_employment);
 		return true;
   }
   public function jlsAuthUpdate8($data_family_member, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db9, $data_family_member);
 		return true;
   }
   public function jlsAuthUpdate9($data_family_japan, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db10, $data_family_japan);
 		return true;
   }
   public function jlsAuthUpdate10($data_previous_stay_japan, $id)
   {
-    $this->db->where('id', $id);
+    $this->db->where('applicant_id', $id);
 		$this->db->update($this->db11, $data_previous_stay_japan);
 		return true;
   }
