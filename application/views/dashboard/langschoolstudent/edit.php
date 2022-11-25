@@ -460,12 +460,12 @@ $(function() {
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'phone',
+            'name' => 'info_phone',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('info_phone',isset($result)?$result->info_phone:''), ENT_QUOTES),
             'placeholder' => 'Enter phone number!',
             'class' => 'form-control',
-            'id' => 'phone',
+            'id' => 'info_phone',
             'autocomplete' => ''));
         ?>
         <span class="text-danger"><?php echo form_error('phone'); ?></span>
@@ -478,7 +478,7 @@ $(function() {
           echo form_input(array(
             'name' => 'address',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('address',isset($result)?$result->address:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'address',
@@ -523,7 +523,7 @@ $(function() {
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Date of Entry', 'visited_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Date of Entry', 'visited_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'visited_date')); ?>
         <?php
           echo form_input(array(
             'name' => 'visited_date',
@@ -554,7 +554,7 @@ $(function() {
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Enter visa type if you visited Japan', 'visa_type', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Enter visa type if you visited Japan', 'visa_type', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'visa_type')); ?>
         <?php
           echo form_input(array(
             'name' => 'visa_type',
@@ -577,7 +577,7 @@ $(function() {
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Current Status', 'current_status', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Current Status', 'current_status', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'current_status')); ?>
         <?php
           echo form_input(array(
             'name' => 'current_status',
@@ -621,7 +621,7 @@ $(function() {
   </div>
 
   <div class="form-group">
-        <?php echo form_label('Name of School', 'current_status_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Name of School', 'current_status_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'current_status_school_name')); ?>
         <?php
           echo form_input(array(
             'name' => 'current_status_school_name',
@@ -649,7 +649,7 @@ $(function() {
         <span class="text-danger"><?php echo form_error('current_status_school_major'); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label('Grade', 'current_status_school_grade', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Grade', 'current_status_school_grade', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'current_status_school_grade')); ?>
         <?php
           echo form_input(array(
             'name' => 'current_status_school_grade',
@@ -687,7 +687,7 @@ $(function() {
         <span class="text-danger"><?php echo form_error('specific_plan_type_schools'); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label('Name of School', 'specific_plan_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Name of School', 'specific_plan_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'specific_plan_school_name')); ?>
         <?php
           echo form_input(array(
             'name' => 'specific_plan_school_name',
@@ -701,7 +701,7 @@ $(function() {
         <span class="text-danger"><?php echo form_error('specific_plan_school_name'); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label('Major', 'specific_plan_major ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Major', 'specific_plan_major ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'specific_plan_major')); ?>
         <?php
           echo form_input(array(
             'name' => 'specific_plan_major ',
@@ -725,7 +725,7 @@ $(function() {
         echo form_input(array(
           'name' => 'occupation',
           'type' => 'text',
-          'value' => html_escape(set_value('occupation',isset($result)?$result->phone:''), ENT_QUOTES),
+          'value' => html_escape(set_value('occupation',isset($result)?$result->occupation:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
           'id' => 'occupation',
@@ -734,7 +734,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('occupation'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Place of Employment or School', 'place_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Place of Employment or School', 'place_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'place_employment_school')); ?>
       <?php
         echo form_input(array(
           'name' => 'place_employment_school',
@@ -748,7 +748,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('place_employment_school'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Address of Employment or School', 'addr_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Address of Employment or School', 'addr_employment_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'addr_employment_school')); ?>
       <?php
         echo form_input(array(
           'name' => 'addr_employment_school',
@@ -777,7 +777,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('tel_employment_school'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Entrance Age to Elementary School', 'entry_age_ele_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Entrance Age to Elementary School', 'entry_age_ele_school', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'entry_age_ele_school')); ?>
       <?php
         echo form_input(array(
           'name' => 'entry_age_ele_school',
@@ -791,7 +791,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('entry_age_ele_school'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Lastest Educational history School name', 'educational_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Lastest Educational history School name', 'educational_school_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'educational_school_name')); ?>
       <?php
         echo form_input(array(
           'name' => 'educational_school_name',
@@ -805,7 +805,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('educational_school_name'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Duration of JP Language study', 'duration_jp_language_study', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Duration of JP Language study', 'duration_jp_language_study', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'duration_jp_language_study')); ?>
       <?php
         echo form_input(array(
           'name' => 'duration_jp_language_study',
@@ -827,7 +827,7 @@ $(function() {
     </select>
   </div>
   <div class="form-group">
-      <?php echo form_label('Passport Number', 'passport_no', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Passport Number', 'passport_no', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'passport_no')); ?>
       <?php
         echo form_input(array(
           'name' => 'passport_no',
@@ -841,7 +841,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('passport_no'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Date of issue', 'passport_data_issue', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Date of issue', 'passport_data_issue', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'passport_data_issue')); ?>
       <?php
         echo form_input(array(
           'name' => 'passport_data_issue',
@@ -877,7 +877,7 @@ $(function() {
     </select>
   </div>
   <div class="form-group">
-      <?php echo form_label('Place to Apply for VISA', 'place_apply_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Place to Apply for VISA', 'place_apply_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'place_apply_visa')); ?>
       <?php
         echo form_input(array(
           'name' => 'place_apply_visa',
@@ -919,7 +919,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('school_apply_date'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('status?', 'school_apply_status', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('status?', 'school_apply_status', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'school_apply_status')); ?>
       <?php
         echo form_input(array(
           'name' => 'school_apply_status',
@@ -933,7 +933,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('school_apply_status'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Name of School?', 'school_apply_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Name of School?', 'school_apply_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'school_apply_name')); ?>
       <?php
         echo form_input(array(
           'name' => 'school_apply_name',
@@ -947,7 +947,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('school_apply_name'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Which immigration office?', 'immigration_office', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Which immigration office?', 'immigration_office', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phimmigration_officeone')); ?>
       <?php
         echo form_input(array(
           'name' => 'immigration_office',
@@ -980,7 +980,7 @@ $(function() {
     <br><br><br><br><br><br><br><br><br><br>
   <h6 class="spec_plan" style="padding-top:20px;">Employment</h6>
   <div class="form-group">
-        <?php echo form_label('Aimed occupational category', 'aimed_occupational_category', array( 'class' => 'employment', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Aimed occupational category', 'aimed_occupational_category', array( 'class' => 'employment', 'id'=> '', 'style' => '', 'for' => 'aimed_occupational_category')); ?>
         <?php
           echo form_input(array(
             'name' => 'aimed_occupational_category',
@@ -995,7 +995,7 @@ $(function() {
   </div>
   <h6 class="spec_plan">Return to home country</h6>
   <div class="form-group">
-        <?php echo form_label('When will you return', 'will_you_return', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('When will you return', 'will_you_return', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'will_you_return')); ?>
         <?php
           echo form_input(array(
             'name' => 'will_you_return',
@@ -1027,7 +1027,7 @@ $(function() {
 
 <div class="col-md-6 float-left">
   <div class="form-group">
-        <?php echo form_label('Who?', 'understand_language', array( 'class' => 'wholanguage', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Who?', 'understand_language', array( 'class' => 'wholanguage', 'id'=> '', 'style' => '', 'for' => 'understand_language')); ?>
         <?php
           echo form_input(array(
             'name' => 'understand_language',
@@ -1095,7 +1095,7 @@ $(function() {
             </label> 
         </div> -->
         <div class="form-group">
-        <?php echo form_label('Details', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Details', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'criminal_record_details')); ?>
         <?php
           echo form_input(array(
             'name' => 'criminal_record_details ',
@@ -1191,7 +1191,7 @@ $(function() {
        </div>
 
        <div class="form-group">
-        <?php echo form_label('Phone Number', 'family_tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Phone Number', 'family_tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'family_tel')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
@@ -1671,7 +1671,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'fam_name',
+            'name' => 'fam_name[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_name',isset($result)?$result->fam_name:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1682,7 +1682,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'fam_relationship',
+            'name' => 'fam_relationship[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_relationship',isset($result)?$result->fam_relationship:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1693,7 +1693,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'fam_work_place',
+            'name' => 'fam_work_place[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_work_place',isset($result)?$result->work_place:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1704,7 +1704,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'fam_birthday',
+            'name' => 'fam_birthday[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1715,7 +1715,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'fam_occupation',
+            'name' => 'fam_occupation[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_occupation',isset($result)?$result->occupation:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1726,7 +1726,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'fam_annual_income',
+            'name' => 'fam_annual_income[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_annual_income',isset($result)?$result->annual_income:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1737,7 +1737,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'fam_address',
+            'name' => 'fam_address[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_address',isset($result)?$result->address:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1748,7 +1748,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'fam_length_sevice',
+            'name' => 'fam_length_sevice[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_length_sevice',isset($result)?$result->length_sevice:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -2069,7 +2069,7 @@ $(function() {
         <span class="text-danger"><?php echo form_error('email'); ?></span>
        </div>
        <div class="form-group">
-      <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'occupation')); ?>
       <?php
         echo form_input(array(
           'name' => 'occupation',
@@ -2083,7 +2083,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('occupation'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Work Place', 'work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Work Place', 'work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'work_place')); ?>
       <?php
         echo form_input(array(
           'name' => 'work_place',
@@ -2111,7 +2111,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('fam_annual_income'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'amount_saving_for_study_abroad')); ?>
       <?php
         echo form_input(array(
           'name' => 'amount_saving_for_study_abroad ',
@@ -2125,7 +2125,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('amount_saving_for_study_abroad '); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('The amount of saving which can be proved ', 'amount_of_saving_which_proved', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('The amount of saving which can be proved ', 'amount_of_saving_which_proved', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'amount_of_saving_which_proved')); ?>
       <?php
         echo form_input(array(
           'name' => 'amount_of_saving_which_proved',
@@ -2139,7 +2139,7 @@ $(function() {
       <span class="text-danger"><?php echo form_error('amount_of_saving_which_proved'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Start of Work date', 'start_work_date ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Start of Work date', 'start_work_date ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'start_work_date')); ?>
       <?php
         echo form_input(array(
           'name' => 'start_work_date  ',
