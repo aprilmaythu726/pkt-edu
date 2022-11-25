@@ -90,7 +90,7 @@
             <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
-          <td class="text-left"><?php echo $row->phone; ?></td>
+          <td class="text-left"><?php echo $row->info_phone; ?></td>
           <td class="text-center"><?php echo $row->created_at; ?></td>
           <td class="text-center">
            

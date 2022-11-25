@@ -267,16 +267,16 @@ $(function() {
        </div>
 
        <div class="form-group">
-        <?php echo form_label('Phone Number', 'phone', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('Phone Number', 'info_phone', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'info_phone')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'phone',
+            'name' => 'info_phone',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->phone:''), ENT_QUOTES),
+            'value' => html_escape(set_value('info_phone',isset($result)?$result->info_phone:''), ENT_QUOTES),
             'placeholder' => 'Enter phone number!',
             'class' => 'form-control',
-            'id' => 'phone',
+            'id' => 'info_phone',
             'autocomplete' => ''));
         ?>
         <span class="text-danger"><?php echo form_error('phone'); ?></span>
@@ -1577,7 +1577,7 @@ $(function() {
     </tr>
     <tr>
     <td>
-      <input type="text" class=" table-control"  name="fam_fam_name[]" value="">
+      <input type="text" class=" table-control"  name="fam_name[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="fam_relationship[]" value="">

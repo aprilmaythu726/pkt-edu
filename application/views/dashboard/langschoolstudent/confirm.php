@@ -225,8 +225,8 @@ p{
     </div>
 
     <div class="form-group">
-        <?php echo form_label('Phone Number', 'phone', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
-        <p class="comfirm_val" id="phone" name="phone"><?php echo $lists['phone']; ?></p>
+        <?php echo form_label('Phone Number', 'info_phone', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <p class="comfirm_val" id="info_phone" name="info_phone"><?php echo $lists['info_phone']; ?></p>
     </div>
 
     <div class="form-group">
@@ -822,7 +822,7 @@ p{
         $y=0;
         // var_dump($data_family_member['edu_name']);
           foreach($data_family_member['fam_name'] as $key=>$rowData){
-          //  var_dump($data_family_member);
+          var_dump($data_family_member);
   ?>  
   <tr>
     <td>
@@ -884,7 +884,7 @@ p{
         $y=0;
         // var_dump($data_family_member['edu_name']);
           foreach($data_family_japan['ja_fam_name'] as $key=>$rowData){
-            var_dump($data_family_japan);
+           // var_dump($data_family_japan);
   ?>  
   <tr>
     <td>
