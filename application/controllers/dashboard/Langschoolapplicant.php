@@ -350,7 +350,7 @@ class Langschoolapplicant extends CI_Controller
                 $ja_fam_work_place = $this->session->userdata('__initial_regist_data9') ['ja_fam_work_place'];
                 $count5 = count($this->session->userdata('__initial_regist_data9') ['ja_fam_name']);
                 for ($i = 0;$i < $count5;$i++) {
-                    $data_family_japan = array('applicant_id' => $applicant_id, 'ja_plan_to_stay_with_them' => $ja_plan_to_stay_with_them[$i], 'name' => $ja_fam_name[$i], 'age' => $ja_fam_age[$i], 'relationship' => $ja_fam_relationship[$i], 'residing_applicant' => $ja_fam_residing_applicant[$i], 'nationality' => $ja_fam_nationality[$i], 'visa_status' => $ja_fam_visa_status[$i], 'work_place' => $ja_fam_work_place[$i]);
+                    $data_family_japan = array('applicant_id' => $applicant_id, 'ja_plan_to_stay_with_them' => $ja_plan_to_stay_with_them, 'name' => $ja_fam_name[$i], 'age' => $ja_fam_age[$i], 'relationship' => $ja_fam_relationship[$i], 'residing_applicant' => $ja_fam_residing_applicant[$i], 'nationality' => $ja_fam_nationality[$i], 'visa_status' => $ja_fam_visa_status[$i], 'work_place' => $ja_fam_work_place[$i]);
                     $insertChecker8 = $this->db->insert('JLS_family_in_japan', $data_family_japan);
                 }
                 $entry_date = $this->session->userdata('__initial_regist_data10') ['entry_date'];
@@ -460,7 +460,7 @@ class Langschoolapplicant extends CI_Controller
                         redirect('adm/portal/langschoolstudent/edit/' . $id, $data_info);
                     }
                     else {
-                        $data['image_file'] = $imgupload['file_name'];
+                        $data_info['image_file'] = $imgupload['file_name'];
                     }
                 }
                 $data_info = $this->__Xss($data_info);
