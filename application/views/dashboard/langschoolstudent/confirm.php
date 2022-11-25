@@ -822,6 +822,7 @@ p{
         $y=0;
         // var_dump($data_family_member['edu_name']);
           foreach($data_family_member['fam_name'] as $key=>$rowData){
+          //  var_dump($data_family_member);
   ?>  
   <tr>
     <td>
@@ -862,7 +863,7 @@ p{
 <p>If yes, fill in all the family members in Japan.</p>
   <div class="form-group">
     <?php echo form_label('Are you planning to stay with them in Japan? : ', 'ja_plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
-    <p class="comfirm_val" id="ja_plan_to_stay_with_them" name="ja_plan_to_stay_with_them"><?php echo $data_family_japan['ja_plan_to_stay_with_them']; ?></p>
+    <p class="comfirm_val" id="ja_plan_to_stay_with_them" name="ja_plan_to_stay_with_them"></p>
   </div>
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
@@ -881,8 +882,9 @@ p{
   <?php
         $x=1;
         $y=0;
-        // var_dump($data_family_japan['edu_name']);
+        // var_dump($data_family_member['edu_name']);
           foreach($data_family_japan['ja_fam_name'] as $key=>$rowData){
+            var_dump($data_family_japan);
   ?>  
   <tr>
     <td>

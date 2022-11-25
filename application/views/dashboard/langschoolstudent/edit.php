@@ -1078,14 +1078,16 @@ $(function() {
 <div class="col-md-6 float-left">
  <div class="form-group">
     <p class="addmission">Language</p>
-    <select name="family_language" class="admission_select">
-        <option value="English" <?php if($result->family_language== "English") {echo "selected";} ?>>English</option>
-        <option value="Chinese" <?php if($result->family_language== "Chinese") {echo "selected";} ?>>Chinese</option>
-        <option value="Korean" <?php if($result->family_language== "Korean") {echo "selected";} ?>>Korean</option>
-        <option value="Thai" <?php if($result->family_language== "Thai") {echo "selected";} ?>>Thai</option>
-        <option value="Vietnamese" <?php if($result->family_language== "Vietnamese") {echo "selected";} ?>>Vietnamese</option>
-        <option value="Japanese" <?php if($result->family_language== "Japanese") {echo "selected";} ?>>Japanese</option>
-    </select>
+    
+    <select name="family_language" class="school_select">
+    <option value="" <?php if($result->family_language== "") echo "selected"; ?>>Please Select!</option>
+    <option value="English" <?php if($result->family_language== "English") echo "selected"; ?>>English</option>
+    <option value="Chinese" <?php if($result->family_language== "Chinese") echo "selected"; ?>>Chinese</option>
+    <option value="Korean" <?php if($result->family_language== "Korean") echo "selected"; ?>>Korean</option>
+    <option value="Thai" <?php if($result->family_language== "Thai") echo "selected"; ?>>Thai</option>
+    <option value="Vietnamese" <?php if($result->family_language== "Vietnamese") echo "selected"; ?>>Vietnamese</option>
+    <option value="Japanese" <?php if($result->family_language== "Japanese") echo "selected"; ?>>Japanese</option>
+</select>
   </div>
   <!-- <div class="criminal_record02">
             <label class="col-rd cri_text"><span style="padding-left:4px ;">Details</span>
@@ -1237,14 +1239,19 @@ $(function() {
     </tr>
   </thead>
   <tbody>
-
+  <?php
+        $x=1;
+        $y=0;
+        // var_dump($lists3['edu_name']);
+          foreach($result4 as $row){
+  ?>   
     <tr>
       <td>
       <?php
           echo form_input(array(
-            'name' => 'edu_name',
+            'name' => 'edu_name[]',
             'type' => 'text',
-            'value' => html_escape(set_value('edu_name',isset($result)?$result->edu_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('edu_name',isset($row)?$row->edu_name:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'edu_name',
             'autocomplete' => ''));
@@ -1253,9 +1260,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'edu_address',
+            'name' => 'edu_address[]',
             'type' => 'text',
-            'value' => html_escape(set_value('edu_address',isset($result)?$result->address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('edu_address',isset($row)?$row->address:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'edu_address',
             'autocomplete' => ''));
@@ -1264,9 +1271,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'edu_start_date',
+            'name' => 'edu_start_date[]',
             'type' => 'text',
-            'value' => html_escape(set_value('edu_start_date',isset($result)?$result->start_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('edu_start_date',isset($row)?$row->start_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'edu_start_date',
             'autocomplete' => ''));
@@ -1275,9 +1282,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'edu_end_date',
+            'name' => 'edu_end_date[]',
             'type' => 'text',
-            'value' => html_escape(set_value('edu_end_date',isset($result)?$result->end_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('edu_end_date',isset($row)?$row->end_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'edu_end_date',
             'autocomplete' => ''));
@@ -1286,9 +1293,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'edu_year',
+            'name' => 'edu_year[]',
             'type' => 'text',
-            'value' => html_escape(set_value('edu_year',isset($result)?$result->year:''), ENT_QUOTES),
+            'value' => html_escape(set_value('edu_year',isset($row)?$row->year:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'edu_year',
             'autocomplete' => ''));
@@ -1296,7 +1303,8 @@ $(function() {
         <span class="study_year">year</span> 
       </td>
     </tr>
-  
+    <?php }
+    ?>
   </tbody>
 </table>
 </div>
@@ -1318,6 +1326,12 @@ $(function() {
     </tr>
   </thead>
   <tbody>
+  <?php
+        $x=1;
+        $y=0;
+        // var_dump($lists3['edu_name']);
+          foreach($result5 as $result){
+  ?>   
   <tr>
       <td>
       <?php
@@ -1376,6 +1390,8 @@ $(function() {
       <span class="study_year">hour</span> 
       </td>
     </tr>
+    <?php }
+    ?>
   </tbody>
 </table>
 </div>
@@ -1399,6 +1415,12 @@ $(function() {
     </tr>
   </thead>
   <tbody>
+  <?php
+        $x=1;
+        $y=0;
+        // var_dump($lists3['edu_name']);
+          foreach($result6 as $result){
+  ?> 
     <tr>
       <td>
       <?php
@@ -1468,6 +1490,8 @@ $(function() {
         ?>
       </td>
     </tr>
+    <?php }
+    ?>
   </tbody>
 </table>
 </div>
@@ -1483,6 +1507,12 @@ $(function() {
     </tr>
   </thead>
   <tbody>
+  <?php
+        $x=1;
+        $y=0;
+        // var_dump($lists3['edu_name']);
+          foreach($result7 as $result){
+  ?> 
     <tr>
       <td>
       <?php
@@ -1507,6 +1537,8 @@ $(function() {
         ?>
       </td>
     </tr>
+    <?php }
+    ?>
   </tbody>
 </table>
 </div>
@@ -1529,6 +1561,12 @@ $(function() {
     </tr>
   </thead>
   <tbody>
+  <?php
+        $x=1;
+        $y=0;
+        // var_dump($lists3['edu_name']);
+          foreach($result8 as $result){
+  ?> 
     <tr>
       <td>
       <?php
@@ -1597,6 +1635,8 @@ $(function() {
         ?>
       </td>
     </tr>
+    <?php }
+    ?>
   </tbody>
 </table>
 </div>
@@ -1621,7 +1661,12 @@ $(function() {
     </tr>
   </thead>
   <tbody>
-    
+  <?php
+        $x=1;
+        $y=0;
+        // var_dump($lists3['edu_name']);
+          foreach($result9 as $result){
+  ?> 
     <tr>
       <td>
       <?php
@@ -1681,11 +1726,11 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'fam_job_description',
+            'name' => 'fam_annual_income',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_job_description',isset($result)?$result->job_description:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_annual_income',isset($result)?$result->annual_income:''), ENT_QUOTES),
             'class' => 'table-control',
-            'id' => 'fam_job_description',
+            'id' => 'fam_annual_income',
             'autocomplete' => ''));
         ?>
       </td>
@@ -1712,6 +1757,8 @@ $(function() {
         ?>
       </td>
     </tr>
+    <?php }
+    ?>
   </tbody>
 </table>
 </div>
@@ -1742,13 +1789,19 @@ $(function() {
     </tr>
   </thead>
   <tbody>
+  <?php
+        $x=1;
+        $y=0;
+        // var_dump($lists3['edu_name']);
+          foreach($result10 as $result){
+  ?> 
     <tr>
       <td>
       <?php
           echo form_input(array(
             'name' => 'ja_fam_name',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_name',isset($result)?$result->fam_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_name',isset($result)?$result->ja_fam_name:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_name',
             'autocomplete' => ''));
@@ -1759,7 +1812,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_age',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_age',isset($result)?$result->age:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_age',isset($result)?$result->ja_fam_age:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_age',
             'autocomplete' => ''));
@@ -1770,7 +1823,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_relationship',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_relationship',isset($result)?$result->relationship:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_relationship',isset($result)?$result->ja_fam_relationship:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_relationship',
             'autocomplete' => ''));
@@ -1779,8 +1832,8 @@ $(function() {
       <td>
       <div class="">
       <select name="residing_applicant" class="table-control col-md-12">
-        <option value="1" <?php if($result->residing_applicant== "1") {echo "selected";} ?>>Yes</option>
-        <option value="0" <?php if($result->residing_applicant== "0") {echo "selected";} ?>>No</option>
+        <option value="1" <?php if($result->ja_fam_residing_applicant== "1") {echo "selected";} ?>>Yes</option>
+        <option value="0" <?php if($result->ja_fam_residing_applicant== "0") {echo "selected";} ?>>No</option>
       </select>
      </div>
       </td>
@@ -1789,7 +1842,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_nationality',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_nationality',isset($result)?$result->nationality:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_nationality',isset($result)?$result->ja_fam_nationality:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_nationality',
             'autocomplete' => ''));
@@ -1800,7 +1853,7 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_visa_status',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_visa_status',isset($result)?$result->visa_status:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_visa_status',isset($result)?$result->ja_fam_visa_status:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_visa_status',
             'autocomplete' => ''));
@@ -1811,14 +1864,15 @@ $(function() {
           echo form_input(array(
             'name' => 'ja_fam_work_place',
             'type' => 'text',
-            'value' => html_escape(set_value('ja_fam_work_place',isset($result)?$result->work_place:''), ENT_QUOTES),
+            'value' => html_escape(set_value('ja_fam_work_place',isset($result)?$result->ja_fam_work_place:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'ja_fam_work_place',
             'autocomplete' => ''));
         ?>
       </td>
     </tr>
-    
+    <?php }
+    ?>
   </tbody>
 </table>
 </div>
@@ -1839,6 +1893,12 @@ $(function() {
     </tr>
   </thead>
   <tbody>
+  <?php
+        $x=1;
+        $y=0;
+        // var_dump($lists3['edu_name']);
+          foreach($result11 as $result){
+  ?> 
     <tr>
       <td>
       <?php
@@ -1896,6 +1956,8 @@ $(function() {
         ?>
       </td>
     </tr>
+    <?php }
+    ?>
   </tbody>
 </table>
 </div>
