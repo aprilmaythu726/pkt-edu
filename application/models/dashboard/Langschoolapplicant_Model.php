@@ -61,6 +61,71 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->join($this->db11,$this->db1.'.id = '.$this->db11.'.applicant_id', 'left' );
     return $this->db->get($this->db1)->row();
   }
+  public function getJLSDetail1($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db4, $this->db1.'.id = '.$this->db4.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
+  public function getJLSDetail2($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db5, $this->db1.'.id = '.$this->db5.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
+  public function getJLSDetail3($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db6, $this->db1.'.id = '.$this->db6.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
+  public function getJLSDetail4($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db7, $this->db1.'.id = '.$this->db7.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
+  public function getJLSDetail5($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db8, $this->db1.'.id = '.$this->db8.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
+  public function getJLSDetail6($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db9, $this->db1.'.id = '.$this->db9.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
+  public function getJLSDetail7($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db10, $this->db1.'.id = '.$this->db10.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
+  public function getJLSDetail8($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db11, $this->db1.'.id = '.$this->db11.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
+  
   public function studentDetail($id)
 	{
     $this->db->select('student.id,user_id,name,email,phone as _phone,address,birthday,nrc,education,social,std_profile.request_date,image_file,std_profile.status,std_profile.permission');
@@ -151,6 +216,7 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->where('immigration_result', $data_details['immigration_result']);
     $this->db->where('COE_reject', $data_details['COE_reject']);
     $this->db->where('place_apply_visa', $data_details['place_apply_visa']);
+    $this->db->where('family_language', $data_details['family_language']);
     $this->db->where('accompanying_person', $data_details['accompanying_person']);
     $this->db->where('understand_language', $data_details['understand_language']);
 		$this->db->where('criminal_record', $data_details['criminal_record']);
