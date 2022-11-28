@@ -42,6 +42,7 @@
         $attributes = array('class' => 'form-horizontal form-label-left');
 				echo form_open_multipart('adm/portal/jls_applicant/edit/'.$result->id, $attributes);
     ?>
+    <?php var_dump($result); ?>
 <div class="col-md-12">
 <div class="col-md-6 " style="display: flex;padding-top: 32px;">
   <!-- Student Photo -->
@@ -1330,15 +1331,15 @@ $(function() {
         $x=1;
         $y=0;
         // var_dump($lists3['edu_name']);
-          foreach($result5 as $result){
+          foreach($result5 as $row1){
   ?>   
   <tr>
       <td>
       <?php
           echo form_input(array(
-            'name' => 'jp_name',
+            'name' => 'jp_name[]',
             'type' => 'text',
-            'value' => html_escape(set_value('jp_name',isset($result)?$result->jp_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('jp_name',isset($result)?$row1->jp_name:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'jp_name',
             'autocomplete' => ''));
@@ -1347,9 +1348,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'jp_address',
+            'name' => 'jp_address[]',
             'type' => 'text',
-            'value' => html_escape(set_value('jp_address',isset($result)?$result->address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('jp_address',isset($result)?$row1->address:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'jp_address',
             'autocomplete' => ''));
@@ -1358,9 +1359,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'jp_start_date',
+            'name' => 'jp_start_date[]',
             'type' => 'text',
-            'value' => html_escape(set_value('jp_start_date',isset($result)?$result->start_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('jp_start_date',isset($result)?$row1->start_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'jp_start_date',
             'autocomplete' => ''));
@@ -1369,9 +1370,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'jp_end_date',
+            'name' => 'jp_end_date[]',
             'type' => 'text',
-            'value' => html_escape(set_value('jp_end_date',isset($result)?$result->end_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('jp_end_date',isset($result)?$row1->end_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'jp_end_date',
             'autocomplete' => ''));
@@ -1380,9 +1381,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'jp_hour',
+            'name' => 'jp_hour[]',
             'type' => 'text',
-            'value' => html_escape(set_value('jp_hour',isset($result)?$result->hour:''), ENT_QUOTES),
+            'value' => html_escape(set_value('jp_hour',isset($result)?$row1->hour:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'jp_hour',
             'autocomplete' => ''));
@@ -1419,15 +1420,15 @@ $(function() {
         $x=1;
         $y=0;
         // var_dump($lists3['edu_name']);
-          foreach($result6 as $result){
+          foreach($result6 as $row2){
   ?> 
     <tr>
       <td>
       <?php
           echo form_input(array(
-            'name' => 'achiv_name',
+            'name' => 'achiv_name[]',
             'type' => 'text',
-            'value' => html_escape(set_value('achiv_name',isset($result)?$result->achiv_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('achiv_name',isset($result)?$row2->achiv_name:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'achiv_name',
             'autocomplete' => ''));
@@ -1436,9 +1437,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'level',
+            'name' => 'level[]',
             'type' => 'text',
-            'value' => html_escape(set_value('level',isset($result)?$result->level:''), ENT_QUOTES),
+            'value' => html_escape(set_value('level',isset($result)?$row2->level:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'level',
             'autocomplete' => ''));
@@ -1447,9 +1448,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'exam_year',
+            'name' => 'exam_year[]',
             'type' => 'text',
-            'value' => html_escape(set_value('exam_year',isset($result)?$result->exam_year:''), ENT_QUOTES),
+            'value' => html_escape(set_value('exam_year',isset($result)?$row2->exam_year:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'exam_year',
             'autocomplete' => ''));
@@ -1458,9 +1459,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'score',
+            'name' => 'score[]',
             'type' => 'text',
-            'value' => html_escape(set_value('score',isset($result)?$result->score:''), ENT_QUOTES),
+            'value' => html_escape(set_value('score',isset($result)?$row2->score:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'score',
             'autocomplete' => ''));
@@ -1470,9 +1471,9 @@ $(function() {
   
       <?php
           echo form_input(array(
-            'name' => 'result',
+            'name' => 'result[]',
             'type' => 'text',
-            'value' => html_escape(set_value('result',isset($result)?$result->result:''), ENT_QUOTES),
+            'value' => html_escape(set_value('result',isset($result)?$row2->result:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'result',
             'autocomplete' => ''));
@@ -1481,9 +1482,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'date_qualification',
+            'name' => 'date_qualification[]',
             'type' => 'text',
-            'value' => html_escape(set_value('date_qualification',isset($result)?$result->date_qualification:''), ENT_QUOTES),
+            'value' => html_escape(set_value('date_qualification',isset($row2)?$row2->date_qualification:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'date_qualification',
             'autocomplete' => ''));
@@ -1511,15 +1512,15 @@ $(function() {
         $x=1;
         $y=0;
         // var_dump($lists3['edu_name']);
-          foreach($result7 as $result){
+          foreach($result7 as $row3){
   ?> 
     <tr>
       <td>
       <?php
           echo form_input(array(
-            'name' => 'going_name',
+            'name' => 'going_name[]',
             'type' => 'text',
-            'value' => html_escape(set_value('going_name',isset($result)?$result->going_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('going_name',isset($result)?$row3->going_name:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'going_name',
             'autocomplete' => ''));
@@ -1528,9 +1529,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'going_level',
+            'name' => 'going_level[]',
             'type' => 'text',
-            'value' => html_escape(set_value('going_level',isset($result)?$result->going_level:''), ENT_QUOTES),
+            'value' => html_escape(set_value('going_level',isset($result)?$row3->going_level:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'going_level',
             'autocomplete' => ''));
@@ -1565,15 +1566,15 @@ $(function() {
         $x=1;
         $y=0;
         // var_dump($lists3['edu_name']);
-          foreach($result8 as $result){
+          foreach($result8 as $row4){
   ?> 
     <tr>
       <td>
       <?php
           echo form_input(array(
-            'name' => 'emp_name',
+            'name' => 'emp_name[]',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_name',isset($result)?$result->emp_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_name',isset($result)?$row4->emp_name:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_name',
             'autocomplete' => ''));
@@ -1582,9 +1583,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'emp_address',
+            'name' => 'emp_address[]',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_address',isset($result)?$result->address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_address',isset($result)?$row4->address:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_address',
             'autocomplete' => ''));
@@ -1593,9 +1594,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'emp_year',
+            'name' => 'emp_year[]',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_year',isset($result)?$result->year:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_year',isset($result)?$row4->year:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_year',
             'autocomplete' => ''));
@@ -1604,9 +1605,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'emp_start_date',
+            'name' => 'emp_start_date[]',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_start_date',isset($result)?$result->start_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_start_date',isset($result)?$row4->start_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_start_date',
             'autocomplete' => ''));
@@ -1615,9 +1616,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'emp_end_date',
+            'name' => 'emp_end_date[]',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_end_date',isset($result)?$result->end_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_end_date',isset($result)?$row4->end_date:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_end_date',
             'autocomplete' => ''));
@@ -1626,9 +1627,9 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'emp_job_description',
+            'name' => 'emp_job_description[]',
             'type' => 'text',
-            'value' => html_escape(set_value('emp_job_description',isset($result)?$result->job_description:''), ENT_QUOTES),
+            'value' => html_escape(set_value('emp_job_description',isset($result)?$row4->job_description:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'emp_job_description',
             'autocomplete' => ''));
@@ -1665,7 +1666,7 @@ $(function() {
         $x=1;
         $y=0;
         // var_dump($lists3['edu_name']);
-          foreach($result9 as $result){
+          foreach($result9 as $row5){
   ?> 
     <tr>
       <td>
@@ -1673,7 +1674,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_name[]',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_name',isset($result)?$result->fam_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_name',isset($result)?$row5->fam_name:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_name',
             'autocomplete' => ''));
@@ -1684,7 +1685,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_relationship[]',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_relationship',isset($result)?$result->fam_relationship:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_relationship',isset($result)?$row5->fam_relationship:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_relationship',
             'autocomplete' => ''));
@@ -1695,7 +1696,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_work_place[]',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_work_place',isset($result)?$result->work_place:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_work_place',isset($result)?$row5->work_place:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_work_place',
             'autocomplete' => ''));
@@ -1706,7 +1707,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_birthday[]',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_birthday',isset($result)?$result->birthday:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_birthday',isset($result)?$row5->birthday:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_birthday',
             'autocomplete' => ''));
@@ -1717,7 +1718,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_occupation[]',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_occupation',isset($result)?$result->occupation:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_occupation',isset($result)?$row5->occupation:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_occupation',
             'autocomplete' => ''));
@@ -1728,7 +1729,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_annual_income[]',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_annual_income',isset($result)?$result->annual_income:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_annual_income',isset($result)?$row5->annual_income:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_annual_income',
             'autocomplete' => ''));
@@ -1739,7 +1740,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_address[]',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_address',isset($result)?$result->address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_address',isset($result)?$row5->address:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_address',
             'autocomplete' => ''));
@@ -1750,7 +1751,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fam_length_sevice[]',
             'type' => 'text',
-            'value' => html_escape(set_value('fam_length_sevice',isset($result)?$result->length_sevice:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fam_length_sevice',isset($result)?$row5->length_sevice:''), ENT_QUOTES),
             'class' => 'table-control',
             'id' => 'fam_length_sevice',
             'autocomplete' => ''));
@@ -1770,7 +1771,7 @@ $(function() {
 <p>If yes, fill in all the family members in Japan.</p>
 <div class="form-group">
   <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
-    <select name="ja_plan_to_stay_with_them" id="ja_plan_to_stay_with_them" class="planning_select">
+    <select name="ja_plan_to_stay_with_them" id="ja_plan_to_stay_with_them" class="admission_select">
         <option value="1" <?php if($result->ja_plan_to_stay_with_them== "1") {echo "selected";} ?>>Yes</option>
         <option value="0" <?php if($result->ja_plan_to_stay_with_them== "0") {echo "selected";} ?>>No</option>
     </select>
@@ -1799,7 +1800,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'ja_fam_name',
+            'name' => 'ja_fam_name[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_name',isset($result)?$result->ja_fam_name:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1810,7 +1811,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'ja_fam_age',
+            'name' => 'ja_fam_age[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_age',isset($result)?$result->ja_fam_age:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1821,7 +1822,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'ja_fam_relationship',
+            'name' => 'ja_fam_relationship[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_relationship',isset($result)?$result->ja_fam_relationship:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1831,7 +1832,7 @@ $(function() {
       </td>
       <td>
       <div class="">
-      <select name="residing_applicant" class="table-control col-md-12">
+      <select name="ja_fam_residing_applicant[]" class="table-control col-md-12">
         <option value="1" <?php if($result->ja_fam_residing_applicant== "1") {echo "selected";} ?>>Yes</option>
         <option value="0" <?php if($result->ja_fam_residing_applicant== "0") {echo "selected";} ?>>No</option>
       </select>
@@ -1840,7 +1841,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'ja_fam_nationality',
+            'name' => 'ja_fam_nationality[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_nationality',isset($result)?$result->ja_fam_nationality:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1851,7 +1852,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'ja_fam_visa_status',
+            'name' => 'ja_fam_visa_status[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_visa_status',isset($result)?$result->ja_fam_visa_status:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1862,7 +1863,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'ja_fam_work_place',
+            'name' => 'ja_fam_work_place[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_work_place',isset($result)?$result->ja_fam_work_place:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1903,7 +1904,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'entry_date',
+            'name' => 'entry_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('entry_date',isset($result)?$result->entry_date:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1914,7 +1915,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'arrival_date',
+            'name' => 'arrival_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('arrival_date',isset($result)?$result->arrival_date:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1925,7 +1926,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'depature_date',
+            'name' => 'depature_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('depature_date',isset($result)?$result->depature_date:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1936,7 +1937,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'status',
+            'name' => 'status[]',
             'type' => 'text',
             'value' => html_escape(set_value('status',isset($result)?$result->status:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1947,7 +1948,7 @@ $(function() {
       <td>
       <?php
           echo form_input(array(
-            'name' => 'entry_purpose',
+            'name' => 'entry_purpose[]',
             'type' => 'text',
             'value' => html_escape(set_value('entry_purpose',isset($result)?$result->entry_purpose:''), ENT_QUOTES),
             'class' => 'table-control',
@@ -1975,16 +1976,17 @@ $(function() {
   <h5 class="finial_ttl">Finanicial Sponsor</h5>
   <div class="col-md-6 float-left" name="applicant_id">
       <div class="form-group">
-        <?php echo form_label('Name', 'name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'name')); ?>
+        <?php echo form_label('Name', 'fin_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_name')); ?>
         <span class="badge badge-danger">Required</span>
+       <!-- <?  var_dump($result); ?> -->
         <?php
           echo form_input(array(
-            'name' => 'name',
+            'name' => 'fin_name',
             'type' => 'text',
-            'value' => html_escape(set_value('name',isset($result)?$result->name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fin_name',isset($result12)?$result12->fin_name:''), ENT_QUOTES),
             'placeholder' => 'Enter name!',
             'class' => 'form-control',
-            'id' => 'name',
+            'id' => 'fin_name',
             'autocomplete' => ''));
           ?>
         <span class="text-danger"><?php echo form_error('name'); ?></span>
@@ -1996,7 +1998,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fin_age',
             'type' => 'text',
-            'value' => html_escape(set_value('fin_age',isset($result)?$result->age:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fin_age',isset($result12)?$result12->fin_age:''), ENT_QUOTES),
             'placeholder' => "Enter Age!",
             'class' => 'form-control',
             'id' => 'fin_age',
@@ -2011,7 +2013,7 @@ $(function() {
           echo form_input(array(
             'name' => 'fin_relationship',
             'type' => 'text',
-            'value' => html_escape(set_value('fin_relationship',isset($result)?$result->fin_relationship:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fin_relationship',isset($result12)?$result12->fin_relationship:''), ENT_QUOTES),
             'placeholder' => "",
             'class' => 'form-control',
             'id' => 'fin_relationship',
@@ -2021,18 +2023,18 @@ $(function() {
       </div>
       <div class="form-group">
         <?php
-          echo form_label('Address','address', array('class' => 'col-form-label'));
+          echo form_label('Address','fin_address', array('class' => 'col-form-label'));
         ?>
         <div class="col-md-12 col-sm-12 p-0">
           <?php 
             $data = array(
-            'name' => 'address',
+            'name' => 'fin_address',
             'value' => '',
             'rows' => '3',
             'cols' => '',
             'placeholder' => 'Enter address',
             'class' => "form-control",
-            'value' => html_escape(set_value('address',isset($result)?$result->address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fin_address',isset($result12)?$result12->fin_address:''), ENT_QUOTES),
           );
           echo form_textarea($data); ?>
           <span class="text-danger"><?php echo form_error('address'); ?></span>
@@ -2045,7 +2047,7 @@ $(function() {
           echo form_input(array(
             'name' => 'tel',
             'type' => 'text',
-            'value' => html_escape(set_value('tel',isset($result)?$result->tel:''), ENT_QUOTES),
+            'value' => html_escape(set_value('tel',isset($result12)?$result12->tel:''), ENT_QUOTES),
             'placeholder' => 'Enter phone number!',
             'class' => 'form-control',
             'id' => 'tel',
@@ -2060,7 +2062,7 @@ $(function() {
           echo form_input(array(
             'name' => 'email',
             'type' => 'text',
-            'value' => html_escape(set_value('email',isset($result)?$result->email:''), ENT_QUOTES),
+            'value' => html_escape(set_value('email',isset($result12)?$result12->email:''), ENT_QUOTES),
             'placeholder' => 'Enter email account!',
             'class' => 'form-control',
             'id' => 'email',
@@ -2069,18 +2071,18 @@ $(function() {
         <span class="text-danger"><?php echo form_error('email'); ?></span>
        </div>
        <div class="form-group">
-      <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'occupation')); ?>
+      <?php echo form_label('Occupation', 'fin_occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_occupation')); ?>
       <?php
         echo form_input(array(
-          'name' => 'occupation',
+          'name' => 'fin_occupation',
           'type' => 'text',
-          'value' => html_escape(set_value('occupation',isset($result)?$result->occupation:''), ENT_QUOTES),
+          'value' => html_escape(set_value('fin_occupation',isset($result12)?$result12->fin_occupation:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'occupation',
+          'id' => 'fin_occupation',
           'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('occupation'); ?></span>
+      <span class="text-danger"><?php echo form_error('fin_occupation'); ?></span>
   </div>
   <div class="form-group">
       <?php echo form_label('Work Place', 'work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'work_place')); ?>
@@ -2088,7 +2090,7 @@ $(function() {
         echo form_input(array(
           'name' => 'work_place',
           'type' => 'text',
-          'value' => html_escape(set_value('work_place',isset($result)?$result->work_place:''), ENT_QUOTES),
+          'value' => html_escape(set_value('work_place',isset($result12)?$result12->work_place:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
           'id' => 'work_place',
@@ -2097,32 +2099,32 @@ $(function() {
       <span class="text-danger"><?php echo form_error('work_place'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Annual Income', 'fam_annual_income', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'annual_income')); ?>
+      <?php echo form_label('Annual Income', 'annual_income', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'annual_income')); ?>
       <?php
         echo form_input(array(
-          'name' => 'fam_annual_income',
+          'name' => 'annual_income',
           'type' => 'text',
-          'value' => html_escape(set_value('annual_income',isset($result)?$result->fam_annual_income:''), ENT_QUOTES),
+          'value' => html_escape(set_value('annual_income',isset($result12)?$result12->annual_income:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'fam_annual_income',
+          'id' => 'annual_income',
           'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('fam_annual_income'); ?></span>
+      <span class="text-danger"><?php echo form_error('annual_income'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'amount_saving_for_study_abroad')); ?>
+      <?php echo form_label('The amount of saving for study abroad', 'amount_saving_for_study_abroad', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'amount_saving_for_study_abroad')); ?>
       <?php
         echo form_input(array(
-          'name' => 'amount_saving_for_study_abroad ',
+          'name' => 'amount_saving_for_study_abroad',
           'type' => 'text',
-          'value' => html_escape(set_value('amount_saving_for_study_abroad ',isset($result)?$result->amount_saving_for_study_abroad :''), ENT_QUOTES),
+          'value' => html_escape(set_value('amount_saving_for_study_abroad',isset($result12)?$result12->amount_saving_for_study_abroad :''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'amount_saving_for_study_abroad ',
+          'id' => 'amount_saving_for_study_abroad',
           'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('amount_saving_for_study_abroad '); ?></span>
+      <span class="text-danger"><?php echo form_error('amount_saving_for_study_abroad'); ?></span>
   </div>
   <div class="form-group">
       <?php echo form_label('The amount of saving which can be proved ', 'amount_of_saving_which_proved', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'amount_of_saving_which_proved')); ?>
@@ -2130,7 +2132,7 @@ $(function() {
         echo form_input(array(
           'name' => 'amount_of_saving_which_proved',
           'type' => 'text',
-          'value' => html_escape(set_value('amount_of_saving_which_proved',isset($result)?$result->amount_of_saving_which_proved:''), ENT_QUOTES),
+          'value' => html_escape(set_value('amount_of_saving_which_proved',isset($result12)?$result12->amount_of_saving_which_proved:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
           'id' => 'amount_of_saving_which_proved',
@@ -2139,18 +2141,18 @@ $(function() {
       <span class="text-danger"><?php echo form_error('amount_of_saving_which_proved'); ?></span>
   </div>
   <div class="form-group">
-      <?php echo form_label('Start of Work date', 'start_work_date ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'start_work_date')); ?>
+      <?php echo form_label('Start of Work date', 'start_work_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'start_work_date')); ?>
       <?php
         echo form_input(array(
-          'name' => 'start_work_date  ',
+          'name' => 'start_work_date',
           'type' => 'text',
-          'value' => html_escape(set_value('start_work_date ',isset($result)?$result->start_work_date :''), ENT_QUOTES),
+          'value' => html_escape(set_value('start_work_date',isset($result12)?$result12->start_work_date :''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
           'id' => 'start_work_date ',
           'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('start_work_date '); ?></span>
+      <span class="text-danger"><?php echo form_error('start_work_date'); ?></span>
   </div>
   </div>
 </div>
@@ -2165,8 +2167,9 @@ $(function() {
               <span class="material-icons align-top md-18 mr-1">sync</span>Reset
             </button>
           </div>
-        <?php echo form_close(); ?>
+        
 </div>
+<?php echo form_close(); ?>
 </div>
 </div>
 </div>
@@ -2235,17 +2238,32 @@ border: 9px solid transparent;
 border-left: 10px solid white;
 }
 .drop_label{
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+input:checked ~ p .drop_label::before {
+    margin-top: 5px;
+    margin-right: 5px;
+    border: 8px solid transparent;
+    border-top: 12px solid white;
+}
+
+.drop_label{
 cursor: pointer;
 position: relative;
 display: flex;
 align-items: center;
 margin-bottom: 0px;
 }
+
 div.drop_txt{
 max-height:0px;
 overflow: hidden;
 transition:max-height 0.9s;
 }
+
 /* div.drop_txt p {
 padding:2em;
 } */

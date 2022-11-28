@@ -2031,12 +2031,12 @@ $(function() {
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'name',
+            'name' => 'fin_name',
             'type' => 'text',
-            'value' => html_escape(set_value('name',isset($result)?$result->name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('fin_name',isset($result)?$result->fin_name:''), ENT_QUOTES),
             'placeholder' => 'Enter name!',
             'class' => 'form-control',
-            'id' => 'name',
+            'id' => 'fin_name',
             'autocomplete' => ''));
           ?>
         <span class="text-danger"><?php echo form_error('name'); ?></span>
@@ -2073,18 +2073,18 @@ $(function() {
       </div>
       <div class="form-group">
         <?php
-          echo form_label('Address','address', array('class' => 'col-form-label'));
+          echo form_label('Address','fin_address', array('class' => 'col-form-label'));
         ?>
         <div class="col-md-12 col-sm-12 p-0">
           <?php 
             $data = array(
-            'name' => 'address',
+            'name' => 'fin_address',
             'value' => '',
             'rows' => '3',
             'cols' => '',
             'placeholder' => 'Enter address',
             'class' => "form-control",
-            'value' => set_value('address',isset($result)?$result->address:'')
+            'value' => set_value('fin_address',isset($result)?$result->fin_address:'')
           );
           echo form_textarea($data); ?>
           <span class="text-danger"><?php echo form_error('address'); ?></span>
@@ -2121,15 +2121,15 @@ $(function() {
         <span class="text-danger"><?php echo form_error('email'); ?></span>
        </div>
        <div class="form-group">
-      <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <?php echo form_label('Occupation', 'fin_occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_occupation')); ?>
       <?php
         echo form_input(array(
-          'name' => 'occupation',
+          'name' => 'fin_occupation',
           'type' => 'text',
-          'value' => html_escape(set_value('occupation',isset($result)?$result->occupation:''), ENT_QUOTES),
+          'value' => html_escape(set_value('fin_occupation',isset($result)?$result->fin_occupation:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
-          'id' => 'occupation',
+          'id' => 'fin_occupation',
           'autocomplete' => ''));
       ?>
       <span class="text-danger"><?php echo form_error('occupation'); ?></span>
