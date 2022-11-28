@@ -822,7 +822,7 @@ p{
         $y=0;
         // var_dump($data_family_member['edu_name']);
           foreach($data_family_member['fam_name'] as $key=>$rowData){
-          var_dump($data_family_member);
+        //  var_dump($data_family_member);
   ?>  
   <tr>
     <td>
@@ -863,7 +863,7 @@ p{
 <p>If yes, fill in all the family members in Japan.</p>
   <div class="form-group">
     <?php echo form_label('Are you planning to stay with them in Japan? : ', 'ja_plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
-    <p class="comfirm_val" id="ja_plan_to_stay_with_them" name="ja_plan_to_stay_with_them"></p>
+    <p class="comfirm_val" id="ja_plan_to_stay_with_them" name="ja_plan_to_stay_with_them"><?php echo $data_details['ja_plan_to_stay_with_them']; ?></p>
   </div>
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
@@ -1055,8 +1055,8 @@ p{
   <h5 class="finial_ttl">Finanicial Sponsor</h5>
   <div class="col-md-6 float-left" name="applicant_id">
   <div class="form-group">
-    <?php echo form_label('Name', 'name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'name')); ?>
-    <p class="comfirm_val" id="name" name="name"><?php echo $data_financial_sponsor['name']; ?></p>
+    <?php echo form_label('Name', 'fin_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_name')); ?>
+    <p class="comfirm_val" id="name" name="fin_name"><?php echo $data_financial_sponsor['fin_name']; ?></p>
   </div>
   <div class="form-group">
     <?php echo form_label('Age', 'fin_age', array( 'class' => '', 'id'=> 'fin_age', 'style' => '', 'for' => 'fin_age')); ?>
@@ -1067,8 +1067,8 @@ p{
     <p class="comfirm_val" id="fin_relationship" name="fin_relationship"><?php echo $data_financial_sponsor['fin_relationship']; ?></p>   
   </div>
   <div class="form-group">
-    <?php echo form_label('Address','address', array('class' => 'col-form-label'));?>
-    <p class="comfirm_val" id="address" name="address"><?php echo $data_financial_sponsor['address']; ?></p>   
+    <?php echo form_label('Address','fin_address', array('class' => 'col-form-label'));?>
+    <p class="comfirm_val" id="fin_address" name="fin_address"><?php echo $data_financial_sponsor['fin_address']; ?></p>   
   </div>
   <div class="form-group">
   <?php echo form_label('Phone Number', 'tel', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'tel')); ?>
@@ -1079,8 +1079,8 @@ p{
     <p class="comfirm_val" id="email" name="email"><?php echo $data_financial_sponsor['email']; ?></p>   
   </div>
   <div class="form-group">
-    <?php echo form_label('Occupation', 'occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'occupation')); ?>
-    <p class="comfirm_val" id="occupation" name="occupation"><?php echo $data_financial_sponsor['occupation']; ?></p>   
+    <?php echo form_label('Occupation', 'fin_occupation', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_occupation')); ?>
+    <p class="comfirm_val" id="fin_occupation" name="fin_occupation"><?php echo $data_financial_sponsor['fin_occupation']; ?></p>   
   </div>
   <div class="form-group">
     <?php echo form_label('Work Place', 'work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'work_place')); ?>
