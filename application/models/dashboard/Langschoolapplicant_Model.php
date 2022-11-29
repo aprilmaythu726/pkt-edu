@@ -234,7 +234,7 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->where('will_you_return', $data_details['will_you_return']);
     $this->db->where('purpose_studying_in_japanese', $data_details['purpose_studying_in_japanese']);
     $this->db->where('entry_purpose1', $data_details['entry_purpose1']);
-    $this->db->where('ja_plan_to_stay_with_them', $data_family_japan['ja_plan_to_stay_with_them']);
+    //$this->db->where('ja_plan_to_stay_with_them', $data_family_japan['ja_plan_to_stay_with_them']);
     $this->db->where('id !=', $id);
 		$query=$this->db->get();
 		return $query->result();
@@ -680,4 +680,70 @@ class Langschoolapplicant_Model extends CI_Model
 		$this->db->delete($this->db11);
 		return true;
   }
+  public function Delete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db1);
+		return true;
+	}
+  public function detailsDelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db2);
+		return true;
+	}
+  public function finDelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db3);
+		return true;
+	}
+  public function eduDelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db4);
+		return true;
+	}
+  public function preDelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db5);
+		return true;
+	}
+  public function achivDelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db6);
+		return true;
+	}
+  public function goingDdelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db7);
+		return true;
+	}
+  public function hisDelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db8);
+		return true;
+	}
+  public function famDelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db9);
+		return true;
+	}
+  public function famJpDelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db10);
+		return true;
+	}
+  public function prestayDelete($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete($this->db11);
+		return true;
+	}
 }

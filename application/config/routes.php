@@ -266,6 +266,9 @@ $route['adm/portal/payment/add'] = '/dashboard/payment/add';
 $route['adm/portal/payment/edit/(:any)'] = '/dashboard/payment/edit/$1';
 $route['adm/portal/payment/delete/(:any)'] = '/dashboard/payment/delete/$1';
 
+$route['adm/portal/image-upload'] = '/dashboard/ImageUpload';
+$route['adm/portal/image-upload/post']['post'] = "/dashboard/ImageUpload/uploadImage";
+
 //attendent student+trainer
 //pdf, qrcode, csv
 //exam, centificate, roll mark
