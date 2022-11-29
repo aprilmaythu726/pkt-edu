@@ -125,6 +125,7 @@
         $this->__resizeImage($data);
       }
     }
+<<<<<<< HEAD
     return $data;
 
     // $config1['file_names'] = $filename;
@@ -150,6 +151,12 @@
     
   }
   public function _fileUploads($filenames, $upload_path, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
+=======
+    return $data;  
+  }
+  
+  public function _fileUploadWithByName($filenames, $upload_paths, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize, $target = 'userfile')
+>>>>>>> 9d35d89b3932d63276da804ad679516c42cc0264
   {
     $configs['file_names'] = $filenames;
     $configs['upload_path'] = $upload_path;
@@ -163,7 +170,7 @@
     $this->CI->upload->initialize($configs);
     $this->CI->load->library('upload', $configs);
 
-      if(!$this->CI->upload->do_upload('signfile')) {
+      if(!$this->CI->upload->do_upload($target)) {
         $data['msg_error'] = $this->CI->upload->display_errors();
       } else {
         $data = $this->CI->upload->data(); //data upload
@@ -173,6 +180,7 @@
     }
     return $data;
   }
+  
   public function __resizeImage($file)
   {
       $config1['image_library'] = 'gd2';
