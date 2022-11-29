@@ -99,7 +99,8 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
               <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
               <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/pdf/'.$row->id); ?>">Print PDF</a>
-              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/langschool_applicant/delete/'); ?>">Delete</a>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
+              <!-- <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/student/delete/'.$row->id); ?>">Delete</a> -->
             </div>
           </td>
           <td class="text-center">

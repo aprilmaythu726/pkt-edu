@@ -127,10 +127,10 @@
     }
     return $data;
   }
-  public function _fileUpload1($filename1, $upload_path1, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
+  public function _fileUploads($filenames, $upload_paths, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
   {
-    $config['file_name1'] = $filename1;
-    $config['upload_path1'] = $upload_path1;
+    $config['file_names'] = $filenames;
+    $config['upload_paths'] = $upload_paths;
     $config['encrypt_name'] = $encrypt;
     $config['overwrite'] = $overwrite;
     $config['max_size'] = $max_size;
