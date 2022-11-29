@@ -125,31 +125,10 @@
         $this->__resizeImage($data);
       }
     }
-    return $data;
-
-    // $config1['file_name'] = $filename;
-    // $config1['upload_paths'] = "./upload/assets/adm/sign/";
-    // $config1['encrypt_name'] = $encrypt;
-    // $config1['overwrite'] = $overwrite;
-    // $config1['max_size'] = $max_size;
-    // $config1['max_width'] = $max_width;
-    // $config1['max_height'] = $max_height;
-    // $config1['allowed_types'] = $allow_type;
-    // $config1['detect_mime'] = TRUE;
-    // $this->CI->upload->initialize($config1);
-    // $this->CI->load->library('upload', $config1);
-    // if(!$this->CI->upload->do_upload('signfile')) {
-    //   $data['msg_error'] = $this->CI->upload->display_errors();
-    // } else {
-    //   $data = $this->CI->upload->data(); //data upload
-    //   if($resize == TRUE) {
-    //     $this->__resizeImage($data);
-    //   }
-    // }
-    // return $data;
-    
+    return $data;  
   }
-  public function _fileUploads($filenames, $upload_paths, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
+  
+  public function _fileUploadWithByName($filenames, $upload_paths, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize, $target = 'userfile')
   {
     $configs['file_name'] = $filenames;
     $configs['upload_path'] = $upload_paths;
@@ -163,7 +142,7 @@
     $this->CI->upload->initialize($configs);
     $this->CI->load->library('upload', $configs);
 
-      if(!$this->CI->upload->do_upload('signfile')) {
+      if(!$this->CI->upload->do_upload($target)) {
         $data['msg_error'] = $this->CI->upload->display_errors();
       } else {
         $data = $this->CI->upload->data(); //data upload
@@ -173,6 +152,7 @@
     }
     return $data;
   }
+  
   public function __resizeImage($file)
   {
       $config1['image_library'] = 'gd2';
