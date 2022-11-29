@@ -227,7 +227,7 @@ $route['adm/portal/student/edit/(:any)'] = '/dashboard/student/edit/$1';
 $route['adm/portal/student/delete/(:any)'] = '/dashboard/student/delete/$1';
 
 $route['adm/portal/jls_applicant/jcli_admission'] = '/dashboard/pdf/jcli_admiss';
-$route['adm/portal/jls_applicant/ecc_interview'] = '/dashboard/pdf/ecc_inter';
+$route['adm/portal/jls_applicant/ecc_interview/(:any)'] = '/dashboard/pdf/topdf/$1';
 $route['adm/portal/jls_applicant/ecc_admission'] = '/dashboard/pdf/ecc_admiss';
 
 $route['adm/portal/jls_applicant/fukuoka_interview'] = '/dashboard/pdf/fukuoka_inter';

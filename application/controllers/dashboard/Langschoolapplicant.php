@@ -13,9 +13,9 @@ class Langschoolapplicant extends CI_Controller
     protected $site_name, $meta_tag, $favicon, $decimal_point, $date_format, $phone_format, $user_session, $timezone;
     //File upload data
     private $filename;
-    private $filename1;
+    private $filenames;
     private $upload_path = "./upload/assets/adm/usr/";
-    private $upload_path1 = "./upload/assets/adm/usr/";
+    private $upload_paths = "./upload/assets/adm/sign/";
     private $file_path = "/../../../upload/assets/adm/usr/";
     private $max_size = "202800"; // upload max size 200 MB
     private $max_width = "1024";
@@ -32,6 +32,7 @@ class Langschoolapplicant extends CI_Controller
         $this->load->library('encryption');
         $this->load->library('user_agent');
         $this->load->library('upload');
+        //$this->load->library('uploads');
         $this->load->library('email');
         $this->load->library('mainconfig');
         $this->load->helper('custom');
@@ -107,7 +108,7 @@ class Langschoolapplicant extends CI_Controller
                 $data_info = array('jls_name' => $this->input->post('jls_name'), 'applicant_name' => $this->input->post('applicant_name'), 'applicant_name_kanji' => $this->input->post('applicant_name_kanji'), 'date_of_birthday' => $this->input->post('date_of_birthday'), 'place_birth' => $this->input->post('place_birth'), 'info_age' => $this->input->post('info_age'), 'info_nationality' => $this->input->post('info_nationality'), 'gender' => $this->input->post('gender'), 'martial_status' => $this->input->post('martial_status'), 'partaner_name' => $this->input->post('partaner_name'), 'std_email' => $this->input->post('std_email'), 'info_phone' => $this->input->post('info_phone'), 'address' => $this->input->post('address'), 'course_admission' => $this->input->post('course_admission'), 'course_study_lengh' => $this->input->post('course_study_lengh'), 'occupation' => $this->input->post('occupation'), 'place_employment_school' => $this->input->post('place_employment_school'), 'addr_employment_school' => $this->input->post('addr_employment_school'), 'tel_employment_school' => $this->input->post('tel_employment_school'), 'entry_age_ele_school' => $this->input->post('entry_age_ele_school'), 'duration_jp_language_study' => $this->input->post('duration_jp_language_study'), 'passport' => $this->input->post('passport'), 'educational_school_name' => $this->input->post('educational_school_name'), 'passport_no' => $this->input->post('passport_no'), 'passport_data_issue' => $this->input->post('passport_data_issue'), 'passport_data_exp' => $this->input->post('passport_data_exp'), 'military_service' => $this->input->post('military_service'), 'family_mail' => $this->input->post('family_mail'), 'family_tel' => $this->input->post('family_tel'), 'family_address' => $this->input->post('family_address'));
                 if (!empty($_FILES['userfile']['name'])) {
                     //image upload sever and add database
-                    $imgupload = $this->mainconfig->_fileUpload($this->filename1, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false);
+                    $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false);
                     if (!empty($imgupload['msg_error'])) {
                         $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
                         redirect('adm/portal/jls_applicant/add');
@@ -127,6 +128,43 @@ class Langschoolapplicant extends CI_Controller
                         $data_info['sign_file'] = $signupload['file_name'];
                     }
                 }
+                // $error = array();
+                // $config1['upload_path'] = "upload/assets/adm/usr/";
+                // $config1['allowed_types'] = 'gif|jpeg|png|jpg';
+                // $config1['max_size'] = '3000000';
+                // $config1['max_width'] = '1024';
+                // $config1['max_height'] = '768';
+                // $this->load->library('upload', $config1);
+                
+                // if (!$this->upload->do_upload('userfile')){
+                //     $error = array('error' => $this->upload->display_errors());
+                //     echo "<pre>";
+                //     print_r($error);
+                //     exit();
+                // }
+                // else {
+                //     $fdata = $this->upload->data();
+                //     var_dump($fdata);
+                //    // $data_info['userfile'] = 'upload/assets/adm/usr/' . $fdata['file_name'];
+                //     }
+                
+                // $config2['upload_path'] = "./upload/assets/adm/sign/";
+                // $config2['allowed_types'] = 'gif|jpeg|png|jpg';
+                // $config2['max_size'] = '3000000';
+                // $config2['max_width'] = '1024';
+                // $config2['max_height'] = '768';
+                // $this->upload->initialize($config2);
+                
+                // if (!$this->upload->do_upload('signfile')){
+                //     $error = array('error' => $this->upload->display_errors());
+                //     echo "<pre>";
+                //     print_r($error);
+                //     exit();
+                // }
+                // else {
+                //     $fdata = $this->upload->data();
+                //     $data_info['signfile'] = './upload/assets/adm/sign/' . $fdata['file_name'];
+                //     }
                 $data_details = array('have_you_visited_jp' => $this->input->post('have_you_visited_jp'),'ja_plan_to_stay_with_them' => $this->input->post('ja_plan_to_stay_with_them'), 'visited_date' => $this->input->post('visited_date'), 'date_of_departure' => $this->input->post('date_of_departure'), 'visa_type' => $this->input->post('visa_type'), 'school_apply_before_japan' => $this->input->post('school_apply_before_japan'), 'aimed_occupational_category' => $this->input->post('aimed_occupational_category'), 'school_apply_date' => $this->input->post('school_apply_date'), 'school_apply_status' => $this->input->post('school_apply_status'), 'school_apply_name' => $this->input->post('school_apply_name'), 'immigration_office' => $this->input->post('immigration_office'), 'immigration_result' => $this->input->post('immigration_result'), 'COE_reject' => $this->input->post('COE_reject'), 'place_apply_visa' => $this->input->post('place_apply_visa'), 'family_language' => $this->input->post('family_language'),
                 // 'eligibility_have' => $this->input->post('eligibility_have'),
                 // 'eligibility_time' => $this->input->post('eligibility_time'),
@@ -243,7 +281,55 @@ class Langschoolapplicant extends CI_Controller
             $this->load->view('dashboard/langschoolstudent/add', $this->data);
         }
     }
-
+    // public function save_product() {
+    //     $data = array();
+    //     $error = array();
+    //     $config1['upload_path'] = './upload/assets/adm/usr/';
+    //     $config1['allowed_types'] = 'gif|jpeg|png|jpg';
+    //     $config1['max_size'] = '3000000';
+    //     $config1['max_width'] = '1024';
+    //     $config1['max_height'] = '768';
+    //     $this->load->library('upload', $config1);
+        
+    //     if (!$this->upload->do_upload('usefile')){
+    //         $error = array('error' => $this->upload->display_errors());
+    //         echo "<pre>";
+    //         print_r($error);
+    //         exit();
+    //     }
+    //     else {
+    //         $fdata = $this->upload->data();
+    //         $data_info['userfile'] = 'upload/assets/adm/usr/' . $fdata['file_name'];
+    //         }
+        
+    //     $config2['upload_path'] = './upload/assets/adm/sign/';
+    //     $config2['allowed_types'] = 'gif|jpeg|png|jpg';
+    //     $config2['max_size'] = '3000000';
+    //     $config2['max_width'] = '1024';
+    //     $config2['max_height'] = '768';
+    //     $this->upload->initialize($config2);
+        
+    //     if (!$this->upload->do_upload('signfile')){
+    //         $error = array('error' => $this->upload->display_errors());
+    //         echo "<pre>";
+    //         print_r($error);
+    //         exit();
+    //     }
+    //     else {
+    //         $fdata = $this->upload->data();
+    //         $data_info['signfile'] = 'upload/assets/adm/sign/' . $fdata['file_name'];
+    //         }
+        
+    //         // $data['product_id'] = $this->input->post('product_id', TRUE);
+    //         // $data['product_name'] = $this->input->post('product_name', TRUE);
+    //         // $data['category'] = $this->input->post('category', TRUE);
+        
+    //         // $result = $this->super_admin_model->save_product_detail($data);
+    //         // $sdata = array();
+    //         // $sdata['message'] = "Well done!</strong> You successfully add the Product Details.";
+    //         // $this->session->set_userdata($sdata);
+    //         // redirect('super_admin/add_product', 'refresh');
+    //     }
     // confirm
     public function confirm() 
     {
@@ -415,7 +501,7 @@ class Langschoolapplicant extends CI_Controller
                 }
                 //var_dump($insertChecker9);
                 // $insertChecker3 = $this->db->insert('JLS_educational_history', $data_edu_history);
-                if ($applicant_id & $insertChecker & $insertChecker2 & $insertChecker3) {
+                if ($applicant_id & $insertChecker & $insertChecker2) {
                     if ($this->session->has_userdata('__initial_regist_data')) {
                         $enroll = array('__initial_regist_data');
                         $this->session->unset_userdata($enroll);
