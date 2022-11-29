@@ -127,7 +127,7 @@
     }
     return $data;
 
-    // $config1['file_name'] = $filename;
+    // $config1['file_names'] = $filename;
     // $config1['upload_paths'] = "./upload/assets/adm/sign/";
     // $config1['encrypt_name'] = $encrypt;
     // $config1['overwrite'] = $overwrite;
@@ -149,10 +149,10 @@
     // return $data;
     
   }
-  public function _fileUploads($filenames, $upload_paths, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
+  public function _fileUploads($filenames, $upload_path, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
   {
-    $configs['file_name'] = $filenames;
-    $configs['upload_path'] = $upload_paths;
+    $configs['file_names'] = $filenames;
+    $configs['upload_path'] = $upload_path;
     $configs['encrypt_name'] = $encrypt;
     $configs['overwrite'] = $overwrite;
     $configs['max_size'] = $max_size;

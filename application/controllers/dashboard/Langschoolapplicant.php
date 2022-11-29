@@ -107,27 +107,27 @@ class Langschoolapplicant extends CI_Controller
                 //var_dump($_POST);
                 $data_info = array('jls_name' => $this->input->post('jls_name'), 'applicant_name' => $this->input->post('applicant_name'), 'applicant_name_kanji' => $this->input->post('applicant_name_kanji'), 'date_of_birthday' => $this->input->post('date_of_birthday'), 'place_birth' => $this->input->post('place_birth'), 'info_age' => $this->input->post('info_age'), 'info_nationality' => $this->input->post('info_nationality'), 'gender' => $this->input->post('gender'), 'martial_status' => $this->input->post('martial_status'), 'partaner_name' => $this->input->post('partaner_name'), 'std_email' => $this->input->post('std_email'), 'info_phone' => $this->input->post('info_phone'), 'address' => $this->input->post('address'), 'course_admission' => $this->input->post('course_admission'), 'course_study_lengh' => $this->input->post('course_study_lengh'), 'occupation' => $this->input->post('occupation'), 'place_employment_school' => $this->input->post('place_employment_school'), 'addr_employment_school' => $this->input->post('addr_employment_school'), 'tel_employment_school' => $this->input->post('tel_employment_school'), 'entry_age_ele_school' => $this->input->post('entry_age_ele_school'), 'duration_jp_language_study' => $this->input->post('duration_jp_language_study'), 'passport' => $this->input->post('passport'), 'educational_school_name' => $this->input->post('educational_school_name'), 'passport_no' => $this->input->post('passport_no'), 'passport_data_issue' => $this->input->post('passport_data_issue'), 'passport_data_exp' => $this->input->post('passport_data_exp'), 'military_service' => $this->input->post('military_service'), 'family_mail' => $this->input->post('family_mail'), 'family_tel' => $this->input->post('family_tel'), 'family_address' => $this->input->post('family_address'));
                 if (!empty($_FILES['userfile']['name'])) {
-                    //image upload sever and add database
-                    $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false);
+                    $this->filename = $_FILES['userfile']['name'];
+                    $imgupload = $this->mainconfig->_fileUploadWithByName($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false, 'userfile');
                     if (!empty($imgupload['msg_error'])) {
                         $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
                         redirect('adm/portal/jls_applicant/add');
-                    }
-                    else {
+                    } else {
                         $data_info['image_file'] = $imgupload['file_name'];
                     }
                 }
+                    
                 if (!empty($_FILES['signfile']['name'])) {
-                    //image upload sever and add database
-                    $signupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false);
-                    if (!empty($signupload['msg_error1'])) {
-                        $this->session->set_flashdata('msg_error', $signupload['msg_error1']);
+                    $this->filename = $_FILES['signfile']['name'];
+                    $signupload = $this->mainconfig->_fileUploadWithByName($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false, 'signfile');
+                    if (!empty($signupload['msg_error'])) {
+                        $this->session->set_flashdata('msg_error', $signupload['msg_error']);
                         redirect('adm/portal/jls_applicant/add');
-                    }
-                    else {
+                    } else {
                         $data_info['sign_file'] = $signupload['file_name'];
                     }
                 }
+                var_dump($data_info);
                 // $error = array();
                 // $config1['upload_path'] = "upload/assets/adm/usr/";
                 // $config1['allowed_types'] = 'gif|jpeg|png|jpg';
