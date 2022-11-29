@@ -595,7 +595,8 @@ class Langschoolapplicant extends CI_Controller
         $this->data['result11'] = $list11;
         $this->data['result12'] = $list12;
         $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
-        $recent_photo = $this->data['result']->image_file;
+        $recent_image_photo = $this->data['result']->image_file;
+        $recent_sign_photo = $this->data['result']->sign_file;
         if ($_POST) {
             // $this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
             // $this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
@@ -631,20 +632,37 @@ class Langschoolapplicant extends CI_Controller
                 //   $data['activate_date'] = "0000-00-00 00:00:00";
                 // }
                 if (!empty($_FILES['userfile']['name'])) {
-                    if (!empty($recent_photo)) {
-                        $preview_link = dirname(__FILE__) . "" . $this->file_path . "" . $recent_photo;
+                    if (!empty($recent_image_photo)) {
+                        $preview_link = dirname(__FILE__) . "" . $this->file_path . "" . $recent_image_photo;
                         if (file_exists($preview_link)) {
                             unlink($preview_link);
                         }
                     }
                     //image upload sever and add database
-                    $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false);
+                    $imgupload = $this->mainconfig->_fileUploadWithByName($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false,'userfile');
                     if (!empty($imgupload['msg_error'])) {
                         $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
-                        redirect('adm/portal/langschoolstudent/edit/' . $id, $data_info);
+                        redirect('adm/portal/jls_applicant/edit/' . $id, $data_info);
                     }
                     else {
                         $data_info['image_file'] = $imgupload['file_name'];
+                    }
+                }
+                if (!empty($_FILES['signfile']['name'])) {
+                    if (!empty($recent_sign_photo)) {
+                        $preview_link = dirname(__FILE__) . "" . $this->file_path . "" . $recent_sign_photo;
+                        if (file_exists($preview_link)) {
+                            unlink($preview_link);
+                        }
+                    }
+                    //image upload sever and add database
+                    $signupload = $this->mainconfig->_fileUploadWithByName($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false,'signfile');
+                    if (!empty($signupload['msg_error'])) {
+                        $this->session->set_flashdata('msg_error', $signupload['msg_error']);
+                        redirect('adm/portal/jls_applicant/edit/' . $id, $data_info);
+                    }
+                    else {
+                        $data_info['sign_file'] = $signupload['file_name'];
                     }
                 }
                 $data_info = $this->__Xss($data_info);
