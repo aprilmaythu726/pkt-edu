@@ -128,10 +128,10 @@
     return $data;  
   }
   
-  public function _fileUploadWithByName($filenames, $upload_paths, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize, $target = 'userfile')
+  public function _fileUploadWithByName($filename, $upload_path, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize, $target = 'userfile')
   {
-    $configs['file_name'] = $filenames;
-    $configs['upload_path'] = $upload_paths;
+    $configs['file_name'] = $filename;
+    $configs['upload_path'] = $upload_path;
     $configs['encrypt_name'] = $encrypt;
     $configs['overwrite'] = $overwrite;
     $configs['max_size'] = $max_size;

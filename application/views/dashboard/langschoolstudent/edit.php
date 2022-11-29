@@ -44,7 +44,7 @@
         $attributes = array('class' => 'form-horizontal form-label-left');
 				echo form_open_multipart('adm/portal/jls_applicant/edit/'.$result->id, $attributes);
     ?>
-    <?php var_dump($result); ?>
+    <!-- <?php var_dump($result); ?> -->
 <div class="col-md-12">
 <div class="col-md-6 " style="display: flex;padding-top: 32px;">
   <!-- Student Photo -->
