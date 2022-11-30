@@ -103,11 +103,15 @@
               <?php 
                 if($row->jls_name == 'ECC'){
                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
-                }elseif($row->jls_name == 'Fukuoka'){ 
-                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Print PDF");
+                }
+                elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Interview PDF");
                 }
                 else{ 
-                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Print PDF");
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
                 }
               ?>
               </div>
@@ -115,11 +119,17 @@
               <?php 
                 if($row->jls_name == 'ECC'){
                  echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
-                }elseif($row->jls_name == 'Fukuoka'){ 
+                }elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
                   echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
                 }
+                elseif($row->jls_name == 'JCLI'){ 
+                  echo anchor("adm/portal/jls_applicant/jcli_admission/$row->id","Admission PDF");
+                }
                 else{ 
-                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Print PDF");
+                  echo anchor("adm/portal/jls_applicant/ojls_admission/$row->id","Print PDF");
                 }
               ?>
               </div>
