@@ -90,7 +90,7 @@
             <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
-          <td class="text-left"><?php echo $row->phone; ?></td>
+          <td class="text-left"><?php echo $row->info_phone; ?></td>
           <td class="text-center"><?php echo $row->created_at; ?></td>
           <td class="text-center">
            
@@ -98,8 +98,9 @@
             <span class="material-icons md-20 align-middle">more_vert</span></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
               <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/pdf/'.$row->id); ?>">Print PDF</a>
-              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/langschool_applicant/delete/'); ?>">Delete</a>
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/ecc_interview/'.$row->id); ?>">Print PDF</a>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
+              <!-- <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/student/delete/'.$row->id); ?>">Delete</a> -->
             </div>
           </td>
           <td class="text-center">

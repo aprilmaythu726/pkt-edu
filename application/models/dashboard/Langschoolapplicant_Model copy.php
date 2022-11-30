@@ -50,12 +50,6 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->select('*,JLS_applicant_info.id');
 		$this->db->where($this->db1.'.id', $id);
     $this->db->join($this->db2, $this->db1.'.id = '.$this->db2.'.applicant_id', 'left' );
-    return $this->db->get($this->db1)->row();
-  }
-  public function getJLSDetailFin($id)
-  {
-    $this->db->select('*,JLS_applicant_info.id');
-		$this->db->where($this->db1.'.id', $id);
     $this->db->join($this->db3, $this->db1.'.id = '.$this->db3.'.applicant_id', 'left' );
     return $this->db->get($this->db1)->row();
   }
@@ -234,7 +228,6 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->where('will_you_return', $data_details['will_you_return']);
     $this->db->where('purpose_studying_in_japanese', $data_details['purpose_studying_in_japanese']);
     $this->db->where('entry_purpose1', $data_details['entry_purpose1']);
-    //$this->db->where('ja_plan_to_stay_with_them', $data_family_japan['ja_plan_to_stay_with_them']);
     $this->db->where('id !=', $id);
 		$query=$this->db->get();
 		return $query->result();
@@ -243,13 +236,13 @@ class Langschoolapplicant_Model extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from($this->db3);
-		$this->db->where('fin_name', $data_financial_sponsor['fin_name']);
+		$this->db->where('name', $data_financial_sponsor['name']);
     $this->db->where('fin_age', $data_financial_sponsor['fin_age']);
     $this->db->where('fin_relationship', $data_financial_sponsor['fin_relationship']);
-		$this->db->where('fin_address', $data_financial_sponsor['fin_address']);
+		$this->db->where('address', $data_financial_sponsor['address']);
     $this->db->where('tel', $data_financial_sponsor['tel']);
     $this->db->where('email', $data_financial_sponsor['email']);
-    $this->db->where('fin_occupation', $data_financial_sponsor['fin_occupation']);
+    $this->db->where('occupation', $data_financial_sponsor['occupation']);
     $this->db->where('work_place', $data_financial_sponsor['work_place']);
 		$this->db->where('annual_income', $data_financial_sponsor['annual_income']);
     $this->db->where('amount_saving_for_study_abroad', $data_financial_sponsor['amount_saving_for_study_abroad']);
@@ -349,6 +342,7 @@ class Langschoolapplicant_Model extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from($this->db10);
+		//$this->db->where('ja_plan_to_stay_with_them', $data_family_japan['ja_plan_to_stay_with_them']);
     $this->db->where('ja_fam_name', $data_family_japan['ja_fam_name']);
 		$this->db->where('ja_fam_age', $data_family_japan['ja_fam_age']);
     $this->db->where('ja_fam_relationship', $data_family_japan['ja_fam_relationship']);
@@ -645,105 +639,4 @@ class Langschoolapplicant_Model extends CI_Model
 		$this->db->delete($this->db4);
 		return true;
   }
-  public function jpHistoryDeleteByAppID($id) {
-    $this->db->where('applicant_id', $id);
-		$this->db->delete($this->db5);
-		return true;
-  }
-  public function achivHistoryDeleteByAppID($id) {
-    $this->db->where('applicant_id', $id);
-		$this->db->delete($this->db6);
-		return true;
-  }
-  public function goingHistoryDeleteByAppID($id) {
-    $this->db->where('applicant_id', $id);
-		$this->db->delete($this->db7);
-		return true;
-  }
-  public function empHistoryDeleteByAppID($id) {
-    $this->db->where('applicant_id', $id);
-		$this->db->delete($this->db8);
-		return true;
-  }
-  public function famHistoryDeleteByAppID($id) {
-    $this->db->where('applicant_id', $id);
-		$this->db->delete($this->db9);
-		return true;
-  }
-  public function jaFamHistoryDeleteByAppID($id) {
-    $this->db->where('applicant_id', $id);
-		$this->db->delete($this->db10);
-		return true;
-  }
-  public function preJaFamHistoryDeleteByAppID($id) {
-    $this->db->where('applicant_id', $id);
-		$this->db->delete($this->db11);
-		return true;
-  }
-  public function Delete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db1);
-		return true;
-	}
-  public function detailsDelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db2);
-		return true;
-	}
-  public function finDelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db3);
-		return true;
-	}
-  public function eduDelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db4);
-		return true;
-	}
-  public function preDelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db5);
-		return true;
-	}
-  public function achivDelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db6);
-		return true;
-	}
-  public function goingDdelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db7);
-		return true;
-	}
-  public function hisDelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db8);
-		return true;
-	}
-  public function famDelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db9);
-		return true;
-	}
-  public function famJpDelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db10);
-		return true;
-	}
-  public function prestayDelete($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->db11);
-		return true;
-	}
 }

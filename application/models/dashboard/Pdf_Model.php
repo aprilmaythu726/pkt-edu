@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Langschoolapplicant_Model extends CI_Model
+class Pdf_Model extends CI_Model
 {
 // for globals header
   private $db1 = "JLS_applicant_info";
@@ -15,6 +15,17 @@ class Langschoolapplicant_Model extends CI_Model
   private $db9 = "JLS_family_member";
   private $db10 = "JLS_family_in_japan";
   private $db11 = "JLS_previous_stay_in_japan";
+
+  public function alldata()
+    {
+        $this->db->select('*');
+        $this->db->from('JLS_applicant_info');
+        $this->db->order_by('id','ASC');
+        $getData = $this->db->get();
+        if($getData->num_rows() > 0)
+        return $getData->result_array();
+        else return null;
+    }
 
   public function JLSapplicantinfo($userData)
   {

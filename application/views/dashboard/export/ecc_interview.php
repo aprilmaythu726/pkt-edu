@@ -172,11 +172,16 @@ $html = '
 <div class="eligibility-status" style="padding: 0px 0px;">        
     </div>																	
 		<table style="width: 100%;">
+        <?php
+                foreach ($member as $rows) {
+                    echo $rows['id'];
+                    ?>
+
             <tr style="border-bottom:none !important;">
                 <th rowspan="2" class="ecc_stu_name" style="width:10%;border-right:none !important;font-size:13px;">				
                    Name:
                 </th>
-                <td  colspan="2" rowspan="2" style="border-left:none !important;font-size:13px;"></td>
+                <td  colspan="2" rowspan="2" style="border-left:none !important;font-size:13px;"><?php echo $rows['applicant_name'] ?></td>
                 <th style="width:20%;border-right:none !important;border-bottom:none !important;font-size:13px;">			
                    Date of Birth:											                                                                                                                                                                 
                 </th>
@@ -209,6 +214,12 @@ $html = '
                 </th>
                 <td colspan="1.5" style="border-left:none !important;font-size:13px;"> </td>
             </tr>
+            <?php
+                        $i++;
+                    }
+                    ?>
+            <?php
+        ?>
         </table>																
 </section>
 <section class="personal-info" style="width:100%;padding-top:22px;">

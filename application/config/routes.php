@@ -227,7 +227,7 @@ $route['adm/portal/student/edit/(:any)'] = '/dashboard/student/edit/$1';
 $route['adm/portal/student/delete/(:any)'] = '/dashboard/student/delete/$1';
 
 $route['adm/portal/jls_applicant/jcli_admission'] = '/dashboard/pdf/jcli_admiss';
-$route['adm/portal/jls_applicant/ecc_interview'] = '/dashboard/pdf/ecc_inter';
+$route['adm/portal/jls_applicant/ecc_interview/(:any)'] = '/dashboard/pdf/ecc_inter/$1';
 $route['adm/portal/jls_applicant/ecc_admission'] = '/dashboard/pdf/ecc_admiss';
 
 $route['adm/portal/jls_applicant/fukuoka_interview'] = '/dashboard/pdf/fukuoka_inter';
@@ -265,6 +265,9 @@ $route['adm/portal/payment'] = '/dashboard/payment/index';
 $route['adm/portal/payment/add'] = '/dashboard/payment/add';
 $route['adm/portal/payment/edit/(:any)'] = '/dashboard/payment/edit/$1';
 $route['adm/portal/payment/delete/(:any)'] = '/dashboard/payment/delete/$1';
+
+$route['adm/portal/image-upload'] = '/dashboard/ImageUpload';
+$route['adm/portal/image-upload/post']['post'] = "/dashboard/ImageUpload/uploadImage";
 
 //attendent student+trainer
 //pdf, qrcode, csv

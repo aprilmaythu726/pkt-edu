@@ -1,5 +1,3 @@
-
-
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php include(dirname(__FILE__) ."/../templates/header.php"); ?>
 
@@ -17,7 +15,7 @@
       </div>
     </div>
   </div> 
-12345
+
   <?php if(!empty($_SESSION['msg_success'])){ ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       <strong>Success!</strong>  <?php echo $_SESSION['msg_success']; ?> 
@@ -44,7 +42,6 @@
         $attributes = array('class' => 'form-horizontal form-label-left');
 				echo form_open_multipart('adm/portal/jls_applicant/edit/'.$result->id, $attributes);
     ?>
-    <!-- <?php var_dump($result); ?> -->
 <div class="col-md-12">
 <div class="col-md-6 " style="display: flex;padding-top: 32px;">
   <!-- Student Photo -->
@@ -237,7 +234,7 @@
 </div>
 <!-- Status -->
 </div>
-<!-- </div> -->
+</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(function() {  
@@ -1226,308 +1223,14 @@ $(function() {
        </div>
 </div>
 <!-- co_leftside -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>
-
-let educationHistory = $('#edu_history tbody tr:last-child .rowID').text();
-let previous_jp = $('#previousJp tbody tr:last-child .rowID').text();
-let achievement_jp = $('#achievementJp tbody tr:last-child .rowID').text();
-let jpLangGoing = $('#going_to_take tbody tr:last-child .rowID').text();
-let employment_history = $('#employHistory tbody tr:last-child .rowID').text();
-let family_member = $('#familyMember tbody tr:last-child .rowID').text();
-let family_inJP = $('#familyInJp tbody tr:last-child .rowID').text();
-let previous_stay = $('#preStayInJP tbody tr:last-child .rowID').text();
-//  Add  Row
-$(function() {
-$('#addNewRow01').click(function(e) {
-            e.preventDefault();
-            console.log(true);
-            educationHistory++;
-            console.log(educationHistory);
-            const cloned = $('#edu_history tbody tr:last-child').clone();
-            cloned.find("input").val("");
-            cloned.find("#edu_name").val("");
-            $('#edu_history tbody tr:last-child').after(cloned);
-          });
-$('#addNewRow02').click(function(e) {
-            e.preventDefault();
-            console.log(true);
-            previous_jp++;
-            console.log(previous_jp);
-            const cloned = $('#previousJp tbody tr:last-child').clone();
-            cloned.find("input").val("");
-            cloned.find("#jp_name").val("");
-            $('#previousJp tbody tr:last-child').after(cloned);
-          });
-$('#addNewRow03').click(function(e) {
-            e.preventDefault();
-            console.log(true);
-            achievement_jp++;
-            console.log(achievement_jp);
-            const cloned = $('#achievementJp tbody tr:last-child').clone();
-            cloned.find("input").val("");
-            cloned.find("#achiv_name").val("");
-            $('#achievementJp tbody tr:last-child').after(cloned);
-          });    
-$('#addNewRow04').click(function(e) {
-            e.preventDefault();
-            console.log(true);
-            jpLangGoing++;
-            console.log(jpLangGoing);
-            const cloned = $('#going_to_take tbody tr:last-child').clone();
-            cloned.find("input").val("");
-            cloned.find("#going_name").val("");
-            $('#going_to_take tbody tr:last-child').after(cloned);
-          });   
-$('#addNewRow05').click(function(e) {
-            e.preventDefault();
-            console.log(true);
-            family_member++;
-            console.log(employHistory);
-            const cloned = $('#employHistory tbody tr:last-child').clone();
-            cloned.find("input").val("");
-            cloned.find("#emp_name").val("");
-            $('#employHistory tbody tr:last-child').after(cloned);
-          });
-$('#addNewRow06').click(function(e) {
-            e.preventDefault();
-            console.log(true);
-            family_member++;
-            console.log(family_member);
-            const cloned = $('#familyMember tbody tr:last-child').clone();
-            cloned.find("input").val("");
-            cloned.find("#fam_name").val("");
-            $('#familyMember tbody tr:last-child').after(cloned);
-          });
-$('#addNewRow07').click(function(e) {
-            e.preventDefault();
-            console.log(true);
-            family_inJP++;
-            console.log(family_inJP);
-            const cloned = $('#familyInJp tbody tr:last-child').clone();
-            cloned.find("input").val("");
-            cloned.find("#ja_fam_name").val("");
-            $('#familyInJp tbody tr:last-child').after(cloned);
-          });    
-$('#addNewRow08').click(function(e) {
-            e.preventDefault();
-            console.log(true);
-            previous_stay++;
-            console.log(previous_stay);
-            const cloned = $('#preStayInJP tbody tr:last-child').clone();
-            cloned.find("input").val("");
-            cloned.find("#entry_date").val("");
-            $('#preStayInJP tbody tr:last-child').after(cloned);
-          });   
- 
-});
-//  Add  Row 
-//  Remove  Row
-$(function() {
-$('#removeRow01').on('click', function(e) {
-            e.preventDefault();
-            let dataLength = $('#edu_history tbody tr').length;
-            let $itemChecked = $('.productCheck:checked');       
-            let rowID = $('.rowID');
-            let serial_no = [];
-            if (dataLength > 1 && (dataLength != $itemChecked.length)) {
-                $itemChecked.each(function() {
-                    let dataItem = $(this).data('item');
-                    let productName = $(`.productItem[data-item='${dataItem}']`).val();
-                        if (productName != '') {
-                          educationHistory--;
-                        $(this).closest('tr').remove();
-                        let dataNewLength = $('#edu_history tbody tr').length;
-                        for (var i = 0; i <= rowID.length; i++) {
-                            serial_no.push(i + 1);
-                        }
-                      }
-                      
-                      });
-                      };
-                        
-});
-$('#removeRow02').on('click', function(e) {
-            e.preventDefault();
-            let dataLength = $('#previousJp tbody tr').length;
-            let $itemChecked = $('.productCheck:checked');       
-            let rowID = $('.rowID');
-            let serial_no = [];
-            if (dataLength > 1 && (dataLength != $itemChecked.length)) {
-                $itemChecked.each(function() {
-                    let dataItem = $(this).data('item');
-                    let productName = $(`.productItem[data-item='${dataItem}']`).val();
-                        if (productName != '') {
-                          previous_jp--;
-                        $(this).closest('tr').remove();
-                        let dataNewLength = $('#previousJp tbody tr').length;
-                        for (var i = 0; i <= rowID.length; i++) {
-                            serial_no.push(i + 1);
-                        }
-                      }
-                      
-                      });
-                      };
-                        
-});
-$('#removeRow03').on('click', function(e) {
-            e.preventDefault();
-            let dataLength = $('#achievementJp tbody tr').length;
-            let $itemChecked = $('.productCheck:checked');       
-            let rowID = $('.rowID');
-            let serial_no = [];
-            if (dataLength > 1 && (dataLength != $itemChecked.length)) {
-                $itemChecked.each(function() {
-                    let dataItem = $(this).data('item');
-                    let productName = $(`.productItem[data-item='${dataItem}']`).val();
-                        if (productName != '') {
-                          achievement_jp--;
-                        $(this).closest('tr').remove();
-                        let dataNewLength = $('#achievementJp tbody tr').length;
-                        for (var i = 0; i <= rowID.length; i++) {
-                            serial_no.push(i + 1);
-                        }
-                      }
-                      
-                      });
-                      };
-                        
-});
-$('#removeRow04').on('click', function(e) {
-            e.preventDefault();
-            let dataLength = $('#going_to_take tbody tr').length;
-            let $itemChecked = $('.productCheck:checked');       
-            let rowID = $('.rowID');
-            let serial_no = [];
-            if (dataLength > 1 && (dataLength != $itemChecked.length)) {
-                $itemChecked.each(function() {
-                    let dataItem = $(this).data('item');
-                    let productName = $(`.productItem[data-item='${dataItem}']`).val();
-                        if (productName != '') {
-                          jpLangGoing--;
-                        $(this).closest('tr').remove();
-                        let dataNewLength = $('#going_to_take tbody tr').length;
-                        for (var i = 0; i <= rowID.length; i++) {
-                            serial_no.push(i + 1);
-                        }
-                      }
-                      
-                      });
-                      };
-                        
-});
-$('#removeRow05').on('click', function(e) {
-            e.preventDefault();
-            let dataLength = $('#employHistory tbody tr').length;
-            let $itemChecked = $('.productCheck:checked');       
-            let rowID = $('.rowID');
-            let serial_no = [];
-            if (dataLength > 1 && (dataLength != $itemChecked.length)) {
-                $itemChecked.each(function() {
-                    let dataItem = $(this).data('item');
-                    let productName = $(`.productItem[data-item='${dataItem}']`).val();
-                        if (productName != '') {
-                          employment_history--;
-                        $(this).closest('tr').remove();
-                        let dataNewLength = $('#employHistory tbody tr').length;
-                        for (var i = 0; i <= rowID.length; i++) {
-                            serial_no.push(i + 1);
-                        }
-                      }
-                      
-                      });
-                      };
-                        
-});
-$('#removeRow06').on('click', function(e) {
-            e.preventDefault();
-            let dataLength = $('#familyMember tbody tr').length;
-            let $itemChecked = $('.productCheck:checked');       
-            let rowID = $('.rowID');
-            let serial_no = [];
-            if (dataLength > 1 && (dataLength != $itemChecked.length)) {
-                $itemChecked.each(function() {
-                    let dataItem = $(this).data('item');
-                    let productName = $(`.productItem[data-item='${dataItem}']`).val();
-                        if (productName != '') {
-                          family_member--;
-                        $(this).closest('tr').remove();
-                        let dataNewLength = $('#familyMember tbody tr').length;
-                        for (var i = 0; i <= rowID.length; i++) {
-                            serial_no.push(i + 1);
-                        }
-                      }
-                      
-                      });
-                      };
-                        
-});
-$('#removeRow07').on('click', function(e) {
-            e.preventDefault();
-            let dataLength = $('#familyInJp tbody tr').length;
-            let $itemChecked = $('.productCheck:checked');       
-            let rowID = $('.rowID');
-            let serial_no = [];
-            if (dataLength > 1 && (dataLength != $itemChecked.length)) {
-                $itemChecked.each(function() {
-                    let dataItem = $(this).data('item');
-                    let productName = $(`.productItem[data-item='${dataItem}']`).val();
-                        if (productName != '') {
-                          family_inJP--;
-                        $(this).closest('tr').remove();
-                        let dataNewLength = $('#familyInJp tbody tr').length;
-                        for (var i = 0; i <= rowID.length; i++) {
-                            serial_no.push(i + 1);
-                        }
-                      }
-                      
-                      });
-                      };
-                        
-});
-$('#removeRow08').on('click', function(e) {
-            e.preventDefault();
-            let dataLength = $('#preStayInJP tbody tr').length;
-            let $itemChecked = $('.productCheck:checked');       
-            let rowID = $('.rowID');
-            let serial_no = [];
-            if (dataLength > 1 && (dataLength != $itemChecked.length)) {
-                $itemChecked.each(function() {
-                    let dataItem = $(this).data('item');
-                    let productName = $(`.productItem[data-item='${dataItem}']`).val();
-                        if (productName != '') {
-                          previous_stay--;
-                        $(this).closest('tr').remove();
-                        let dataNewLength = $('#preStayInJP tbody tr').length;
-                        for (var i = 0; i <= rowID.length; i++) {
-                            serial_no.push(i + 1);
-                        }
-                      }
-                      
-                      });
-                      };
-                        
-});
-});
-//  Remove  Row
-</script> 
-
-
-
-<style>
-.align-middle span>.btn:hover{
-    color:#ffffff;
-  }
-</style>
 
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Educational History : from Elementary School to the Most Recent School</h6>
 <div class="tbl">
-<table class="table-bordered" name="applicant_id"  id="edu_history">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head" >
     <tr>
-    <th></th>
       <th>Name of institution</th>
       <th>Address</th>
       <th>Starting <br>Year/Month  </th>
@@ -1543,60 +1246,57 @@ $('#removeRow08').on('click', function(e) {
           foreach($result4 as $row){
   ?>   
     <tr>
-    <td class="text-center">
-       <input type="checkbox" name="productCheck[]" class="productCheck" data-item="1">
-  </td>
-      <td class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'edu_name[]',
             'type' => 'text',
             'value' => html_escape(set_value('edu_name',isset($row)?$row->edu_name:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'edu_name',
             'autocomplete' => ''));
         ?>
       </td>
-      <td class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'edu_address[]',
             'type' => 'text',
             'value' => html_escape(set_value('edu_address',isset($row)?$row->address:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'edu_address',
             'autocomplete' => ''));
         ?>
       </td>
-      <td class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'edu_start_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('edu_start_date',isset($row)?$row->start_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'edu_start_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'edu_end_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('edu_end_date',isset($row)?$row->end_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'edu_end_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'edu_year[]',
             'type' => 'text',
             'value' => html_escape(set_value('edu_year',isset($row)?$row->year:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'edu_year',
             'autocomplete' => ''));
         ?>
@@ -1606,31 +1306,18 @@ $('#removeRow08').on('click', function(e) {
     <?php }
     ?>
   </tbody>
-  
-</table>
-<table class="table-bordered" name="applicant_id">
-<tr>
-<th scope="row" colspan="9" class="align-middle" style="padding: 3px;">
-      <span class="float-left">
-        <a class="btn btn-sm btn-outline-secondary px-2 rounded-1 overlay" id="addNewRow01" style="font-size: 0.8rem;"><strong><i class="fas fa-plus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">add_circle</span>Add row</a>
-        <a class="btn btn-sm btn-outline-danger px-2 rounded-1 overlay" id="removeRow01" style="font-size: 0.8rem;"><strong><i class="fas fa-minus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">delete</span>Remove</a>
-      </span>
-</th>
-</tr>
 </table>
 </div>
        
 </div>
 <!-- Table -->
-
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Previous Japanese Language Study</h6>
 <div class="tbl">
-<table class="table-bordered" name="applicant_id" id="previousJp">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
-    <th></th>
       <th>Name of institution</th>
       <th>Address</th>
       <th>Starting <br>Year/Month  </th>
@@ -1639,7 +1326,6 @@ $('#removeRow08').on('click', function(e) {
     </tr>
   </thead>
   <tbody>
- 
   <?php
         $x=1;
         $y=0;
@@ -1647,60 +1333,57 @@ $('#removeRow08').on('click', function(e) {
           foreach($result5 as $row1){
   ?>   
   <tr>
-  <td class="text-center">
-       <input type="checkbox" name="productCheck[]" class="productCheck" data-item="1">
-  </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'jp_name[]',
             'type' => 'text',
             'value' => html_escape(set_value('jp_name',isset($result)?$row1->jp_name:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'jp_name',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'jp_address[]',
             'type' => 'text',
             'value' => html_escape(set_value('jp_address',isset($result)?$row1->address:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'jp_address',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'jp_start_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('jp_start_date',isset($result)?$row1->start_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'jp_start_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'jp_end_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('jp_end_date',isset($result)?$row1->end_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'jp_end_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'jp_hour[]',
             'type' => 'text',
             'value' => html_escape(set_value('jp_hour',isset($result)?$row1->hour:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'jp_hour',
             'autocomplete' => ''));
         ?>
@@ -1711,16 +1394,6 @@ $('#removeRow08').on('click', function(e) {
     ?>
   </tbody>
 </table>
-<table class="table-bordered" name="applicant_id">
-<tr>
-<th scope="row" colspan="9" class="align-middle" style="padding: 3px;">
-      <span class="float-left">
-        <a class="btn btn-sm btn-outline-secondary px-2 rounded-1 overlay" id="addNewRow02" style="font-size: 0.8rem;"><strong><i class="fas fa-plus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">add_circle</span>Add row</a>
-        <a class="btn btn-sm btn-outline-danger px-2 rounded-1 overlay" id="removeRow02" style="font-size: 0.8rem;"><strong><i class="fas fa-minus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">delete</span>Remove</a>
-      </span>
-</th>
-</tr>
-</table>
 </div>
 
 </div>
@@ -1730,10 +1403,9 @@ $('#removeRow08').on('click', function(e) {
 <div class="col-md-8 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Achievement in JP language tests</h6>
 <div class="tbl">
-<table class="table-bordered" name="applicant_id" id="achievementJp">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
-      <th></th>
       <th>Name of Japanese language test</th>
       <th>Level</th>
       <th>Exam Years</th>
@@ -1750,72 +1422,69 @@ $('#removeRow08').on('click', function(e) {
           foreach($result6 as $row2){
   ?> 
     <tr>
-    <td class="text-center">
-       <input type="checkbox" name="productCheck[]" class="productCheck" data-item="1">
-  </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'achiv_name[]',
             'type' => 'text',
             'value' => html_escape(set_value('achiv_name',isset($result)?$row2->achiv_name:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'achiv_name',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'level[]',
             'type' => 'text',
             'value' => html_escape(set_value('level',isset($result)?$row2->level:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'level',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'exam_year[]',
             'type' => 'text',
             'value' => html_escape(set_value('exam_year',isset($result)?$row2->exam_year:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'exam_year',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'score[]',
             'type' => 'text',
             'value' => html_escape(set_value('score',isset($result)?$row2->score:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'score',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
   
       <?php
           echo form_input(array(
             'name' => 'result[]',
             'type' => 'text',
             'value' => html_escape(set_value('result',isset($result)?$row2->result:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'result',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'date_qualification[]',
             'type' => 'text',
             'value' => html_escape(set_value('date_qualification',isset($row2)?$row2->date_qualification:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'date_qualification',
             'autocomplete' => ''));
         ?>
@@ -1825,25 +1494,13 @@ $('#removeRow08').on('click', function(e) {
     ?>
   </tbody>
 </table>
-<table class="table-bordered" name="applicant_id">
-<tr>
-<th scope="row" colspan="9" class="align-middle" style="padding: 3px;">
-      <span class="float-left">
-        <a class="btn btn-sm btn-outline-secondary px-2 rounded-1 overlay" id="addNewRow03" style="font-size: 0.8rem;"><strong><i class="fas fa-plus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">add_circle</span>Add row</a>
-        <a class="btn btn-sm btn-outline-danger px-2 rounded-1 overlay" id="removeRow03" style="font-size: 0.8rem;"><strong><i class="fas fa-minus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">delete</span>Remove</a>
-      </span>
-</th>
-</tr>
-</table>
-
 </div>
 </div>
 <div class="col-md-4 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Name of JP language tests you are going to take</h6>
-<table class="table-bordered" name="applicant_id" id="going_to_take">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
-      <th></th>
       <th>Name of Japanese language test</th>
       <th>Level</th>
       
@@ -1857,27 +1514,24 @@ $('#removeRow08').on('click', function(e) {
           foreach($result7 as $row3){
   ?> 
     <tr>
-    <td class="text-center">
-       <input type="checkbox" name="productCheck[]" class="productCheck" data-item="1">
-  </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'going_name[]',
             'type' => 'text',
             'value' => html_escape(set_value('going_name',isset($result)?$row3->going_name:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'going_name',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'going_level[]',
             'type' => 'text',
             'value' => html_escape(set_value('going_level',isset($result)?$row3->going_level:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'going_level',
             'autocomplete' => ''));
         ?>
@@ -1887,16 +1541,6 @@ $('#removeRow08').on('click', function(e) {
     ?>
   </tbody>
 </table>
-<table class="table-bordered" name="applicant_id">
-<tr>
-<th scope="row" colspan="9" class="align-middle" style="padding: 3px;">
-      <span class="float-left">
-        <a class="btn btn-sm btn-outline-secondary px-2 rounded-1 overlay" id="addNewRow04" style="font-size: 0.8rem;"><strong><i class="fas fa-plus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">add_circle</span>Add row</a>
-        <a class="btn btn-sm btn-outline-danger px-2 rounded-1 overlay" id="removeRow04" style="font-size: 0.8rem;"><strong><i class="fas fa-minus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">delete</span>Remove</a>
-      </span>
-</th>
-</tr>
-</table>
 </div>
 
 <!-- Table -->
@@ -1905,10 +1549,9 @@ $('#removeRow08').on('click', function(e) {
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">History of Employment (Write in order, ending with the most recent employment.)</h6>
 <div class="tbl">
-<table class="table-bordered" name="applicant_id" id="employHistory">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
-      <th></th>
       <th>Placement of Employment</th>
       <th>Address</th>
       <th>Years</th>
@@ -1925,71 +1568,68 @@ $('#removeRow08').on('click', function(e) {
           foreach($result8 as $row4){
   ?> 
     <tr>
-    <td class="text-center">
-       <input type="checkbox" name="productCheck[]" class="productCheck" data-item="1">
-  </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'emp_name[]',
             'type' => 'text',
             'value' => html_escape(set_value('emp_name',isset($result)?$row4->emp_name:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'emp_name',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'emp_address[]',
             'type' => 'text',
             'value' => html_escape(set_value('emp_address',isset($result)?$row4->address:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'emp_address',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'emp_year[]',
             'type' => 'text',
             'value' => html_escape(set_value('emp_year',isset($result)?$row4->year:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'emp_year',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'emp_start_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('emp_start_date',isset($result)?$row4->start_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'emp_start_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'emp_end_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('emp_end_date',isset($result)?$row4->end_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'emp_end_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'emp_job_description[]',
             'type' => 'text',
             'value' => html_escape(set_value('emp_job_description',isset($result)?$row4->job_description:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'emp_job_description',
             'autocomplete' => ''));
         ?>
@@ -1999,16 +1639,6 @@ $('#removeRow08').on('click', function(e) {
     ?>
   </tbody>
 </table>
-<table class="table-bordered" name="applicant_id">
-<tr>
-<th scope="row" colspan="9" class="align-middle" style="padding: 3px;">
-      <span class="float-left">
-        <a class="btn btn-sm btn-outline-secondary px-2 rounded-1 overlay" id="addNewRow05" style="font-size: 0.8rem;"><strong><i class="fas fa-plus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">add_circle</span>Add row</a>
-        <a class="btn btn-sm btn-outline-danger px-2 rounded-1 overlay" id="removeRow05" style="font-size: 0.8rem;"><strong><i class="fas fa-minus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">delete</span>Remove</a>
-      </span>
-</th>
-</tr>
-</table>
 </div>
 </div>
 <!-- Table -->
@@ -2017,10 +1647,9 @@ $('#removeRow08').on('click', function(e) {
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Family Member</h6>
 <div class="tbl">
-<table class="table-bordered" name="applicant_id" id="familyMember">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
-      <th></th>
       <th>Name</th>
       <th>Relationship	</th>
       <th>Work Place	</th>
@@ -2039,93 +1668,90 @@ $('#removeRow08').on('click', function(e) {
           foreach($result9 as $row5){
   ?> 
     <tr>
-    <td class="text-center">
-       <input type="checkbox" name="productCheck[]" class="productCheck" data-item="1">
-  </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'fam_name[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_name',isset($result)?$row5->fam_name:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'fam_name',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'fam_relationship[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_relationship',isset($result)?$row5->fam_relationship:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'fam_relationship',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'fam_work_place[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_work_place',isset($result)?$row5->work_place:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'fam_work_place',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'fam_birthday[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_birthday',isset($result)?$row5->birthday:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'fam_birthday',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'fam_occupation[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_occupation',isset($result)?$row5->occupation:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'fam_occupation',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'fam_annual_income[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_annual_income',isset($result)?$row5->annual_income:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'fam_annual_income',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'fam_address[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_address',isset($result)?$row5->address:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'fam_address',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'fam_length_sevice[]',
             'type' => 'text',
             'value' => html_escape(set_value('fam_length_sevice',isset($result)?$row5->length_sevice:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'fam_length_sevice',
             'autocomplete' => ''));
         ?>
@@ -2134,16 +1760,6 @@ $('#removeRow08').on('click', function(e) {
     <?php }
     ?>
   </tbody>
-</table>
-<table class="table-bordered" name="applicant_id">
-<tr>
-<th scope="row" colspan="9" class="align-middle" style="padding: 3px;">
-      <span class="float-left">
-        <a class="btn btn-sm btn-outline-secondary px-2 rounded-1 overlay" id="addNewRow06" style="font-size: 0.8rem;"><strong><i class="fas fa-plus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">add_circle</span>Add row</a>
-        <a class="btn btn-sm btn-outline-danger px-2 rounded-1 overlay" id="removeRow06" style="font-size: 0.8rem;"><strong><i class="fas fa-minus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">delete</span>Remove</a>
-      </span>
-</th>
-</tr>
 </table>
 </div>
 </div>
@@ -2160,10 +1776,9 @@ $('#removeRow08').on('click', function(e) {
     </select>
   </div>
 <div class="tbl">
-<table class="table-bordered" name="applicant_id" id="familyInJp">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
-      <th></th>
       <th>Name</th>
       <th>Age	</th>
       <th>Relatonship</th>
@@ -2181,43 +1796,40 @@ $('#removeRow08').on('click', function(e) {
           foreach($result10 as $result){
   ?> 
     <tr>
-    <td class="text-center">
-       <input type="checkbox" name="productCheck[]" class="productCheck" data-item="1">
-  </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'ja_fam_name[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_name',isset($result)?$result->ja_fam_name:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'ja_fam_name',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'ja_fam_age[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_age',isset($result)?$result->ja_fam_age:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'ja_fam_age',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'ja_fam_relationship[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_relationship',isset($result)?$result->ja_fam_relationship:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'ja_fam_relationship',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <div class="">
       <select name="ja_fam_residing_applicant[]" class="table-control col-md-12">
         <option value="1" <?php if($result->ja_fam_residing_applicant== "1") {echo "selected";} ?>>Yes</option>
@@ -2225,35 +1837,35 @@ $('#removeRow08').on('click', function(e) {
       </select>
      </div>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'ja_fam_nationality[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_nationality',isset($result)?$result->ja_fam_nationality:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'ja_fam_nationality',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'ja_fam_visa_status[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_visa_status',isset($result)?$result->ja_fam_visa_status:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'ja_fam_visa_status',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'ja_fam_work_place[]',
             'type' => 'text',
             'value' => html_escape(set_value('ja_fam_work_place',isset($result)?$result->ja_fam_work_place:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'ja_fam_work_place',
             'autocomplete' => ''));
         ?>
@@ -2263,16 +1875,6 @@ $('#removeRow08').on('click', function(e) {
     ?>
   </tbody>
 </table>
-<table class="table-bordered" name="applicant_id">
-<tr>
-<th scope="row" colspan="9" class="align-middle" style="padding: 3px;">
-      <span class="float-left">
-        <a class="btn btn-sm btn-outline-secondary px-2 rounded-1 overlay" id="addNewRow07" style="font-size: 0.8rem;"><strong><i class="fas fa-plus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">add_circle</span>Add row</a>
-        <a class="btn btn-sm btn-outline-danger px-2 rounded-1 overlay" id="removeRow07" style="font-size: 0.8rem;"><strong><i class="fas fa-minus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">delete</span>Remove</a>
-      </span>
-</th>
-</tr>
-</table>
 </div>
 </div>
 <!-- Table -->
@@ -2280,10 +1882,9 @@ $('#removeRow08').on('click', function(e) {
 <div class="col-md-12 float-left" style="padding-bottom: 15px;">
 <h6 class="" style="padding: 33px 0px 12px;">Previous  stay in Japan</h6>
 <div class="tbl">
-<table class="table-bordered" name="applicant_id" id="preStayInJP">
+<table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
-      <th></th>
       <th>Date of Entry	</th>
       <th>Date of Arrival	</th>
       <th>Date of Depature </th>
@@ -2299,60 +1900,57 @@ $('#removeRow08').on('click', function(e) {
           foreach($result11 as $result){
   ?> 
     <tr>
-    <td class="text-center">
-       <input type="checkbox" name="productCheck[]" class="productCheck" data-item="1">
-  </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'entry_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('entry_date',isset($result)?$result->entry_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'entry_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'arrival_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('arrival_date',isset($result)?$result->arrival_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'arrival_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'depature_date[]',
             'type' => 'text',
             'value' => html_escape(set_value('depature_date',isset($result)?$result->depature_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'depature_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'status[]',
             'type' => 'text',
             'value' => html_escape(set_value('status',isset($result)?$result->status:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'status',
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td>
       <?php
           echo form_input(array(
             'name' => 'entry_purpose[]',
             'type' => 'text',
             'value' => html_escape(set_value('entry_purpose',isset($result)?$result->entry_purpose:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control',
             'id' => 'entry_purpose',
             'autocomplete' => ''));
         ?>
@@ -2361,16 +1959,6 @@ $('#removeRow08').on('click', function(e) {
     <?php }
     ?>
   </tbody>
-</table>
-<table class="table-bordered" name="applicant_id">
-<tr>
-<th scope="row" colspan="9" class="align-middle" style="padding: 3px;">
-      <span class="float-left">
-        <a class="btn btn-sm btn-outline-secondary px-2 rounded-1 overlay" id="addNewRow08" style="font-size: 0.8rem;"><strong><i class="fas fa-plus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">add_circle</span>Add row</a>
-        <a class="btn btn-sm btn-outline-danger px-2 rounded-1 overlay" id="removeRow08" style="font-size: 0.8rem;"><strong><i class="fas fa-minus-circle"></i></strong><span class="material-icons align-top md-20 mr-1">delete</span>Remove</a>
-      </span>
-</th>
-</tr>
 </table>
 </div>
 </div>
@@ -2572,10 +2160,10 @@ $('#removeRow08').on('click', function(e) {
   <hr class="my-4 dashed clearfix">
   <div class="text-right">
             <button type="submit" class="btn btn-primary text-white btn-sm py-1 px-2">
-              <span class="material-icons align-top md-20 mr-1">update</span>Update
+              <span class="material-icons align-top md-18 mr-1">update</span>Update
             </button>
             <button type="reset" class="btn btn-secondary text-white btn-sm py-1 px-2">
-              <span class="material-icons align-top md-20 mr-1">sync</span>Reset
+              <span class="material-icons align-top md-18 mr-1">sync</span>Reset
             </button>
           </div>
         
@@ -2820,8 +2408,5 @@ color:#48a1af;
   position: relative;
   top: 0px;
   left: 25%;
-}
-a.btn:hover{
-  color:#ffffff;
 }
 </style> 
