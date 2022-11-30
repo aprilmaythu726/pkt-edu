@@ -233,7 +233,7 @@ $route['adm/portal/jls_applicant/ecc_admission'] = '/dashboard/pdf/ecc_admiss';
 $route['adm/portal/jls_applicant/fukuoka_interview/(:any)'] = '/dashboard/pdf/fukuokainter/$1';
 $route['adm/portal/jls_applicant/fukuoka_interview'] = '/dashboard/pdf/fukuoka_inter';
 $route['adm/portal/jls_applicant/fukuoka_admission'] = '/dashboard/pdf/fukuoka_admiss';
-$route['adm/portal/jls_applicant/shizuoka_interview'] = '/dashboard/pdf/shizuoka_inter';
+$route['adm/portal/jls_applicant/shizuoka_interview/(:any)'] = '/dashboard/pdf/shizuoka_inter/$1';
 $route['adm/portal/jls_applicant/shizuoka_admission'] = '/dashboard/pdf/shizuoka_admiss';
 
 $route['adm/portal/jls_applicant/employee'] = '/dashboard/employee/index';

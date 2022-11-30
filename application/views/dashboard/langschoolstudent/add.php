@@ -1687,6 +1687,10 @@ $(function() {
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h6>
+<select name="family_in_japan" id="family_in_japan" class="planning_select" style="margin-top: 0px;margin-bottom: 20px;">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select>
 <p >If yes, fill in all the family members in Japan.</p>
   <div class="form-group">
   <?php echo form_label('Are you planning to stay with them in Japan? : ', 'ja_plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
