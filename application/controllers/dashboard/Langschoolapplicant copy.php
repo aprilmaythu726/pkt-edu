@@ -13,9 +13,9 @@ class Langschoolapplicant extends CI_Controller
     protected $site_name, $meta_tag, $favicon, $decimal_point, $date_format, $phone_format, $user_session, $timezone;
     //File upload data
     private $filename;
-    private $filenames;
+    private $filename1;
     private $upload_path = "./upload/assets/adm/usr/";
-    private $upload_paths = "./upload/assets/adm/sign/";
+    private $upload_path1 = "./upload/assets/adm/usr/";
     private $file_path = "/../../../upload/assets/adm/usr/";
     private $max_size = "202800"; // upload max size 200 MB
     private $max_width = "1024";
@@ -32,7 +32,6 @@ class Langschoolapplicant extends CI_Controller
         $this->load->library('encryption');
         $this->load->library('user_agent');
         $this->load->library('upload');
-        //$this->load->library('uploads');
         $this->load->library('email');
         $this->load->library('mainconfig');
         $this->load->helper('custom');
@@ -107,96 +106,55 @@ class Langschoolapplicant extends CI_Controller
                 //var_dump($_POST);
                 $data_info = array('jls_name' => $this->input->post('jls_name'), 'applicant_name' => $this->input->post('applicant_name'), 'applicant_name_kanji' => $this->input->post('applicant_name_kanji'), 'date_of_birthday' => $this->input->post('date_of_birthday'), 'place_birth' => $this->input->post('place_birth'), 'info_age' => $this->input->post('info_age'), 'info_nationality' => $this->input->post('info_nationality'), 'gender' => $this->input->post('gender'), 'martial_status' => $this->input->post('martial_status'), 'partaner_name' => $this->input->post('partaner_name'), 'std_email' => $this->input->post('std_email'), 'info_phone' => $this->input->post('info_phone'), 'address' => $this->input->post('address'), 'course_admission' => $this->input->post('course_admission'), 'course_study_lengh' => $this->input->post('course_study_lengh'), 'occupation' => $this->input->post('occupation'), 'place_employment_school' => $this->input->post('place_employment_school'), 'addr_employment_school' => $this->input->post('addr_employment_school'), 'tel_employment_school' => $this->input->post('tel_employment_school'), 'entry_age_ele_school' => $this->input->post('entry_age_ele_school'), 'duration_jp_language_study' => $this->input->post('duration_jp_language_study'), 'passport' => $this->input->post('passport'), 'educational_school_name' => $this->input->post('educational_school_name'), 'passport_no' => $this->input->post('passport_no'), 'passport_data_issue' => $this->input->post('passport_data_issue'), 'passport_data_exp' => $this->input->post('passport_data_exp'), 'military_service' => $this->input->post('military_service'), 'family_mail' => $this->input->post('family_mail'), 'family_tel' => $this->input->post('family_tel'), 'family_address' => $this->input->post('family_address'));
                 if (!empty($_FILES['userfile']['name'])) {
-                    $this->filename = $_FILES['userfile']['name'];
-                    $imgupload = $this->mainconfig->_fileUploadWithByName($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false, 'userfile');
+                    //image upload sever and add database
+                    $imgupload = $this->mainconfig->_fileUpload($this->filename1, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false);
                     if (!empty($imgupload['msg_error'])) {
                         $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
                         redirect('adm/portal/jls_applicant/add');
-                    } else {
+                    }
+                    else {
                         $data_info['image_file'] = $imgupload['file_name'];
                     }
                 }
-                    
                 if (!empty($_FILES['signfile']['name'])) {
-                    $this->filename = $_FILES['signfile']['name'];
-                    $signupload = $this->mainconfig->_fileUploadWithByName($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false, 'signfile');
-                    if (!empty($signupload['msg_error'])) {
-                        $this->session->set_flashdata('msg_error', $signupload['msg_error']);
+                    //image upload sever and add database
+                    $signupload = $this->mainconfig->_fileUpload($this->filename1, $this->upload_path1, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false);
+                    if (!empty($signupload['msg_error1'])) {
+                        $this->session->set_flashdata('msg_error', $signupload['msg_error1']);
                         redirect('adm/portal/jls_applicant/add');
-                    } else {
+                    }
+                    else {
                         $data_info['sign_file'] = $signupload['file_name'];
                     }
                 }
-                var_dump($data_info);
-                // $error = array();
-                // $config1['upload_path'] = "upload/assets/adm/usr/";
-                // $config1['allowed_types'] = 'gif|jpeg|png|jpg';
-                // $config1['max_size'] = '3000000';
-                // $config1['max_width'] = '1024';
-                // $config1['max_height'] = '768';
-                // $this->load->library('upload', $config1);
-                
-                // if (!$this->upload->do_upload('userfile')){
-                //     $error = array('error' => $this->upload->display_errors());
-                //     echo "<pre>";
-                //     print_r($error);
-                //     exit();
-                // }
-                // else {
-                //     $fdata = $this->upload->data();
-                //     var_dump($fdata);
-                //    // $data_info['userfile'] = 'upload/assets/adm/usr/' . $fdata['file_name'];
-                //     }
-                
-                // $config2['upload_path'] = "./upload/assets/adm/sign/";
-                // $config2['allowed_types'] = 'gif|jpeg|png|jpg';
-                // $config2['max_size'] = '3000000';
-                // $config2['max_width'] = '1024';
-                // $config2['max_height'] = '768';
-                // $this->upload->initialize($config2);
-                
-                // if (!$this->upload->do_upload('signfile')){
-                //     $error = array('error' => $this->upload->display_errors());
-                //     echo "<pre>";
-                //     print_r($error);
-                //     exit();
-                // }
-                // else {
-                //     $fdata = $this->upload->data();
-                //     $data_info['signfile'] = './upload/assets/adm/sign/' . $fdata['file_name'];
-                //     }
-                $data_details = array('have_you_visited_jp' => $this->input->post('have_you_visited_jp'),'ja_plan_to_stay_with_them' => $this->input->post('ja_plan_to_stay_with_them'),'family_in_japan' => $this->input->post('family_in_japan'), 'visited_date' => $this->input->post('visited_date'), 'date_of_departure' => $this->input->post('date_of_departure'), 'visa_type' => $this->input->post('visa_type'), 'school_apply_before_japan' => $this->input->post('school_apply_before_japan'), 'aimed_occupational_category' => $this->input->post('aimed_occupational_category'), 'school_apply_date' => $this->input->post('school_apply_date'), 'school_apply_status' => $this->input->post('school_apply_status'), 'school_apply_name' => $this->input->post('school_apply_name'), 'immigration_office' => $this->input->post('immigration_office'), 'immigration_result' => $this->input->post('immigration_result'), 'COE_reject' => $this->input->post('COE_reject'), 'place_apply_visa' => $this->input->post('place_apply_visa'), 'family_language' => $this->input->post('family_language'),
+                $data_details = array('have_you_visited_jp' => $this->input->post('have_you_visited_jp'), 'visited_date' => $this->input->post('visited_date'), 'date_of_departure' => $this->input->post('date_of_departure'), 'visa_type' => $this->input->post('visa_type'), 'school_apply_before_japan' => $this->input->post('school_apply_before_japan'), 'aimed_occupational_category' => $this->input->post('aimed_occupational_category'), 'school_apply_date' => $this->input->post('school_apply_date'), 'school_apply_status' => $this->input->post('school_apply_status'), 'school_apply_name' => $this->input->post('school_apply_name'), 'immigration_office' => $this->input->post('immigration_office'), 'immigration_result' => $this->input->post('immigration_result'), 'COE_reject' => $this->input->post('COE_reject'), 'place_apply_visa' => $this->input->post('place_apply_visa'), 'family_language' => $this->input->post('family_language'),
                 // 'eligibility_have' => $this->input->post('eligibility_have'),
                 // 'eligibility_time' => $this->input->post('eligibility_time'),
                 // 'eligibility_purpose' => $this->input->post('eligibility_purpose'),
                 // 'eligibility_date' => $this->input->post('eligibility_date'),
                 'provide_english' => $this->input->post('provide_english'), 'accompanying_person' => $this->input->post('accompanying_person'), 'understand_language' => $this->input->post('understand_language'), 'criminal_record' => $this->input->post('criminal_record'), 'criminal_record_details' => $this->input->post('criminal_record_details'), 'criminal_record_when' => $this->input->post('criminal_record_when'), 'departure_deportation' => $this->input->post('departure_deportation'), 'current_status' => $this->input->post('current_status'), 'current_status_school_name' => $this->input->post('current_status_school_name'), 'current_status_school_major' => $this->input->post('current_status_school_major'), 'current_status_school_grade' => $this->input->post('current_status_school_grade'), 'expected_month' => $this->input->post('expected_month'), 'expected_year' => $this->input->post('expected_year'), 'specific_plans_after_graduating' => $this->input->post('specific_plans_after_graduating'), 'specific_plan_type_schools' => $this->input->post('specific_plan_type_schools'), 'specific_plan_school_name' => $this->input->post('specific_plan_school_name'), 'specific_plan_major' => $this->input->post('specific_plan_major'), 'will_you_return' => $this->input->post('will_you_return'), 'purpose_studying_in_japanese' => $this->input->post('purpose_studying_in_japanese'), 'entry_purpose1' => $this->input->post('entry_purpose1'),);
-                $data_financial_sponsor = array('fin_name' => $this->input->post('fin_name'), 'fin_age' => $this->input->post('fin_age'), 'fin_relationship' => $this->input->post('fin_relationship'), 'fin_address' => $this->input->post('fin_address'), 'tel' => $this->input->post('tel'), 'email' => $this->input->post('email'), 'fin_occupation' => $this->input->post('fin_occupation'), 'work_place' => $this->input->post('work_place'), 'annual_income' => $this->input->post('annual_income'), 'amount_saving_for_study_abroad' => $this->input->post('amount_saving_for_study_abroad'), 'amount_of_saving_which_proved' => $this->input->post('amount_of_saving_which_proved'), 'start_work_date' => $this->input->post('start_work_date'),);
+                $data_financial_sponsor = array('name' => $this->input->post('name'), 'fin_age' => $this->input->post('fin_age'), 'fin_relationship' => $this->input->post('fin_relationship'), 'address' => $this->input->post('address'), 'tel' => $this->input->post('tel'), 'email' => $this->input->post('email'), 'occupation' => $this->input->post('occupation'), 'work_place' => $this->input->post('work_place'), 'annual_income' => $this->input->post('annual_income'), 'amount_saving_for_study_abroad' => $this->input->post('amount_saving_for_study_abroad'), 'amount_of_saving_which_proved' => $this->input->post('amount_of_saving_which_proved'), 'start_work_date' => $this->input->post('start_work_date'),);
                 $edu_name = $_POST['edu_name'];
                 $edu_address = $_POST['edu_address'];
                 $edu_start_date = $_POST['edu_start_date'];
                 $edu_end_date = $_POST['edu_end_date'];
                 $edu_year = $_POST['edu_year'];
-                if($edu_name != Null){
                 $data_edu_history = [];
                 $data_edu_history = array('edu_name' => $edu_name, 'edu_address' => $edu_address, 'edu_start_date' => $edu_start_date, 'edu_end_date' => $edu_end_date, 'edu_year' => $edu_year,);
-                }
                 $jp_name = $_POST['jp_name'];
                 $jp_address = $_POST['jp_address'];
                 $jp_start_date = $_POST['jp_start_date'];
                 $jp_end_date = $_POST['jp_end_date'];
                 $jp_hour = $_POST['jp_hour'];
-                if($jp_name != Null){
                 $data_lang_study = [];
                 $data_lang_study = array('jp_name' => $jp_name, 'jp_address' => $jp_address, 'jp_start_date' => $jp_start_date, 'jp_end_date' => $jp_end_date, 'jp_hour' => $jp_hour,);
-                }
                 // JLS_achievement_jp_lang_test
                 $achiv_name = $_POST['achiv_name'];
                 $level = $_POST['achiv_level'];
                 $exam_year = $_POST['achiv_exam_year'];
                 $score = $_POST['achiv_score'];
                 $result = $_POST['achiv_result'];
-                $date_qualification = $_POST['date_qualification'];
+                $date_qualification = $_POST['achiv_date_qualification'];
                 $data_achievement_jp = [];
                 $data_achievement_jp = array('achiv_name' => $achiv_name, 'level' => $level, 'exam_year' => $exam_year, 'score' => $score, 'result' => $result, 'date_qualification' => $date_qualification,);
                 // JLS_achievement_jp_lang_test
@@ -258,21 +216,8 @@ class Langschoolapplicant extends CI_Controller
                 $entry_purpose = $_POST['entry_purpose'];
                 $data_previous_stay_japan = array('entry_date' => $entry_date, 'arrival_date' => $arrival_date, 'depature_date' => $depature_date, 'status' => $status, 'entry_purpose' => $entry_purpose,);
                 //  var_dump($data_edu_history);
-                if($edu_name != Null){
-                $array_jcli1 = array
-                ('__initial_regist_data' => $data_info, 
-                '__initial_regist_data1' => $data_details, 
-                '__initial_regist_data2' => $data_financial_sponsor,                
-                '__initial_regist_data3' => $data_edu_history, 
-                '__initial_regist_data4' => $data_lang_study, 
-                '__initial_regist_data5' => $data_achievement_jp, 
-                '__initial_regist_data6' => $data_jp_lang_going_to_take, 
-                '__initial_regist_data7' => $data_history_employment, 
-                '__initial_regist_data8' => $data_family_member, 
-                '__initial_regist_data9' => $data_family_japan, 
-                '__initial_regist_data10' => $data_previous_stay_japan);
+                $array_jcli1 = array('__initial_regist_data' => $data_info, '__initial_regist_data1' => $data_details, '__initial_regist_data2' => $data_financial_sponsor, '__initial_regist_data3' => $data_edu_history, '__initial_regist_data4' => $data_lang_study, '__initial_regist_data5' => $data_achievement_jp, '__initial_regist_data6' => $data_jp_lang_going_to_take, '__initial_regist_data7' => $data_history_employment, '__initial_regist_data8' => $data_family_member, '__initial_regist_data9' => $data_family_japan, '__initial_regist_data10' => $data_previous_stay_japan);
                 //var_dump($array_jcli1);
-                }
                 $this->session->set_userdata($array_jcli1);
                 redirect('adm/portal/jls_applicant/confirm');
             }
@@ -281,55 +226,7 @@ class Langschoolapplicant extends CI_Controller
             $this->load->view('dashboard/langschoolstudent/add', $this->data);
         }
     }
-    // public function save_product() {
-    //     $data = array();
-    //     $error = array();
-    //     $config1['upload_path'] = './upload/assets/adm/usr/';
-    //     $config1['allowed_types'] = 'gif|jpeg|png|jpg';
-    //     $config1['max_size'] = '3000000';
-    //     $config1['max_width'] = '1024';
-    //     $config1['max_height'] = '768';
-    //     $this->load->library('upload', $config1);
-        
-    //     if (!$this->upload->do_upload('usefile')){
-    //         $error = array('error' => $this->upload->display_errors());
-    //         echo "<pre>";
-    //         print_r($error);
-    //         exit();
-    //     }
-    //     else {
-    //         $fdata = $this->upload->data();
-    //         $data_info['userfile'] = 'upload/assets/adm/usr/' . $fdata['file_name'];
-    //         }
-        
-    //     $config2['upload_path'] = './upload/assets/adm/sign/';
-    //     $config2['allowed_types'] = 'gif|jpeg|png|jpg';
-    //     $config2['max_size'] = '3000000';
-    //     $config2['max_width'] = '1024';
-    //     $config2['max_height'] = '768';
-    //     $this->upload->initialize($config2);
-        
-    //     if (!$this->upload->do_upload('signfile')){
-    //         $error = array('error' => $this->upload->display_errors());
-    //         echo "<pre>";
-    //         print_r($error);
-    //         exit();
-    //     }
-    //     else {
-    //         $fdata = $this->upload->data();
-    //         $data_info['signfile'] = 'upload/assets/adm/sign/' . $fdata['file_name'];
-    //         }
-        
-    //         // $data['product_id'] = $this->input->post('product_id', TRUE);
-    //         // $data['product_name'] = $this->input->post('product_name', TRUE);
-    //         // $data['category'] = $this->input->post('category', TRUE);
-        
-    //         // $result = $this->super_admin_model->save_product_detail($data);
-    //         // $sdata = array();
-    //         // $sdata['message'] = "Well done!</strong> You successfully add the Product Details.";
-    //         // $this->session->set_userdata($sdata);
-    //         // redirect('super_admin/add_product', 'refresh');
-    //     }
+
     // confirm
     public function confirm() 
     {
@@ -341,17 +238,14 @@ class Langschoolapplicant extends CI_Controller
             redirect('adm/portal/jls_applicant/add');
         }
         $data['lists'] = array('sign_file' => $this->session->userdata('__initial_regist_data') ['sign_file'], 'image_file' => $this->session->userdata('__initial_regist_data') ['image_file'], 'jls_name' => $this->session->userdata('__initial_regist_data') ['jls_name'], 'applicant_name' => $this->session->userdata('__initial_regist_data') ['applicant_name'], 'applicant_name_kanji' => $this->session->userdata('__initial_regist_data') ['applicant_name_kanji'], 'date_of_birthday' => $this->session->userdata('__initial_regist_data') ['date_of_birthday'], 'place_birth' => $this->session->userdata('__initial_regist_data') ['place_birth'], 'info_age' => $this->session->userdata('__initial_regist_data') ['info_age'], 'course_admission' => $this->session->userdata('__initial_regist_data') ['course_admission'], 'info_nationality' => $this->session->userdata('__initial_regist_data') ['info_nationality'], 'gender' => $this->session->userdata('__initial_regist_data') ['gender'], 'martial_status' => $this->session->userdata('__initial_regist_data') ['martial_status'], 'partaner_name' => $this->session->userdata('__initial_regist_data') ['partaner_name'], 'std_email' => $this->session->userdata('__initial_regist_data') ['std_email'], 'info_phone' => $this->session->userdata('__initial_regist_data') ['info_phone'], 'address' => $this->session->userdata('__initial_regist_data') ['address'], 'course_study_lengh' => $this->session->userdata('__initial_regist_data') ['course_study_lengh'], 'occupation' => $this->session->userdata('__initial_regist_data') ['occupation'], 'place_employment_school' => $this->session->userdata('__initial_regist_data') ['place_employment_school'], 'addr_employment_school' => $this->session->userdata('__initial_regist_data') ['addr_employment_school'], 'tel_employment_school' => $this->session->userdata('__initial_regist_data') ['tel_employment_school'], 'entry_age_ele_school' => $this->session->userdata('__initial_regist_data') ['entry_age_ele_school'], 'duration_jp_language_study' => $this->session->userdata('__initial_regist_data') ['duration_jp_language_study'], 'passport' => $this->session->userdata('__initial_regist_data') ['passport'], 'educational_school_name' => $this->session->userdata('__initial_regist_data') ['educational_school_name'], 'passport_no' => $this->session->userdata('__initial_regist_data') ['passport_no'], 'passport_data_issue' => $this->session->userdata('__initial_regist_data') ['passport_data_issue'], 'passport_data_exp' => $this->session->userdata('__initial_regist_data') ['passport_data_exp'], 'military_service' => $this->session->userdata('__initial_regist_data') ['military_service'], 'family_mail' => $this->session->userdata('__initial_regist_data') ['family_mail'], 'family_tel' => $this->session->userdata('__initial_regist_data') ['family_tel'], 'family_address' => $this->session->userdata('__initial_regist_data') ['family_address']);
-        $data['data_details'] = array('have_you_visited_jp' => $this->session->userdata('__initial_regist_data1') ['have_you_visited_jp'], 'ja_plan_to_stay_with_them' => $this->session->userdata('__initial_regist_data1') ['ja_plan_to_stay_with_them'],'family_in_japan' => $this->session->userdata('__initial_regist_data1') ['family_in_japan'], 'visited_date' => $this->session->userdata('__initial_regist_data1') ['visited_date'], 'date_of_departure' => $this->session->userdata('__initial_regist_data1') ['date_of_departure'], 'visa_type' => $this->session->userdata('__initial_regist_data1') ['visa_type'], 'school_apply_before_japan' => $this->session->userdata('__initial_regist_data1') ['school_apply_before_japan'], 'aimed_occupational_category' => $this->session->userdata('__initial_regist_data1') ['aimed_occupational_category'], 'will_you_return' => $this->session->userdata('__initial_regist_data1') ['will_you_return'], 'school_apply_date' => $this->session->userdata('__initial_regist_data1') ['school_apply_date'], 'school_apply_status' => $this->session->userdata('__initial_regist_data1') ['school_apply_status'], 'school_apply_name' => $this->session->userdata('__initial_regist_data1') ['school_apply_name'], 'immigration_office' => $this->session->userdata('__initial_regist_data1') ['immigration_office'], 'immigration_result' => $this->session->userdata('__initial_regist_data1') ['immigration_result'], 'COE_reject' => $this->session->userdata('__initial_regist_data1') ['COE_reject'], 'place_apply_visa' => $this->session->userdata('__initial_regist_data1') ['place_apply_visa'], 'family_language' => $this->session->userdata('__initial_regist_data1') ['family_language'],
+        $data['data_details'] = array('have_you_visited_jp' => $this->session->userdata('__initial_regist_data1') ['have_you_visited_jp'], 'visited_date' => $this->session->userdata('__initial_regist_data1') ['visited_date'], 'date_of_departure' => $this->session->userdata('__initial_regist_data1') ['date_of_departure'], 'visa_type' => $this->session->userdata('__initial_regist_data1') ['visa_type'], 'school_apply_before_japan' => $this->session->userdata('__initial_regist_data1') ['school_apply_before_japan'], 'aimed_occupational_category' => $this->session->userdata('__initial_regist_data1') ['aimed_occupational_category'], 'will_you_return' => $this->session->userdata('__initial_regist_data1') ['will_you_return'], 'school_apply_date' => $this->session->userdata('__initial_regist_data1') ['school_apply_date'], 'school_apply_status' => $this->session->userdata('__initial_regist_data1') ['school_apply_status'], 'school_apply_name' => $this->session->userdata('__initial_regist_data1') ['school_apply_name'], 'immigration_office' => $this->session->userdata('__initial_regist_data1') ['immigration_office'], 'immigration_result' => $this->session->userdata('__initial_regist_data1') ['immigration_result'], 'COE_reject' => $this->session->userdata('__initial_regist_data1') ['COE_reject'], 'place_apply_visa' => $this->session->userdata('__initial_regist_data1') ['place_apply_visa'], 'family_language' => $this->session->userdata('__initial_regist_data1') ['family_language'],
         // 'eligibility_have' => $this->session->userdata('__initial_regist_data1')['eligibility_have'],
         // 'eligibility_time' => $this->session->userdata('__initial_regist_data1')['eligibility_time'],
         // 'eligibility_purpose' => $this->session->userdata('__initial_regist_data1')['eligibility_purpose'],
         // 'eligibility_date' => $this->session->userdata('__initial_regist_data1')['eligibility_date'],
         'provide_english' => $this->session->userdata('__initial_regist_data1') ['provide_english'], 'accompanying_person' => $this->session->userdata('__initial_regist_data1') ['accompanying_person'], 'understand_language' => $this->session->userdata('__initial_regist_data1') ['understand_language'], 'criminal_record' => $this->session->userdata('__initial_regist_data1') ['criminal_record'], 'criminal_record_details' => $this->session->userdata('__initial_regist_data1') ['criminal_record_details'], 'criminal_record_when' => $this->session->userdata('__initial_regist_data1') ['criminal_record_when'], 'departure_deportation' => $this->session->userdata('__initial_regist_data1') ['departure_deportation'], 'current_status' => $this->session->userdata('__initial_regist_data1') ['current_status'], 'current_status_school_name' => $this->session->userdata('__initial_regist_data1') ['current_status_school_name'], 'current_status_school_major' => $this->session->userdata('__initial_regist_data1') ['current_status_school_major'], 'current_status_school_grade' => $this->session->userdata('__initial_regist_data1') ['current_status_school_grade'], 'expected_month' => $this->session->userdata('__initial_regist_data1') ['expected_month'], 'expected_year' => $this->session->userdata('__initial_regist_data1') ['expected_year'], 'specific_plans_after_graduating' => $this->session->userdata('__initial_regist_data1') ['specific_plans_after_graduating'], 'specific_plan_type_schools' => $this->session->userdata('__initial_regist_data1') ['specific_plan_type_schools'], 'specific_plan_school_name' => $this->session->userdata('__initial_regist_data1') ['specific_plan_school_name'], 'specific_plan_major' => $this->session->userdata('__initial_regist_data1') ['specific_plan_major'], 'purpose_studying_in_japanese' => $this->session->userdata('__initial_regist_data1') ['purpose_studying_in_japanese'], 'entry_purpose1' => $this->session->userdata('__initial_regist_data1') ['entry_purpose1']);
         //$data['lists2'] = array('name' => $this->session->userdata('__initial_regist_data2') ['name'], 'age' => $this->session->userdata('__initial_regist_data2') ['age'], 'address' => $this->session->userdata('__initial_regist_data2') ['address'], 'tel' => $this->session->userdata('__initial_regist_data2') ['tel']);
-        if($this->session->userdata('__initial_regist_data3') ['edu_name'] != null){
-        $data['lists3'] = array(            
-            'edu_name' => $this->session->userdata('__initial_regist_data3') ['edu_name'], 'edu_address' => $this->session->userdata('__initial_regist_data3') ['edu_address'], 'edu_start_date' => $this->session->userdata('__initial_regist_data3') ['edu_start_date'], 'edu_end_date' => $this->session->userdata('__initial_regist_data3') ['edu_end_date'], 'edu_year' => $this->session->userdata('__initial_regist_data3') ['edu_year']);
-         }
+        $data['lists3'] = array('edu_name' => $this->session->userdata('__initial_regist_data3') ['edu_name'], 'edu_address' => $this->session->userdata('__initial_regist_data3') ['edu_address'], 'edu_start_date' => $this->session->userdata('__initial_regist_data3') ['edu_start_date'], 'edu_end_date' => $this->session->userdata('__initial_regist_data3') ['edu_end_date'], 'edu_year' => $this->session->userdata('__initial_regist_data3') ['edu_year']);
         $data['data_lang_study'] = array('jp_name' => $this->session->userdata('__initial_regist_data4') ['jp_name'], 'jp_address' => $this->session->userdata('__initial_regist_data4') ['jp_address'], 'jp_start_date' => $this->session->userdata('__initial_regist_data4') ['jp_start_date'], 'jp_end_date' => $this->session->userdata('__initial_regist_data4') ['jp_end_date'], 'jp_hour' => $this->session->userdata('__initial_regist_data4') ['jp_hour']);
         $data['data_achievement_jp'] = array('achiv_name' => $this->session->userdata('__initial_regist_data5') ['achiv_name'], 'level' => $this->session->userdata('__initial_regist_data5') ['level'], 'exam_year' => $this->session->userdata('__initial_regist_data5') ['exam_year'], 'score' => $this->session->userdata('__initial_regist_data5') ['score'], 'result' => $this->session->userdata('__initial_regist_data5') ['result'], 'date_qualification' => $this->session->userdata('__initial_regist_data5') ['date_qualification']);
         $data['data_jp_lang_going_to_take'] = array('going_name' => $this->session->userdata('__initial_regist_data6') ['going_name'], 'going_level' => $this->session->userdata('__initial_regist_data6') ['going_level'],);
@@ -359,7 +253,7 @@ class Langschoolapplicant extends CI_Controller
         $data['data_family_member'] = array('fam_name' => $this->session->userdata('__initial_regist_data8') ['fam_name'], 'fam_relationship' => $this->session->userdata('__initial_regist_data8') ['fam_relationship'], 'fam_work_place' => $this->session->userdata('__initial_regist_data8') ['fam_work_place'], 'fam_birthday' => $this->session->userdata('__initial_regist_data8') ['fam_birthday'], 'fam_occupation' => $this->session->userdata('__initial_regist_data8') ['fam_occupation'], 'fam_annual_income' => $this->session->userdata('__initial_regist_data8') ['fam_annual_income'], 'fam_address' => $this->session->userdata('__initial_regist_data8') ['fam_address'], 'fam_length_sevice' => $this->session->userdata('__initial_regist_data8') ['fam_length_sevice']);
         $data['data_family_japan'] = array('ja_fam_name' => $this->session->userdata('__initial_regist_data9') ['ja_fam_name'], 'ja_fam_age' => $this->session->userdata('__initial_regist_data9') ['ja_fam_age'], 'ja_fam_relationship' => $this->session->userdata('__initial_regist_data9') ['ja_fam_relationship'], 'ja_fam_residing_applicant' => $this->session->userdata('__initial_regist_data9') ['ja_fam_residing_applicant'], 'ja_fam_nationality' => $this->session->userdata('__initial_regist_data9') ['ja_fam_nationality'], 'ja_fam_visa_status' => $this->session->userdata('__initial_regist_data9') ['ja_fam_visa_status'], 'ja_fam_work_place' => $this->session->userdata('__initial_regist_data9') ['ja_fam_work_place']);
         $data['data_previous_stay_japan'] = array('entry_date' => $this->session->userdata('__initial_regist_data10') ['entry_date'], 'arrival_date' => $this->session->userdata('__initial_regist_data10') ['arrival_date'], 'depature_date' => $this->session->userdata('__initial_regist_data10') ['depature_date'], 'status' => $this->session->userdata('__initial_regist_data10') ['status'], 'entry_purpose' => $this->session->userdata('__initial_regist_data10') ['entry_purpose']);
-        $data['data_financial_sponsor'] = array('fin_name' => $this->session->userdata('__initial_regist_data2') ['fin_name'], 'fin_age' => $this->session->userdata('__initial_regist_data2') ['fin_age'], 'fin_relationship' => $this->session->userdata('__initial_regist_data2') ['fin_relationship'], 'fin_address' => $this->session->userdata('__initial_regist_data2') ['fin_address'], 'tel' => $this->session->userdata('__initial_regist_data2') ['tel'], 'email' => $this->session->userdata('__initial_regist_data2') ['email'], 'fin_occupation' => $this->session->userdata('__initial_regist_data2') ['fin_occupation'], 'work_place' => $this->session->userdata('__initial_regist_data2') ['work_place'], 'annual_income' => $this->session->userdata('__initial_regist_data2') ['annual_income'], 'amount_saving_for_study_abroad' => $this->session->userdata('__initial_regist_data2') ['amount_saving_for_study_abroad'], 'amount_of_saving_which_proved' => $this->session->userdata('__initial_regist_data2') ['amount_of_saving_which_proved'], 'start_work_date' => $this->session->userdata('__initial_regist_data2') ['start_work_date'],);
+        $data['data_financial_sponsor'] = array('name' => $this->session->userdata('__initial_regist_data2') ['name'], 'fin_age' => $this->session->userdata('__initial_regist_data2') ['fin_age'], 'fin_relationship' => $this->session->userdata('__initial_regist_data2') ['fin_relationship'], 'address' => $this->session->userdata('__initial_regist_data2') ['address'], 'tel' => $this->session->userdata('__initial_regist_data2') ['tel'], 'email' => $this->session->userdata('__initial_regist_data2') ['email'], 'occupation' => $this->session->userdata('__initial_regist_data2') ['occupation'], 'work_place' => $this->session->userdata('__initial_regist_data2') ['work_place'], 'annual_income' => $this->session->userdata('__initial_regist_data2') ['annual_income'], 'amount_saving_for_study_abroad' => $this->session->userdata('__initial_regist_data2') ['amount_saving_for_study_abroad'], 'amount_of_saving_which_proved' => $this->session->userdata('__initial_regist_data2') ['amount_of_saving_which_proved'], 'start_work_date' => $this->session->userdata('__initial_regist_data2') ['start_work_date'],);
         $this->session->userdata('__initial_regist_data3') ['edu_name'];
         $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $data);
         $this->load->view('dashboard/langschoolstudent/confirm', $this->data);
@@ -389,14 +283,14 @@ class Langschoolapplicant extends CI_Controller
                 $userData = $this->__Xss($userData);
                 $applicant_id = $this->Langschoolapplicant_Model->JLSapplicantinfo($userData);
                 // var_dump($userData);
-                $userdata1 = array('applicant_id' => $applicant_id, 'have_you_visited_jp' => $this->session->userdata('__initial_regist_data1') ['have_you_visited_jp'],'ja_plan_to_stay_with_them' => $this->session->userdata('__initial_regist_data1') ['ja_plan_to_stay_with_them'],'family_in_japan' => $this->session->userdata('__initial_regist_data1') ['family_in_japan'], 'visited_date' => $this->session->userdata('__initial_regist_data1') ['visited_date'], 'date_of_departure' => $this->session->userdata('__initial_regist_data1') ['date_of_departure'], 'visa_type' => $this->session->userdata('__initial_regist_data1') ['visa_type'], 'school_apply_before_japan' => $this->session->userdata('__initial_regist_data1') ['school_apply_before_japan'], 'aimed_occupational_category' => $this->session->userdata('__initial_regist_data1') ['aimed_occupational_category'], 'school_apply_date' => $this->session->userdata('__initial_regist_data1') ['school_apply_date'], 'school_apply_status' => $this->session->userdata('__initial_regist_data1') ['school_apply_status'], 'school_apply_name' => $this->session->userdata('__initial_regist_data1') ['school_apply_name'], 'immigration_office' => $this->session->userdata('__initial_regist_data1') ['immigration_office'], 'immigration_result' => $this->session->userdata('__initial_regist_data1') ['immigration_result'], 'COE_reject' => $this->session->userdata('__initial_regist_data1') ['COE_reject'], 'place_apply_visa' => $this->session->userdata('__initial_regist_data1') ['place_apply_visa'], 'family_language' => $this->session->userdata('__initial_regist_data1') ['family_language'],
+                $userdata1 = array('applicant_id' => $applicant_id, 'have_you_visited_jp' => $this->session->userdata('__initial_regist_data1') ['have_you_visited_jp'], 'visited_date' => $this->session->userdata('__initial_regist_data1') ['visited_date'], 'date_of_departure' => $this->session->userdata('__initial_regist_data1') ['date_of_departure'], 'visa_type' => $this->session->userdata('__initial_regist_data1') ['visa_type'], 'school_apply_before_japan' => $this->session->userdata('__initial_regist_data1') ['school_apply_before_japan'], 'aimed_occupational_category' => $this->session->userdata('__initial_regist_data1') ['aimed_occupational_category'], 'school_apply_date' => $this->session->userdata('__initial_regist_data1') ['school_apply_date'], 'school_apply_status' => $this->session->userdata('__initial_regist_data1') ['school_apply_status'], 'school_apply_name' => $this->session->userdata('__initial_regist_data1') ['school_apply_name'], 'immigration_office' => $this->session->userdata('__initial_regist_data1') ['immigration_office'], 'immigration_result' => $this->session->userdata('__initial_regist_data1') ['immigration_result'], 'COE_reject' => $this->session->userdata('__initial_regist_data1') ['COE_reject'], 'place_apply_visa' => $this->session->userdata('__initial_regist_data1') ['place_apply_visa'], 'family_language' => $this->session->userdata('__initial_regist_data1') ['family_language'],
                 // 'eligibility_have' => $this->session->userdata('__initial_regist_data1')['eligibility_have'],
                 // 'eligibility_time' => $this->session->userdata('__initial_regist_data1')['eligibility_time'],
                 // 'eligibility_purpose' => $this->session->userdata('__initial_regist_data1')['eligibility_purpose'],
                 // 'eligibility_date' => $this->session->userdata('__initial_regist_data1')['eligibility_date'],
                 'provide_english' => $this->session->userdata('__initial_regist_data1') ['provide_english'], 'accompanying_person' => $this->session->userdata('__initial_regist_data1') ['accompanying_person'], 'understand_language' => $this->session->userdata('__initial_regist_data1') ['understand_language'], 'criminal_record' => $this->session->userdata('__initial_regist_data1') ['criminal_record'], 'criminal_record_details' => $this->session->userdata('__initial_regist_data1') ['criminal_record_details'], 'criminal_record_when' => $this->session->userdata('__initial_regist_data1') ['criminal_record_when'], 'departure_deportation' => $this->session->userdata('__initial_regist_data1') ['departure_deportation'], 'current_status' => $this->session->userdata('__initial_regist_data1') ['current_status'], 'current_status_school_name' => $this->session->userdata('__initial_regist_data1') ['current_status_school_name'], 'current_status_school_major' => $this->session->userdata('__initial_regist_data1') ['current_status_school_major'], 'current_status_school_grade' => $this->session->userdata('__initial_regist_data1') ['current_status_school_grade'], 'expected_month' => $this->session->userdata('__initial_regist_data1') ['expected_month'], 'expected_year' => $this->session->userdata('__initial_regist_data1') ['expected_year'], 'specific_plans_after_graduating' => $this->session->userdata('__initial_regist_data1') ['specific_plans_after_graduating'], 'specific_plan_type_schools' => $this->session->userdata('__initial_regist_data1') ['specific_plan_type_schools'], 'specific_plan_school_name' => $this->session->userdata('__initial_regist_data1') ['specific_plan_school_name'], 'specific_plan_major' => $this->session->userdata('__initial_regist_data1') ['specific_plan_major'], 'will_you_return' => $this->session->userdata('__initial_regist_data1') ['will_you_return'], 'purpose_studying_in_japanese' => $this->session->userdata('__initial_regist_data1') ['purpose_studying_in_japanese'], 'entry_purpose1' => $this->session->userdata('__initial_regist_data1') ['entry_purpose1']);
                 $insertChecker = $this->Langschoolapplicant_Model->JLSapplicantdetails($userdata1);
-                $data_financial_sponsor = array('applicant_id' => $applicant_id, 'fin_name' => $this->session->userdata('__initial_regist_data2') ['fin_name'], 'fin_age' => $this->session->userdata('__initial_regist_data2') ['fin_age'], 'fin_relationship' => $this->session->userdata('__initial_regist_data2') ['fin_relationship'], 'fin_address' => $this->session->userdata('__initial_regist_data2') ['fin_address'], 'tel' => $this->session->userdata('__initial_regist_data2') ['tel'], 'email' => $this->session->userdata('__initial_regist_data2') ['email'], 'fin_occupation' => $this->session->userdata('__initial_regist_data2') ['fin_occupation'], 'work_place' => $this->session->userdata('__initial_regist_data2') ['work_place'], 'annual_income' => $this->session->userdata('__initial_regist_data2') ['annual_income'], 'amount_saving_for_study_abroad' => $this->session->userdata('__initial_regist_data2') ['amount_saving_for_study_abroad'], 'amount_of_saving_which_proved' => $this->session->userdata('__initial_regist_data2') ['amount_of_saving_which_proved'], 'start_work_date' => $this->session->userdata('__initial_regist_data2') ['start_work_date'],);
+                $data_financial_sponsor = array('applicant_id' => $applicant_id, 'name' => $this->session->userdata('__initial_regist_data2') ['name'], 'fin_age' => $this->session->userdata('__initial_regist_data2') ['fin_age'], 'fin_relationship' => $this->session->userdata('__initial_regist_data2') ['fin_relationship'], 'address' => $this->session->userdata('__initial_regist_data2') ['address'], 'tel' => $this->session->userdata('__initial_regist_data2') ['tel'], 'email' => $this->session->userdata('__initial_regist_data2') ['email'], 'occupation' => $this->session->userdata('__initial_regist_data2') ['occupation'], 'work_place' => $this->session->userdata('__initial_regist_data2') ['work_place'], 'annual_income' => $this->session->userdata('__initial_regist_data2') ['annual_income'], 'amount_saving_for_study_abroad' => $this->session->userdata('__initial_regist_data2') ['amount_saving_for_study_abroad'], 'amount_of_saving_which_proved' => $this->session->userdata('__initial_regist_data2') ['amount_of_saving_which_proved'], 'start_work_date' => $this->session->userdata('__initial_regist_data2') ['start_work_date'],);
                 $insertChecker2 = $this->Langschoolapplicant_Model->JLSfinancialsponser($data_financial_sponsor);
                 $edu_name = $this->session->userdata('__initial_regist_data3') ['edu_name'];
                 $edu_address = $this->session->userdata('__initial_regist_data3') ['edu_address'];
@@ -404,11 +298,9 @@ class Langschoolapplicant extends CI_Controller
                 $edu_end_date = $this->session->userdata('__initial_regist_data3') ['edu_end_date'];
                 $edu_year = $this->session->userdata('__initial_regist_data3') ['edu_year'];
                 $count1 = count($this->session->userdata('__initial_regist_data3') ['edu_name']);
-                for ($i = 0;$i < $count1;$i++) {                    
-                    if($edu_name[$i] != Null){
-                        $data_edu_history = array('applicant_id' => $applicant_id, 'edu_name' => $edu_name[$i], 'address' => $edu_address[$i], 'start_date' => $edu_start_date[$i], 'end_date' => $edu_end_date[$i], 'year' => $edu_year[$i],);
+                for ($i = 0;$i < $count1;$i++) {
+                    $data_edu_history = array('applicant_id' => $applicant_id, 'edu_name' => $edu_name[$i], 'address' => $edu_address[$i], 'start_date' => $edu_start_date[$i], 'end_date' => $edu_end_date[$i], 'year' => $edu_year[$i],);
                     $insertChecker3 = $this->db->insert('JLS_educational_history', $data_edu_history);
-                    }
                 }
                 $jp_name = $this->session->userdata('__initial_regist_data4') ['jp_name'];
                 $jp_address = $this->session->userdata('__initial_regist_data4') ['jp_address'];
@@ -417,10 +309,8 @@ class Langschoolapplicant extends CI_Controller
                 $jp_hour = $this->session->userdata('__initial_regist_data4') ['jp_hour'];
                 $count2 = count($this->session->userdata('__initial_regist_data4') ['jp_name']);
                 for ($i = 0;$i < $count2;$i++) {
-                    if($jp_name[$i] != Null){
                     $data_lang_study = array('applicant_id' => $applicant_id, 'jp_name' => $jp_name[$i], 'address' => $jp_address[$i], 'start_date' => $jp_start_date[$i], 'end_date' => $jp_end_date[$i], 'hour' => $jp_hour[$i],);
                     $insertChecker4 = $this->db->insert('JLS_previous_jp_lang_study', $data_lang_study);
-                    }
                 }
                 $achiv_name = $this->session->userdata('__initial_regist_data5') ['achiv_name'];
                 $level = $this->session->userdata('__initial_regist_data5') ['level'];
@@ -430,19 +320,15 @@ class Langschoolapplicant extends CI_Controller
                 $date_qualification = $this->session->userdata('__initial_regist_data5') ['date_qualification'];
                 $count3 = count($this->session->userdata('__initial_regist_data5') ['achiv_name']);
                 for ($i = 0;$i < $count3;$i++) {
-                    if($achiv_name[$i] != Null){
                     $data_achievement_jp = array('applicant_id' => $applicant_id, 'achiv_name' => $achiv_name[$i], 'level' => $level[$i], 'exam_year' => $exam_year[$i], 'score' => $score[$i], 'result' => $result[$i], 'date_qualification' => $date_qualification[$i],);
                     $insertChecker5 = $this->db->insert('JLS_achievement_jp_lang_test', $data_achievement_jp);
-                    }
                 }
                 $going_name = $this->session->userdata('__initial_regist_data6') ['going_name'];
                 $going_level = $this->session->userdata('__initial_regist_data6') ['going_level'];
                 $count4 = count($this->session->userdata('__initial_regist_data6') ['going_name']);
                 for ($i = 0;$i < $count4;$i++) {
-                    if($going_name[$i] != Null){
                     $data_jp_lang_going_to_take = array('applicant_id' => $applicant_id, 'going_name' => $going_name[$i], 'going_level' => $going_level[$i]);
                     $insertChecker3 = $this->db->insert('JLS_name_jp_lang_tests_going_to_take', $data_jp_lang_going_to_take);
-                    }
                 }
                 $emp_name = $this->session->userdata('__initial_regist_data7') ['emp_name'];
                 $emp_address = $this->session->userdata('__initial_regist_data7') ['emp_address'];
@@ -452,10 +338,8 @@ class Langschoolapplicant extends CI_Controller
                 $emp_job_description = $this->session->userdata('__initial_regist_data7') ['emp_job_description'];
                 $count3 = count($this->session->userdata('__initial_regist_data7') ['emp_name']);
                 for ($i = 0;$i < $count3;$i++) {
-                    if($emp_name[$i] != Null){
                     $data_history_employment = array('applicant_id' => $applicant_id, 'emp_name' => $emp_name[$i], 'address' => $emp_address[$i], 'start_date' => $emp_start_date[$i], 'end_date' => $emp_end_date[$i], 'year' => $emp_year[$i], 'job_description' => $emp_job_description[$i],);
                     $insertChecker6 = $this->db->insert('JLS_history_employment', $data_history_employment);
-                    }
                 }
                 $fam_name = $this->session->userdata('__initial_regist_data8') ['fam_name'];
                 $fam_relationship = $this->session->userdata('__initial_regist_data8') ['fam_relationship'];
@@ -467,10 +351,8 @@ class Langschoolapplicant extends CI_Controller
                 $fam_length_sevice = $this->session->userdata('__initial_regist_data8') ['fam_length_sevice'];
                 $count4 = count($this->session->userdata('__initial_regist_data8') ['fam_name']);
                 for ($i = 0;$i < $count4;$i++) {
-                    if($fam_name[$i] != Null){
                     $data_family_member = array('applicant_id' => $applicant_id, 'fam_name' => $fam_name[$i], 'fam_relationship' => $fam_relationship[$i], 'work_place' => $fam_work_place[$i], 'birthday' => $fam_birthday[$i], 'occupation' => $fam_occupation[$i], 'annual_income' => $fam_annual_income[$i], 'address' => $fam_address[$i], 'length_sevice' => $fam_length_sevice[$i]);
                     $insertChecker7 = $this->db->insert('JLS_family_member', $data_family_member);
-                    }
                 }
                 $ja_fam_name = $this->session->userdata('__initial_regist_data9') ['ja_fam_name'];
                 $ja_fam_age = $this->session->userdata('__initial_regist_data9') ['ja_fam_age'];
@@ -481,10 +363,8 @@ class Langschoolapplicant extends CI_Controller
                 $ja_fam_work_place = $this->session->userdata('__initial_regist_data9') ['ja_fam_work_place'];
                 $count5 = count($this->session->userdata('__initial_regist_data9') ['ja_fam_name']);
                 for ($i = 0;$i < $count5;$i++) {
-                    if($ja_fam_name[$i] != Null){
                     $data_family_japan = array('applicant_id' => $applicant_id, 'ja_fam_name' => $ja_fam_name[$i], 'ja_fam_age' => $ja_fam_age[$i], 'ja_fam_relationship' => $ja_fam_relationship[$i], 'ja_fam_residing_applicant' => $ja_fam_residing_applicant[$i], 'ja_fam_nationality' => $ja_fam_nationality[$i], 'ja_fam_visa_status' => $ja_fam_visa_status[$i], 'ja_fam_work_place' => $ja_fam_work_place[$i]);
                     $insertChecker8 = $this->db->insert('JLS_family_in_japan', $data_family_japan);
-                    }
                 }
                 //var_dump($insertChecker8);
                 $entry_date = $this->session->userdata('__initial_regist_data10') ['entry_date'];
@@ -494,14 +374,12 @@ class Langschoolapplicant extends CI_Controller
                 $entry_purpose = $this->session->userdata('__initial_regist_data10') ['entry_purpose'];
                 $count6 = count($this->session->userdata('__initial_regist_data10') ['entry_date']);
                 for ($i = 0;$i < $count6;$i++) {
-                    if($entry_date[$i] != Null){
                     $data_previous_stay_japan = array('applicant_id' => $applicant_id, 'entry_date' => $entry_date[$i], 'arrival_date' => $arrival_date[$i], 'depature_date' => $depature_date[$i], 'status' => $status[$i], 'entry_purpose' => $entry_purpose[$i]);
                     $insertChecker9 = $this->db->insert('JLS_previous_stay_in_japan',$data_previous_stay_japan);
-                    }
                 }
                 //var_dump($insertChecker9);
                 // $insertChecker3 = $this->db->insert('JLS_educational_history', $data_edu_history);
-                if ($applicant_id & $insertChecker & $insertChecker2) {
+                if ($applicant_id & $insertChecker & $insertChecker2 & $insertChecker3 & $insertChecker4 & $insertChecker5 & $insertChecker6 & $insertChecker7 & $insertChecker8 & $insertChecker9) {
                     if ($this->session->has_userdata('__initial_regist_data')) {
                         $enroll = array('__initial_regist_data');
                         $this->session->unset_userdata($enroll);
@@ -540,7 +418,6 @@ class Langschoolapplicant extends CI_Controller
         $this->__permissionChecker($this->key, $this->url);
         $globalHeader = array("alert" => $this->mainconfig->_DefaultNotic(), 'title' => "Edit Student", 'msg' => "", 'uri' => array("langschoolapplicant", "jls_edit"), 'config' => $this->user_config,);
         $list = $this->Langschoolapplicant_Model->getJLSDetail($id);
-        $list12 = $this->Langschoolapplicant_Model->getJLSDetailFin($id);
         $list4 = $this->Langschoolapplicant_Model->getJLSDetail1($id);
         $list5 = $this->Langschoolapplicant_Model->getJLSDetail2($id);
        // var_dump($list4);
@@ -561,7 +438,6 @@ class Langschoolapplicant extends CI_Controller
         $this->__resultEmptyChecker($id, $globalHeader, "adm/portal/langschoolstudent", $list9);
         $this->__resultEmptyChecker($id, $globalHeader, "adm/portal/langschoolstudent", $list10);
         $this->__resultEmptyChecker($id, $globalHeader, "adm/portal/langschoolstudent", $list11);
-        $this->__resultEmptyChecker($id, $globalHeader, "adm/portal/langschoolstudent", $list12);
         
         //*** Generate necessary key and value
         // // $Q_list = _transfer_key_prepare(object_key_checker($list));
@@ -584,7 +460,6 @@ class Langschoolapplicant extends CI_Controller
         // $this->data['result10'] = object_transfer($list10, $Q_list10);
         // $this->data['result11'] = object_transfer($list11, $Q_list11);
          $this->data['result'] = $list;
-        //  var_dump($list);
         $this->data['result4'] = $list4;
         $this->data['result5'] = $list5;
         $this->data['result6'] = $list6;
@@ -593,10 +468,8 @@ class Langschoolapplicant extends CI_Controller
         $this->data['result9'] = $list9;
         $this->data['result10'] = $list10;
         $this->data['result11'] = $list11;
-        $this->data['result12'] = $list12;
         $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
-        $recent_image_photo = $this->data['result']->image_file;
-        $recent_sign_photo = $this->data['result']->sign_file;
+        $recent_photo = $this->data['result']->image_file;
         if ($_POST) {
             // $this->form_validation->set_rules('std_name', 'student name', 'trim|required|min_length[5]|is_unique[OSL_std_profile.name]|xss_clean');
             // $this->form_validation->set_rules('std_email', 'email', 'trim|required|valid_email|is_unique[OSL_student.email]|xss_clean');
@@ -632,37 +505,20 @@ class Langschoolapplicant extends CI_Controller
                 //   $data['activate_date'] = "0000-00-00 00:00:00";
                 // }
                 if (!empty($_FILES['userfile']['name'])) {
-                    if (!empty($recent_image_photo)) {
-                        $preview_link = dirname(__FILE__) . "" . $this->file_path . "" . $recent_image_photo;
+                    if (!empty($recent_photo)) {
+                        $preview_link = dirname(__FILE__) . "" . $this->file_path . "" . $recent_photo;
                         if (file_exists($preview_link)) {
                             unlink($preview_link);
                         }
                     }
                     //image upload sever and add database
-                    $imgupload = $this->mainconfig->_fileUploadWithByName($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false,'userfile');
+                    $imgupload = $this->mainconfig->_fileUpload($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false);
                     if (!empty($imgupload['msg_error'])) {
                         $this->session->set_flashdata('msg_error', $imgupload['msg_error']);
-                        redirect('adm/portal/jls_applicant/edit/' . $id, $data_info);
+                        redirect('adm/portal/langschoolstudent/edit/' . $id, $data_info);
                     }
                     else {
                         $data_info['image_file'] = $imgupload['file_name'];
-                    }
-                }
-                if (!empty($_FILES['signfile']['name'])) {
-                    if (!empty($recent_sign_photo)) {
-                        $preview_link = dirname(__FILE__) . "" . $this->file_path . "" . $recent_sign_photo;
-                        if (file_exists($preview_link)) {
-                            unlink($preview_link);
-                        }
-                    }
-                    //image upload sever and add database
-                    $signupload = $this->mainconfig->_fileUploadWithByName($this->filename, $this->upload_path, $this->max_size, $this->max_width, $this->max_height, $this->allow_type, true, true, false,'signfile');
-                    if (!empty($signupload['msg_error'])) {
-                        $this->session->set_flashdata('msg_error', $signupload['msg_error']);
-                        redirect('adm/portal/jls_applicant/edit/' . $id, $data_info);
-                    }
-                    else {
-                        $data_info['sign_file'] = $signupload['file_name'];
                     }
                 }
                 $data_info = $this->__Xss($data_info);
@@ -670,7 +526,7 @@ class Langschoolapplicant extends CI_Controller
                 $checkdata1 = $this->Langschoolapplicant_Model->JLSCheck($data_info, $id);
                 $update_info_id = $this->Langschoolapplicant_Model->jlsAuthUpdate($data_info, $id);
                 var_dump($update_info_id);
-                $data_details = array('applicant_id' => $update_info_id, 'have_you_visited_jp' => $this->input->post('have_you_visited_jp'),'ja_plan_to_stay_with_them' => $this->input->post('ja_plan_to_stay_with_them'),'family_in_japan' => $this->input->post('family_in_japan'), 'visited_date' => $this->input->post('visited_date'), 'date_of_departure' => $this->input->post('date_of_departure'), 'visa_type' => $this->input->post('visa_type'), 'school_apply_before_japan' => $this->input->post('school_apply_before_japan'), 'aimed_occupational_category' => $this->input->post('aimed_occupational_category'), 'school_apply_date' => $this->input->post('school_apply_date'), 'school_apply_status' => $this->input->post('school_apply_status'), 'school_apply_name' => $this->input->post('school_apply_name'), 'immigration_office' => $this->input->post('immigration_office'), 'immigration_result' => $this->input->post('immigration_result'), 'COE_reject' => $this->input->post('COE_reject'), 'place_apply_visa' => $this->input->post('place_apply_visa'), 'family_language' => $this->input->post('family_language'),
+                $data_details = array('applicant_id' => $update_info_id, 'have_you_visited_jp' => $this->input->post('have_you_visited_jp'), 'visited_date' => $this->input->post('visited_date'), 'date_of_departure' => $this->input->post('date_of_departure'), 'visa_type' => $this->input->post('visa_type'), 'school_apply_before_japan' => $this->input->post('school_apply_before_japan'), 'aimed_occupational_category' => $this->input->post('aimed_occupational_category'), 'school_apply_date' => $this->input->post('school_apply_date'), 'school_apply_status' => $this->input->post('school_apply_status'), 'school_apply_name' => $this->input->post('school_apply_name'), 'immigration_office' => $this->input->post('immigration_office'), 'immigration_result' => $this->input->post('immigration_result'), 'COE_reject' => $this->input->post('COE_reject'), 'place_apply_visa' => $this->input->post('place_apply_visa'), 'family_language' => $this->input->post('family_language'),
                 // 'eligibility_have' => $this->input->post('eligibility_have'),
                 // 'eligibility_time' => $this->input->post('eligibility_time'),
                 // 'eligibility_purpose' => $this->input->post('eligibility_purpose'),
@@ -682,11 +538,11 @@ class Langschoolapplicant extends CI_Controller
                 $checkdata2 = $this->Langschoolapplicant_Model->JLSCheck1($data_details, $update_info_id);
                 $this->Langschoolapplicant_Model->jlsAuthUpdate1($data_details, $update_info_id);
                 //$this->db->insert('JLS_other_details', $data_details);
-                $data_financial_sponsor = array('applicant_id' => $update_info_id, 'fin_name' => $this->input->post('fin_name'), 'fin_age' => $this->input->post('fin_age'), 'fin_relationship' => $this->input->post('fin_relationship'), 'fin_address' => $this->input->post('fin_address'), 'tel' => $this->input->post('tel'), 'email' => $this->input->post('email'), 'fin_occupation' => $this->input->post('fin_occupation'), 'work_place' => $this->input->post('work_place'), 'annual_income' => $this->input->post('annual_income'), 'amount_saving_for_study_abroad' => $this->input->post('amount_saving_for_study_abroad'), 'amount_of_saving_which_proved' => $this->input->post('amount_of_saving_which_proved'), 'start_work_date' => $this->input->post('start_work_date'),);
+                $data_financial_sponsor = array('applicant_id' => $update_info_id, 'name' => $this->input->post('name'), 'fin_age' => $this->input->post('fin_age'), 'fin_relationship' => $this->input->post('fin_relationship'), 'address' => $this->input->post('address'), 'tel' => $this->input->post('tel'), 'email' => $this->input->post('email'), 'occupation' => $this->input->post('occupation'), 'work_place' => $this->input->post('work_place'), 'annual_income' => $this->input->post('annual_income'), 'amount_saving_for_study_abroad' => $this->input->post('amount_saving_for_study_abroad'), 'amount_of_saving_which_proved' => $this->input->post('amount_of_saving_which_proved'), 'start_work_date' => $this->input->post('start_work_date'),);
                 $data_financial_sponsor = $this->__Xss($data_financial_sponsor);
                 //Check validation
                 $checkdata3 = $this->Langschoolapplicant_Model->JLSCheck2($data_financial_sponsor, $update_info_id);
-    
+            
                 $eduSubmitEdit = [
                     'edu_name' => $_POST['edu_name'],
                     'address' => $_POST['edu_address'],
@@ -694,6 +550,7 @@ class Langschoolapplicant extends CI_Controller
                     'end_date' => $_POST['edu_end_date'],
                     'year' => $_POST['edu_year'],
                 ];
+
                 $eduHistory = [];
                 foreach($eduSubmitEdit['edu_name'] as $data => $eduData) {
                     foreach($eduSubmitEdit as $key => $value) {
@@ -702,6 +559,7 @@ class Langschoolapplicant extends CI_Controller
                     }
                     array_push($eduHistory, $eduFilterData);
                 }
+
                 $this->Langschoolapplicant_Model->eduHistoryDeleteByAppID($id);
                 
                 print_r($eduHistory);
@@ -723,273 +581,92 @@ class Langschoolapplicant extends CI_Controller
                // $checkdata4 = $this->Langschoolapplicant_Model->JLSCheck3($data_edu_history, $update_info_id);
                // $this->Langschoolapplicant_Model->jlsAuthUpdate3($data_edu_history, $update_info_id);
                 
-            //    $jp_name = $_POST['jp_name'];
-            //     $jp_address = $_POST['jp_address'];
-            //     $jp_start_date = $_POST['jp_start_date'];
-            //     $jp_end_date = $_POST['jp_end_date'];
-            //     $jp_hour = $_POST['jp_hour'];
-            //     $data_lang_study = [];
-            //     $data_lang_study = array('applicant_id' => $update_info_id, 'jp_name' => $jp_name, 'address' => $jp_address, 'start_date' => $jp_start_date, 'end_date' => $jp_end_date, 'hour' => $jp_hour,);
-            //     $data_lang_study = $this->__Xss($data_lang_study);
-            //     //Check validation
-                //  $checkdata5 = $this->Langschoolapplicant_Model->JLSCheck4($data_lang_study, $update_info_id);
-                
-                $jpSubmitEdit = [
-                    'jp_name' => $_POST['jp_name'],
-                    'address' => $_POST['jp_address'],
-                    'start_date' => $_POST['jp_start_date'],
-                    'end_date' => $_POST['jp_end_date'],
-                    'hour' => $_POST['jp_hour'],
-                ];
-                $jpHistory = [];
-                foreach($jpSubmitEdit['jp_name'] as $data => $jpData) {
-                    foreach($jpSubmitEdit as $key => $value) {
-                        $jpFilterData["applicant_id"] = $id;
-                        $jpFilterData[$key] = $jpSubmitEdit[$key][$data];
-                    }
-                    array_push($jpHistory, $jpFilterData);
-                }
-                $this->Langschoolapplicant_Model->jpHistoryDeleteByAppID($id);
-                
-                print_r($jpHistory);
-
-                foreach($jpHistory as $key=>$value) {
-                    if($jpHistory[$key]['jp_name'] != Null) {
-                        $this->db->insert('JLS_previous_jp_lang_study', $jpHistory[$key]);
-                    }
-                }
-                // JLS_achievement_jp_lang_test
-                // $achiv_name = $_POST['achiv_name'];
-                // $level = $_POST['level'];
-                // $exam_year = $_POST['exam_year'];
-                // $score = $_POST['score'];
-                // $result = $_POST['result'];
-                // $date_qualification = $_POST['date_qualification'];
-                // $data_achievement_jp = [];
-                // $data_achievement_jp = array('applicant_id' => $update_info_id, 'achiv_name' => $achiv_name, 'level' => $level, 'exam_year' => $exam_year, 'score' => $score, 'result' => $result, 'date_qualification' => $date_qualification,);
-                // $data_achievement_jp = $this->__Xss($data_achievement_jp);
+               $jp_name = $_POST['jp_name'];
+                $jp_address = $_POST['jp_address'];
+                $jp_start_date = $_POST['jp_start_date'];
+                $jp_end_date = $_POST['jp_end_date'];
+                $jp_hour = $_POST['jp_hour'];
+                $data_lang_study = [];
+                $data_lang_study = array('applicant_id' => $update_info_id, 'jp_name' => $jp_name, 'address' => $jp_address, 'start_date' => $jp_start_date, 'end_date' => $jp_end_date, 'hour' => $jp_hour,);
+                $data_lang_study = $this->__Xss($data_lang_study);
                 //Check validation
-               // $checkdata6 = $this->Langschoolapplicant_Model->JLSCheck5($data_achievement_jp, $update_info_id);
-               
-               $achiSubmitEdit = [
-                'achiv_name' => $_POST['achiv_name'],
-                'level' => $_POST['level'],
-                'exam_year' => $_POST['exam_year'],
-                'score' => $_POST['score'],
-                'result' => $_POST['result'],
-                'date_qualification' => $_POST['date_qualification'],
-            ];
-            $dataAchievementjp = [];
-            foreach($achiSubmitEdit['achiv_name'] as $data => $achiData) {
-                foreach($achiSubmitEdit as $key => $value) {
-                    $achiFilterData["applicant_id"] = $id;
-                    $achiFilterData[$key] = $achiSubmitEdit[$key][$data];
-                }
-                array_push($dataAchievementjp, $achiFilterData);
-            }
-            $this->Langschoolapplicant_Model->achivHistoryDeleteByAppID($id);
-            
-           // print_r($dataAchievementjp);
-
-            foreach($dataAchievementjp as $key=>$value) {
-                if($dataAchievementjp[$key]['achiv_name'] != Null) {
-                    $this->db->insert('JLS_achievement_jp_lang_test', $dataAchievementjp[$key]);
-                }
-            }
-
-               // JLS_achievement_jp_lang_test
+                $checkdata5 = $this->Langschoolapplicant_Model->JLSCheck4($data_lang_study, $update_info_id);
+                // JLS_achievement_jp_lang_test
+                $achiv_name = $_POST['achiv_name'];
+                $level = $_POST['level'];
+                $exam_year = $_POST['exam_year'];
+                $score = $_POST['score'];
+                $result = $_POST['result'];
+                $date_qualification = $_POST['date_qualification'];
+                $data_achievement_jp = [];
+                $data_achievement_jp = array('applicant_id' => $update_info_id, 'achiv_name' => $achiv_name, 'level' => $level, 'exam_year' => $exam_year, 'score' => $score, 'result' => $result, 'date_qualification' => $date_qualification,);
+                $data_achievement_jp = $this->__Xss($data_achievement_jp);
+                //Check validation
+                $checkdata6 = $this->Langschoolapplicant_Model->JLSCheck5($data_achievement_jp, $update_info_id);
+                // JLS_achievement_jp_lang_test
                 //JLS_name_jp_lang_tests_going_to_take
-                // $going_name = $_POST['going_name'];
-                // $going_level = $_POST['going_level'];
-                // $data_jp_lang_going_to_take = array('applicant_id' => $update_info_id, 'going_name' => $going_name, 'going_level' => $going_level,);
-                // $going_level = $this->__Xss($going_level);
-                // //Check validation
-                // //$checkdata7 = $this->Langschoolapplicant_Model->JLSCheck6($data_jp_lang_going_to_take, $update_info_id);
-                $goingSubmitEdit = [
-                    'going_name' => $_POST['going_name'],
-                    'going_level' => $_POST['going_level'],
-                ];
-                $jpLangGoing = [];
-                foreach($goingSubmitEdit['going_name'] as $data => $goingData) {
-                    foreach($goingSubmitEdit as $key => $value) {
-                        $goingFilterData["applicant_id"] = $id;
-                        $goingFilterData[$key] = $goingSubmitEdit[$key][$data];
-                    }
-                    array_push($jpLangGoing, $goingFilterData);
-                }
-                $this->Langschoolapplicant_Model->goingHistoryDeleteByAppID($id);
-                
-               // print_r($dataAchievementjp);
-    
-                foreach($jpLangGoing as $key=>$value) {
-                    if($jpLangGoing[$key]['going_name'] != Null) {
-                        $this->db->insert('JLS_name_jp_lang_tests_going_to_take', $jpLangGoing[$key]);
-                    }
-                }
-
+                $going_name = $_POST['going_name'];
+                $going_level = $_POST['going_level'];
+                $data_jp_lang_going_to_take = array('applicant_id' => $update_info_id, 'going_name' => $going_name, 'going_level' => $going_level,);
+                $going_level = $this->__Xss($going_level);
+                //Check validation
+                $checkdata7 = $this->Langschoolapplicant_Model->JLSCheck6($data_jp_lang_going_to_take, $update_info_id);
                 //JLS_name_jp_lang_tests_going_to_take
                 //JLS_history_employment
-                // $emp_name = $_POST['emp_name'];
-                // $emp_address = $_POST['emp_address'];
-                // $emp_start_date = $_POST['emp_start_date'];
-                // $emp_end_date = $_POST['emp_start_date'];
-                // $emp_year = $_POST['emp_year'];
-                // $emp_job_description = $_POST['emp_job_description'];
-                // $data_history_employment = array('applicant_id' => $update_info_id, 'emp_name' => $emp_name, 'address' => $emp_address, 'start_date' => $emp_start_date, 'end_date' => $emp_end_date, 'year' => $emp_year, 'job_description' => $emp_job_description,);
-                // $data_history_employment = $this->__Xss($data_history_employment);
-                // //Check validation
-                // $checkdata8 = $this->Langschoolapplicant_Model->JLSCheck7($data_history_employment, $update_info_id);
-                
-                $empSubmitEdit = [
-                    'emp_name' => $_POST['emp_name'],
-                    'address' => $_POST['emp_address'],
-                    'start_date' => $_POST['emp_start_date'],
-                    'end_date' => $_POST['emp_end_date'],
-                    'year' => $_POST['emp_year'],
-                    'job_description' => $_POST['emp_job_description'],
-                ];
-                $dataHistoryEmployment = [];
-                foreach($empSubmitEdit['emp_name'] as $data => $achiData) {
-                    foreach($empSubmitEdit as $key => $value) {
-                        $empFilterData["applicant_id"] = $id;
-                        $empFilterData[$key] = $empSubmitEdit[$key][$data];
-                    }
-                    array_push($dataHistoryEmployment, $empFilterData);
-                }
-                $this->Langschoolapplicant_Model->empHistoryDeleteByAppID($id);
-                
-               // print_r($dataAchievementjp);
-    
-                foreach($dataHistoryEmployment as $key=>$value) {
-                    if($dataHistoryEmployment[$key]['emp_name'] != Null) {
-                        $this->db->insert('JLS_history_employment', $dataHistoryEmployment[$key]);
-                    }
-                }
-
+                $emp_name = $_POST['emp_name'];
+                $emp_address = $_POST['emp_address'];
+                $emp_start_date = $_POST['emp_start_date'];
+                $emp_end_date = $_POST['emp_start_date'];
+                $emp_year = $_POST['emp_year'];
+                $emp_job_description = $_POST['emp_job_description'];
+                $data_history_employment = array('applicant_id' => $update_info_id, 'emp_name' => $emp_name, 'address' => $emp_address, 'start_date' => $emp_start_date, 'end_date' => $emp_end_date, 'year' => $emp_year, 'job_description' => $emp_job_description,);
+                $data_history_employment = $this->__Xss($data_history_employment);
+                //Check validation
+                $checkdata8 = $this->Langschoolapplicant_Model->JLSCheck7($data_history_employment, $update_info_id);
                 //JLS_history_employment
                 //JLS_family_member
-                // $fam_name = $_POST['fam_name'];
-                // $fam_relationship = $_POST['fam_relationship'];
-                // $fam_work_place = $_POST['fam_work_place'];
-                // $fam_birthday = $_POST['fam_birthday'];
-                // $fam_occupation = $_POST['fam_occupation'];
-                // $fam_annual_income = $_POST['fam_annual_income'];
-                // $fam_address = $_POST['fam_address'];
-                // $fam_length_sevice = $_POST['fam_length_sevice'];
-                // $data_family_member = array('applicant_id' => $update_info_id, 'fam_name' => $fam_name, 'fam_relationship' => $fam_relationship, 'work_place' => $fam_work_place, 'birthday' => $fam_birthday, 'occupation' => $fam_occupation, 'annual_income' => $fam_annual_income, 'address' => $fam_address, 'length_sevice' => $fam_length_sevice,);
-                // $data_family_member = $this->__Xss($data_family_member);
-                // //Check validation
-                // $checkdata9 = $this->Langschoolapplicant_Model->JLSCheck8($data_family_member, $update_info_id);
-                
-                $famSubmitEdit = [
-                    'fam_name' => $_POST['fam_name'],
-                    'fam_relationship' => $_POST['fam_relationship'],
-                    'work_place' => $_POST['fam_work_place'],
-                    'birthday' => $_POST['fam_birthday'],
-                    'occupation' => $_POST['fam_occupation'],
-                    'annual_income' => $_POST['fam_annual_income'],
-                    'address' => $_POST['fam_address'],
-                    'length_sevice' => $_POST['fam_length_sevice'],
-                ];
-                $famHistoryEmployment = [];
-                foreach($famSubmitEdit['fam_name'] as $data => $famData) {
-                    foreach($famSubmitEdit as $key => $value) {
-                        $famFilterData["applicant_id"] = $id;
-                        $famFilterData[$key] = $famSubmitEdit[$key][$data];
-                    }
-                    array_push($famHistoryEmployment, $famFilterData);
-                }
-                $this->Langschoolapplicant_Model->famHistoryDeleteByAppID($id);
-                
-               // print_r($dataAchievementjp);
-    
-                foreach($famHistoryEmployment as $key=>$value) {
-                    if($famHistoryEmployment[$key]['fam_name'] != Null) {
-                        $this->db->insert('JLS_family_member', $famHistoryEmployment[$key]);
-                    }
-                }
+                $fam_name = $_POST['fam_name'];
+                $fam_relationship = $_POST['fam_relationship'];
+                $fam_work_place = $_POST['fam_work_place'];
+                $fam_birthday = $_POST['fam_birthday'];
+                $fam_occupation = $_POST['fam_occupation'];
+                $fam_annual_income = $_POST['fam_annual_income'];
+                $fam_address = $_POST['fam_address'];
+                $fam_length_sevice = $_POST['fam_length_sevice'];
+                $data_family_member = array('applicant_id' => $update_info_id, 'fam_name' => $fam_name, 'fam_relationship' => $fam_relationship, 'work_place' => $fam_work_place, 'birthday' => $fam_birthday, 'occupation' => $fam_occupation, 'annual_income' => $fam_annual_income, 'address' => $fam_address, 'length_sevice' => $fam_length_sevice,);
+                $data_family_member = $this->__Xss($data_family_member);
+                //Check validation
+                $checkdata9 = $this->Langschoolapplicant_Model->JLSCheck8($data_family_member, $update_info_id);
                 //JLS_family_member
                 //JLS_family_in_japan
                // $ja_plan_to_stay_with_them = $_POST['ja_plan_to_stay_with_them'];
-                // $ja_fam_name = $_POST['ja_fam_name'];
-                // $ja_fam_age = $_POST['ja_fam_age'];
-                // $ja_fam_relationship = $_POST['ja_fam_relationship'];
-                // $ja_fam_residing_applicant = $_POST['ja_fam_residing_applicant'];
-                // $ja_fam_nationality = $_POST['ja_fam_nationality'];
-                // $ja_fam_visa_status = $_POST['ja_fam_visa_status'];
-                // $ja_fam_work_place = $_POST['ja_fam_work_place'];
-                // $data_family_japan = array('applicant_id' => $update_info_id, 'ja_fam_name' => $ja_fam_name, 'ja_fam_age' => $ja_fam_age, 'ja_fam_relationship' => $ja_fam_relationship, 'ja_fam_residing_applicant' => $ja_fam_residing_applicant, 'ja_fam_nationality' => $ja_fam_nationality, 'ja_fam_visa_status' => $ja_fam_visa_status, 'ja_fam_work_place' => $ja_fam_work_place,);
-                // $data_family_japan = $this->__Xss($data_family_japan);
-                // //Check validation
-                // $checkdata10 = $this->Langschoolapplicant_Model->JLSCheck9($data_family_japan, $update_info_id);
-                
-                $jaFamSubmitEdit = [
-                    'ja_fam_name' => $_POST['ja_fam_name'],
-                    'ja_fam_age' => $_POST['ja_fam_age'],
-                    'ja_fam_relationship' => $_POST['ja_fam_relationship'],
-                    'ja_fam_residing_applicant' => $_POST['ja_fam_residing_applicant'],
-                    'ja_fam_nationality' => $_POST['ja_fam_nationality'],
-                    'ja_fam_visa_status' => $_POST['ja_fam_visa_status'],
-                    'ja_fam_work_place' => $_POST['ja_fam_work_place'],
-                ];
-                $jaFamHistoryEmployment = [];
-                foreach($jaFamSubmitEdit['ja_fam_name'] as $data => $jafamData) {
-                    foreach($jaFamSubmitEdit as $key => $value) {
-                        $jaFamFilterData["applicant_id"] = $id;
-                        $jaFamFilterData[$key] = $jaFamSubmitEdit[$key][$data];
-                    }
-                    array_push($jaFamHistoryEmployment, $jaFamFilterData);
-                }
-                $this->Langschoolapplicant_Model->jaFamHistoryDeleteByAppID($id);
-                
-               // print_r($dataAchievementjp);
-    
-                foreach($jaFamHistoryEmployment as $key=>$value) {
-                    if($jaFamHistoryEmployment[$key]['ja_fam_name'] != Null) {
-                        $this->db->insert('JLS_family_in_japan', $jaFamHistoryEmployment[$key]);
-                    }
-                }
+                $ja_fam_name = $_POST['ja_fam_name'];
+                $ja_fam_age = $_POST['ja_fam_age'];
+                $ja_fam_relationship = $_POST['ja_fam_relationship'];
+                $ja_fam_residing_applicant = $_POST['ja_fam_residing_applicant'];
+                $ja_fam_nationality = $_POST['ja_fam_nationality'];
+                $ja_fam_visa_status = $_POST['ja_fam_visa_status'];
+                $ja_fam_work_place = $_POST['ja_fam_work_place'];
+                $data_family_japan = array('applicant_id' => $update_info_id, 'ja_fam_name' => $ja_fam_name, 'ja_fam_age' => $ja_fam_age, 'ja_fam_relationship' => $ja_fam_relationship, 'ja_fam_residing_applicant' => $ja_fam_residing_applicant, 'ja_fam_nationality' => $ja_fam_nationality, 'ja_fam_visa_status' => $ja_fam_visa_status, 'ja_fam_work_place' => $ja_fam_work_place,);
+                $data_family_japan = $this->__Xss($data_family_japan);
+                //Check validation
+                $checkdata10 = $this->Langschoolapplicant_Model->JLSCheck9($data_family_japan, $update_info_id);
                 //JLS_family_in_japan
                 //JLS_previous_stay_in_japan
-                // $entry_date = $_POST['entry_date'];
-                // $arrival_date = $_POST['arrival_date'];
-                // $depature_date = $_POST['depature_date'];
-                // $status = $_POST['status'];
-                // $entry_purpose = $_POST['entry_purpose'];
-                // $data_previous_stay_japan = array('applicant_id' => $update_info_id, 'entry_date' => $entry_date, 'arrival_date' => $arrival_date, 'depature_date' => $depature_date, 'status' => $status, 'entry_purpose' => $entry_purpose,);
-                // $data_previous_stay_japan = $this->__Xss($data_previous_stay_japan);
-                // //Check validation
-                // var_dump($data_previous_stay_japan);
-                // $checkdata11 = $this->Langschoolapplicant_Model->JLSCheck10($data_previous_stay_japan, $update_info_id);
-                
-                $preJaFamSubmitEdit = [
-                    'entry_date' => $_POST['entry_date'],
-                    'arrival_date' => $_POST['arrival_date'],
-                    'depature_date' => $_POST['depature_date'],
-                    'status' => $_POST['status'],
-                    'entry_purpose' => $_POST['entry_purpose'],
-                ];
-                $preJaFamHistoryEmployment = [];
-                foreach($preJaFamSubmitEdit['entry_date'] as $data => $prejafamData) {
-                    foreach($preJaFamSubmitEdit as $key => $value) {
-                        $preJaFamFilterData["applicant_id"] = $id;
-                        $preJaFamFilterData[$key] = $preJaFamSubmitEdit[$key][$data];
-                    }
-                    array_push($preJaFamHistoryEmployment, $preJaFamFilterData);
-                }
-                $this->Langschoolapplicant_Model->preJaFamHistoryDeleteByAppID($id);
-                
-               // print_r($dataAchievementjp);
-    
-                foreach($preJaFamHistoryEmployment as $key=>$value) {
-                    if($preJaFamHistoryEmployment[$key]['entry_date'] != Null) {
-                        $this->db->insert('JLS_previous_stay_in_japan', $preJaFamHistoryEmployment[$key]);
-                    }
-                }
-                if (empty($checkdata1 & $checkdata2 & $checkdata3)) {
+                $entry_date = $_POST['entry_date'];
+                $arrival_date = $_POST['arrival_date'];
+                $depature_date = $_POST['depature_date'];
+                $status = $_POST['status'];
+                $entry_purpose = $_POST['entry_purpose'];
+                $data_previous_stay_japan = array('applicant_id' => $update_info_id, 'entry_date' => $entry_date, 'arrival_date' => $arrival_date, 'depature_date' => $depature_date, 'status' => $status, 'entry_purpose' => $entry_purpose,);
+                $data_previous_stay_japan = $this->__Xss($data_previous_stay_japan);
+                //Check validation
+                var_dump($data_previous_stay_japan);
+                $checkdata11 = $this->Langschoolapplicant_Model->JLSCheck10($data_previous_stay_japan, $update_info_id);
+                if (empty($checkdata1 & $checkdata2 & $checkdata3 & $checkdata4 & $checkdata5 & $checkdata6 & $checkdata7 & $checkdata8 & $checkdata9 & $checkdata10 & $checkdata11)) {
                     //$this->Langschoolapplicant_Model->jlsAuthUpdate($data_info, $id);
                  //   $this->Langschoolapplicant_Model->jlsAuthUpdate1($data_details, $update_info_id);
-                     $this->Langschoolapplicant_Model->jlsAuthUpdate2($data_financial_sponsor, $update_info_id);
+                    // $this->Langschoolapplicant_Model->jlsAuthUpdate2($data_financial_sponsor, $update_info_id);
                     // $this->Langschoolapplicant_Model->jlsAuthUpdate3($data_edu_history, $update_info_id);
                     // $this->Langschoolapplicant_Model->jlsAuthUpdate4($data_lang_study, $update_info_id);
                     // $this->Langschoolapplicant_Model->jlsAuthUpdate5($data_achievement_jp, $update_info_id);
@@ -1000,7 +677,7 @@ class Langschoolapplicant extends CI_Controller
                     // $this->Langschoolapplicant_Model->jlsAuthUpdate10($data_previous_stay_japan, $update_info_id);
                     //$this->Langschoolapplicant_Model->jlsAuthUpdate11($data, $id);
                     $this->session->set_flashdata('msg_success', 'Your data has been update!');
-                   redirect("adm/portal/jls_applicant");
+                    redirect("adm/portal/jls_applicant");
                 }
                 // Auto Mail Sending
                 // if($this->input->post('std_email') != ""  && $this->input->post('std_status') == 1) {
@@ -1077,8 +754,8 @@ class Langschoolapplicant extends CI_Controller
     {
         /** User Permission Checker **/
         $this->__permissionChecker($this->key, $this->url);
-        $globalHeader = array("alert" => $this->mainconfig->_DefaultNotic(), 'title' => "Delete Applicant", 'msg' => "", 'uri' => array("student", ""), 'config' => $this->user_config,);
-        $list = $this->Langschoolapplicant_Model->getJLSDetail($id);
+        $globalHeader = array("alert" => $this->mainconfig->_DefaultNotic(), 'title' => "Delete Student", 'msg' => "", 'uri' => array("student", ""), 'config' => $this->user_config,);
+        $list = $this->Langschoolapplicant_Model->studentDetail($id);
         //*** Current query value checker
         $this->__resultEmptyChecker($id, $globalHeader, "adm/portal/langschoolstudent", $list);
         $recent_cover = $list->image_file;
@@ -1088,19 +765,15 @@ class Langschoolapplicant extends CI_Controller
                 unlink($preview_link);
             }
         }
-        $this->Langschoolapplicant_Model->delete($id);
-        $this->Langschoolapplicant_Model->detailsDelete($id);
-        $this->Langschoolapplicant_Model->finDelete($id);
-        $this->Langschoolapplicant_Model->eduDelete($id);
-        $this->Langschoolapplicant_Model->preDelete($id);
-        $this->Langschoolapplicant_Model->achivDelete($id);
-        $this->Langschoolapplicant_Model->goingDdelete($id);
-        $this->Langschoolapplicant_Model->hisDelete($id);
-        $this->Langschoolapplicant_Model->famDelete($id);
-        $this->Langschoolapplicant_Model->famJpDelete($id);
-        $this->Langschoolapplicant_Model->prestayDelete($id);
+        $this->Langschoolapplicant_Model->Delete($id);
+        $this->Langschoolapplicant_Model->stdAuthDelete($id);
+        $this->Langschoolapplicant_Model->stdConfigDelete($id);
+        $this->Langschoolapplicant_Model->stdCourseDelete($id);
+        $this->Langschoolapplicant_Model->stdInvoiceDelete($id);
+        $this->Langschoolapplicant_Model->stdNoteDelete($id);
+        $this->Langschoolapplicant_Model->stdPaymentDelete($id);
         $this->session->set_flashdata('msg_success', 'Your data has been delete!');
-        redirect('adm/portal/jls_applicant');
+        redirect('adm/portal/langschoolstudent');
     }
 
     public function activated($id) 
