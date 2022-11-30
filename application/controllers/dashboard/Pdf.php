@@ -58,13 +58,21 @@ class Pdf extends CI_Controller {
         $data['member'] = $this->Pdf_Model->alldata();
         $this->load->view('dashboard/export/ecc_interview', $data);
     }
-    function topdf() {
+    function eccinter($id) {
        // $this->mpdf->useOnlyCoreFonts = true;
        //$filename = "VISH";
-        $data['member'] = $this->Pdf_Model->alldata();
+        $data['result'] = $this->Pdf_Model->getAllData($id);
+        $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+        $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+        $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+        $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+        $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+        $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+        $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+        $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
        // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
         $html = $this->load->view('dashboard/export/ecc_interview', $data, true);
-        var_dump($html);
+       // var_dump($html);
         $this->mpdf = new \Mpdf\Mpdf;
 
         // $mpdf = new \Mpdf\Mpdf(
@@ -75,11 +83,42 @@ class Pdf extends CI_Controller {
         // $this->mpdf->writeHTML($html);
         // $this->mpdf->output();
         $this->mpdf->WriteHTML($html); // write the HTML into the PDF
+        $this->stylesheet = file_get_contents('asset/css/style.css');
         $output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
         $this->mpdf->Output("$output", 'I'); // save to file because we can
         exit();
     }
+    function fukuokainter($id) {
+        // $this->mpdf->useOnlyCoreFonts = true;
+        //$filename = "VISH";
+         $data['result'] = $this->Pdf_Model->getAllData($id);
+         $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+         $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+         $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+         $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+         $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+         $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+         $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+         $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+        // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
+         $html = $this->load->view('dashboard/export/fukuoka_interview', $data, true);
+        // var_dump($html);
+         $this->mpdf = new \Mpdf\Mpdf;
+ 
+         // $mpdf = new \Mpdf\Mpdf(
+         //     ['debug' => true]
+             
+         // );
+       //  $this->$mpdf->setTitle('Posts');
+         // $this->mpdf->writeHTML($html);
+         // $this->mpdf->output();
+         $this->mpdf->WriteHTML($html); // write the HTML into the PDF
+         $output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
+         $this->mpdf->Output("$output", 'I'); // save to file because we can
+         exit();
+     }
 
+     
     public function ecc_inter($id)
     {   
 

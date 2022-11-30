@@ -351,7 +351,7 @@ $(function() {
         <?php
           echo form_input(array(
             'name' => 'visited_date',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('visited_date',isset($result)?$result->visited_date:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
@@ -367,7 +367,7 @@ $(function() {
         <?php
           echo form_input(array(
             'name' => 'date_of_departure',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('date_of_departure',isset($result)?$result->date_of_departure:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
@@ -677,7 +677,7 @@ $(function() {
       <?php
         echo form_input(array(
           'name' => 'passport_data_issue',
-          'type' => 'text',
+          'type' => 'date',
           'value' => html_escape(set_value('passport_data_issue',isset($result)?$result->passport_data_issue:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
@@ -691,7 +691,7 @@ $(function() {
       <?php
         echo form_input(array(
           'name' => 'passport_data_exp',
-          'type' => 'text',
+          'type' => 'date',
           'value' => html_escape(set_value('passport_data_exp',isset($result)?$result->passport_data_exp:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
@@ -1358,7 +1358,7 @@ $(function() {
       <input type="text" class=" table-control term" name="achiv_result[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="achiv_date_qualification[]" value="">
+      <input type="date" class=" table-control" name="date_qualification[]" value="">
       </td>
     </tr>
     <tr>
@@ -1378,7 +1378,7 @@ $(function() {
       <input type="text" class=" table-control term" name="achiv_result[]" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="achiv_date_qualification[]" value="">
+      <input type="date" class=" table-control" name="date_qualification[]" value="">
       </td>
     </tr>
     <tr>
@@ -1398,7 +1398,7 @@ $(function() {
       <input type="text" class=" table-control term" name="achiv_result[]" value=""> 
       </td>
       <td>
-      <input type="text" class=" table-control" name="achiv_date_qualification[]" value="">
+      <input type="date" class=" table-control" name="date_qualification[]" value="">
       </td>
     </tr>
   </tbody>
@@ -1472,33 +1472,33 @@ $(function() {
       <input type="text" class=" table-control"  name="emp_address[]" value="">
       </td>
       <td>
+      <input type="text" class=" table-control term" name="emp_year[]" value="">
+      </td>
+      <td>
       <input type="text" class=" table-control"  name="emp_start_date[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="emp_end_date[]" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="emp_job_description[]" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control"  name="emp_name[]" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="emp_address[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control term" name="emp_year[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="emp_job_description[]" value="">
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <input type="text" class=" table-control"  name="emp_name[]" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control"  name="emp_address[]" value="">
-      </td>
-      <td>
       <input type="text" class=" table-control"  name="emp_start_date[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="emp_end_date[]" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="emp_year[]" value=""> 
       </td>
       <td>
       <input type="text" class=" table-control" name="emp_job_description[]" value="">
@@ -1512,13 +1512,13 @@ $(function() {
       <input type="text" class=" table-control"  name="emp_address[]" value="">
       </td>
       <td>
+      <input type="text" class=" table-control term" name="emp_year[]" value="">
+      </td>
+      <td>
       <input type="text" class=" table-control"  name="emp_start_date[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="emp_end_date[]" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control term" name="emp_year[]" value=""> 
       </td>
       <td>
       <input type="text" class=" table-control" name="emp_job_description[]" value="">
@@ -1560,7 +1560,7 @@ $(function() {
       <input type="text" class=" table-control"  name="fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_birthday[]" value="">
+      <input type="date" class=" table-control"  name="fam_birthday[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="fam_occupation[]" value="">
@@ -1586,7 +1586,7 @@ $(function() {
       <input type="text" class=" table-control"  name="fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_birthday[]" value="">
+      <input type="date" class=" table-control"  name="fam_birthday[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="fam_occupation[]" value="">
@@ -1612,7 +1612,7 @@ $(function() {
       <input type="text" class=" table-control"  name="fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_birthday[]" value="">
+      <input type="date" class=" table-control"  name="fam_birthday[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="fam_occupation[]" value="">
@@ -1638,7 +1638,7 @@ $(function() {
       <input type="text" class=" table-control"  name="fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_birthday[]" value="">
+      <input type="date" class=" table-control"  name="fam_birthday[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="fam_occupation[]" value="">
@@ -1664,7 +1664,7 @@ $(function() {
       <input type="text" class=" table-control"  name="fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="fam_birthday[]" value="">
+      <input type="date" class=" table-control"  name="fam_birthday[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="fam_occupation[]" value="">
@@ -1852,13 +1852,13 @@ $(function() {
   <tbody>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="entry_date[]" value="">
+      <input type="date" class=" table-control"  name="entry_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="arrival_date[]" value="">
+      <input type="date" class=" table-control"  name="arrival_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="depature_date[]" value="">
+      <input type="date" class=" table-control"  name="depature_date[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="status[]" value="">
@@ -1869,13 +1869,13 @@ $(function() {
     </tr>
     <tr>
       <td>
-      <input type="text" class=" table-control"  name="entry_date[]" value="">
+      <input type="date" class=" table-control"  name="entry_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="arrival_date[]" value="">
+      <input type="date" class=" table-control"  name="arrival_date[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="depature_date[]" value="">
+      <input type="date" class=" table-control"  name="depature_date[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="status[]" value="">
@@ -2195,7 +2195,7 @@ $(function() {
       <?php
         echo form_input(array(
           'name' => 'start_work_date',
-          'type' => 'text',
+          'type' => 'date',
           'value' => html_escape(set_value('start_work_date',isset($result)?$result->start_work_date :''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',

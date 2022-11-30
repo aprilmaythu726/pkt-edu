@@ -196,7 +196,7 @@ class Langschoolapplicant extends CI_Controller
                 $exam_year = $_POST['achiv_exam_year'];
                 $score = $_POST['achiv_score'];
                 $result = $_POST['achiv_result'];
-                $date_qualification = $_POST['achiv_date_qualification'];
+                $date_qualification = $_POST['date_qualification'];
                 $data_achievement_jp = [];
                 $data_achievement_jp = array('achiv_name' => $achiv_name, 'level' => $level, 'exam_year' => $exam_year, 'score' => $score, 'result' => $result, 'date_qualification' => $date_qualification,);
                 // JLS_achievement_jp_lang_test

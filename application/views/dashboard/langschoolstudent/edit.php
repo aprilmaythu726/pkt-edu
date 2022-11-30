@@ -340,7 +340,7 @@ select.form-group.col-md-9.school_select{
         <?php
           echo form_input(array(
             'name' => 'date_of_birthday',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('date_of_birthday',isset($result)?$result->date_of_birthday:''), ENT_QUOTES),
             'placeholder' => "Please Enter!",
             'class' => 'form-control',
@@ -530,7 +530,7 @@ $(function() {
         <?php
           echo form_input(array(
             'name' => 'visited_date',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('visited_date',isset($result)?$result->visited_date:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
@@ -546,7 +546,7 @@ $(function() {
         <?php
           echo form_input(array(
             'name' => 'date_of_departure',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('date_of_departure',isset($result)?$result->date_of_departure:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
@@ -848,7 +848,7 @@ $(function() {
       <?php
         echo form_input(array(
           'name' => 'passport_data_issue',
-          'type' => 'text',
+          'type' => 'date',
           'value' => html_escape(set_value('passport_data_issue',isset($result)?$result->passport_data_issue:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
@@ -862,7 +862,7 @@ $(function() {
       <?php
         echo form_input(array(
           'name' => 'passport_data_exp',
-          'type' => 'text',
+          'type' => 'date',
           'value' => html_escape(set_value('passport_data_exp',isset($result)?$result->passport_data_exp:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
@@ -1813,8 +1813,8 @@ $('#removeRow08').on('click', function(e) {
       <?php
           echo form_input(array(
             'name' => 'date_qualification[]',
-            'type' => 'text',
-            'value' => html_escape(set_value('date_qualification',isset($row2)?$row2->date_qualification:''), ENT_QUOTES),
+            'type' => 'date',
+            'value' => html_escape(set_value('date_qualification',isset($result)?$row2->date_qualification:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'date_qualification',
             'autocomplete' => ''));
@@ -2079,13 +2079,14 @@ $('#removeRow08').on('click', function(e) {
       <?php
           echo form_input(array(
             'name' => 'fam_birthday[]',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('fam_birthday',isset($result)?$row5->birthday:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'fam_birthday',
             'autocomplete' => ''));
         ?>
       </td>
+      
       <td  class="rowID">
       <?php
           echo form_input(array(
@@ -2306,7 +2307,7 @@ $('#removeRow08').on('click', function(e) {
       <?php
           echo form_input(array(
             'name' => 'entry_date[]',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('entry_date',isset($result)?$result->entry_date:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'entry_date',
@@ -2317,7 +2318,7 @@ $('#removeRow08').on('click', function(e) {
       <?php
           echo form_input(array(
             'name' => 'arrival_date[]',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('arrival_date',isset($result)?$result->arrival_date:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'arrival_date',
@@ -2328,7 +2329,7 @@ $('#removeRow08').on('click', function(e) {
       <?php
           echo form_input(array(
             'name' => 'depature_date[]',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('depature_date',isset($result)?$result->depature_date:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'depature_date',
@@ -2556,7 +2557,7 @@ $('#removeRow08').on('click', function(e) {
       <?php
         echo form_input(array(
           'name' => 'start_work_date',
-          'type' => 'text',
+          'type' => 'date',
           'value' => html_escape(set_value('start_work_date',isset($result12)?$result12->start_work_date :''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',

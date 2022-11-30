@@ -91,16 +91,39 @@
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
           <td class="text-left"><?php echo $row->info_phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
+          <td class="text-center"></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
             <span class="material-icons md-20 align-middle">more_vert</span></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
               <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/ecc_interview/'.$row->id); ?>">Print PDF</a>
+              <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
+              <div class="dropdown-item">
+              <?php 
+                if($row->jls_name == 'ECC'){
+                 echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Print PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Print PDF");
+                }
+              ?>
+              </div>
+              <div class="dropdown-item">
+              <?php 
+                if($row->jls_name == 'ECC'){
+                 echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
+                }elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Print PDF");
+                }
+              ?>
+              </div>
               <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
-              <!-- <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/student/delete/'.$row->id); ?>">Delete</a> -->
             </div>
           </td>
           <td class="text-center">
@@ -157,20 +180,19 @@
             <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">$row['applicant_name']</a>
           </td>
           <td class="text-left">
-            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">ECC</a>
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">$row['jls_name']</a>
           </td>
-          <td class="text-left">minthant@gmail.com</td>
-          <td class="text-center">0978656666</td>
-          <td class="text-center">13-08-2022 12:42:09	</td>
-          <td class="text-center">05-09-2022 09:30:09</td>
-          <!-- <td class="text-center"><?php if($row->activate_date == "30-11--0001 00:00:00"){ echo " - "; } else { echo $row->activate_date; } ?></td> -->
+          <td class="text-left">$row['std_email']</td>
+          <!-- <td class="text-center">$row['info_phone']</td> -->
+          <td class="text-center"></td>
+          <td class="text-center"></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
             <span class="material-icons md-20 align-middle">more_vert</span></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
               <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/pdf/'.$row->id); ?>">Print PDF</a>
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a>
               <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/langschool_applicant/delete/'.$row->id); ?>">Delete</a>
             </div>
           </td>
