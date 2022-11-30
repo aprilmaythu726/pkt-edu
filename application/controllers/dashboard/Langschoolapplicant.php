@@ -434,8 +434,7 @@ class Langschoolapplicant extends CI_Controller
                     $data_achievement_jp = array('applicant_id' => $applicant_id, 'achiv_name' => $achiv_name[$i], 'level' => $level[$i], 'exam_year' => $exam_year[$i], 'score' => $score[$i], 'result' => $result[$i], 'date_qualification' => $date_qualification[$i],);
                     $insertChecker5 = $this->db->insert('JLS_achievement_jp_lang_test', $data_achievement_jp);
                     }
-                   
-                } 
+                }
                 $going_name = $this->session->userdata('__initial_regist_data6') ['going_name'];
                 $going_level = $this->session->userdata('__initial_regist_data6') ['going_level'];
                 $count4 = count($this->session->userdata('__initial_regist_data6') ['going_name']);
@@ -1441,4 +1440,3 @@ class Langschoolapplicant extends CI_Controller
         return json_encode($target_date);
     }
 }
-

@@ -29,8 +29,14 @@ $html = '
             <p style="padding-left: 10px;">福岡本校での入学を　希望する ・ 希望しない</p>
             </dd>
         </dl>
+      
         <dl style="margin:0px;">
-            <dt style="width:450px;float:left;"><h3 style="font-family: sjis;margin-bottom:0px;padding-top:0px;">日本語センター名： <span>__________________________________________</span></h3></dt>
+            <dt style="width:450px;float:left;"><h3 style="font-family: sjis;margin-bottom:0px;padding-top:0px;">日本語センター名：</h3>  <?php
+          foreach($result3 as $row3){
+        ?> 
+        <?php echo $row3->achiv_name?>
+            <?php } ?>
+            </dt>
             <dd style="width:25%;float: right;"><h3 style="font-family: sjis;margin-bottom:0px;padding-top:0px;">年　　　月　　　日</h3></dd>
         </dl>
     </section>
@@ -39,31 +45,31 @@ $html = '
 		<table style="width:100%;">
 		<tr>
 			<th style="width: 10%;">氏名 <br> NAME</th>
-			<td colspan="2"></td>
+			<td colspan="2"><?php echo $result->applicant_name?></td>
             <th style="width: 10%;">性別 <br> SEX</th>
-			<td colspan="4"></td>
+			<td colspan="4"><?php echo $result->gender?></td>
             <td colspan="3" rowspan="4" style="text-align: center;">（写真）<br>Photo</td>
             </tr>
 		<tr>
 			<th style="width: 10%;">国籍 <br> Nationality</th>
-			<td colspan="2"></td>
+			<td colspan="2"><?php echo $result->info_nationality?></td>
             <th style="width: 10%;">生年月日 <br> Birthday</th>
 			<td colspan="4" style="text-align: right;">　　年　　月　　日</td>
             </tr>
 		<tr>
 			<th style="width: 10%;">固定電話 <br> Phone</th>
-			<td colspan="2"></td>
+			<td colspan="2"><?php echo $result->info_phone?></td>
             <th style="width: 10%;">携帯電話 <br> Mobile</th>
-			<td colspan="4"></td>
+			<td colspan="4"><?php echo $result->info_phone?></td>
         </tr>
         <tr>
 			<th style="width: 10%;">E-mail</th>
-			<td colspan="7"></td>
+			<td colspan="7"><?php echo $result->std_email?></td>
            
         </tr>
         <tr>
 			<th colspan="2" style="width:20%;text-align: left;">保護者住所 <br>Parents address</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->family_address?></td>
         </tr>
         <tr>
 			<th colspan="2" style="width:20%;text-align: left;">在学年数 <br>Period of study</th>
@@ -71,7 +77,7 @@ $html = '
         </tr>
         <tr style="border-top: 0px;">
 			<th colspan="2" style="width:20%;text-align: left;">本人現住所 <br> Present address</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->address?></td>
         </tr>
         <tr>
 			<th colspan="2" style="width:20%;text-align: left;">最終学歴 <br> Latest educational history School name

@@ -1,5 +1,3 @@
-
-
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php include(dirname(__FILE__) ."/../templates/header.php"); ?>
 
@@ -2152,6 +2150,10 @@ $('#removeRow08').on('click', function(e) {
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h6>
+<select name="family_in_japan" id="family_in_japan" class="admission_select" style="margin-bottom: 1rem;";>
+        <option value="1" <?php if($result->family_in_japan== "1") {echo "selected";} ?>>Yes</option>
+        <option value="0" <?php if($result->family_in_japan== "0") {echo "selected";} ?>>No</option>
+    </select>
 <p>If yes, fill in all the family members in Japan.</p>
 <div class="form-group">
   <?php echo form_label('Are you planning to stay with them in Japan? : ', 'plan_to_stay_with_them', array( 'class' => 'form-control-label', 'id'=> '')); ?><br/>
