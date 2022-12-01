@@ -118,7 +118,7 @@ img{
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">最終学歴<br/>Final Education</th>
             <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $result->educational_school_name?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">卒業の年<br/>When did (will) <br/>you graduate?</th>
-            <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;">年Year</p></td>
+            <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;"><?php echo $result->graduate_date?>年Year</p></td>
         </tr>
   </table>
   <table style="width: 100%;">
