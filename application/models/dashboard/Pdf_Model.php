@@ -32,6 +32,13 @@ class Pdf_Model extends CI_Model
     $query = $this->db->get($this->db1);
     return $query->result();
   }
+  public function getEduHitory($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db4, $this->db1.'.id = '.$this->db4.'.applicant_id', 'left' );
+    return $this->db->get($this->db1)->row();
+  }
   public function getJLSDetail2($id)
   {
     $this->db->select('*,JLS_applicant_info.id');

@@ -2182,6 +2182,20 @@ $(function() {
           'id' => 'work_place',
           'autocomplete' => ''));
       ?>
+      <span class="text-danger"><?php echo form_error('fin_visa'); ?></span>
+  </div>
+  <div class="form-group">
+      <?php echo form_label('Visa', 'fin_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_visa')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'fin_visa',
+          'type' => 'text',
+          'value' => html_escape(set_value('work_place',isset($result)?$result->fin_visa:''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'fin_visa',
+          'autocomplete' => ''));
+      ?>
       <span class="text-danger"><?php echo form_error('work_place'); ?></span>
   </div>
   <div class="form-group">
