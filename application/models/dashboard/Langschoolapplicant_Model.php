@@ -219,6 +219,7 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->where('understand_language', $data_details['understand_language']);
 		$this->db->where('criminal_record', $data_details['criminal_record']);
     $this->db->where('criminal_record_details', $data_details['criminal_record_details']);
+    $this->db->where('eligibility_details', $data_details['eligibility_details']);
     $this->db->where('criminal_record_when', $data_details['criminal_record_when']);
     $this->db->where('departure_deportation', $data_details['departure_deportation']);
     $this->db->where('current_status', $data_details['current_status']);

@@ -82,35 +82,35 @@ $html = '
         <tr>
 			<th colspan="2" style="width:20%;text-align: left;">最終学歴 <br> Latest educational history School name
 </th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->educational_school_name?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">日本語学習期間 <br>Duration of Japanese language study</th>
-			<td colspan="9">　 年　　 ヶ月 ＊日本語能力試験、Nat, TOP-J TEST→ <span>(　　　　　　)</span></td>
+			<td colspan="9"><?php echo $result->duration_jp_language_study?>　 年　　 ヶ月 ＊日本語能力試験、Nat, TOP-J TEST→ <span>(　　　　　　)</span></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者氏名 <br> The name of financial supporter</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->fin_name?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者職業・勤務先 <br>Job of financial supporter</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->fin_occupation?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">本人との続柄 your relation of the <br>financial supporter  e.g. father, mother </th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->fin_relationship?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者勤務先電話番号 <br> phone of financial supporter</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->tel?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者年間収入 <br> financial supporter salary of a year</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->annual_income?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">過去申請歴（取下げ歴を含む）<br> Have you already tried an application for certificate of eligibility.</th>
-			<td colspan="9" style="text-align: center;">有（　　　　年　　　月）　　　　無</td>
+			<td colspan="9" style="text-align: center;"><?php echo $result->eligibility_details?>有（　　　<?php echo $result->criminal_record_when?>　年　　　月）　　　　無</td>
         </tr>
         </table>
 		
@@ -130,45 +130,15 @@ $html = '
                                     
                                 </tr>
                             <tbody id="stockList">
+                            <?php
+                                foreach($result1 as $row1){
+                                ?> 
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-
-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
+                                        <td style="font-size: 11px; text-align: right;"><?php echo $row1->edu_name?></td>
+                                        <td style="font-size: 11px; text-align: center;">　　<?php echo $row1->edu_start_date?>　　年 　　月～　　　　年 　　月</td></td>
+                                        <td style="font-size: 11px; text-align: left;"><?php echo $row1->edu_year?></td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-
-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                                    <tr>
-                                             
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-
-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                                    <tr>
-                                             
-                                             <td style="font-size: 11px; text-align: right;"></td>
-                                             <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-     
-     </td>
-                                             <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                                    <tr>
-                                             
-                                             <td style="font-size: 11px; text-align: right;"></td>
-                                             <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-     
-     </td>
-                                             <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                               
+                                    <?php } ?>
                             </tbody>
                         </table>
 </section>
