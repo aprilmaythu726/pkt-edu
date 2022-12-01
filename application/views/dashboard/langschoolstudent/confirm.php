@@ -443,7 +443,10 @@ p{
      <?php echo form_label('Result?', 'immigration_result', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'immigration_result')); ?>
      <p class="comfirm_val" id="immigration_result" name="immigration_result"><?php echo $data_details['immigration_result']; ?></p>   
   </div>
-
+  <div class="form-group">
+      <?php echo form_label('Graduate Date', 'graduate_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+      <p class="comfirm_val" id="graduate_date" name="graduate_date"><?php echo $data_details['graduate_date']; ?></p>   
+  </div>
   <div class="form-group">
   <?php echo form_label('Have you ever experienced COE rejection?', 'COE_reject', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'COE_reject')); ?>
   <p class="comfirm_val" id="COE_reject" name="COE_reject"><?php echo $data_details['COE_reject']; ?></p>   
@@ -725,6 +728,7 @@ p{
     <tr>
       <th>Name of Japanese language <br>test</th>
       <th>Level</th>
+      <th>Date</th>
     </tr>
   </thead>
   <tbody>
@@ -740,6 +744,9 @@ p{
     </td>
     <td>
       <p class="tbl_comfirmVal" name="going_level[]" style="text-align: center;height: 18px;" ><?php echo $data_jp_lang_going_to_take['going_level'][$key];?></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="going_date[]" style="text-align: center;height: 18px;" ><?php echo $data_jp_lang_going_to_take['going_date'][$key];?></p>
     </td>
   </tr>
   <?php } 
