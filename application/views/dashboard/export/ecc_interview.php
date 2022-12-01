@@ -231,9 +231,9 @@ $html = '
         ?>   
             <tr>
                 <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row1->edu_name?></td>
-                <td style="font-size: 12px; text-align: left;border-right: none;font-size:13px;"><?php echo $row1->start_date?></td>
-                <td style="font-size: 11px; text-align: left;border-left: none;font-size:13px;"><?php echo $row1->end_date?></td>
-                <td style="font-size: 11px; text-align: right;border-left: none;font-size:13px;"><?php echo $row1->year?>year</td>
+                <td style="font-size: 12px; text-align: center;border-right: none;font-size:13px;"><?php echo $row1->start_date?></td> 
+                <td style="font-size: 11px; text-align: center;border-left: none;font-size:13px;"><?php echo $row1->end_date?></td>
+                <td style="font-size: 11px; text-align: right;border-left: none;font-size:13px;"><?php echo $row1->year?> year</td>
             </tr>
         <?php } ?>
             <!-- <tr>
@@ -283,10 +283,10 @@ $html = '
           foreach($result2 as $row2){
         ?> 
             <tr>
-                <td style="font-size: 11px; text-align: right;font-size:13px;"><?php echo $row2->jp_name?></td>
-                <td style="font-size: 12px; text-align: left;border-right: none;font-size:13px;"><?php echo $row2->start_date?></td>
-                <td style="font-size: 11px; text-align: left;border-left: none;font-size:13px;"><?php echo $row2->end_date?></td>
-                <td style="font-size: 11px; text-align: right;font-size:13px;"><?php echo $row2->hour?>hours</td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row2->jp_name?></td>
+                <td style="font-size: 12px; text-align: center;border-right: none;font-size:13px;"><?php echo $row2->start_date?></td>
+                <td style="font-size: 11px; text-align: center;border-left: none;font-size:13px;"><?php echo $row2->end_date?></td>
+                <td style="font-size: 11px; text-align: right;font-size:13px;"><?php echo $row2->hour?> hours</td>
             </tr>
         <?php } ?>
             <!-- <tr>
@@ -379,9 +379,9 @@ $html = '
           foreach($result5 as $row5){
         ?> 
             <tr>
-                <td style="font-size: 11px; text-align: right;font-size:13px;"><?php echo $row5->emp_name?></td>
-                <td style="font-size: 12px; text-align: left;border-right: none;font-size:13px;"><?php echo $row5->start_date?></td>
-                <td style="font-size: 11px; text-align: left;border-left: none;font-size:13px;"><?php echo $row5->end_date?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row5->emp_name?></td>
+                <td style="font-size: 12px; text-align: center;border-right: none;font-size:13px;"><?php echo $row5->start_date?></td>
+                <td style="font-size: 11px; text-align: center;border-left: none;font-size:13px;"><?php echo $row5->end_date?></td>
                 <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row5->job_description?></td>
         <?php } ?>   
             </tr>          
@@ -563,7 +563,7 @@ $html = '
 <br><br>
 <section class="personal-info" style="width:100%;">
 <h4 style="width:500px;float:left;margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:13px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h4>
-<p style="width:100px;float:right;font-size:13px;">   Yes / No	</p>	
+<p style="width:100px;float:left;font-size:13px;font-weight:bold;"><?php if($result->family_in_japan == '1'){echo 'Yes';}else{echo 'No';}?></p>	
     <p style="padding: 0px;margin:0px;width:400px;float:left;font-size:13px;">If yes, fill in all the family members in Japan.</p>
     <p style="padding: 0px;margin:0px;width:400px;float:left;font-size:13px;">Are you planning to stay with them in Japan? :  <?php if($result->ja_plan_to_stay_with_them == '1'){echo 'Yes';}else{echo 'No';}?></p>
     <section class="personal-info" style="width:100%;">

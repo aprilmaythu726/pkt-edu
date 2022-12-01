@@ -40,6 +40,13 @@ class Pdf_Model extends CI_Model
     $query = $this->db->get($this->db1);
     return $query->result();
   }
+  public function getPreJpStudy($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db5, $this->db1.'.id = '.$this->db5.'.applicant_id', 'left' );
+    return $this->db->get($this->db1)->row();
+  }
   public function getJLSDetail3($id)
   {
     $this->db->select('*,JLS_applicant_info.id');
@@ -48,6 +55,13 @@ class Pdf_Model extends CI_Model
     $query = $this->db->get($this->db1);
     return $query->result();
   }
+  public function getAchivTest($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db6, $this->db1.'.id = '.$this->db6.'.applicant_id', 'left' );
+    return $this->db->get($this->db1)->row();
+  }
   public function getJLSDetail4($id)
   {
     $this->db->select('*,JLS_applicant_info.id');
@@ -55,6 +69,13 @@ class Pdf_Model extends CI_Model
     $this->db->join($this->db7, $this->db1.'.id = '.$this->db7.'.applicant_id', 'left' );
     $query = $this->db->get($this->db1);
     return $query->result();
+  }
+  public function getGoingTest($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db7, $this->db1.'.id = '.$this->db7.'.applicant_id', 'left' );
+    return $this->db->get($this->db1)->row();
   }
   public function getJLSDetail5($id)
   {
@@ -79,6 +100,13 @@ class Pdf_Model extends CI_Model
     $this->db->join($this->db10, $this->db1.'.id = '.$this->db10.'.applicant_id', 'left' );
     $query = $this->db->get($this->db1);
     return $query->result();
+  }
+  public function getFamJapan($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db10, $this->db1.'.id = '.$this->db10.'.applicant_id', 'left' );
+    return $this->db->get($this->db1)->row();
   }
   public function getJLSDetail8($id)
   {
