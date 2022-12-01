@@ -1096,8 +1096,8 @@ p{
     <p class="comfirm_val" id="work_place" name="work_place"><?php echo $data_financial_sponsor['work_place']; ?></p>      
   </div>
   <div class="form-group">
-    <?php echo form_label('Annual Income', 'annual_income', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'annual_income')); ?>
-    <p class="comfirm_val" id="annual_income" name="annual_income"><?php echo $data_financial_sponsor['annual_income']; ?></p> 
+    <?php echo form_label('Visa', 'fin_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_visa')); ?>
+    <p class="comfirm_val" id="fin_visa" name="fin_visa"><?php echo $data_financial_sponsor['fin_visa']; ?></p> 
   </div>
   <div class="form-group">
     <?php echo form_label('The amount of saving for study abroad ', 'amount_saving_for_study_abroad', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'amount_saving_for_study_abroad')); ?>

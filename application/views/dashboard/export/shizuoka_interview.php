@@ -141,7 +141,7 @@ img{
   <table style="width: 100%;">
         <tr style="border-top: none !important;border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">受験予定<br/>When will you take <br>the exam？</th>
-            <td style="width:32%;border-left: none !important;font-weight:normal;">____年Year____月Month</td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $resultgoingtest->going_date?>____年Year____月Month</td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">受験番号<br/>Examinee's No.</th>
             <td style="text-align: right;border-left: none !important;font-weight:normal;"><?php echo $resultgoingtest->going_level?></td>
         </tr>
@@ -172,7 +172,7 @@ img{
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">来日歴<br/>Experience of stay in Japan</th>
             <td style="width:32%;border-left: none !important;border-right: none !important;font-weight:normal;"><?php if($result->have_you_visited_jp == '1'){echo 'Yes';}else{echo 'No';}?></td>
             <td style="width:18%;text-align:center;border-left: none !important;border-right: none !important;border-right: none !important;font-weight:normal;">()<br/>ビザVisa</td>
-            <td style="border-left: none !important;font-weight:normal;">From____年Y____月M____日D<br/>To____年Y____月M____日D</td>
+            <td style="border-left: none !important;font-weight:normal;">From <?php echo $result->visited_date?>____年Y____月M____日D<br/>To <?php echo $result->date_of_departure?>____年Y____月M____日D</td>
         </tr>
   </table>
   <table style="width: 100%;">
@@ -194,7 +194,7 @@ img{
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">支弁者の職業<br/>Supporter's Occupaton </th>
             <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $result->fin_occupation?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">支弁者のビザ<br/>Supporter's Visa<br/>(if he/she is in Japan)</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->fin_visa?></td>
         </tr>
   </table>
   <table style="width: 100%;">
