@@ -198,7 +198,7 @@ $html = '
                 <th style="width:30%;" style="border-right:none !important;border-left:none !important;font-size:13px;">			
                   (Married/Unmarried):											                                                                                                                                                                 
                 </th>
-                <td colspan="1.5" style="border-left:none !important;font-size:13px;"><?php echo $result->martial_status?></td>
+                <td colspan="1.5" style="border-left:none !important;font-size:13px;"><?php if($result->martial_status == '1'){echo 'Unmarried';}else{echo 'Married';}?></td>
             </tr>
             <tr>
                 <th class="ecc_stu_name" style="width:15%;border-right:none !important;font-size:13px;">				
@@ -379,10 +379,10 @@ $html = '
           foreach($result5 as $row5){
         ?> 
             <tr>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row5->emp_name?></td>
-                <td style="font-size: 12px; text-align: center;border-right: none;font-size:13px;"><?php echo $row5->start_date?></td>
-                <td style="font-size: 11px; text-align: center;border-left: none;font-size:13px;"><?php echo $row5->end_date?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row5->job_description?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row5->emp_name?></td>
+                <td style="font-size: 12px; text-align: center;border-right: none;font-size:13px;height:24px;"><?php echo $row5->start_date?></td>
+                <td style="font-size: 11px; text-align: center;border-left: none;font-size:13px;height:24px;"><?php echo $row5->end_date?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row5->job_description?></td>
         <?php } ?>   
             </tr>          
             
@@ -390,7 +390,7 @@ $html = '
       </table>
     </div>
     </section> 
-<br><br>
+<br>
     <div>
 <h4 style="padding: 0px;margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:14px;">Have you visited Japan?</h4> 	
 
@@ -447,12 +447,12 @@ $html = '
           foreach($result6 as $row6){
         ?> 
            <tr>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->fam_name?></td>
-                <td style="font-size: 12px; text-align: left;"><?php echo $row6->fam_relationship?></td>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->work_place?></td>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->occupation?></td>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->length_sevice?></td>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->annual_income?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->fam_name?></td>
+                <td style="font-size: 12px; text-align: left;height:24px;"><?php echo $row6->fam_relationship?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->work_place?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->occupation?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->length_sevice?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->annual_income?></td>
             </tr>
         <?php } ?>  
             <!-- <tr>
@@ -584,12 +584,12 @@ $html = '
           foreach($result7 as $row7){
         ?> 
            <tr>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_name?></td>
-                <td style="font-size: 12px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_age?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_relationship?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_nationality?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_visa_status?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_work_place?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_name?></td>
+                <td style="font-size: 12px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_age?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_relationship?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_nationality?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_visa_status?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_work_place?></td>
             </tr>
         <?php }
         ?>

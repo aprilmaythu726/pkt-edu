@@ -88,7 +88,7 @@ img{
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">国<br/>Country</th>
             <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $result->info_nationality?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">学校名（紹介者）<br/>Name of School<br/>or Introducer</th>
-            <td style="text-align: right;border-left: none !important;"><p style="text-align: right;font-weight:normal;"></p><?php echo $result->applicant_name?></td>
+            <td style="text-align: left;border-left: none !important;"><p style="text-align: left;font-weight:normal;"></p>PKT Education Center</td>
         </tr>
   </table>
   <table style="width: 100%;">
