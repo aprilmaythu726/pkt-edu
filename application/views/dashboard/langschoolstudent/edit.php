@@ -910,7 +910,7 @@ $(function() {
       <?php
         echo form_input(array(
           'name' => 'school_apply_date',
-          'type' => 'text',
+          'type' => 'date',
           'value' => html_escape(set_value('school_apply_date',isset($result)?$result->school_apply_date:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
@@ -1064,11 +1064,21 @@ $(function() {
           <option value="0" <?php if($result->criminal_record== "0") {echo "selected";} ?>>No</option>
         </select>
         </div>
-        <div class="">
+        <div>
             <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Details</span>
-                <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked">
+            <?php
+          echo form_input(array(
+            'name' => 'eligibility_details',
+            'type' => 'text',
+            'placeholder' => 'Please Enter!',
+            'value' => html_escape(set_value('eligibility_details',isset($result)?$result->eligibility_details:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'eligibility_details',
+            'class' => 'details form-control col-md-8',
+            'autocomplete' => ''));
+        ?>
             </label> 
-        </div>
+          </div>
     </div>  
 </div>
     
@@ -1096,14 +1106,15 @@ $(function() {
             </label> 
         </div> -->
         <div class="form-group">
-        <?php echo form_label('Details', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'criminal_record_details')); ?>
+        <?php echo form_label('Details', 'criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'criminal_record_details')); ?>
         <?php
           echo form_input(array(
             'name' => 'criminal_record_details ',
             'type' => 'text',
+            'value' => html_escape(set_value('criminal_record_details',isset($result)?$result->criminal_record_details:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => ' criminal_record_details',
+            'id' => 'criminal_record_details',
             'autocomplete' => ''));
         ?>
         <span class="text-danger"><?php echo form_error('criminal_record_details '); ?></span>
@@ -1123,7 +1134,7 @@ $(function() {
         <?php
           echo form_input(array(
             'name' => 'criminal_record_when',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('criminal_record_when',isset($result)?$result->criminal_record_when:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
@@ -2690,7 +2701,7 @@ color:#48a1af;
 .school_select {
     width: 45.3%;
     padding: 8px;
-    margin: 7px 1px 7px 0px;
+    margin: 0px 1px 0px 0px;
     border: 1px solid #ced4db;
     border-radius: 3px;
 }

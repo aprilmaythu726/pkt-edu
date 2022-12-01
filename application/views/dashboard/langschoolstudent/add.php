@@ -955,9 +955,21 @@ $(function() {
           </select>
         </div>
         <div class="">
-            <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Details</span>
-                <input type="text" class="details form-control col-md-8" name="eligibility_time" value="" checked="checked">
-            </label> 
+   
+ 
+           <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Details</span>
+               
+        <?php
+          echo form_input(array(
+            'name' => 'eligibility_details',
+            'type' => 'text',
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => ' eligibility_details',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('criminal_record_details '); ?></span>
+            </label>  
         </div>
     </div>  
 </div>
@@ -1005,7 +1017,7 @@ $(function() {
     <div class="radio_record">
         <div class="">
             <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
-                <input type="text" class="details form-control col-md-8" name="criminal_record_when" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
+                <input type="date" class="details form-control col-md-8" name="criminal_record_when" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
             </label> 
         </div>
         <div class="">

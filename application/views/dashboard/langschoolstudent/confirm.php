@@ -494,14 +494,14 @@ p{
   </div>        
   <div class="">
       <label class="col-rd cri_text"><span>Details</span>
-      <p class="comfirm_val" id="criminal_record_details" name="criminal_record_details"><?php echo $data_details['criminal_record_details']; ?></p>   
+      <p class="comfirm_val" id="eligibility_details" name="eligibility_details"><?php echo $data_details['eligibility_details']; ?></p>   
       </label> 
   </div>
   </div>  
 </div>  
 </div>
 <div class="col-md-6 float-left">
- <div class="form-group">
+ <div class="form-group"> 
     <label class="addmission">Language</label>
     <p class="comfirm_val" id="family_language" name="family_language"><?php echo $data_details['family_language']; ?></p>   
   </div>
