@@ -61,15 +61,19 @@ class Pdf extends CI_Controller {
     function eccinter($id) {
        // $this->mpdf->useOnlyCoreFonts = true;
        //$filename = "VISH";
-        $data['result'] = $this->Pdf_Model->getAllData($id);
-        $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
-        $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
-        $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
-        $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
-        $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
-        $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
-        $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
-        $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+       $data['result'] = $this->Pdf_Model->getAllData($id);
+       $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+       $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+       $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
+       $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+       $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
+       $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+       $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
+       $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+       $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+       $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+       $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
+       $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
        // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
         $html = $this->load->view('dashboard/export/ecc_interview', $data, true);
        // var_dump($html);
@@ -91,15 +95,19 @@ class Pdf extends CI_Controller {
     function fukuokainter($id) {
         // $this->mpdf->useOnlyCoreFonts = true;
         //$filename = "VISH";
-         $data['result'] = $this->Pdf_Model->getAllData($id);
-         $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
-         $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
-         $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
-         $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
-         $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
-         $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
-         $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
-         $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+        $data['result'] = $this->Pdf_Model->getAllData($id);
+        $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+        $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+        $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
+        $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+        $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
+        $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+        $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
+        $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+        $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+        $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+        $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
+        $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
         // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
          $html = $this->load->view('dashboard/export/fukuoka_interview', $data, true);
         // var_dump($html);
@@ -117,17 +125,21 @@ class Pdf extends CI_Controller {
          $this->mpdf->Output("$output", 'I'); // save to file because we can
          exit();
      }
-     function shizuokainter($id) {
+     function shizuka_inter($id) {
         // $this->mpdf->useOnlyCoreFonts = true;
         //$filename = "VISH";
          $data['result'] = $this->Pdf_Model->getAllData($id);
          $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
          $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+         $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
          $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+         $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
          $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+         $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
          $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
          $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
          $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+         $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
          $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
         // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
          $html = $this->load->view('dashboard/export/shizuoka_interview', $data, true);
