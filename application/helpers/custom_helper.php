@@ -117,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		return $data;
 	}
 
-	function change_format($data = null, $key) {
+	function change_format($data, $key) {
 		switch ($key)
 		{
 			case "334":

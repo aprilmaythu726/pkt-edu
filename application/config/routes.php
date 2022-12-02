@@ -231,7 +231,7 @@ $route['adm/portal/jls_applicant/ecc_interview/(:any)'] = '/dashboard/pdf/eccint
 $route['adm/portal/jls_applicant/ecc_admission/(:any)'] = '/dashboard/pdf/ecc_admiss/$1';
 
 $route['adm/portal/jls_applicant/fukuoka_interview/(:any)'] = '/dashboard/pdf/fukuokainter/$1';
-$route['adm/portal/jls_applicant/fukuoka_interview/(:any)']= '/dashboard/pdf/fukuoka_inter/$1';
+//$route['adm/portal/jls_applicant/fukuoka_interview/(:any)']= '/dashboard/pdf/fukuoka_inter/$1';
 $route['adm/portal/jls_applicant/fukuoka_admission/(:any)']= '/dashboard/pdf/fukuoka_admiss/$1';
 $route['adm/portal/jls_applicant/shizuoka_interview/(:any)'] = '/dashboard/pdf/shizuka_inter/$1';
 $route['adm/portal/jls_applicant/shizuoka_admission/(:any)']= '/dashboard/pdf/shizuoka_admiss/$1';

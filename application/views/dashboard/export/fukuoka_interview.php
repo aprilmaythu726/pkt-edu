@@ -29,8 +29,9 @@ $html = '
             <p style="padding-left: 10px;">福岡本校での入学を　希望する ・ 希望しない</p>
             </dd>
         </dl>
+      
         <dl style="margin:0px;">
-            <dt style="width:450px;float:left;"><h3 style="font-family: sjis;margin-bottom:0px;padding-top:0px;">日本語センター名： <span>__________________________________________</span></h3></dt>
+            <dt style="width:450px;float:left;"><h3 style="font-family: sjis;margin-bottom:0px;padding-top:0px;">日本語センター名：<span style="font-size:14px;font-weight:normal;"><?php echo $resultprejpstudy->jp_name?></span></h3></dt>
             <dd style="width:25%;float: right;"><h3 style="font-family: sjis;margin-bottom:0px;padding-top:0px;">年　　　月　　　日</h3></dd>
         </dl>
     </section>
@@ -39,72 +40,75 @@ $html = '
 		<table style="width:100%;">
 		<tr>
 			<th style="width: 10%;">氏名 <br> NAME</th>
-			<td colspan="2"></td>
+			<td colspan="2"><?php echo $result->applicant_name?></td>
             <th style="width: 10%;">性別 <br> SEX</th>
-			<td colspan="4"></td>
-            <td colspan="3" rowspan="4" style="text-align: center;">（写真）<br>Photo</td>
+			<td colspan="4"><?php if($result->gender == '1'){echo 'Male';}else{echo 'Female';}?></td>
+            <td colspan="3" rowspan="4" style="text-align: center;">
+            <?php if(!empty($result->image_file)) { ?>
+              <img style="width:15%"; src="<?php echo base_url('upload/assets/adm/usr/'.$result->image_file); ?>"  class="pb-1">
+            <?php } ?></td>
             </tr>
 		<tr>
 			<th style="width: 10%;">国籍 <br> Nationality</th>
-			<td colspan="2"></td>
+			<td colspan="2"><?php echo $result->info_nationality?></td>
             <th style="width: 10%;">生年月日 <br> Birthday</th>
-			<td colspan="4" style="text-align: right;">　　年　　月　　日</td>
+			<td colspan="4" style="text-align: left;"><?php echo $result->date_of_birthday?>　　年　　月　　日</td>
             </tr>
 		<tr>
 			<th style="width: 10%;">固定電話 <br> Phone</th>
-			<td colspan="2"></td>
+			<td colspan="2"><?php echo $result->info_phone?></td>
             <th style="width: 10%;">携帯電話 <br> Mobile</th>
-			<td colspan="4"></td>
+			<td colspan="4"><?php echo $result->info_phone?></td>
         </tr>
         <tr>
 			<th style="width: 10%;">E-mail</th>
-			<td colspan="7"></td>
+			<td colspan="7"><?php echo $result->std_email?></td>
            
         </tr>
         <tr>
 			<th colspan="2" style="width:20%;text-align: left;">保護者住所 <br>Parents address</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->family_address?></td>
         </tr>
         <tr>
 			<th colspan="2" style="width:20%;text-align: left;">在学年数 <br>Period of study</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->course_study_lengh?></td>
         </tr>
         <tr style="border-top: 0px;">
 			<th colspan="2" style="width:20%;text-align: left;">本人現住所 <br> Present address</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->address?></td>
         </tr>
         <tr>
 			<th colspan="2" style="width:20%;text-align: left;">最終学歴 <br> Latest educational history School name
 </th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->educational_school_name?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">日本語学習期間 <br>Duration of Japanese language study</th>
-			<td colspan="9">　 年　　 ヶ月 ＊日本語能力試験、Nat, TOP-J TEST→ <span>(　　　　　　)</span></td>
+			<td colspan="9"><?php echo $result->duration_jp_language_study?>　 年　　 ヶ月 ＊日本語能力試験、Nat, TOP-J TEST→ <span>( <?php echo $resultachiv->achiv_name?>)</span></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者氏名 <br> The name of financial supporter</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->fin_name?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者職業・勤務先 <br>Job of financial supporter</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->fin_occupation?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">本人との続柄 your relation of the <br>financial supporter  e.g. father, mother </th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->fin_relationship?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者勤務先電話番号 <br> phone of financial supporter</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->tel?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">経費支弁者年間収入 <br> financial supporter salary of a year</th>
-			<td colspan="9"></td>
+			<td colspan="9"><?php echo $result->annual_income?></td>
         </tr>
         <tr>
 			<th colspan="2" style="text-align: left;">過去申請歴（取下げ歴を含む）<br> Have you already tried an application for certificate of eligibility.</th>
-			<td colspan="9" style="text-align: center;">有（　　　　年　　　月）　　　　無</td>
+			<td colspan="9" style="text-align: left;"><?php echo $result->eligibility_details?>　　有（　　　<?php echo $result->criminal_record_when?>　年　　　月）　　　　無</td>
         </tr>
         </table>
 		
@@ -124,45 +128,15 @@ $html = '
                                     
                                 </tr>
                             <tbody id="stockList">
+                            <?php
+                                foreach($result1 as $row1){
+                                ?> 
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-
-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
+                                        <td style="font-size: 11px; text-align: right;"><?php echo $row1->edu_name?></td>
+                                        <td style="font-size: 11px; text-align: center;">　　<?php echo $row1->start_date?>　　年 　　月～　　　　年 　　月</td></td>
+                                        <td style="font-size: 11px; text-align: left;"><?php echo $row1->year?></td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-
-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                                    <tr>
-                                             
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-
-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                                    <tr>
-                                             
-                                             <td style="font-size: 11px; text-align: right;"></td>
-                                             <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-     
-     </td>
-                                             <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                                    <tr>
-                                             
-                                             <td style="font-size: 11px; text-align: right;"></td>
-                                             <td style="font-size: 11px; text-align: center;">　　　　年 　　月～　　　　年 　　月
-     
-     </td>
-                                             <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                               
+                                    <?php } ?>
                             </tbody>
                         </table>
 </section>
