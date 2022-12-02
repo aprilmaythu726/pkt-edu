@@ -226,15 +226,15 @@ $route['adm/portal/student/view/(:any)'] = '/dashboard/student/view/$1';
 $route['adm/portal/student/edit/(:any)'] = '/dashboard/student/edit/$1';
 $route['adm/portal/student/delete/(:any)'] = '/dashboard/student/delete/$1';
 
-$route['adm/portal/jls_applicant/jcli_admission'] = '/dashboard/pdf/jcli_admiss';
+$route['adm/portal/jls_applicant/jcli_admission/(:any)'] = '/dashboard/pdf/jcli_admiss/$1';
 $route['adm/portal/jls_applicant/ecc_interview/(:any)'] = '/dashboard/pdf/eccinter/$1';
-$route['adm/portal/jls_applicant/ecc_admission'] = '/dashboard/pdf/ecc_admiss';
+$route['adm/portal/jls_applicant/ecc_admission/(:any)'] = '/dashboard/pdf/ecc_admiss/$1';
 
 $route['adm/portal/jls_applicant/fukuoka_interview/(:any)'] = '/dashboard/pdf/fukuokainter/$1';
-$route['adm/portal/jls_applicant/fukuoka_interview'] = '/dashboard/pdf/fukuoka_inter';
-$route['adm/portal/jls_applicant/fukuoka_admission'] = '/dashboard/pdf/fukuoka_admiss';
-$route['adm/portal/jls_applicant/shizuoka_interview/(:any)'] = '/dashboard/pdf/shizuoka_inter/$1';
-$route['adm/portal/jls_applicant/shizuoka_admission'] = '/dashboard/pdf/shizuoka_admiss';
+$route['adm/portal/jls_applicant/fukuoka_interview/(:any)']= '/dashboard/pdf/fukuoka_inter/$1';
+$route['adm/portal/jls_applicant/fukuoka_admission/(:any)']= '/dashboard/pdf/fukuoka_admiss/$1';
+$route['adm/portal/jls_applicant/shizuoka_interview/(:any)'] = '/dashboard/pdf/shizuka_inter/$1';
+$route['adm/portal/jls_applicant/shizuoka_admission/(:any)']= '/dashboard/pdf/shizuoka_admiss/$1';
 
 $route['adm/portal/jls_applicant/employee'] = '/dashboard/employee/index';
 $route['adm/portal/jls_applicant/employee/createexcel'] = '/dashboard/employee/createExcel';

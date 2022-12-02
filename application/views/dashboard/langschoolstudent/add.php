@@ -843,6 +843,20 @@ $(function() {
     </select>
   </div>
   <div class="form-group">
+  <?php echo form_label('When did (will) you graduate?', 'graduate_date', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+  <?php
+          echo form_input(array(
+            'name' => 'graduate_date',
+            'type' => 'date',
+           // 'value' => html_escape(set_value('graduate_date',isset($result)?$result->graduate_date:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'graduate_date',
+            'autocomplete' => ''));
+  ?>
+  <span class="text-danger"><?php echo form_error('graduate_date'); ?></span>
+  </div>
+  <div class="form-group">
   <?php echo form_label('Have you ever experienced COE rejection?', 'COE_reject', array( 'class' => 'form-control-label', 'id'=> '')); ?>
   <span class="badge badge-danger">Required</span>
     <select name="COE_reject" id="COE_reject" class="admission_select">
@@ -850,8 +864,7 @@ $(function() {
         <option value="0">No</option>
     </select>
   </div>
-  
-  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br>
   <h6 class="spec_plan" style="padding-top:20px;">Employment</h6>
   <div class="form-group">
         <?php echo form_label('Aimed occupational category', 'aimed_occupational_category', array( 'class' => 'employment', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
@@ -954,11 +967,20 @@ $(function() {
               <option value="0">No</option>
           </select>
         </div>
-        <div class="">
-            <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Details</span>
-                <input type="text" class="details form-control col-md-8" name="eligibility_time" value="" checked="checked">
+        <div>
+        <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Details</span>
+            <?php
+          echo form_input(array(
+            'name' => 'eligibility_details',
+            'type' => 'text',
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'eligibility_details',
+            'class' => 'details form-control col-md-8',
+            'autocomplete' => ''));
+        ?>
             </label> 
-        </div>
+          </div>
     </div>  
 </div>
     
@@ -1406,12 +1428,13 @@ $(function() {
 </div>
 </div>
 <div class="col-md-4 float-left">
-<h6 class="" style="padding: 33px 0px 12px;">Name of JP language tests you are going to take</h6>
+<h6 class="" style="padding: 33px 0px 12px;">Name of JP language tests going to take</h6>
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
     <tr>
       <th>Name of Japanese language test</th>
       <th>Level</th>
+      <th>Date</th>
       
     </tr>
   </thead>
@@ -1424,13 +1447,8 @@ $(function() {
       <td>
       <input type="text" class=" table-control" name="going_level[]" value="">
       </td>
-    </tr>
-    <tr>
       <td>
-      <input type="text" class=" table-control term" name="going_name[]" value="">
-      </td>
-      <td>
-      <input type="text" class=" table-control" name="going_level[]" value="">
+      <input type="text" class=" table-control" name="going_date[]" value="">
       </td>
     </tr>
     <tr>
@@ -1439,6 +1457,20 @@ $(function() {
       </td>
       <td>
       <input type="text" class=" table-control" name="going_level[]" value="">
+      </td>
+      <td>
+      <input type="date" class=" table-control" name="going_date[]" value="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <input type="text" class=" table-control term" name="going_name[]" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="going_level[]" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control" name="going_date[]" value="">
       </td>
     </tr>
   </tbody>
@@ -2148,6 +2180,20 @@ $(function() {
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
           'id' => 'work_place',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('fin_visa'); ?></span>
+  </div>
+  <div class="form-group">
+      <?php echo form_label('Visa', 'fin_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'fin_visa')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'fin_visa',
+          'type' => 'text',
+          'value' => html_escape(set_value('work_place',isset($result)?$result->fin_visa:''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'fin_visa',
           'autocomplete' => ''));
       ?>
       <span class="text-danger"><?php echo form_error('work_place'); ?></span>
