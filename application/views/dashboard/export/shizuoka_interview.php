@@ -80,7 +80,7 @@ img{
   <table style="width: 100%;">
         <tr style="border-top: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">記入日<br/>date Y/M/D</th>
-            <td style="border-left: none !important;font-weight:normal;">2022年Y______月M ______日D</td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->created_at?>年Y______月M ______日D</td>
         </tr>
   </table>
   <table style="width: 100%;">

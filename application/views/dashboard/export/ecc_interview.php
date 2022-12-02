@@ -162,7 +162,7 @@ $html = '
 		<h3 style="font-size: 20px;font-weight:bold;">Questionnaire</h3>
 	</div><br/>
     <div style="display: inline;padding: 0px;margin:0px;">
-        <span class="ecc_date"  style="">Date:</span>
+        <span class="ecc_date"  style="">Date:<?php echo $result->created_at?></span>
         <span class="ecc_date"  style=""><span>　　</span>year</span>
         <span class="ecc_date"  style=""><span>　　</span>month</span>
         <span class="ecc_date"  style=""><span>　　</span>date</span>
