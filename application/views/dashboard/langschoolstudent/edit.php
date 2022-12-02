@@ -350,6 +350,20 @@ select.form-group.col-md-9.school_select{
         <span class="text-danger"><?php echo form_error('date_of_birthday'); ?></span>
       </div>
       <div class="form-group">
+        <?php echo form_label('Place Of Birth Province', 'province', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'province')); ?>
+        <?php
+          echo form_input(array(
+            'name' => 'province',
+            'type' => 'text',
+            'value' => html_escape(set_value('province',isset($result)?$result->province:''), ENT_QUOTES),
+            'placeholder' => 'Enter Place Of Birth!',
+            'class' => 'form-control',
+            'id' => 'province',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('place_birth'); ?></span>
+      </div>
+      <div class="form-group">
         <?php echo form_label('Place Of Birth', 'place_birth', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <?php
           echo form_input(array(
@@ -1656,6 +1670,8 @@ $('#removeRow08').on('click', function(e) {
     <tr>
     <th></th>
       <th>Name of institution</th>
+      <th>Level</th>
+      <th>Status(Completed/Still Studying)</th>
       <th>Address</th>
       <th>Starting <br>Year/Month  </th>
       <th >Finishing <br>Year/Month </th>
@@ -1682,6 +1698,28 @@ $('#removeRow08').on('click', function(e) {
             'value' => html_escape(set_value('jp_name',isset($result)?$row1->jp_name:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'jp_name',
+            'autocomplete' => ''));
+        ?>
+      </td>
+      <td  class="rowID">
+      <?php
+          echo form_input(array(
+            'name' => 'jp_level[]',
+            'type' => 'text',
+            'value' => html_escape(set_value('jp_level',isset($result)?$row1->jp_level:''), ENT_QUOTES),
+            'class' => 'table-control productItem',
+            'id' => 'jp_level',
+            'autocomplete' => ''));
+        ?>
+      </td>
+      <td  class="rowID">
+      <?php
+          echo form_input(array(
+            'name' => 'jp_status[]',
+            'type' => 'text',
+            'value' => html_escape(set_value('jp_status',isset($result)?$row1->jp_status:''), ENT_QUOTES),
+            'class' => 'table-control productItem',
+            'id' => 'jp_status',
             'autocomplete' => ''));
         ?>
       </td>
@@ -2057,6 +2095,8 @@ $('#removeRow08').on('click', function(e) {
     <tr>
       <th></th>
       <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
       <th>Relationship	</th>
       <th>Work Place	</th>
       <th>Date Of Birth</th>
@@ -2085,6 +2125,28 @@ $('#removeRow08').on('click', function(e) {
             'value' => html_escape(set_value('fam_name',isset($result)?$row5->fam_name:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'fam_name',
+            'autocomplete' => ''));
+        ?>
+      </td>
+      <td  class="rowID">
+      <?php
+          echo form_input(array(
+            'name' => 'fam_age[]',
+            'type' => 'text',
+            'value' => html_escape(set_value('fam_age',isset($result)?$row5->fam_age:''), ENT_QUOTES),
+            'class' => 'table-control productItem',
+            'id' => 'fam_age',
+            'autocomplete' => ''));
+        ?>
+      </td>
+      <td  class="rowID">
+      <?php
+          echo form_input(array(
+            'name' => 'fam_gender[]',
+            'type' => 'text',
+            'value' => html_escape(set_value('fam_gender',isset($result)?$row5->fam_gender:''), ENT_QUOTES),
+            'class' => 'table-control productItem',
+            'id' => 'fam_gender',
             'autocomplete' => ''));
         ?>
       </td>
@@ -2327,6 +2389,7 @@ $('#removeRow08').on('click', function(e) {
       <th>Date of Entry	</th>
       <th>Date of Arrival	</th>
       <th>Date of Depature </th>
+      <th >Visa	 </th>
       <th >Status	 </th>
       <th>Purpose of Entry</th>
     </tr>
@@ -2370,6 +2433,17 @@ $('#removeRow08').on('click', function(e) {
             'name' => 'depature_date[]',
             'type' => 'date',
             'value' => html_escape(set_value('depature_date',isset($result)?$result->depature_date:''), ENT_QUOTES),
+            'class' => 'table-control productItem',
+            'id' => 'depature_date',
+            'autocomplete' => ''));
+        ?>
+      </td>
+      <td  class="rowID">
+      <?php
+          echo form_input(array(
+            'name' => 'pre_stay_visa[]',
+            'type' => 'text',
+            'value' => html_escape(set_value('pre_stay_visa',isset($result)?$result->pre_stay_visa:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'depature_date',
             'autocomplete' => ''));

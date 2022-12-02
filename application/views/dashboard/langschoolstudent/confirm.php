@@ -190,7 +190,12 @@ p{
     </div>
 
     <div class="form-group">
-        <?php echo form_label('Place Of Birth', 'place_birth', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Place Of Birth Province', 'province', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'province')); ?>
+        <p class="comfirm_val" id="province" name="province"><?php echo $lists['province']; ?></p>
+    </div>
+
+    <div class="form-group">
+        <?php echo form_label('Place Of Birth City', 'place_birth', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <p class="comfirm_val" id="place_birth" name="place_birth"><?php echo $lists['place_birth']; ?></p>
     </div>
 
@@ -631,6 +636,8 @@ p{
   <thead class="tbl_head">
     <tr>
       <th>Name of institution</th>
+      <th>Level</th>
+      <th>Status(Completed/Still Studying)</th>
       <th>Address</th>
       <th>Starting <br>Year/Month  </th>
       <th >Finishing <br>Year/Month </th>
@@ -647,6 +654,12 @@ p{
   <tr>
     <td>
       <p class="tbl_comfirmVal" name="jp_name[]" style="text-align: center;height: 18px;" ><?php echo $data_lang_study['jp_name'][$key] . "<br>";?></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="jp_level[]" style="text-align: center;height: 18px;" ><?php echo $data_lang_study['jp_level'][$key];?>  </p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="jp_status[]" style="text-align: center;height: 18px;" ><?php echo $data_lang_study['jp_status'][$key];?>  </p>
     </td>
     <td>
       <p class="tbl_comfirmVal" name="jp_address[]" style="text-align: center;height: 18px;" ><?php echo $data_lang_study['jp_address'][$key];?>  </p>
@@ -837,6 +850,12 @@ p{
       <p class="tbl_comfirmVal" name="fam_name[]" style="text-align: center;height: 18px;" ><?php echo $data_family_member['fam_name'][$key];?></p> 
     </td>
     <td>
+      <p class="tbl_comfirmVal" name="fam_age[]" style="text-align: center;height: 18px;" ><?php echo $data_family_member['fam_age'][$key];?></p> 
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="fam_gender[]" style="text-align: center;height: 18px;" ><?php echo $data_family_member['fam_gender'][$key];?></p> 
+    </td>
+    <td>
       <p class="tbl_comfirmVal" name="fam_relationship[]" style="text-align: center;height: 18px;" ><?php echo $data_family_member['fam_relationship'][$key];?></p> 
     </td>
     <td>
@@ -955,6 +974,9 @@ p{
     </td>
     <td>
      <p class="tbl_comfirmVal" name="depature_date[]" style="text-align: center;height: 18px;" ><?php echo $data_previous_stay_japan['depature_date'][$key];?></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="pre_stay_visa[]" style="text-align: center;height: 18px;" ><?php echo $data_previous_stay_japan['pre_stay_visa'][$key];?></p>
     </td>
     <td>
      <p class="tbl_comfirmVal" name="status[]" style="text-align: center;height: 18px;" ><?php echo $data_previous_stay_japan['status'][$key];?></p>
