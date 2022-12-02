@@ -56,6 +56,7 @@ class Pdf extends CI_Controller {
        $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
        $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
        $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+       $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
        $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
        $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
        $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
@@ -91,6 +92,7 @@ class Pdf extends CI_Controller {
         $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
         $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
         $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+        $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
         $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
         $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
         $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
@@ -125,6 +127,7 @@ class Pdf extends CI_Controller {
          $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
          $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
          $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+         $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
          $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
          $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
          $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
@@ -160,6 +163,7 @@ class Pdf extends CI_Controller {
              $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
              $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
              $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+             $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
              $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
              $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
              $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
@@ -196,6 +200,7 @@ class Pdf extends CI_Controller {
             $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
             $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
             $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+            $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
             $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
             $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
             $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
@@ -232,6 +237,7 @@ class Pdf extends CI_Controller {
             $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
             $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
             $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+            $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);        
             $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
             $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
             $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
@@ -268,6 +274,7 @@ class Pdf extends CI_Controller {
             $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
             $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
             $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+            $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
             $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
             $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
             $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);

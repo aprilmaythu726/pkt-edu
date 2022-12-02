@@ -92,23 +92,23 @@ th{
     <table style="width:100%;">
       <tr style="border-bottom:none !important;">
         <th style="width:10% !important; text-align: center; ">氏名<br>Full <br/>Name</th>
-        <td style="text-align: left;"></td>
+        <td style="text-align: left;"><?php echo $result->applicant_name?></td>
       </tr>
     </table>
     <table style="width:100%; ">
       <tr >
         <th style="width:10% !important; text-align: center; ">性別<br>sex</th>
-        <td style="text-align: left;">Male    ・　Female  </td>
+        <td style="text-align: left;"><?php if($result->gender == '1'){echo 'Male';}else{echo 'Female';}?></td>
         <th style="width:15% !important; text-align: center; ">生年月日<br>Date of birth</th>
-        <td style="text-align: left;"></td>
+        <td style="text-align: left;"><?php echo $result->date_of_birthday?></td>
       </tr>
     </table>
     <table style="width:100%; ">
       <tr >
         <th style="width:15% !important; text-align: center; ">国籍<br>Nationality</th>
-        <td style="width:30% ;text-align: left;"></td>
+        <td style="width:30% ;text-align: left;"><?php echo $result->info_nationality?></td>
         <th style="width:15% !important; text-align: center; ">出生地<br>Place of birth</th>
-        <td style="width:30% ;text-align: left;">(省Province) ・ （市 City)</td>
+        <td style="width:30% ;text-align: left;">(省Province) ・ <!--（市 City)--><?php echo $result->place_birth?></td>
       </tr>
     </table>
 <p style="font-family: sjis;font-size:11px;text-align:right;line-height:11px;">
@@ -125,14 +125,14 @@ th{
         <th rowspan="2" style="width: 30%;">あなたの連絡先 <br>Contact details of yourself</th>
         <td colspan="4">
             <p style="width:100%;">現住所(Current Address) </p>
-            <p>-</p>
+            <p><?php echo $result->address?></p>
         </td>
     </tr>
     <tr>
         <th style="width: 10%;">(TEL)</th>
-        <td style="width: 30%;"></td>
+        <td style="width: 30%;"><?php echo $result->info_phone?></td>
         <th style="width: 10%;">(E-mail)</th>
-        <td style="width: 30%;"></td>
+        <td style="width: 30%;"><?php echo $result->std_email?></td>
     </tr>
     </table>
 
@@ -141,14 +141,14 @@ th{
         <th rowspan="2" style="width: 30%;">家族の連絡先 <br>Contact details of your family</th>
         <td colspan="4">
             <p style="width:100%;">住所（Address of your family)  </p>
-            <p>-</p>
+            <p><?php echo $result->family_address?></p>
         </td>
     </tr>
     <tr style="border-top: none !important;">
         <th style="width: 10%;">(TEL)</th>
-        <td style="width: 30%;"></td>
+        <td style="width: 30%;"><?php echo $result->family_tel?></td>
         <th style="width: 10%;">(E-mail)</th>
-        <td style="width: 30%;"></td>
+        <td style="width: 30%;"><?php echo $result->family_mail?></td>
     </tr>
     </table>
 </div>
@@ -164,7 +164,7 @@ th{
     <table style="width:100%;">
       <tr style="border-bottom:none !important;">
         <th style="width:30% !important; text-align: center; ">学校名　Name of school</th>
-        <td style="text-align: left;"></td>
+        <td style="text-align: left;"><?php echo $result->current_status_school_name?></td>
       </tr>
     </table>
     <table>
@@ -174,10 +174,10 @@ th{
         <th colspan="2" style="width:30% !important; text-align: center; ">卒業予定日(Expected month and year of graduating from the school.)</th>
       </tr>
       <tr>
-        <td>-</td>
-        <td>-</td>
-        <th style="width:20% !important; text-align: center; ">卒業予定 <br>will graduate in</th>
-        <td> 月 年 <br> Month Year</td>
+        <td><?php echo $result->current_status_school_major?></td>
+        <td><?php echo $result->current_status_school_grade?></td>
+        <th style="width:20% !important; text-align: center; ">卒業予定月年<br>will graduate in</th>
+        <td> <?php echo $result->expected_month?><?php echo $result->expected_year?><br> Month Year</td>
       </tr>
     </table>
 </div>
@@ -192,15 +192,15 @@ th{
     <table style="width:100%;">
       <tr style="border-bottom:none !important;">
         <th style="width:30% !important; text-align: center; ">会社名　Company name</th>
-        <td style="text-align: left;"></td>
+        <td style="text-align: left;"><?php echo $result->place_employment_school?></td>
       </tr>
     </table>
     <table>
       <tr>
         <th style="width:40% !important; text-align: center; ">職種 <br>Type of job</th>
-        <td style="width:60%"></td>
+        <td style="width:60%"><?php echo $result->occupation?></td>
         <th style="width:40% !important; text-align: center; ">  在籍期間 <br>Period</th>
-        <td style="width:60%"></td>
+        <td style="width:60%"><?php echo $resulthisemp->year?></td>
       </tr>
     </table>
 </div>
