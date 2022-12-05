@@ -1110,3 +1110,5 @@ ERROR - 2022-12-02 14:57:01 --> Severity: Notice --> Undefined property: stdClas
 ERROR - 2022-12-02 14:57:01 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
 ERROR - 2022-12-02 14:57:01 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
 ERROR - 2022-12-02 14:57:01 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-02 10:07:27 --> Severity: error --> Exception: syntax error, unexpected '}' C:\xampp\htdocs\pkt-edu\application\views\dashboard\export\shizuoka_admission.php 236
+ERROR - 2022-12-02 11:53:23 --> Severity: error --> Exception: syntax error, unexpected '<' C:\xampp\htdocs\pkt-edu\application\views\dashboard\export\shizuoka_admission.php 235

@@ -420,6 +420,11 @@ p{
   </div>
 
   <div class="form-group">
+      <?php echo form_label('Accompanying Persons,if Any', 'accompanying_marital_status', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+      <p class="comfirm_val" id="accompanying_marital_status" name="accompanying_marital_status"><?php echo $data_details['accompanying_marital_status']; ?></p>
+  </div>
+
+  <div class="form-group">
       <?php echo form_label('Did you apply before in Japan?', 'school_apply_before_japan', array( 'class' => 'form-control-label', 'id'=> '')); ?>
       <p class="comfirm_val" id="school_apply_before_japan" name="school_apply_before_japan"><?php echo $data_details['school_apply_before_japan']; ?></p>
   </div>
@@ -773,6 +778,7 @@ p{
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">History of Employment (Write in order, ending with the most recent employment.)</h6>
+<p class="comfirm_val" id="employment_experience" name="employment_experience"><?php echo $data_details['employment_experience']; ?></p>
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
@@ -919,6 +925,12 @@ p{
      <p class="tbl_comfirmVal" name="ja_fam_name[]" style="text-align: center;height: 18px;" ><?php echo $data_family_japan['ja_fam_name'][$key];?></p>
     </td>
     <td>
+     <p class="tbl_comfirmVal" name="ja_fam_date_birth[]" style="text-align: center;height: 18px;" ><?php echo $data_family_japan['ja_fam_date_birth'][$key];?></p>
+    </td>
+    <td>
+     <p class="tbl_comfirmVal" name="ja_fam_address[]" style="text-align: center;height: 18px;" ><?php echo $data_family_japan['ja_fam_address'][$key];?></p>
+    </td>
+    <td>
      <p class="tbl_comfirmVal" name="ja_fam_age[]" style="text-align: center;height: 18px;" ><?php echo $data_family_japan['ja_fam_age'][$key];?></p>
     </td>
     <td>
@@ -926,6 +938,9 @@ p{
     </td>
     <td>
       <p class="tbl_comfirmVal" name="ja_fam_residing_applicant[]" style="text-align: center;height: 18px;" ><?php echo $data_family_japan['ja_fam_residing_applicant'][$key];?></p>
+    </td>
+    <td>
+      <p class="tbl_comfirmVal" name="residence_card_no[]" style="text-align: center;height: 18px;" ><?php echo $data_family_japan['residence_card_no'][$key];?></p>
     </td>
     <td>
       <p class="tbl_comfirmVal" name="ja_fam_nationality[]" style="text-align: center;height: 18px;" ><?php echo $data_family_japan['ja_fam_nationality'][$key];?></p>

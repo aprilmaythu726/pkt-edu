@@ -772,6 +772,20 @@ $(function() {
     </select>
   </div>
   <div class="form-group">
+      <?php echo form_label('when?', 'accompanying_marital_status', array( 'class' => '', 'id'=> 'accompanying_marital_status', 'style' => '', 'for' => 'accompanying_marital_status')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'accompanying_marital_status',
+          'type' => 'text',
+          'value' => html_escape(set_value('accompanying_marital_status',isset($result)?$result->accompanying_marital_status:''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'accompanying_marital_status',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('school_apply_date'); ?></span>
+  </div>
+  <div class="form-group">
   <?php echo form_label('Did you apply before in Japan?', 'school_apply_before_japan', array( 'class' => 'form-control-label', 'id'=> '')); ?>
     <select name="school_apply_before_japan" id="school_apply_before_japan" class="admission_select">
         <option value="1">Yes</option>
@@ -1278,7 +1292,12 @@ $(function() {
       <input type="text" class=" table-control"  name="jp_level[]" id="jp_level" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_status[]" id="jp_status" value="">
+      <div class="">
+      <select name="jp_status[]" class="table-control col-md-12">
+            <option value="1">Completed</option>
+            <option value="0">Still studying</option>
+        </select>
+     </div>
       </td>
       <td>
       <input type="text" class=" table-control"  name="jp_address[]" id="jp_address" value="">
@@ -1301,7 +1320,12 @@ $(function() {
       <input type="text" class=" table-control"  name="jp_level[]" id="jp_level" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_status[]" id="jp_status" value="">
+      <div class="">
+      <select name="jp_status[]" class="table-control col-md-12">
+            <option value="1">Completed</option>
+            <option value="0">Still studying</option>
+        </select>
+     </div>
       </td>
       <td>
       <input type="text" class=" table-control"  name="jp_address[]" value="">
@@ -1324,7 +1348,12 @@ $(function() {
       <input type="text" class=" table-control"  name="jp_level[]" id="jp_level" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_status[]" id="jp_status" value="">
+      <div class="">
+      <select name="jp_status[]" class="table-control col-md-12">
+            <option value="1">Completed</option>
+            <option value="0">Still studying</option>
+        </select>
+     </div>
       </td>
       <td>
       <input type="text" class=" table-control"  name="jp_address[]" value="">
@@ -1347,7 +1376,12 @@ $(function() {
       <input type="text" class=" table-control"  name="jp_level[]" id="jp_level" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_status[]" id="jp_status" value="">
+      <div class="">
+      <select name="jp_status[]" class="table-control col-md-12">
+            <option value="1">Completed</option>
+            <option value="0">Still studying</option>
+        </select>
+     </div>
       </td>
       <td>
       <input type="text" class=" table-control"  name="jp_address[]" value="">
@@ -1370,7 +1404,12 @@ $(function() {
       <input type="text" class=" table-control"  name="jp_level[]" id="jp_level" value="">
       </td>
       <td>
-      <input type="text" class=" table-control"  name="jp_status[]" id="jp_status" value="">
+      <div class="">
+      <select name="jp_status[]" class="table-control col-md-12">
+            <option value="1">Completed</option>
+            <option value="0">Still studying</option>
+        </select>
+     </div>
       </td>
       <td>
       <input type="text" class=" table-control"  name="jp_address[]" value="">
@@ -1528,6 +1567,10 @@ $(function() {
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">History of Employment (Write in order, ending with the most recent employment.)</h6>
+<select name="employment_experience" id="employment_experience" class="planning_select" style="margin-top: 0px;margin-bottom: 20px;">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+</select>
 <div class="tbl">
 <table class="table-bordered" name="applicant_id">
   <thead class="tbl_head">
@@ -1814,9 +1857,12 @@ $(function() {
   <thead class="tbl_head">
     <tr>
       <th>Name</th>
+      <th>Date Of Birth	</th>
+      <th>Address</th>
       <th>Age	</th>
       <th>Relatonship</th>
       <th>Residing with Applicant or Not	</th>
+      <th>Residing Card No	</th>
       <th >Nationality </th>
       <th>Visa status	</th>
       <th>Work Place	</th>
@@ -1828,6 +1874,12 @@ $(function() {
       
       <td>
       <input type="text" class=" table-control"  name="ja_fam_name[]" value="">
+      </td>
+      <td>
+      <input type="date" class=" table-control"  name="ja_fam_date_birth[]" value="">
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="ja_fam_address[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="ja_fam_age[]" value="">
@@ -1843,6 +1895,9 @@ $(function() {
             <option value="1">No</option>
         </select>
      </div>
+      </td>
+      <td>
+      <input type="text" class=" table-control"  name="residence_card_no[]" value="">
       </td>
       <td>
       <input type="text" class=" table-control"  name="ja_fam_nationality[]" value="">
