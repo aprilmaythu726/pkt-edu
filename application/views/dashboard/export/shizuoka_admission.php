@@ -228,8 +228,10 @@ th{
 <div style="width: 100%;">
 <h4 style="width:30%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">4.旅券　Passport</h4>
 <p style="width:40%;font-size: 14px;text-align:left;float:left;">
-<input type="checkbox" name="" value="<?php echo $result->passport ;?>" checked><?php echo "ありYes"?>
-<input type="checkbox"><label for="" style="font-size: 14px;"><?php if($result->passport == '1'){echo 'ありYes';}else{echo 'なし No';}?></label>
+<input type="checkbox" <?php if($result->passport == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ありYes</label>
+<input type="checkbox" <?php if($result->passport == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし No</label>
+
+
 </p>
 </div>
     <table style="width:100%;">
@@ -258,8 +260,8 @@ th{
 <div style="width: 100%;">
 <h4 style="width:60%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">5.申請歴　Have you ever applied for Certificate of Eligibility?</h4>
 <p style="width:25%;font-size: 14px;text-align:left;float:right;">
-<input type="checkbox"><label for="" style="font-size: 14px;">ありYes</label>
-<input type="checkbox"><label for="" style="font-size: 14px;">なし No</label>
+<input type="checkbox" <?php if($result->eligibility_have == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ありYes</label>
+<input type="checkbox" <?php if($result->eligibility_have == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし No</label>
 </p>
 </div>
     <table style="width:100%;">
@@ -383,8 +385,8 @@ input {
   <tr style="border: none !important;">
     <th style="width: 28%;background-color:none !important;border: none !important;">7.配偶者の有無 <span  style="font-size: 12px;"> < Marital Status > </span></th>
     <td style="width: 35%;border: none !important;">
-    <input type="radio"><label for="" style="font-size: 14px;">あり < Married ></label>
-    <input type="radio"><label for="" style="font-size: 14px;">なし < Single ></label>
+    <input type="checkbox" <?php if($result->martial_status == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">あり < Married ></label>
+    <input type="checkbox" <?php if($result->martial_status == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし < Single ></label>
     </td>
     <th style="width: 28%;background-color:none !important;border: none !important;"> <span style="font-size: 12px;">配偶者名 < Name of your spouse > </span></th>
     <td  style="width: 8%;border: none !important;"></td>
@@ -445,15 +447,15 @@ input {
     <tr>
         <td rowspan="2" style="width: 15%;"><?php echo $row2->jp_name?></td>
         <td rowspan="2" style="width: 15%;"><?php echo $row2->address?></td>
-        <td rowspan="2" style="width: 25%;"></td>
+        <td rowspan="2" style="width: 25%;"><?php echo $row2->jp_level?></td>
         <th style="width: 10%;font-size:11px;">from</th>
         <td style="border-right:none !important;width: 10%;"><?php echo $row2->start_date?></td> 
         <td style="border-left:none !important;width: 10%;">/<?php echo $row2->start_date?></td>  
         <td rowspan="2" style="width: 15%;text-align:center;"><?php echo $row2->hour?><br/>hours</td>
         <td rowspan="2" style="width: 15%;text-align:center;"><?php echo $row2->hour?><br/>hours</td>
         <td rowspan="2" style="width: 15%;">
-       <input type="checkbox"><span style="font-size: 11px;">Completed</span><br>
-       <input type="checkbox"><span style="font-size: 11px;">Still Studying</span><br>
+        <input type="checkbox" <?php if($row2->jp_status == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">Completed</label>
+        <input type="checkbox" <?php if($row2->jp_status == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">Still Studying</label><br>
       </td>
     </tr>
     <tr>
@@ -537,8 +539,8 @@ input {
 <div style="width: 100%;">
 <h4 style="width:50%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">11. 来日歴 < Experience of stay in Japan ></h4>
 <p style="width:40%;font-size: 14px;text-align:left;float:right;">
-<input type="checkbox"><label for="" style="font-size: 14px;">ある(Yes)・</label>
-<input type="checkbox"><label for="" style="font-size: 14px;">なし (No)</label>
+<input type="checkbox" <?php if($result->have_you_visited_jp == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ある(Yes)・</label>
+<input type="checkbox" <?php if($result->have_you_visited_jp == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし (No)</label> 
 </p>
 </div>
     <table style="width:100%;border-bottom: none !important;">
@@ -562,7 +564,7 @@ input {
     <tr>
       <td style="width: 3%;">1</td>
       <td><?php echo $row8->entry_purpose?></td>
-      <td></td>
+      <td><?php echo $row8->pre_stay_visa?></td>
       <td style="border-right: none !important;"><?php echo $row8->arrival_date?></td>
       <td style="border-left: none !important;border-right: none !important;">/<?php echo $row8->arrival_date?></td>
       <td style="border-left: none !important;">/<?php echo $row8->arrival_date?></td>
@@ -584,13 +586,13 @@ input {
 <h4  style="font-family: sjis;">12. 母国や日本での犯罪(交通違反を含む)による処分・強制送還歴はありますか？<span style="font-size: 11px;">< Regarding Criminal record etc. ></span></h4>
 <p style="width:70%;float:left;font-family: sjis;"> (1) 犯罪歴　<span style="font-size: 11px;"> "Criminal record in your home country or Japan including dispositions due to traffic violations, etc."	</span></p>
 <p style="width:28%;font-size: 14px;text-align:left;float:right;">
-<input type="radio"><label for="" style="font-size: 14px;">ある Yes</label>
-<input type="radio"><label for="" style="font-size: 14px;">なし No </label>
+<input type="radio" <?php if($result->criminal_record == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ある Yes</label>
+<input type="radio" <?php if($result->criminal_record == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし No</label> 
 </p>
 <p style="width:70%;float:left;font-family: sjis;"> (2) 強制送還歴   Departure by deportation or departure order</p>
 <p style="width:28%;font-size: 14px;text-align:left;float:right;">
-<input type="radio"><label for="" style="font-size: 14px;">ある Yes</label>
-<input type="radio"><label for="" style="font-size: 14px;">なし No </label>
+<input type="radio" <?php if($result->departure_deportation == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ある Yes</label>
+<input type="radio" <?php if($result->departure_deportation == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし No</label> 
 </p>
 </div>
 <br>
@@ -1121,11 +1123,11 @@ and telephone number etc.　Please show us the copy of Residence card for confir
   ?> 
   <tr>
     <td><?php echo $row7->ja_fam_name?></td>
-    <td></td>
+    <td><?php echo $row7->ja_fam_date_birth?></td>
     <td><?php echo $row7->ja_fam_relationship?></td>
     <td><?php echo $row7->ja_fam_work_place?></td>
-    <td></td>
-    <td></td>
+    <td><?php echo $row7->ja_fam_address?></td>
+    <td><?php echo $row7->residence_card_no?></td>
   </tr>
   <?php } ?>
 </table>
