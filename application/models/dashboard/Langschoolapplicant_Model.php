@@ -134,8 +134,7 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->select('*,JLS_applicant_info.id');
 		$this->db->where($this->db1.'.id', $id);
     $this->db->join($this->db12, $this->db1.'.id = '.$this->db12.'.applicant_id', 'left' );
-    $query = $this->db->get($this->db1);
-    return $query->result();
+    return $this->db->get($this->db1)->row();
   }
   public function studentDetail($id)
 	{
@@ -369,6 +368,7 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->where('ja_fam_nationality', $data_family_japan['ja_fam_nationality']);
     $this->db->where('ja_fam_visa_status', $data_family_japan['ja_fam_visa_status']);
     $this->db->where('ja_fam_work_place', $data_family_japan['ja_fam_work_place']);
+    $this->db->where('ja_certificate_alien', $data_family_japan['ja_certificate_alien']);
     $this->db->where('id !=', $id);
     return true;
 		// $query=$this->db->get();
