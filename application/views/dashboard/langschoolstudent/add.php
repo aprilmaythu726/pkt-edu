@@ -2449,7 +2449,7 @@ $(function() {
       <input type="text" class=" table-control" name="ja_fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="ja_certificate-alien[]" value="">
+      <input type="text" class=" table-control" name="ja_certificate_alien[]" value="">
       </td>
     </tr>
     <tr>
@@ -2491,7 +2491,7 @@ $(function() {
       <input type="text" class=" table-control" name="ja_fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="ja_certificate-alien[]" value="">
+      <input type="text" class=" table-control" name="ja_certificate_alien[]" value="">
       </td>
     </tr>
     <tr>
@@ -2533,7 +2533,7 @@ $(function() {
       <input type="text" class=" table-control" name="ja_fam_work_place[]" value="">
       </td>
       <td>
-      <input type="text" class=" table-control" name="ja_certificate-alien[]" value="">
+      <input type="text" class=" table-control" name="ja_certificate_alien[]" value="">
       </td>
     </tr>
     <tr>
