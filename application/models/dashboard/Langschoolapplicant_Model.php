@@ -129,7 +129,14 @@ class Langschoolapplicant_Model extends CI_Model
     $query = $this->db->get($this->db1);
     return $query->result();
   }
-  
+  public function getJLSDetail9($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db12, $this->db1.'.id = '.$this->db12.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
   public function studentDetail($id)
 	{
     $this->db->select('student.id,user_id,name,email,info_phone as info_phone,address,birthday,nrc,education,social,std_profile.request_date,image_file,std_profile.status,std_profile.permission');
@@ -453,6 +460,12 @@ class Langschoolapplicant_Model extends CI_Model
   {
     $this->db->where('applicant_id', $id);
 		$this->db->update($this->db11, $data_previous_stay_japan);
+		return true;
+  }
+  public function jlsAuthUpdate11($data_info, $id)
+  {
+    $this->db->where('applicant_id', $id);
+		$this->db->update($this->db12, $data_info);
 		return true;
   }
   public function getStudentBatchDetail($b_id,$std_id, $course)
