@@ -15,6 +15,7 @@ class Langschoolapplicant_Model extends CI_Model
   private $db9 = "JLS_family_member";
   private $db10 = "JLS_family_in_japan";
   private $db11 = "JLS_previous_stay_in_japan";
+  private $db12 = "JLS_other_info";
 
   public function JLSapplicantinfo($userData)
   {
@@ -25,6 +26,11 @@ class Langschoolapplicant_Model extends CI_Model
   public function JLSapplicantdetails($userData1)
   {
     $this->db->insert($this->db2,$userData1);
+    return true;
+  }
+  public function JLSapplicantotherinfo($other_info)
+  {
+    $this->db->insert($this->db12,$other_info);
     return true;
   }
   public function JLSfinancialsponser($data_financial_sponsor)
