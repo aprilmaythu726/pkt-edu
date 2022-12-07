@@ -26,8 +26,11 @@ $html = '
 			<td style="width: 80%;">
             1  志望学科　Name of Course　* 東京日本橋校は4月期（2年,1年）と10月期（1.5年）のみ。</td>
             <td rowspan="8" style="width: 20%;vertical-align: text-top;line-height:20px;">
-            写真　 Photos<br>
-最近3ヶ月以内に撮<br>影した上半身正面脱帽のもの(4cm×3cm)<br> 三个月以内的近照,<br>半身正面脱帽的证明<br>像(4cm×3cm)
+            <?php if(!empty($result->image_file)) { ?>
+              <img style="width:15%"; src="<?php echo base_url('upload/assets/adm/usr/'.$result->image_file); ?>"  class="pb-1">
+            <?php } ?>
+            <!-- 写真　 Photos<br>
+最近3ヶ月以内に撮<br>影した上半身正面脱帽のもの(4cm×3cm)<br> 三个月以内的近照,<br>半身正面脱帽的证明<br>像(4cm×3cm) -->
             </td>
         </tr>
         <tr style="border-top: 0px;border-bottom:0px;">
@@ -62,12 +65,12 @@ $html = '
         </tr>        
         <tr style="width: 80%;border-bottom:0px;"> 
 			<td style="width: 80%;border-bottom:0px;">2  氏名 (漢字 or カタカナ)  In Kanji or Katakana
-            <span></span>
+            <span>　　　　　 <?php echo $result->applicant_name_kanji?></span>
             </td>
         </tr>
         <tr style="width: 80%;border-top:0px;border-bottom:0px;"> 
 			<td style="width: 80%;border-top:0px;padding:15px;">英字  In Roman Letters 
-            <span></span>
+            <span>　　　　　 <?php echo $result->applicant_name?></span>
             </td>
         </tr>
          
@@ -82,61 +85,61 @@ $html = '
             <th scope="col" colspan="3" style="text-align:left;border-right:0px;">3  生年月日<br>Date of Birth
             </th>
             <th scope="col" colspan="3" style="text-align:left;border-left:0px;">
-                <span>年　　　 月　　　日</span>
+                <span style="font-weight:normal;"><?php echo $splitted = date('Y', strtotime($result->date_of_birthday));?>年　<?php echo $splitted = date('m', strtotime($result->date_of_birthday));?>月　<?php echo $splitted = date('d', strtotime($result->date_of_birthday));?>日</span>
             </th>
             <th scope="col" colspan="3" class="align-middle" style="text-align:left;">4  出生地Place of Birth <br>
-                <span>test test</span>
+                <span style="font-weight:normal;"><?php echo $result->place_birth?></span>
             </th>
             <th scope="col" colspan="2" style="text-align:left;">5  国籍Nationality<br>
-                <span>Myanamar</span>
+                <span style="font-weight:normal;"><?php echo $result->info_nationality?></span>
             </th>                                   
         </tr>
         <tr style="border-top:none;border-bottom:none;">
-                <th scope="col" colspan="1" style="text-align:left;border-right:0px;">6 性别 <br>Sex
+                <th colspan="1" style="text-align:left;border-right:0px;">6 性别 <br>Sex
+                </th>
+                <td style="text-align:left;border-left:0px;border-right:0px;">  
+                    <input type="checkbox" id="gender" name="gender" value="1" style="float:left;" <?php if($result->gender== '1'){ echo "checked='checked'"; } ?>> 
+                    <br><label for="gender">男Male</label>
+                </td>   
+                <td style="text-align:left;border-left:0px;border-right:0px;">  
+                    <input type="checkbox" id="gender" name="gender" value="0" style="float:left;" <?php if($result->gender== '0'){ echo "checked='checked'"; } ?>> 
+                    <br><label for="gender">女Female </label>     
+                </td>
+                <th scope="col" colspan="1" style="text-align:left;border-right:0px;">7 婚姻関係 <br>Marital
                 </th>
                 <th colspan="1" style="text-align:left;border-left:0px;border-right:0px;">  
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked=checked> 
-                    <br><label for="vehicle1">男 Male</label>
+                    <input type="checkbox" id="martial_status" name="martial_status" value="1" style="float:left;"  <?php if($result->martial_status== '1'){ echo "checked='checked'"; } ?>> 
+                    <br><label for="martial_status">未婚Single</label>
                 </th>
                 <th colspan="1" style="text-align:left;border-left:0px;">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
-                    <br><label for="vehicle1"> 女 Female </label>     
-                </th>
-                <th scope="col" colspan="1" style="text-align:left;border-right:0px;">7  婚姻関係 <br>Marital
-                </th>
-                <th colspan="1" style="text-align:left;border-left:0px;border-right:0px;">  
-                    <input type="checkbox" id="vehicle1" nam e="vehicle1" value="Bike" style="float:left;" checked=checked> 
-                    <br><label for="vehicle1">未婚  Single</label>
-                </th>
-                <th colspan="1" style="text-align:left;border-left:0px;">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
-                    <br><label for="vehicle1"> 既婚  Married </label>
+                    <input type="checkbox" id="martial_status" name="martial_status" value="0" style="float:left;" <?php if($result->martial_status== '0'){ echo "checked='checked'"; } ?>> 
+                    <br><label for="martial_status"> 既婚Married </label>
                 </th>
                 <th colspan="3" scope="col" class="align-middle" style="text-align:cenleftter;">8  職業 <br>Occupation 
-                    <span>test</span>
+                    <span style="font-weight:normal;"><?php echo $result->occupation?></span>
                 </th>
                 <th colspan="2" scope="col" class="align-middle" style="text-align:cenleftter;">9  小学校入学年龄 <br>Entrance Age to　Elementary School<br>
-                    <span>満　　　歳 </span>
+                    <span>満　<?php echo $result->entry_age_ele_school?>　　歳 </span>
                 </th>
                
                      
             </tr>
             <tr style="border-bottom:0px;"> 
-                <td colspan="11" style="width: 100%;border-bottom:0px;">10  現住所Present Address　　　　　                   
-                    <span></span>
-                </td>
+                <th colspan="11" style="width: 100%;border-bottom:0px;">10  現住所Present Address　　　　　                   
+                    <span style="font-weight:normal;"><?php echo $result->address?></span>
+                </th>
             </tr>
             <tr  style="width: 100%;border-top:0px;">
-                <td colspan="11" style="text-align: right;border-bottom:0px;">電話 Phone <span>_________________</span></td>
+                <td colspan="11" style="text-align: right;border-bottom:0px;">電話 Phone <span><?php echo $result->info_phone?></span></td>
             </tr>
     </table>                  
 </section>
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
                                 <tr style="border-top:0px;"> 
-                                    <td colspan="5" style="width: 100%;">11 学  歴(小学校から初めて順に記入すること)Educational Background (List in order all the schools ,starting with the elementary school)                   
+                                    <th colspan="5" style="width: 100%;">11 学  歴(小学校から初めて順に記入すること)Educational Background (List in order all the schools ,starting with the elementary school)                   
                                         <span></span>
-                                    </td>
+                                    </th>
                                 </tr>
                                 <tr class="text-center" style="font-size: 12px;text-align:center;">
                                     <th scope="col" style="width:25% !important;text-align:center;">学 校 名<br> Name of School</th>
@@ -144,40 +147,26 @@ $html = '
                                     <th scope="col" style="width: 10%;border-left: none;text-align:center;">年　数<br> Years</th>
                                     <th scope="col" style="width: 25%;text-align:center;">修学期間<br>Period</th>
                                 </tr>
+                                <?php
+                                foreach($result1 as $row1){
+                                ?>
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row1->edu_name?></td>
+                                        <td style="font-size: 12px; text-align: center;"><?php echo $row1->address?></td>
+                                        <td style="font-size: 11px; text-align: center;border-left: none;"><?php echo $row1->year?></td>
                                         <td style="font-size: 11px; text-align: left;">
-                                        自from <span>2009</span> 年 <span>06</span> 月 <br>
-                                        至to   <span>2013</span> 年 <span>06</span> 月
+                                        自from <span><?php echo $splitted = date('Y', strtotime($row1->start_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row1->start_date));?></span> 月 <br>
+                                        至to   <span><?php echo $splitted = date('Y', strtotime($row1->end_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row1->end_date));?></span> 月 
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;">
-                                        自from <span>2009</span> 年 <span>06</span> 月 <br>
-                                        至to   <span>2013</span> 年 <span>06</span> 月
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;">
-                                        自from <span>2009</span> 年 <span>06</span> 月 <br>
-                                        至to   <span>2013</span> 年 <span>06</span> 月
-                                        </td>
-                                    </tr>
+                                <?php } ?>
                         </table>                     
 </section>
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
                                 <tr style="border-top:0px;"> 
-                                    <td colspan="5" style="width: 100%;">12 日本語学習歴  Previous Study of Japanese               
-                                    </td>
+                                    <th colspan="5" style="width: 100%;">12 日本語学習歴  Previous Study of Japanese               
+                                    </th>
                                 </tr>
                                 <tr class="text-center" style="font-size: 12px;text-align:center;">
                                     <th scope="col" style="width:25% !important;text-align:center;">日本語教育機関名 <br>Name of Institution</th>
@@ -185,53 +174,39 @@ $html = '
                                     <th scope="col" style="width: 10%;border-left: none;text-align:center;">年　数<br> Years</th>
                                     <th scope="col" style="width: 25%;;text-align:center;">修学期間<br>Period</th>
                                 </tr>
+                                <?php
+                                foreach($result2 as $row2){
+                                ?>
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row2->jp_name?></td>
+                                        <td style="font-size: 12px; text-align: center;"><?php echo $row2->address?></td>
+                                        <td style="font-size: 11px; text-align: center;border-left: none;"><?php echo $row2->hour?></td>
                                         <td style="font-size: 11px; text-align: left;">
-                                        自from <span>2009</span> 年 <span>06</span> 月 <br>
-                                        至to   <span>2013</span> 年 <span>06</span> 月
+                                        自from <span><?php echo $splitted = date('Y', strtotime($row2->start_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row2->start_date));?></span> 月 <br>
+                                        至to   <span><?php echo $splitted = date('Y', strtotime($row2->end_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row2->end_date));?></span> 月 
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;">
-                                        自from <span>2009</span> 年 <span>06</span> 月 <br>
-                                        至to   <span>2013</span> 年 <span>06</span> 月
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;">
-                                        自from <span>2009</span> 年 <span>06</span> 月 <br>
-                                        至to   <span>2013</span> 年 <span>06</span> 月
-                                        </td>
-                                    </tr>
+                                    <?php } ?>
                         </table>                     
 </section>
 <section class="edu-background">	
         <table style="width:100%;" class="tbl">
             <tr style="border-top:0px;"> 
-                    <td colspan="5" style="width: 100%;">13日本語能力検定試験、J.TEST、BJTビジネス日本語能力テストなど <br>Japanese Language Test For example J.TEST·BJT·JLPT…            
-                    </td>
+                    <th colspan="5" style="width: 100%;">13日本語能力検定試験、J.TEST、BJTビジネス日本語能力テストなど <br>Japanese Language Test For example J.TEST·BJT·JLPT…            
+                    </th>
             </tr>                                
             <tr class="text-center" style="font-size: 12px;border-top:0px;border-bottom:0px;">
                 <th scope="col" style="text-align:right;width:25%;border-right:0px;">
-                <span></span>
+                <span><?php echo $resultachiv->achiv_name?></span>
                 級  
                 </th>
                 <th scope="col" class="align-middle" style="width:40%;text-align: left;"> 証書番号　Number <br>
                 </th>
-                <th scope="col" style="text-align:right;width:35%;">　　　年　 　月　　日取得  <br>
+                <th scope="col" style="text-align:right;width:35%;"><?php echo $splitted = date('Y', strtotime($resultachiv->date_qualification));?>年　<?php echo $splitted = date('m', strtotime($resultachiv->date_qualification));?>月　<?php echo $splitted = date('d', strtotime($resultachiv->date_qualification));?>日取得  <br>
                 </th>                                   
             </tr>
             <tr class="text-center" style="font-size: 12px;border-top:0px;">
-                <th scope="col" style="text-align:right;width:25%;border-right:0px;">Level
+                <th scope="col" style="text-align:right;width:25%;border-right:0px;"><?php echo $resultachiv->level?>Level
                 </th>
                 <th scope="col" class="align-middle" style="width:40%;text-align: right;">号
                 </th>
@@ -243,8 +218,8 @@ $html = '
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
                                 <tr style="border-top:0px;"> 
-                                    <td colspan="5" style="width: 100%;">14職歴（兵役含む）  Occupational Career                 
-                                    </td>
+                                    <th colspan="5" style="width: 100%;">14職歴（兵役含む）  Occupational Career　　　　　<span style="font-weight:normal;"><?php echo $result->occupation?>  </span>     
+                                    </th>
                                 </tr>
                                 <tr class="text-center" style="font-size: 12px;text-align:center;">
                                     <th scope="col" style="width:25% !important;text-align:center;">勤務先 <br> Name of Employer</th>
@@ -252,78 +227,72 @@ $html = '
                                     <th scope="col" style="width: 10%;border-left: none;text-align:center;">職種 <br> Type of Work</th>
                                     <th scope="col" style="width: 25%;text-align:center;">修学期間<br>Period</th>
                                 </tr>
+                                <?php
+                                foreach($result5 as $row5){
+                                ?> 
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row5->emp_name?></td>
+                                        <td style="font-size: 12px; text-align: center;"><?php echo $row5->address?></td>
+                                        <td style="font-size: 11px; text-align: center;border-left: none;"><?php echo $row5->job_description?></td>
                                         <td style="font-size: 11px; text-align: left;">
-                                        自from <span>2009</span> 年 <span>06</span> 月 <br>
-                                        至to   <span>2013</span> 年 <span>06</span> 月
+                                        自from <span><?php echo $splitted = date('Y', strtotime($row5->start_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row5->start_date));?></span> 月 <br>
+                                        至to   <span><?php echo $splitted = date('Y', strtotime($row5->end_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row5->end_date));?></span> 月 
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;">
-                                        自from <span>2009</span> 年 <span>06</span> 月 <br>
-                                        至to   <span>2013</span> 年 <span>06</span> 月
-                                        </td>
-                                    </tr>
+                                    <?php } ?>
+                                    
                         </table>                     
 </section>
-<section class="edu-background">	
+<section class="edu-background">
                         <table style="width:100%;" class="tbl">
                         <tr style="border-top:0px;border-bottom:none;"> 
-                                    <td colspan="5" style="width: 100%;">15 過去日本に留学申請歴（不交付,取下げ,交付後の未入国を含む）   Did you apply before in Japan ?  </td>
-                        </tr>                        
+                                    <th colspan="5" style="width: 100%;">15 過去日本に留学申請歴（不交付,取下げ,交付後の未入国を含む）   Did you apply before in Japan ?  </th>
+                        </tr>                      
                         <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">				
-                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
-                            <label for="vehicle1"> 有 Yes  ·いつですか   When？ </label>
-                            </th>
+                        
+                            <td style="width: 50%;border:none;">				
+                            <input type="checkbox" id="school_apply_before_japan" name="school_apply_before_japan" value="1" style="width: 50%;float:left;" <?php if($result->school_apply_before_japan== '1'){ echo "checked='checked'"; } ?>>
+                            <label>
+                               有 Yes  ·いつですか   When？ </label>
+                            </td>
                             <td colspan="4" style="border:none;">
-                            _________________________________________________
+                            <?php echo $result->school_apply_date?>
                             </td>
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">　　·どんなビザですか  Status？ </th>
+                            <td style="width: 50%;border:none;">　　·どんなビザですか  Status？ </td>
                             <td colspan="4" style="border:none;">
-                            _________________________________________________
+                            <?php echo $result->school_apply_status?>
                             </td>
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">　　·どこの学校(校名)　Name of school    </th>
+                            <td style="width: 50%;border:none;">　　·どこの学校(校名)　Name of school    </td>
                             <td colspan="4" style="border:none;">
-                            _________________________________________________
+                            <?php echo $result->school_apply_name?>
                             </td>
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">　　·どこの入国管理局ですか  Which one？</th>
+                            <td style="width: 50%;border:none;">　　·どこの入国管理局ですか  Which one？</td>
                             <td colspan="4" style="border:none;">
-                            _________________________________________________
+                            <?php echo $result->immigration_office?>
                             </td>
                         </tr>
+                       
                         <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">　　·どこの入国管理局ですか  Which one？</th>
+                            <td style="width: 50%;border:none;">　　·審査結果はどうでしたか  Result？</td>
                             <td colspan="4" style="border:none;">
-                            _________________________________________________
-                            </td>
-                        </tr>
-                        <tr style="border-top:none;border-bottom:none;">
-                            <th style="width: 50%;border:none;">　　·審査結果はどうでしたか  Result？</th>
-                            <td colspan="4" style="border:none;">
+                         
                             </td>
                         </tr>
                         <tr style="border-top:none;border-bottom:none;">
                             <td colspan="5" style="border:none;">
-                            　　　　<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked=checked>
+                            　　　　<input type="checkbox" id="vehicle1" name="vehicle1" value="交付" style="width: 50%;float:left;" <?php if($result->immigration_result== '交付'){ echo "checked='checked'"; } ?>>
                             <label for="vehicle1">交付</label>
-                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="不交付" style="width: 50%;float:left;" <?php if($result->immigration_result== '不交付'){ echo "checked='checked'"; } ?>>
                             <label for="vehicle1"> 不交付 </label>
-                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="取下げ" style="width: 50%;float:left;" <?php if($result->immigration_result== '取下げ'){ echo "checked='checked'"; } ?>>
                             <label for="vehicle1">取下げ</label>
-                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="交付後の未入国" style="width: 50%;float:left;" <?php if($result->immigration_result== '交付後の未入国'){ echo "checked='checked'"; } ?>>
                             <label for="vehicle1">交付後の未入国</label>
                             </td>                         
                         </tr>
@@ -332,7 +301,7 @@ $html = '
                         </tr>
                         <tr style="border-top:none;">
                                     <th style="width: 50%;border:none;">				
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
+                                    <input type="checkbox" id="school_apply_before_japan" name="school_apply_before_japan" value="school_apply_before_japan" style="width: 50%;float:left;" <?php if($result->school_apply_before_japan== '0'){ echo "checked='checked'"; } ?>>
                                     <label for="vehicle1"> 無 No </label>
                                     </th>
                                     <td colspan="4" style="border:none;">
@@ -343,8 +312,8 @@ $html = '
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
                                 <tr style="border-top:0px;"> 
-                                    <td colspan="5" style="width: 100%;">16 日本滞在歴（三ヶ月以内の短期滞在及び家族滞在含む全て）　Have you ever been japan (Including 3 moth short visa)    
-                                    </td>
+                                    <th colspan="5" style="width: 100%;">16 日本滞在歴（三ヶ月以内の短期滞在及び家族滞在含む全て）　Have you ever been japan (Including 3 moth short visa)    
+                                </th>
                                 </tr>
                                 <tr class="text-center" style="font-size: 12px;text-align:center;">
                                     <th scope="col" style="width:20% !important;text-align:center;">入国目的 <br>Purpose</th>
@@ -355,7 +324,10 @@ $html = '
                                 <tr>
                                         <td style="font-size: 11px; text-align: right;"></td>
                                         <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;">自From      年   月   日   至to        年   月  日</td>
+                                        <td style="font-size: 11px; text-align: left;border-left: none;">
+                                        自from <span><?php echo $splitted = date('Y', strtotime($row5->start_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row5->start_date));?></span> 月 <br>
+                                        至to   <span><?php echo $splitted = date('Y', strtotime($row5->end_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row5->end_date));?></span> 月 
+                                    </td>
                                         <td style="font-size: 11px; text-align: left;"></td>
                                 </tr>                               
                         </table>                     
@@ -363,33 +335,33 @@ $html = '
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
                         <tr style="border-top:0px;border-bottom:none;"> 
-                                    <td colspan="5" style="width: 100%;">17 旅券　Passport</td>
+                                    <th colspan="5" style="width: 100%;font-size:14px;">17 旅券　Passport</th>
                         </tr>
                         <tr style="border-bottom:none;border-top:none;">
-                            <th style="width: 25%;border:none;">				
+                            <td style="width: 25%;border:none;font-size:14px;">				
                             番号　Number
-                            </th>
-                            <td style="width: 25%;border:none;">
-                            _________________________________
                             </td>
-                            <th style="width: 25%;border:none;">				
+                            <td style="width: 25%;border:none;font-size:14px;">
+                            <?php echo $result->passport_no?>
+                            </td>
+                            <td style="width: 25%;border:none;font-size:14px;">			
                             発行年月日Date of issue
-                            </th>
-                            <td style="width: 25%;border:none;">
-                            _________年　  　月　 　　日________
+                            </td>
+                            <td style="width: 25%;border:none;font-size:14px;">
+                            <?php echo $splitted = date('Y', strtotime($result->passport_data_issue));?>年　<?php echo $splitted = date('m', strtotime($result->passport_data_issue));?>月　<?php echo $splitted = date('d', strtotime($result->passport_data_issue));?>日
                             </td>
                         </tr>
                         <tr style="border-top:none;">
-                            <th style="width: 25%;border:none;">				
+                            <td style="width: 25%;border:none;font-size:14px;">				
                             有効期限Date of expiry
-                            </th>
-                            <td style="width: 25%;border:none;">
-                            ________年　  　月　 　　日______
                             </td>
-                            <th style="width: 25%;border:none;">				
+                            <td style="width: 25%;border:none;font-size:14px;">
+                            <?php echo $splitted = date('Y', strtotime($result->passport_data_exp));?>年　<?php echo $splitted = date('m', strtotime($result->passport_data_exp));?>月　<?php echo $splitted = date('d', strtotime($result->passport_data_exp));?>日
+                            </td>
+                            <td style="width: 25%;border:none;font-size:14px;">				
                             発行機関Authority
-                            </th>
-                            <td style="width: 25%;border:none;">
+                            </td>
+                            <td style="width: 25%;border:none;font-size:14px;">
                             ____________________________________
                             </td>
                         </tr>
@@ -398,49 +370,33 @@ $html = '
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
                                 <tr style="border-top:0px;"> 
-                                    <td colspan="5" style="width: 100%;">18 家族(本人を中心に記入すること) Family members (showing the relation of each person to yourself ) </td>
+                                    <th colspan="5" style="width: 100%;font-size:14px;">18 家族(本人を中心に記入すること) Family members (showing the relation of each person to yourself ) </th>
                                 </tr>
                                 <tr class="text-center" style="font-size: 12px;text-align:center;">
-                                    <th scope="col" style="width:20% !important;text-align:center;">続柄 Relation</th>
-                                    <th scope="col" class="align-middle" style="width: 25%;text-align:center;">氏名　Name</th>
+                                    <th scope="col" style="width:20% !important;text-align:center;font-size:14px;">続柄 Relation</th>
+                                    <th scope="col" class="align-middle" style="width: 25%;text-align:center;font-size:14px;">氏名　Name</th>
                                     <th scope="col" style="width: 10%;border-left: none;text-align:center;">年齢<br>Age</th>
-                                    <th scope="col" style="width: 45%;text-align:center;">現住所　 Address</th>
-                                    <th scope="col" style="width: 10%;text-align:center;">職業 Occupation</th>
+                                    <th scope="col" style="width: 45%;text-align:center;font-size:14px;">現住所　 Address</th>
+                                    <th scope="col" style="width: 10%;text-align:center;font-size:14px;">職業 Occupation</th>
                                 </tr>
+                                <?php
+                                foreach($result6 as $row6){
+                                ?> 
                                 <tr>
-                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
-                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: center;height:39px;font-size:14px;"><?php echo $row6->fam_relationship?></td>
+                                    <td style="font-size: 12px; text-align: center;height:39px;font-size:14px;"><?php echo $row6->fam_name?></td>
+                                    <td style="font-size: 11px; text-align: center;border-left: none;height:39px;font-size:14px;"><?php echo $row6->fam_age?></td>
+                                    <td style="font-size: 11px; text-align: center;height:39px;font-size:14px;"><?php echo $row6->address?></td>
+                                    <td style="font-size: 11px; text-align: center;height:39px;font-size:14px;"><?php echo $row6->occupation?></td>
                                 </tr>
-                                <tr>
-                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
-                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                </tr>
-                                <tr>
-                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
-                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                </tr>
-                                <tr>
-                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
-                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                </tr>
-                        </table>                     
+                                <?php } ?>
+                        </table>  
+                        <br>  <br>     <br>              
 </section>
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
-                                <tr style="border-top:0px;"> 
-                                    <td colspan="5" style="width: 100%;">19 在日親族(父・母・配偶者・子・兄弟姉妹など)及び同居者  Relatives residing in Japan</td>
+                                <tr> 
+                                    <th colspan="8" style="width: 100%;">19 在日親族(父・母・配偶者・子・兄弟姉妹など)及び同居者  Relatives residing in Japan</th>
                                 </tr>
                                 <tr class="text-center" style="font-size: 12px;text-align:center;">
                                     <th scope="col" style="width:10% !important;text-align:center;">続柄 <br>Relation</th>
@@ -450,40 +406,38 @@ $html = '
                                     <th scope="col" style="width: 25%;text-align:center;">勤務先 <br>Name of Employer</th>
                                     <th scope="col" style="width: 25%;text-align:center;">外国人登録証明書番号 <br> Certificate of Alien <br> Registration No.</th>
                                 </tr>
+                                <?php
+                                foreach($result7 as $row7){
+                                ?> 
                                 <tr>
-                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
-                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
+                                    <td style="font-size: 11px; text-align: center;height:39px;"><?php echo $row7->ja_fam_relationship?></td>
+                                    <td style="font-size: 12px; text-align: center;height:39px;"><?php echo $row7->ja_fam_name?></td>
+                                    <td style="font-size: 11px; text-align: center;border-left: none;height:39px;"><?php echo $row7->ja_fam_date_birth?></td>
+                                    <td style="font-size: 11px; text-align: center;height:39px;"><?php echo $row7->ja_fam_nationality?></td>
+                                    <td style="font-size: 11px; text-align: center;height:39px;"><?php echo $row7->ja_fam_name?></td>
+                                    <td style="font-size: 11px; text-align: center;height:39px;"></td>
                                 </tr>
-                                <tr>
-                                    <td style="font-size: 11px; text-align: right;height:39px;"></td>
-                                    <td style="font-size: 12px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;border-left: none;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                    <td style="font-size: 11px; text-align: left;height:39px;"></td>
-                                </tr>
+                                <?php } ?>
                         </table>                     
 </section>
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
                         <tr style="border-top:0px;border-bottom:none;"> 
-                                    <td colspan="5" style="width: 100%;">20 学費·生活費負担者   The person who pays tuition and other expenses  </td>
+                                    <th colspan="5" style="width: 100%;">20 学費·生活費負担者   The person who pays tuition and other expenses  </th>
                         </tr>
                         <tr style="border-bottom:none;border-top:none;">
                             <th style="width: 10%;border:none;">				
                                氏名 <br> Name
                             </th>
                             <td style="width: 40%;border:none;">
+                            <?php echo $result->fin_name?>
                             __________________________________________
                             </td>
                             <th style="width: 10%;border:none;">				
                               続柄 <br>Relation
                             </th>
                             <td style="width: 40%;border:none;">
+                            <?php echo $result->fin_relationship?>
                             __________________________________________
                             </td>
                         </tr>
@@ -492,12 +446,14 @@ $html = '
                               職業 <br> Occupation
                             </th>
                             <td style="width: 40%;border:none;">
+                            <?php echo $result->fin_occupation?>
                             __________________________________________
                             </td>
                             <th style="width: 10%;border:none;">				
                               電話 <br>Telephone
                             </th>
                             <td style="width: 40%;border:none;">
+                            <?php echo $result->tel?>
                             __________________________________________
                             </td>
                         </tr>
@@ -506,64 +462,64 @@ $html = '
                               住所 <br> Address
                             </th>
                             <td colspan="4" style="border:none;">
+                            <?php echo $result->address?>
                             ____________________________________________________________________________________
                             </td>
                         </tr>
                         </table>                     
 </section>
 <section class="edu-background">	
-                        <table style="width:100%;" class="tbl">
+                        <table style="width:100%;">
                         <tr style="border-top:0px;border-bottom:none;"> 
-                                    <td colspan="5" style="width: 100%;">21 本学卒業後の予定  Your plan after graduate from this school </td>
+                            <th colspan="5" style="width: 100%;font-size:15px;">21 本学卒業後の予定  Your plan after graduate from this school </th>
                         </tr>
                         <tr style="border-bottom:none;border-top:none;">
-                            <th style="width: 40%;border:none;">				
+                            <td style="width: 40%;border:none;font-size:14px;">				
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
                                 <label for="vehicle1"> 大学院  Postgraduate Course</label>
-                            </th>
+                            </td>
                             <td style="width: 10%;border:none;"></td>
-                            <th style="width: 40%;border:none;">				
+                            <td style="width: 40%;border:none;font-size:14px;">				
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
                                 <label for="vehicle1"> 大学 Undergraduate Course </label>
-                            </th>
+                            </td>
                             <td style="width: 10%;border:none;"></td>
                         </tr>
                         <tr style="border-bottom:none;border-top:none;">
-                            <th style="width: 40%;border:none;">				
+                            <td style="width: 40%;border:none;font-size:14px;">				
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
                                 <label for="vehicle1"> 短大  Junior College    </label>
-                            </th>
+                            </td>
                             <td style="width: 10%;border:none;"></td>
-                            <th style="width: 40%;border:none;">				
+                            <td style="width: 40%;border:none;font-size:14px;">				
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="width: 50%;float:left;" checked>
                                 <label for="vehicle1"> 専門学校  Professional School</label>
-                            </th>
+                            </td>
                            <td style="width: 10%;border:none;"></td>
                         </tr>
-                        <tr style="border-top:none;">
-                            <th style="width: 40%;border:none;">				
-                            学 校 名 Name of school
-                            </th>
-                            <td style="width: 10%;border:none;">__________</td>
-                            <th style="width: 40%;border:none;">				
+                        <tr style="border-top:none;width:100%;">
+                            <td style="width: 20%;border:none;font-size:14px;">学 校 名 Name of school</th>
+                            <td style="width: 20%;border:none;font-size:14px;"><?php echo $result->specific_plan_school_name?></td>
+                            <td style="width: 20%;border:none;font-size:14px;">				
                             課　程 Course
                             </th>
-                           <td style="width: 10%;border:none;">__________</td>
+                           <td style="width: 30%;border:none;font-size:14px;"><?php echo $result->specific_plan_type_schools?></td>
                         </tr>
                         </table>                     
 </section>
 <section class="edu-background">	
                     <table style="width:100%;" class="tbl">
                         <tr style="border-top:0px;border-bottom:none;"> 
-                            <td colspan="5" style="width: 100%;">22    留学理由書　      Purpose of Studying Japanese   <br>
-                                <p> 日本語を学ぶ目的(詳しく)  </p>
-                            </td>
+                            <th colspan="5" style="width: 100%;font-size:12px;">22  留学理由書 Purpose of Studying Japanese 
+                            <br>
+                                <p> 日本語を学ぶ目的(詳しく)  </p><br>
+                                <span style="width: 100%;font-weight:normal;"><?php echo $result->purpose_studying_in_japanese?></span>
+                            </th>
                         </tr>
                         <tr style="border-top:0px;"> 
-                            <td colspan="5" style="width: 100%;height:39px;">
-                            </td>
+                            <td style="width: 100%;font-size:19px;">
                         </tr>
-                        <tr style=""> 
+                        <!-- <tr style=""> 
                             <td colspan="5" style="width: 100%;height:39px;"></p>
                             </td>
                         </tr>
@@ -650,16 +606,16 @@ $html = '
                         <tr style=""> 
                             <td colspan="5" style="width: 100%;height:39px;"></p>
                             </td>
-                        </tr>
+                        </tr> -->
                     </table>                     
 </section>
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
                         <tr style="width:100%;margin:0 auto;border-top:0px;border-bottom:none;"> 
                                 <td colspan="5" style="line-height:20px;letter-spacing: 1px;">
-                                <p style="width:100%;padding-left:100px;">　　　　　　上記のとおり相違ありません。I hereby declare the above statement is true and correct.<br>
-                                　　　　　　許可を受け、日本に入国後、日本国の法律を守り，学校の規則に従うことを誓います。</p>
-                                <p>　　　　　　　　I swear to abide Japanese law and schools’ rule after I obtain permission of Japan entrance.</p>
+                                <p style="width:100%;padding-left:100px;">　　　上記のとおり相違ありません。I hereby declare the above statement is true and correct.<br>
+                                　　　</p>
+                                <p>　　　I swear to abide Japanese law and schools’ rule after I obtain permission of Japan entrance.</p>
                                 </td>
                         </tr>
                         <tr style="width:80%;margin:0 auto;border-top:none;border-bottom:none;">
@@ -679,7 +635,11 @@ $html = '
                             <td colspan="3" style="border:none;"></td>
                         </tr>
                         <tr style="width:100%;margin:0 auto;border-top:none;">
-                        <th colspan="5" style="border:none;float:right;text-align:right;padding-bottom:20px;">_____________________________________________________________</th>
+                        <th colspan="5" style="border:none;float:right;text-align:center;padding-bottom:20px;"> 
+                            <?php if(!empty($result->image_file)) { ?>
+                             <img style="width:15%"; src="<?php echo base_url('upload/assets/adm/usr/'.$result->sign_file); ?>" width="100px;" class="pb-1">
+                            <?php } ?>
+                        </th>
                         </tr>
                         </table>                     
 </section>

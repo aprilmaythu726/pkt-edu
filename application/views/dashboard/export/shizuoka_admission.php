@@ -82,8 +82,10 @@ th{
 </section>
 <section class="header" style="padding: 0px;margin:0px;">
 <div class="application-title" style="width:20%;height:160px;border:1px solid #000000;margin-left:550px;">
-		<p style="text-align: center;padding-top:30px;">Photo</p>
-        <p style="text-align: center;padding-top:10px;">4cm×3cm</p>
+<?php if(!empty($result->image_file)) { ?>
+              <img src="<?php echo base_url('upload/assets/adm/usr/'.$result->image_file); ?>" style="width:100%;height:auto;" class="pb-1">
+    <?php } ?>
+
 </div>
 </section>
 <section class="personal-info" style="width:100%;">
@@ -92,23 +94,25 @@ th{
     <table style="width:100%;">
       <tr style="border-bottom:none !important;">
         <th style="width:10% !important; text-align: center; ">氏名<br>Full <br/>Name</th>
-        <td style="text-align: left;"></td>
+        <td style="text-align: left;"><?php echo $result->applicant_name?></td>
       </tr>
     </table>
     <table style="width:100%; ">
       <tr >
         <th style="width:10% !important; text-align: center; ">性別<br>sex</th>
-        <td style="text-align: left;">Male    ・　Female  </td>
+        <td style="text-align: left;"><?php if($result->gender == '1'){echo 'Male';}else{echo 'Female';}?></td>
         <th style="width:15% !important; text-align: center; ">生年月日<br>Date of birth</th>
-        <td style="text-align: left;"></td>
+        <td style="text-align: left;"><?php echo $result->date_of_birthday?></td>
       </tr>
     </table>
     <table style="width:100%; ">
       <tr >
         <th style="width:15% !important; text-align: center; ">国籍<br>Nationality</th>
-        <td style="width:30% ;text-align: left;"></td>
+        <td style="width:30% ;text-align: left;"><?php echo $result->info_nationality?></td>
         <th style="width:15% !important; text-align: center; ">出生地<br>Place of birth</th>
-        <td style="width:30% ;text-align: left;">(省Province) ・ （市 City)</td>
+        <td style="width:30% ;text-align: left;">(省Province) ・市 City)
+        <br>
+        <?php echo $result->province?> . <?php echo $result->place_birth?></td>
       </tr>
     </table>
 <p style="font-family: sjis;font-size:11px;text-align:right;line-height:11px;">
@@ -125,14 +129,14 @@ th{
         <th rowspan="2" style="width: 30%;">あなたの連絡先 <br>Contact details of yourself</th>
         <td colspan="4">
             <p style="width:100%;">現住所(Current Address) </p>
-            <p>-</p>
+            <p><?php echo $result->address?></p>
         </td>
     </tr>
     <tr>
         <th style="width: 10%;">(TEL)</th>
-        <td style="width: 30%;"></td>
+        <td style="width: 30%;"><?php echo $result->info_phone?></td>
         <th style="width: 10%;">(E-mail)</th>
-        <td style="width: 30%;"></td>
+        <td style="width: 30%;"><?php echo $result->std_email?></td>
     </tr>
     </table>
 
@@ -141,14 +145,14 @@ th{
         <th rowspan="2" style="width: 30%;">家族の連絡先 <br>Contact details of your family</th>
         <td colspan="4">
             <p style="width:100%;">住所（Address of your family)  </p>
-            <p>-</p>
+            <p><?php echo $result->family_address?></p>
         </td>
     </tr>
     <tr style="border-top: none !important;">
         <th style="width: 10%;">(TEL)</th>
-        <td style="width: 30%;"></td>
+        <td style="width: 30%;"><?php echo $result->family_tel?></td>
         <th style="width: 10%;">(E-mail)</th>
-        <td style="width: 30%;"></td>
+        <td style="width: 30%;"><?php echo $result->family_mail?></td>
     </tr>
     </table>
 </div>
@@ -164,7 +168,7 @@ th{
     <table style="width:100%;">
       <tr style="border-bottom:none !important;">
         <th style="width:30% !important; text-align: center; ">学校名　Name of school</th>
-        <td style="text-align: left;"></td>
+        <td style="text-align: left;"><?php echo $result->current_status_school_name?></td>
       </tr>
     </table>
     <table>
@@ -174,10 +178,10 @@ th{
         <th colspan="2" style="width:30% !important; text-align: center; ">卒業予定日(Expected month and year of graduating from the school.)</th>
       </tr>
       <tr>
-        <td>-</td>
-        <td>-</td>
-        <th style="width:20% !important; text-align: center; ">卒業予定 <br>will graduate in</th>
-        <td> 月 年 <br> Month Year</td>
+        <td><?php echo $result->current_status_school_major?></td>
+        <td><?php echo $result->current_status_school_grade?></td>
+        <th style="width:20% !important; text-align: center; ">卒業予定月年<br>will graduate in</th>
+        <td> <?php echo $result->expected_month?><?php echo $result->expected_year?><br> Month Year</td>
       </tr>
     </table>
 </div>
@@ -192,15 +196,15 @@ th{
     <table style="width:100%;">
       <tr style="border-bottom:none !important;">
         <th style="width:30% !important; text-align: center; ">会社名　Company name</th>
-        <td style="text-align: left;"></td>
+        <td style="text-align: left;"><?php echo $result->place_employment_school?></td>
       </tr>
     </table>
     <table>
       <tr>
         <th style="width:40% !important; text-align: center; ">職種 <br>Type of job</th>
-        <td style="width:60%"></td>
+        <td style="width:60%"><?php echo $result->occupation?></td>
         <th style="width:40% !important; text-align: center; ">  在籍期間 <br>Period</th>
-        <td style="width:60%"></td>
+        <td style="width:60%"><?php echo $resulthisemp->year?></td>
       </tr>
     </table>
 </div>
@@ -224,26 +228,28 @@ th{
 <div style="width: 100%;">
 <h4 style="width:30%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">4.旅券　Passport</h4>
 <p style="width:40%;font-size: 14px;text-align:left;float:left;">
-<input type="checkbox"><label for="" style="font-size: 14px;">ありYes</label>
-<input type="checkbox"><label for="" style="font-size: 14px;">なし No</label>
+<input type="checkbox" <?php if($result->passport == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ありYes</label>
+<input type="checkbox" <?php if($result->passport == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし No</label>
+
+
 </p>
 </div>
     <table style="width:100%;">
       <tr style="border-bottom:none !important;">
         <th style="width:30% !important; text-align: center; ">旅券番号　Passport number</th>
-        <td colspan="3" style="width:80%;text-align: left;">-</td>
+        <td colspan="3" style="width:80%;text-align: left;"><?php echo $result->passport_no?></td>
       </tr>
       <tr style="border-bottom:none !important;">
         <th style="width:30% !important; text-align: center; ">発行年月日　Date of issue</th>
-        <td style="text-align: left;border-right:none !important;text-align: right; "><span style="width:80px;float:right;"></span> 日Day</td>
-        <td style="text-align: left;border-left:none !important;border-right:none !important;text-align: right;"><span style="width:80px;float:right;"></span>月Month</p></td>
-        <td style="text-align: left;border-left:none !important;text-align: right;"><span style="width:80px;float:right;"></span>年Year</p></td>
+        <td style="text-align: left;border-right:none !important;text-align: right; "><span style="width:80px;float:right;"></span> <?php echo $result->passport_data_issue?>日Day</td>
+        <td style="text-align: left;border-left:none !important;border-right:none !important;text-align: right;"><span style="width:80px;float:right;"></span><?php echo $result->passport_data_issue?>月Month</p></td>
+        <td style="text-align: left;border-left:none !important;text-align: right;"><span style="width:80px;float:right;"></span><?php echo $result->passport_data_issue?>年Year</p></td>
       </tr>
       <tr>
         <th style="width:30% !important; text-align: center; ">有効期限　Date of expiration</th>
-        <td style="text-align: left;border-right:none !important;text-align: right;"><span style="width:80px;float:right;"></span> 日Day</td>
-        <td style="text-align: left;border-left:none !important;border-right:none !important;text-align: right;"><span style="width:80px;float:right;"></span>月Month</p></td>
-        <td style="text-align: left;border-left:none !important;text-align: right;"><span style="width:80px;float:right;"></span>年Year</p></td>
+        <td style="text-align: left;border-right:none !important;text-align: right;"><span style="width:80px;float:right;"></span></span> <?php echo $result->passport_data_exp?> 日Day</td>
+        <td style="text-align: left;border-left:none !important;border-right:none !important;text-align: right;"><span style="width:80px;float:right;"></span></span> <?php echo $result->passport_data_exp?>月Month</p></td>
+        <td style="text-align: left;border-left:none !important;text-align: right;"><span style="width:80px;float:right;"></span></span> <?php echo $result->passport_data_exp?>年Year</p></td>
       </tr>
     </table>
 </div>
@@ -254,8 +260,8 @@ th{
 <div style="width: 100%;">
 <h4 style="width:60%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">5.申請歴　Have you ever applied for Certificate of Eligibility?</h4>
 <p style="width:25%;font-size: 14px;text-align:left;float:right;">
-<input type="checkbox"><label for="" style="font-size: 14px;">ありYes</label>
-<input type="checkbox"><label for="" style="font-size: 14px;">なし No</label>
+<input type="checkbox" <?php if($result->eligibility_have == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ありYes</label>
+<input type="checkbox" <?php if($result->eligibility_have == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし No</label>
 </p>
 </div>
     <table style="width:100%;">
@@ -334,18 +340,18 @@ input {
 <table style="width: 100%;">
   <tr style="border: none !important;">
     <th style="width: 10%;background-color:none !important;border: none !important;">1. 氏名 <span  style="font-size: 11px;"> < Name > </span></th>
-    <td style="width: 80%;border: none !important;"></td>
+    <td style="width: 80%;border: none !important;"><?php echo $result->applicant_name?></td>
   </tr>
   </table>
 
 <table style="width: 100%;">
   <tr style="border: none !important;width:20%;">
     <th rowspan="2" style="width: 10%;background-color:none !important;border: none !important;">2. 生年月日<span  style="font-size: 12px;"> < Date of birth > </span></th>
-    <td style="width: 10%;border: none !important;"></td>
+    <td style="width: 10%;border: none !important;"><?php echo $result->date_of_birthday?></td>
     <td style="width: 10%;border: none !important;">/</td>
     <td style="width: 10%;border: none !important;">/</td>
     <th rowspan="2" style="width: 10%;background-color:none !important;border: none !important;">3. 国籍　<span  style="font-size: 12px;"> < Nationality > </span></th>
-    <td rowspan="2" style="width: 10%;border: none !important;"></td>
+    <td rowspan="2" style="width: 10%;border: none !important;"><?php echo $result->info_nationality?></td>
   </tr>
   <tr style="border: none !important;">
   <td style="width: 10%;border: none !important;text-align:center;">Day</td>
@@ -356,22 +362,22 @@ input {
 <table style="width: 100%;">
   <tr style="border: none !important;">
     <th style="width: 20%;background-color:none !important;border: none !important;">4.現住所 <span  style="font-size: 12px;">< current housing address > </span><p style="font-size: 11px;">(the place you are living now)</p></th>
-    <td style="width: 65%;border: none !important;"></td>
+    <td style="width: 65%;border: none !important;"><?php echo $result->address?></td>
   </tr>
 </table>
 <br>
 <table style="width: 100%;">
   <tr style="border: none !important;">
     <th style="width: 20%;background-color:none !important;border: none !important;">5. 電話番号 <span  style="font-size: 12px;">  < Phone number > </span></th>
-    <td style="width: 30%;border: none !important;text-align:left;">(Home)</td>
-    <td style="width: 30%;border: none !important;text-align:right;text-align:left;">/(Mobile)</td>
+    <td style="width: 30%;border: none !important;text-align:left;">(Home) <?php echo $result->info_phone?></td>
+    <td style="width: 30%;border: none !important;text-align:right;text-align:left;">/(Mobile) <?php echo $result->info_phone?></td>
   </tr>
 </table>
 <br>
   <table style="width: 100%;">
   <tr style="border: none !important;">
     <th style="width: 30%;background-color:none !important;border: none !important;">6.  Eメール <span  style="font-size: 12px;"> < E-Mail address > </span></th>
-    <td style="width: 65%;border: none !important;"></td>
+    <td style="width: 65%;border: none !important;"><?php echo $result->std_email?></td>
   </tr>
   </table>
   <br>
@@ -379,8 +385,8 @@ input {
   <tr style="border: none !important;">
     <th style="width: 28%;background-color:none !important;border: none !important;">7.配偶者の有無 <span  style="font-size: 12px;"> < Marital Status > </span></th>
     <td style="width: 35%;border: none !important;">
-    <input type="radio"><label for="" style="font-size: 14px;">あり < Married ></label>
-    <input type="radio"><label for="" style="font-size: 14px;">なし < Single ></label>
+    <input type="checkbox" <?php if($result->martial_status == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">あり < Married ></label>
+    <input type="checkbox" <?php if($result->martial_status == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし < Single ></label>
     </td>
     <th style="width: 28%;background-color:none !important;border: none !important;"> <span style="font-size: 12px;">配偶者名 < Name of your spouse > </span></th>
     <td  style="width: 8%;border: none !important;"></td>
@@ -401,84 +407,24 @@ input {
       <th style="text-align:center;border-left:none !important;border-right:none !important;border-top: none !important;"><span style="font-size: 11px;">Month </span></th>
       <th style="text-align:center;border-left:none !important;border-top: none !important;"> <span style="font-size: 11px;">Year</span></th>
     </tr>
+    <?php
+          foreach($result1 as $row1){
+        ?>  
     <tr>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 25%;"></td>
+        <td rowspan="2" style="width: 15%;"><?php echo $row1->edu_name?></td>
+        <td rowspan="2" style="width: 25%;"><?php echo $row1->address?></td>
         <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
-        <td style="border-right:none !important;"></td> 
-        <td style="border-left:none !important;">/</td>  
-        <td rowspan="2" style="width: 15%;"></td>
+        <td style="border-right:none !important;"><?php echo $row1->start_date?></td> 
+        <td style="border-left:none !important;">/<?php echo $row1->start_date?></td>  
+        <td rowspan="2" style="width: 15%;"><?php echo $row1->year?></td>
     </tr>
     <tr>
        <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
-       <td style="border-right:none !important;"></td> 
-       <td style="border-left:none !important;">/</td>  
+       <td style="border-right:none !important;"><?php echo $row1->end_date?></td> 
+       <td style="border-left:none !important;">/<?php echo $row1->end_date?></td>  
     </tr>
-    <tr>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
-        <td style="border-right:none !important;"></td> 
-        <td style="border-left:none !important;">/</td>  
-        <td rowspan="2" style="width: 15%;"></td>
-    </tr>
-    <tr>
-       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
-       <td style="border-right:none !important;"></td> 
-       <td style="border-left:none !important;">/</td>  
-    </tr>
-    <tr>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
-        <td style="border-right:none !important;"></td> 
-        <td style="border-left:none !important;">/</td>  
-        <td rowspan="2" style="width: 15%;"></td>
-    </tr>
-    <tr>
-       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
-       <td style="border-right:none !important;"></td> 
-       <td style="border-left:none !important;">/</td>  
-    </tr>
-    <tr>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
-        <td style="border-right:none !important;"></td> 
-        <td style="border-left:none !important;">/</td>  
-        <td rowspan="2" style="width: 15%;"></td>
-    </tr>
-    <tr>
-       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
-       <td style="border-right:none !important;"></td> 
-       <td style="border-left:none !important;">/</td>  
-    </tr>
-    <tr>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
-        <td style="border-right:none !important;"></td> 
-        <td style="border-left:none !important;">/</td>  
-        <td rowspan="2" style="width: 15%;"></td>
-    </tr>
-    <tr>
-       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
-       <td style="border-right:none !important;"></td> 
-       <td style="border-left:none !important;">/</td>  
-    </tr>
-    <tr>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;"><span style="font-size: 11px;">from</span></th>
-        <td style="border-right:none !important;"></td> 
-        <td style="border-left:none !important;">/</td>  
-        <td rowspan="2" style="width: 15%;"></td>
-    </tr>
-    <tr>
-       <th style="width: 10%;"><span style="font-size: 11px;">to</span></th>
-       <td style="border-right:none !important;"></td> 
-       <td style="border-left:none !important;">/</td>  
-    </tr>
+    <?php } ?>
+    
 </table>
 
 <br><br>
@@ -495,64 +441,30 @@ input {
         <th style="text-align:center;width:10%;">   既習時間数 <br>  総時間数 <br> Total completed hours (up to now)  </th>
         <th style="text-align:center;width:10%;">学習状況 <br> Status </th>
     </tr>
+    <?php
+          foreach($result2 as $row2){
+    ?>  
     <tr>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 25%;"></td>
+        <td rowspan="2" style="width: 15%;"><?php echo $row2->jp_name?></td>
+        <td rowspan="2" style="width: 15%;"><?php echo $row2->address?></td>
+        <td rowspan="2" style="width: 25%;"><?php echo $row2->jp_level?></td>
         <th style="width: 10%;font-size:11px;">from</th>
-        <td style="border-right:none !important;width: 10%;"></td> 
-        <td style="border-left:none !important;width: 10%;">/</td>  
-        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
-        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
+        <td style="border-right:none !important;width: 10%;"><?php echo $row2->start_date?></td> 
+        <td style="border-left:none !important;width: 10%;">/<?php echo $row2->start_date?></td>  
+        <td rowspan="2" style="width: 15%;text-align:center;"><?php echo $row2->hour?><br/>hours</td>
+        <td rowspan="2" style="width: 15%;text-align:center;"><?php echo $row2->hour?><br/>hours</td>
         <td rowspan="2" style="width: 15%;">
-       <input type="checkbox"><span style="font-size: 11px;">Completed</span><br>
-       <input type="checkbox"><span style="font-size: 11px;">Still Studying</span><br>
+        <input type="checkbox" <?php if($row2->jp_status == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">Completed</label>
+        <input type="checkbox" <?php if($row2->jp_status == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">Still Studying</label><br>
       </td>
     </tr>
     <tr>
        <th style="width: 10%;font-size:11px;">to</th>
-       <td style="border-right:none !important;width: 10%;"></td> 
-       <td style="border-left:none !important;width: 10%;">/</td>  
+       <td style="border-right:none !important;width: 10%;"><?php echo $row2->end_date?></td> 
+       <td style="border-left:none !important;width: 10%;">/<?php echo $row2->end_date?></td>  
     </tr>
-    <tr>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;font-size:11px;">from</th>
-        <td style="border-right:none !important;width: 10%;"></td> 
-        <td style="border-left:none !important;width: 10%;">/</td>  
-        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
-        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
-        <td rowspan="2" style="width: 15%;">
-       <input type="checkbox"><span style="font-size: 11px;">Completed</span><br>
-       <input type="checkbox"><span style="font-size: 11px;">Still Studying</span><br>
-      </td>
-    </tr>
-    <tr>
-       <th style="width: 10%;font-size:11px;">to</th>
-       <td style="border-right:none !important;width: 10%;"></td> 
-       <td style="border-left:none !important;width: 10%;">/</td>  
-    </tr>
-    <tr>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 15%;"></td>
-        <td rowspan="2" style="width: 25%;"></td>
-        <th style="width: 10%;font-size:11px;">from</th>
-        <td style="border-right:none !important;width: 10%;"></td> 
-        <td style="border-left:none !important;width: 10%;">/</td>  
-        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
-        <td rowspan="2" style="width: 15%;text-align:center;"> -<br/>hours</td>
-        <td rowspan="2" style="width: 15%;">
-       <input type="checkbox"><span style="font-size: 11px;">Completed</span><br>
-       <input type="checkbox"><span style="font-size: 11px;">Still Studying</span><br>
-      </td>
-    </tr>
-    <tr>
-       <th style="width: 10%;font-size:11px;">to</th>
-       <td style="border-right:none !important;width: 10%;"></td> 
-       <td style="border-left:none !important;width: 10%;">/</td>  
-    </tr>
- 
+    <?php } ?>
+   
 </table>
 
 <br><br>
@@ -568,18 +480,17 @@ input {
     <th style="text-align: center;width:15%;border-right: none !important;"><span style="font-size: 10px;">月Month</span></th> 
     <th style="text-align: center;width:15%;border-left: none !important;"><span style="font-size: 10px;">年 Year</span></th>
    </tr>
+   <?php
+          foreach($result3 as $row3){
+    ?>  
    <tr>
-    <td style="border-right: none !important; "></td>
-    <td style="border-left: none !important">/</td>
-    <td></td>
-    <td></td>
+    <td style="border-right: none !important; "><?php echo $row3->date_qualification?></td>
+    <td style="border-left: none !important">/<?php echo $row3->date_qualification?></td>
+    <td><?php echo $row3->achiv_name?></td>
+    <td><?php echo $row3->level?></td>
    </tr>
-   <tr>
-    <td style="border-right: none !important;; "></td>
-    <td style="border-left: none !important">/</td>
-    <td></td>
-    <td></td>
-   </tr>
+  
+   <?php } ?>
 </table>
 </form>
 </section>
@@ -606,35 +517,19 @@ input {
       <th style="text-align: center;border-right:none !important;"><span style="font-size: 11px;">Month</span></th>
       <th style="text-align: center;border-left:none !important;"><span style="font-size: 11px;">Year</span></th>
     </tr>
+    <?php
+          foreach($result5 as $row5){
+    ?>  
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;">/</td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;">/</td>
+      <td><?php echo $row5->emp_name?></td>
+      <td><?php echo $row5->job_description?></td>
+      <td><?php echo $row5->address?></td>
+      <td style="border-right: none !important;"><?php echo $row5->start_date?></td>
+      <td style="border-left: none !important;">/<?php echo $row5->start_date?></td>
+      <td style="border-right: none !important;"><?php echo $row5->end_date?></td>
+      <td style="border-left: none !important;">/<?php echo $row5->end_date?></td>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;">/</td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;">/</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td style="border-right: none !important;"></td>
-      <!-- <td style="border-left: none !important;border-right: none !important;">/</td> -->
-      <td style="border-left: none !important;">/</td>
-      <td style="border-right: none !important;"></td>
-      <!-- <td style="border-left: none !important;border-right: none !important;"></td> -->
-      <td style="border-left: none !important;">/</td>
-    </tr>
+    <?php } ?>
     </table>
 </div>
 </section>
@@ -644,8 +539,8 @@ input {
 <div style="width: 100%;">
 <h4 style="width:50%;float:left;font-weight:bold;padding-left:10px;margin:0px;font-family: sjis;">11. 来日歴 < Experience of stay in Japan ></h4>
 <p style="width:40%;font-size: 14px;text-align:left;float:right;">
-<input type="checkbox"><label for="" style="font-size: 14px;">ある(Yes)・</label>
-<input type="checkbox"><label for="" style="font-size: 14px;">なし (No)</label>
+<input type="checkbox" <?php if($result->have_you_visited_jp == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ある(Yes)・</label>
+<input type="checkbox" <?php if($result->have_you_visited_jp == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし (No)</label> 
 </p>
 </div>
     <table style="width:100%;border-bottom: none !important;">
@@ -663,40 +558,21 @@ input {
       <th style="text-align: center;border-right: none !important;border-left: none !important;width:10%;"> <span style="font-size: 11px;">Month</span></th>
       <th style="text-align: center;border-left: none !important;width:10%;"> <span style="font-size: 11px;">Year</span></th>
     </tr>
-
+    <?php
+          foreach($result8 as $row8){
+    ?> 
     <tr>
       <td style="width: 3%;">1</td>
-      <td></td>
-      <td></td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;border-right: none !important;">/</td>
-      <td style="border-left: none !important;">/</td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;border-right: none !important;">/</td>
-      <td style="border-left: none !important;">/</td>
+      <td><?php echo $row8->entry_purpose?></td>
+      <td><?php echo $row8->pre_stay_visa?></td>
+      <td style="border-right: none !important;"><?php echo $row8->arrival_date?></td>
+      <td style="border-left: none !important;border-right: none !important;">/<?php echo $row8->arrival_date?></td>
+      <td style="border-left: none !important;">/<?php echo $row8->arrival_date?></td>
+      <td style="border-right: none !important;"><?php echo $row8->depature_date?></td>
+      <td style="border-left: none !important;border-right: none !important;">/<?php echo $row8->depature_date?></td>
+      <td style="border-left: none !important;">/<?php echo $row8->depature_date?></td>
     </tr>
-    <tr>
-      <td style="width: 3%;">2</td>
-      <td></td>
-      <td></td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;border-right: none !important;">/</td>
-      <td style="border-left: none !important;">/</td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;border-right: none !important;">/</td>
-      <td style="border-left: none !important;">/</td>
-    </tr>
-    <tr>
-      <td style="width: 3%;">3</td>
-      <td></td>
-      <td></td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;border-right: none !important;">/</td>
-      <td style="border-left: none !important;">/</td>
-      <td style="border-right: none !important;"></td>
-      <td style="border-left: none !important;border-right: none !important;">/</td>
-      <td style="border-left: none !important;">/</td>
-    </tr>
+    <?php } ?>
     </table>
     <p style="padding-left: 9px;padding-top: 5px;">●４回以上来日した場合、下欄に記入してください。
     <span style="font-size: 9px;"> If you have stayed in Japan more than four times, please use the blank below.</span>
@@ -710,13 +586,13 @@ input {
 <h4  style="font-family: sjis;">12. 母国や日本での犯罪(交通違反を含む)による処分・強制送還歴はありますか？<span style="font-size: 11px;">< Regarding Criminal record etc. ></span></h4>
 <p style="width:70%;float:left;font-family: sjis;"> (1) 犯罪歴　<span style="font-size: 11px;"> "Criminal record in your home country or Japan including dispositions due to traffic violations, etc."	</span></p>
 <p style="width:28%;font-size: 14px;text-align:left;float:right;">
-<input type="radio"><label for="" style="font-size: 14px;">ある Yes</label>
-<input type="radio"><label for="" style="font-size: 14px;">なし No </label>
+<input type="radio" <?php if($result->criminal_record == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ある Yes</label>
+<input type="radio" <?php if($result->criminal_record == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし No</label> 
 </p>
 <p style="width:70%;float:left;font-family: sjis;"> (2) 強制送還歴   Departure by deportation or departure order</p>
 <p style="width:28%;font-size: 14px;text-align:left;float:right;">
-<input type="radio"><label for="" style="font-size: 14px;">ある Yes</label>
-<input type="radio"><label for="" style="font-size: 14px;">なし No </label>
+<input type="radio" <?php if($result->departure_deportation == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">ある Yes</label>
+<input type="radio" <?php if($result->departure_deportation == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">なし No</label> 
 </p>
 </div>
 <br>
@@ -739,6 +615,7 @@ input {
 </div>
 <div style="width: 100%;padding-top:15px;">
  <h4 style="font-family: sjis;">14. 日本語学習目的〈Purpose of Learning Japanese in Japan Kokusai Kotoba Gakuin JLS)〉</h4>
+ <?php echo $result->purpose_studying_in_japanese?>
 <hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr>
 </div>
 <p>この履歴書は私が自分自身で書いたものであり、その内容はすべて事実であることを誓います。<br>
@@ -752,7 +629,11 @@ input {
      
 </div>
 <div style="width: 60%;float:right">
-  <p>署名 Signature:<span>_______________________________________</span></p>
+  <p>署名 Signature:<span>
+  <?php if(!empty($result->sign_file)) { ?>
+      <img src="<?php echo base_url('upload/assets/adm/usr/'.$result->sign_file); ?>" style="width:20%;height:auto;" class="pb-1">
+    <?php } ?>
+  </span></p>
 </div>
    
 <div style="width: 100%;">
@@ -765,13 +646,13 @@ input {
   <table style="width: 100%;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
       <th style="width:30%;background-color:none !important;border-top:none!important;border-right:none!important;border-left:none!important;font-size:15px;text-align:center;font-weight:normal;">Applicant Nationality</th>
-      <td style="width:70%;border-top:none !important;border-right:none!important;border-left:none!important;"></td>
+      <td style="width:70%;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->info_nationality?></td>
     </tr>
   </table>
   <table style="width: 100%;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
       <th style="width:30%;background-color:none !important;border-top:none!important;border-right:none!important;border-left:none!important;font-size:15px;text-align:center;font-weight:normal;">Applicant Name in Full</th>
-      <td style="width:70%;border-top:none !important;border-right:none!important;border-left:none!important;"></td>
+      <td style="width:70%;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->applicant_name?></td>
     </tr>
   </table>
   <table style="width: 100%;">
@@ -781,8 +662,11 @@ input {
       <td style="width:12%;border-top:none !important;border-right:none!important;border-left:none!important;text-align:right;">month/</td>
       <td style="width:12%;border-top:none !important;border-right:none!important;border-left:none!important;text-align:right;">day</td>
       <td style="width:20%;border-top:none !important;border-right:none!important;border-left:none!important;text-align:left;">
-      ( <input style="width:10%;font-size:16px;" type="radio" name="" id="" ><label> male/</label>
-     <input style="width:10%;font-size:16px;" type="radio" name="" id=""> <label>female )</label>
+      <!-- ( <input style="width:10%;font-size:16px;" type="radio" name="" id="" ><label> male/</label>
+     <input style="width:10%;font-size:16px;" type="radio" name="" id=""> <label>female )</label> -->
+    (<input style="width:10%;font-size:16px;"type="radio" <?php if($result->gender == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">male</label>
+     <input style="width:10%;font-size:16px;" type="radio" <?php if($result->gender == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">female</label> )
+
     </td>
     </tr>
   </table>
@@ -805,6 +689,7 @@ input {
     <td></td>
   </tr>
   <br>
+
   <tr style="border-top:none !important;">
     <td></td>
   </tr>
@@ -993,7 +878,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 75%;float:left">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->applicant_name?></td>
     </tr>
   </table>
 </div>
@@ -1003,7 +888,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 55%;float:right">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->info_age?></td>
     </tr>
   </table>
 </div>
@@ -1018,7 +903,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 50%;float:left">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->info_nationality?></td>
     </tr>
   </table>
 </div>
@@ -1029,8 +914,9 @@ Further, when the above person applies for an extension of period of stay, I wil
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
     <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:center;">
-     <input type="radio" style="font-size: 14px;"><label for="">男＜Male＞</label>
-     <input type="radio" style="font-size: 14px;"><label for="">女＜Female＞</label>
+     <input type="radio" <?php if($result->gender == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">男＜Male＞</label>
+     <input type="radio" <?php if($result->gender == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">女＜Female＞</label> 
+
   </td>
     </tr>
   </table>
@@ -1041,6 +927,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <br>
 <p style="font-size: 14px;">Ⅰ. あなたの家族についての質問 < Questions about your family.></p>
 <p style="font-size: 14px;">（1） 家族の住所 < Family's address > </p>
+<?php echo $result->family_address?>
 <hr>
 <hr>
 
@@ -1051,7 +938,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 80%;float:left">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->family_tel?></td>
     </tr>
   </table>
 </div>
@@ -1061,7 +948,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 80%;float:right">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->family_tel?></td>
     </tr>
   </table>
 </div>
@@ -1073,7 +960,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 75%;float:left">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->family_mail?></td>
     </tr>
   </table>
 </div>
@@ -1090,55 +977,17 @@ Further, when the above person applies for an extension of period of stay, I wil
     <th style="background-color:none !important;">年齢 Age</th>
     <th style="background-color:none !important;">職業 Occupation</th>
   </tr>
+  <?php
+          foreach($result6 as $row6){
+  ?> 
   <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><?php echo $row6->fam_name?></td>
+    <td><?php echo $row6->fam_relationship?></td>
+    <td><?php echo $row6->fam_gender?></td>
+    <td><?php echo $row6->fam_age?></td>
+    <td><?php echo $row6->occupation?></td>
   </tr>
-  <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
+  <?php } ?>
 </table>
 <br>
 <div style="width: 100%;">
@@ -1149,7 +998,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 100%;">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"></td>
     </tr>
   </table>
 </div>
@@ -1232,7 +1081,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <p style="width:60%;font-size:13px;float:left;">日本でやってみたいこと < What do you want to do in Japan? > </p>
 <div style="width: 100%;">
 <section class="personal-info">
-    <p class="note" style="width: 100%;padding: 30px 0px;border: 1px solid #000000;"></p>
+    <p class="note" style="width: 100%;padding: 30px 0px;border: 1px solid #000000;"><?php echo $result->purpose_studying_in_japanese?></p>
 </section>
 </div>
 </div>
@@ -1279,38 +1128,18 @@ and telephone number etc.　Please show us the copy of Residence card for confir
     <th style="background-color:none !important;">住所/電話<p style="font-size: 11px;"> Address/Phone </p></th>
     <th style="background-color:none !important;">在留カード番号 <p style="font-size: 11px;">Residence Card number</p>  </th>
   </tr>
+  <?php
+          foreach($result7 as $row7){
+  ?> 
   <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><?php echo $row7->ja_fam_name?></td>
+    <td><?php echo $row7->ja_fam_date_birth?></td>
+    <td><?php echo $row7->ja_fam_relationship?></td>
+    <td><?php echo $row7->ja_fam_work_place?></td>
+    <td><?php echo $row7->ja_fam_address?></td>
+    <td><?php echo $row7->residence_card_no?></td>
   </tr>
-  <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>-</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
+  <?php } ?>
 </table>
 <br><br><br><br>
 <p style="width: 100%;font-size: 14px;">Ⅳ.　日本人の友人、知り合いがいれば書いてください。(氏名、住所、電話、関係など) </p> 
@@ -1345,7 +1174,7 @@ To Kokusai Kotoba GakuinJapanese Language School </span>
     留学生氏名 <br>
 Applicant name
     </th>
-      <td style="width:60%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:left;"></td>
+      <td style="width:60%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:left;"><?php echo $result->applicant_name?></td>
     </tr>
 </table>
 </div>
@@ -1366,7 +1195,7 @@ Applicant name
 <table style="width: 90%;">
   <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
     <th style="width:20%;font-size:14px;background-color:none !important;border-top:none!important;border-right:none!important;border-left:none!important;font-size:15px;text-align:left;font-weight:normal;">国籍 <br> Nationality</th>
-    <td style="width:20%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:right;"></td>
+    <td style="width:20%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:right;"><?php echo $result->info_nationality?></td>
   </tr>
 </table>
 </div>

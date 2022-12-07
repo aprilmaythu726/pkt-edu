@@ -39,21 +39,6 @@ class Pdf extends CI_Controller {
        // $this->mainconfig->_DefaultTimeZone($this->timezone);
         
     }
-    public function jcli_admiss()
-    {
-        $mpdf = new \Mpdf\Mpdf(
-            ['debug' => true]
-            
-        );
-        $mpdf->fontdata["frutiger"] = [
-            'R' => "Frutiger-Normal.ttf",
-            'I' => "FrutigerObl-Normal.ttf",
-        ];
-        $html = $this->load->view('dashboard/export/jcli_admission', [], true);
-        $this->stylesheet = file_get_contents('asset/css/style.css');
-        $mpdf->WriteHTML($html);  
-        $mpdf->Output();
-    }
     public function index() {
         $data['member'] = $this->Pdf_Model->alldata();
         $this->load->view('dashboard/export/ecc_interview', $data);
@@ -61,15 +46,21 @@ class Pdf extends CI_Controller {
     function eccinter($id) {
        // $this->mpdf->useOnlyCoreFonts = true;
        //$filename = "VISH";
-        $data['result'] = $this->Pdf_Model->getAllData($id);
-        $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
-        $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
-        $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
-        $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
-        $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
-        $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
-        $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
-        $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+       $data['result'] = $this->Pdf_Model->getAllData($id);
+       $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+       $data['resulteduhis'] = $this->Pdf_Model->getEduHitory($id);
+       $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+       $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
+       $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+       $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
+       $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+       $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
+       $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+       $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
+       $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+       $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+       $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
+       $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
        // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
         $html = $this->load->view('dashboard/export/ecc_interview', $data, true);
        // var_dump($html);
@@ -91,15 +82,21 @@ class Pdf extends CI_Controller {
     function fukuokainter($id) {
         // $this->mpdf->useOnlyCoreFonts = true;
         //$filename = "VISH";
-         $data['result'] = $this->Pdf_Model->getAllData($id);
-         $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
-         $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
-         $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
-         $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
-         $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
-         $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
-         $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
-         $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+        $data['result'] = $this->Pdf_Model->getAllData($id);
+        $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+        $data['resulteduhis'] = $this->Pdf_Model->getEduHitory($id);
+        $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+        $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
+        $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+        $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
+        $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+        $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
+        $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+        $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
+        $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+        $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+        $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
+        $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
         // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
          $html = $this->load->view('dashboard/export/fukuoka_interview', $data, true);
         // var_dump($html);
@@ -117,114 +114,187 @@ class Pdf extends CI_Controller {
          $this->mpdf->Output("$output", 'I'); // save to file because we can
          exit();
      }
-
+     function shizuka_inter($id) {
+        // $this->mpdf->useOnlyCoreFonts = true;
+        //$filename = "VISH";
+         $data['result'] = $this->Pdf_Model->getAllData($id);
+         $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+         $data['resulteduhis'] = $this->Pdf_Model->getEduHitory($id);
+         $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+         $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
+         $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+         $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
+         $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+         $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
+         $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+         $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
+         $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+         $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+         $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
+         $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+        // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
+         $html = $this->load->view('dashboard/export/shizuoka_interview', $data, true);
+        // var_dump($html);
+         $this->mpdf = new \Mpdf\Mpdf;
+ 
+         // $mpdf = new \Mpdf\Mpdf(
+         //     ['debug' => true]
+             
+         // );
+       //  $this->$mpdf->setTitle('Posts');
+         // $this->mpdf->writeHTML($html);
+         // $this->mpdf->output();
+         $this->mpdf->WriteHTML($html); // write the HTML into the PDF
+         $output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
+         $this->mpdf->Output("$output", 'I'); // save to file because we can
+         exit();
+     }
+    public function ecc_admiss($id)
+    {
+            // $this->mpdf->useOnlyCoreFonts = true;
+            //$filename = "VISH";
+             $data['result'] = $this->Pdf_Model->getAllData($id);
+             $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+             $data['resulteduhis'] = $this->Pdf_Model->getEduHitory($id);
+             $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+             $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
+             $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+             $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
+             $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+             $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
+             $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+             $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
+             $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+             $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+             $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
+             $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+            // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
+             $html = $this->load->view('dashboard/export/ecc_admission', $data, true);
+            // var_dump($html);
+             $this->mpdf = new \Mpdf\Mpdf;
      
-    public function ecc_inter($id)
-    {   
-
-         /** User Permission Checker **/
-        // $this->__permissionChecker($this->key, $this->url);
-        $globalHeader = array("alert" => $this->mainconfig->_DefaultNotic(), 'title' => "Student Lists", 'msg' => "", 'uri' => array("langschoolapplicant", "jls_lists"), 'config' => $this->user_config);
-         $lists = $this->Pdf_Model->getJLSList();
-         // var_dump($list);
-         //*** Generate necessary key and value
-         $Q_list = _transfer_key_prepare(array_keys_checker($lists));
-         $this->data['lists'] = array_transfer($lists, $Q_list);
-         //$this->data['course'] = $this->Langschoolapplicant_Model->getStudentCourseRequest();
-         $this->data = $this->mainconfig->_ArrayDataMarge($globalHeader, $this->data);
-         // For data showing (course, )
-        // $this->load->view('dashboard/langschoolstudent/lists', $this->data);
-
-        $mpdf = new \Mpdf\Mpdf(
-            ['debug' => true]
-            
-        );
-        $mpdf->fontdata["frutiger"] = [
-            'R' => "Frutiger-Normal.ttf",
-            'I' => "FrutigerObl-Normal.ttf",
-        ];
-        $html = $this->load->view('dashboard/export/ecc_interview', $this->data,TRUE);
-        $this->stylesheet = file_get_contents('asset/css/style.css');
-        $mpdf->WriteHTML($html);  
-        $mpdf->Output();
-    }
-    public function ecc_admiss()
-    {
-        $mpdf = new \Mpdf\Mpdf(
-            ['debug' => true]
-            
-        );
-        $mpdf->fontdata["frutiger"] = [
-            'R' => "Frutiger-Normal.ttf",
-            'I' => "FrutigerObl-Normal.ttf",
-        ];
-        $html = $this->load->view('dashboard/export/ecc_admission', [], true);
-        $this->stylesheet = file_get_contents('asset/css/style.css');
-        $mpdf->WriteHTML($html);  
-        $mpdf->Output();
+             // $mpdf = new \Mpdf\Mpdf(
+             //     ['debug' => true]
+                 
+             // );
+           //  $this->$mpdf->setTitle('Posts');
+             // $this->mpdf->writeHTML($html);
+             // $this->mpdf->output();
+             $this->mpdf->WriteHTML($html); // write the HTML into the PDF
+             $output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
+             $this->mpdf->Output("$output", 'I'); // save to file because we can
+             exit();
     }
 
-    public function fukuoka_inter()
+    public function fukuoka_admiss($id)
     {
-        $mpdf = new \Mpdf\Mpdf(
-            ['debug' => true]
-            
-        );
-        $mpdf->fontdata["frutiger"] = [
-            'R' => "Frutiger-Normal.ttf",
-            'I' => "FrutigerObl-Normal.ttf",
-        ];
-        $html = $this->load->view('dashboard/export/fukuoka_interview', [], true);
-        $this->stylesheet = file_get_contents('asset/css/style.css');
-        $mpdf->WriteHTML($html);  
-        $mpdf->Output();
+        // $this->mpdf->useOnlyCoreFonts = true;
+            //$filename = "VISH";
+            $data['result'] = $this->Pdf_Model->getAllData($id);
+            $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+            $data['resulteduhis'] = $this->Pdf_Model->getEduHitory($id);
+            $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+            $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
+            $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+            $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
+            $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+            $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
+            $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+            $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
+            $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+            $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+            $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
+            $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+           // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
+            $html = $this->load->view('dashboard/export/fukuoka_admission', $data, true);
+           // var_dump($html);
+            $this->mpdf = new \Mpdf\Mpdf;
+    
+            // $mpdf = new \Mpdf\Mpdf(
+            //     ['debug' => true]
+                
+            // );
+          //  $this->$mpdf->setTitle('Posts');
+            // $this->mpdf->writeHTML($html);
+            // $this->mpdf->output();
+            $this->mpdf->WriteHTML($html); // write the HTML into the PDF
+            $output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
+            $this->mpdf->Output("$output", 'I'); // save to file because we can
+            exit();
     }
-    public function fukuoka_admiss()
-    {
-        $mpdf = new \Mpdf\Mpdf(
-            ['debug' => true]
-            
-        );
-        $mpdf->fontdata["frutiger"] = [
-            'R' => "Frutiger-Normal.ttf",
-            'I' => "FrutigerObl-Normal.ttf",
-        ];
-        $html = $this->load->view('dashboard/export/fukuoka_admission', [], true);
-        $this->stylesheet = file_get_contents('asset/css/style.css');
-        $mpdf->WriteHTML($html);  
-        $mpdf->Output();
-    }
-    public function shizuoka_inter()
+    public function shizuoka_admiss($id)
 
     {
-        $mpdf = new \Mpdf\Mpdf(
-            ['debug' => true]
-            
-        );
-        $mpdf->fontdata["frutiger"] = [
-            'R' => "Frutiger-Normal.ttf",
-            'I' => "FrutigerObl-Normal.ttf",
-        ];
-        $html = $this->load->view('dashboard/export/shizuoka_interview', [], true);
-        $this->stylesheet = file_get_contents('asset/css/style.css');
-        $mpdf->WriteHTML($html);  
-        $mpdf->Output();
+         // $this->mpdf->useOnlyCoreFonts = true;
+            //$filename = "VISH";
+            $data['result'] = $this->Pdf_Model->getAllData($id);
+            $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+            $data['resulteduhis'] = $this->Pdf_Model->getEduHitory($id);
+            $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+            $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
+            $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+            $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
+            $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+            $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
+            $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+            $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);        
+            $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+            $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+            $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
+            $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+           // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
+            $html = $this->load->view('dashboard/export/shizuoka_admission', $data, true);
+           // var_dump($html);
+            $this->mpdf = new \Mpdf\Mpdf;
+    
+            // $mpdf = new \Mpdf\Mpdf(
+            //     ['debug' => true]
+                
+            // );
+          //  $this->$mpdf->setTitle('Posts');
+            // $this->mpdf->writeHTML($html);
+            // $this->mpdf->output();
+            $this->mpdf->WriteHTML($html); // write the HTML into the PDF
+            $output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
+            $this->mpdf->Output("$output", 'I'); // save to file because we can
+            exit();
     }
-    public function shizuoka_admiss()
+    public function jcli_admiss($id)
 
     {
-        $mpdf = new \Mpdf\Mpdf(
-            ['debug' => true]
-            
-        );
-        $mpdf->fontdata["frutiger"] = [
-            'R' => "Frutiger-Normal.ttf",
-            'I' => "FrutigerObl-Normal.ttf",
-        ];
-        $html = $this->load->view('dashboard/export/shizuoka_admission', [], true);
-        $this->stylesheet = file_get_contents('asset/css/style.css');
-        $mpdf->WriteHTML($html);  
-        $mpdf->Output();
+         // $this->mpdf->useOnlyCoreFonts = true;
+            //$filename = "VISH";
+            $data['result'] = $this->Pdf_Model->getAllData($id);
+            $data['result1'] = $this->Pdf_Model->getJLSDetail1($id);
+            $data['resulteduhis'] = $this->Pdf_Model->getEduHitory($id);
+            $data['result2'] = $this->Pdf_Model->getJLSDetail2($id);
+            $data['resultprejpstudy'] = $this->Pdf_Model->getPreJpStudy($id);
+            $data['result3'] = $this->Pdf_Model->getJLSDetail3($id);
+            $data['resultachiv'] = $this->Pdf_Model->getAchivTest($id);
+            $data['result4'] = $this->Pdf_Model->getJLSDetail4($id);
+            $data['resultgoingtest'] = $this->Pdf_Model->getGoingTest($id);
+            $data['result5'] = $this->Pdf_Model->getJLSDetail5($id);
+            $data['resulthisemp'] = $this->Pdf_Model->getHisEmp($id);          
+            $data['result6'] = $this->Pdf_Model->getJLSDetail6($id);
+            $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
+            $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
+            $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+           // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
+            $html = $this->load->view('dashboard/export/jcli_admission', $data, true);
+           // var_dump($html);
+            $this->mpdf = new \Mpdf\Mpdf;
+    
+            // $mpdf = new \Mpdf\Mpdf(
+            //     ['debug' => true]
+                
+            // );
+          //  $this->$mpdf->setTitle('Posts');
+            // $this->mpdf->writeHTML($html);
+            // $this->mpdf->output();
+            $this->mpdf->WriteHTML($html); // write the HTML into the PDF
+            $output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
+            $this->mpdf->Output("$output", 'I'); // save to file because we can
+            exit();
     }
 }
 

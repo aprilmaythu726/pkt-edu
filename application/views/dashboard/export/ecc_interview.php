@@ -1,3 +1,4 @@
+
 $html = '
 <!DOCTYPE html>
 <html>
@@ -195,7 +196,7 @@ $html = '
                 <th style="width:30%;" style="border-right:none !important;border-left:none !important;font-size:13px;">			
                   (Married/Unmarried):											                                                                                                                                                                 
                 </th>
-                <td colspan="1.5" style="border-left:none !important;font-size:13px;"><?php echo $result->martial_status?></td>
+                <td colspan="1.5" style="border-left:none !important;font-size:13px;"><?php if($result->martial_status == '1'){echo 'Unmarried';}else{echo 'Married';}?></td>
             </tr>
             <tr>
                 <th class="ecc_stu_name" style="width:15%;border-right:none !important;font-size:13px;">				
@@ -227,10 +228,10 @@ $html = '
           foreach($result1 as $row1){
         ?>   
             <tr>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row1->edu_name?></td>
-                <td style="font-size: 12px; text-align: left;border-right: none;font-size:13px;"><?php echo $row1->start_date?></td>
-                <td style="font-size: 11px; text-align: left;border-left: none;font-size:13px;"><?php echo $row1->end_date?></td>
-                <td style="font-size: 11px; text-align: right;border-left: none;font-size:13px;"><?php echo $row1->year?>year</td>
+                <td style="font-size: 11px; text-align: center;font-size:13px;"><?php echo $row1->edu_name?></td>
+                <td style="font-size: 12px; text-align: center;border-right: none;font-size:13px;"><?php echo $row1->start_date?></td> 
+                <td style="font-size: 11px; text-align: center;border-left: none;font-size:13px;"><?php echo $row1->end_date?></td>
+                <td style="font-size: 11px; text-align: center;border-left: none;font-size:13px;"><?php echo $row1->year?> year</td>
             </tr>
         <?php } ?>
             <!-- <tr>
@@ -268,11 +269,11 @@ $html = '
       <table style="width:100%;" class="tbl">
         <thead style="text-align:center;padding:1px;">
             <tr class="text-center" style="font-size: 12px;background-color:#ffffff;">
-                <th scope="col" style="width:35% !important; text-align: center;font-size:13px; ">Name of Institution</th>
-                <th scope="col" class="align-middle" style="width: 10%; text-align: center;border-right:0px;font-size:13px;">Starting<br>Year/Month </th>
-                <th scope="col" style="width: 10%;border-left: none;text-align: center;border-left:0px;font-size:13px;">Finishing<br>Year/Month		
+                <th scope="col" style="width:35% !important; text-align:center;font-size:13px; ">Name of Institution</th>
+                <th scope="col" class="align-middle" style="width: 10%; text-align:center;border-right:0px;font-size:13px;">Starting<br>Year/Month </th>
+                <th scope="col" style="width: 10%;border-left: none;text-align:center;border-left:0px;font-size:13px;">Finishing<br>Year/Month		
                 </th>
-                <th scope="col" style="width: 10%;text-align: center;">Total Hours of Study </th>
+                <th scope="col" style="width: 10%;text-align:center;">Total Hours of Study </th>
             </tr>
         </thead>
         <tbody id="stockList">
@@ -280,10 +281,10 @@ $html = '
           foreach($result2 as $row2){
         ?> 
             <tr>
-                <td style="font-size: 11px; text-align: right;font-size:13px;"><?php echo $row2->jp_name?></td>
-                <td style="font-size: 12px; text-align: left;border-right: none;font-size:13px;"><?php echo $row2->start_date?></td>
-                <td style="font-size: 11px; text-align: left;border-left: none;font-size:13px;"><?php echo $row2->end_date?></td>
-                <td style="font-size: 11px; text-align: right;font-size:13px;"><?php echo $row2->hour?>hours</td>
+                <td style="font-size: 11px; text-align: center;font-size:13px;"><?php echo $row2->jp_name?></td>
+                <td style="font-size: 12px; text-align: center;border-right: none;font-size:13px;"><?php echo $row2->start_date?></td>
+                <td style="font-size: 11px; text-align: center;border-left: none;font-size:13px;"><?php echo $row2->end_date?></td>
+                <td style="font-size: 11px; text-align: center;font-size:13px;"><?php echo $row2->hour?> hours</td>
             </tr>
         <?php } ?>
             <!-- <tr>
@@ -313,7 +314,7 @@ $html = '
           foreach($result3 as $row3){
         ?> 
             <tr>
-                <td style="font-size: 11px; text-align: left;border-left: none;"><?php echo $row3->achiv_name?></td>
+                <td style="font-size: 11px; text-align: center;border-left: none;"><?php echo $row3->achiv_name?></td>
                 <td style="font-size: 11px; text-align: left;border-right:none !important;"><p style="text-align: left;padding:0px;margin:0px;display:flex;">Level:</p><?php echo $row3->level?></td>
                 <td style="font-size: 11px; text-align: left;border-left:none !important;"><p style="text-align: left;padding:0px;margin:0px;display:flex;">year:</p><?php echo $row3->exam_year?></td>
             </tr>
@@ -343,7 +344,7 @@ $html = '
           foreach($result4 as $row4){
         ?> 
             <tr>
-                <td style="font-size: 11px; text-align: left;border-left: none;"><?php echo $row4->going_name?></td>
+                <td style="font-size: 11px; text-align: center;border-left: none;"><?php echo $row4->going_name?></td>
                 <td style="font-size: 11px; text-align: left;border-right:none !important;"><p style="text-align: left;padding:0px;margin:0px;display:flex;">Level:</p><?php echo $row4->going_level?></td>
                 <td style="font-size: 11px; text-align: left;border-left:none !important;"><p style="text-align: left;padding:0px;margin:0px;display:flex;">Date:</p><?php echo $row4->going_level?></td>
             </tr>
@@ -376,10 +377,10 @@ $html = '
           foreach($result5 as $row5){
         ?> 
             <tr>
-                <td style="font-size: 11px; text-align: right;font-size:13px;"><?php echo $row5->emp_name?></td>
-                <td style="font-size: 12px; text-align: left;border-right: none;font-size:13px;"><?php echo $row5->start_date?></td>
-                <td style="font-size: 11px; text-align: left;border-left: none;font-size:13px;"><?php echo $row5->end_date?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row5->job_description?></td>
+                <td style="font-size: 11px; text-align: center;font-size:13px;height:24px;"><?php echo $row5->emp_name?></td>
+                <td style="font-size: 12px; text-align: center;border-right: none;font-size:13px;height:24px;"><?php echo $row5->start_date?></td>
+                <td style="font-size: 11px; text-align: center;border-left: none;font-size:13px;height:24px;"><?php echo $row5->end_date?></td>
+                <td style="font-size: 11px; text-align: center;font-size:13px;height:24px;"><?php echo $row5->job_description?></td>
         <?php } ?>   
             </tr>          
             
@@ -387,17 +388,16 @@ $html = '
       </table>
     </div>
     </section> 
-<br><br>
+<br>
     <div>
 <h4 style="padding: 0px;margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:14px;">Have you visited Japan?</h4> 	
 
 <div style="width:100%;display: inline;">
 <p  style="width:100%;display:inline;">
     <p style="width:100px;float:left;font-size:13px;"><?php if($result->have_you_visited_jp == '1'){echo 'Yes';}else{echo 'No';}?></p>
-    <p style="width:120px;float:left;font-size:13px;"> ( Status :<?php echo $result->have_you_visited_jp?></p> 
-    <p style="width:150px;float:left;font-size:13px;">Date of Entry:<?php echo $result->have_you_visited_jp?></p>
-    <p style="width:120px;float:left;font-size:13px;">Date of Departure:<?php echo $result->have_you_visited_jp?></p>
-    <p style="width:100px;float:right;font-size:13px;"> ) </p>
+    <p style="width:100px;float:left;font-size:13px;"> ( Status :<?php echo $result->have_you_visited_jp?></p> 
+    <p style="width:180px;float:left;font-size:13px;">Date of Entry:<?php echo $result->visited_date?></p>
+    <p style="width:200px ;float:left;font-size:13px;">Date of Departure:<?php echo $result->date_of_departure?>　) </p>
 </p> 
 </div>
 
@@ -405,9 +405,9 @@ $html = '
 <div style="width:100%;display: inline;">
 <p>
     <p style="width:100px;float:left;font-size:13px;"><?php if($result->eligibility_have == '1'){echo 'Yes';}else{echo 'No';}?></p>
-    <p style="width:120px;float:left;font-size:13px;">(times : <?php echo $result->eligibility_time?></p>                 
+    <p style="width:100px;float:left;font-size:13px;">(times : <?php echo $result->eligibility_details?></p>                 
     <p style="width:180px;float:left;font-size:13px;">Purpose of Entry: <?php echo $result->entry_purpose1?></p>
-    <p style="width:60px;float:left;font-size:13px;"> When: <?php echo $result->criminal_record_when?></p> 
+    <p style="width:150px;float:left;font-size:13px;"> When: <?php echo $result->criminal_record_when?></p> 
     <p style="width:150px;float:right;font-size:13px;"> ) </p>
  </p> 
 </div>	
@@ -444,12 +444,12 @@ $html = '
           foreach($result6 as $row6){
         ?> 
            <tr>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->fam_name?></td>
-                <td style="font-size: 12px; text-align: left;"><?php echo $row6->fam_relationship?></td>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->work_place?></td>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->occupation?></td>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->length_sevice?></td>
-                <td style="font-size: 11px; text-align: left;"><?php echo $row6->annual_income?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->fam_name?></td>
+                <td style="font-size: 12px; text-align: left;height:24px;"><?php echo $row6->fam_relationship?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->work_place?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->occupation?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->length_sevice?></td>
+                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->annual_income?></td>
             </tr>
         <?php } ?>  
             <!-- <tr>
@@ -560,7 +560,7 @@ $html = '
 <br><br>
 <section class="personal-info" style="width:100%;">
 <h4 style="width:500px;float:left;margin:0px;font-family: 'Open Sans',sjis,sans-serif;font-size:13px;">Family in Japan (Father, Mother, Spouse, Child, Brother and Sisters, or Others) :</h4>
-<p style="width:100px;float:right;font-size:13px;">   Yes / No	</p>	
+<p style="width:100px;float:left;font-size:13px;font-weight:bold;"><?php if($result->family_in_japan == '1'){echo 'Yes';}else{echo 'No';}?></p>	
     <p style="padding: 0px;margin:0px;width:400px;float:left;font-size:13px;">If yes, fill in all the family members in Japan.</p>
     <p style="padding: 0px;margin:0px;width:400px;float:left;font-size:13px;">Are you planning to stay with them in Japan? :  <?php if($result->ja_plan_to_stay_with_them == '1'){echo 'Yes';}else{echo 'No';}?></p>
     <section class="personal-info" style="width:100%;">
@@ -581,12 +581,12 @@ $html = '
           foreach($result7 as $row7){
         ?> 
            <tr>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_name?></td>
-                <td style="font-size: 12px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_age?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_relationship?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_nationality?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_visa_status?></td>
-                <td style="font-size: 11px; text-align: left;font-size:13px;"><?php echo $row7->ja_fam_work_place?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_name?></td>
+                <td style="font-size: 12px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_age?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_relationship?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_nationality?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_visa_status?></td>
+                <td style="font-size: 11px; text-align: left;font-size:13px;height:24px;"><?php echo $row7->ja_fam_work_place?></td>
             </tr>
         <?php }
         ?>

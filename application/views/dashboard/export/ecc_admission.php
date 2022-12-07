@@ -74,37 +74,37 @@ td{
 </head>
 <body>
 <section class="header">
-	<div class="logo">
-	</div>
-		<h2 style="text-align:center;font-family:big5;">入　学　願　書 </h2>
+    <div class="logo">
+    </div>
+        <h2 style="text-align:center;font-family:big5;">入　学　願　書 </h2>
        <p class="application-title" style="text-align:center;font-weight:normal;font-size:20px;line-height:1px;">Application for Admission</p>
 </section>
 <br>
-<section class="eligibility">	
+<section class="eligibility">   
 <div style="width:120px;height:149px;float: right;border:1px solid #000000;margin:0px;padding:0px;">
-    <p style="padding-left: 12px;padding-top: 12px;"> 写真</p>
-    <p style="padding-left: 12px;padding-top: 12px;"> Photograph</p>
-    <p style="padding-left: 12px;padding-top: 12px;"> 4.0cm×3.0cm</p>
-</div>    	
+    <?php if(!empty($result->image_file)) { ?>
+              <img src="<?php echo base_url('upload/assets/adm/usr/'.$result->image_file); ?>" style="width:100%;height:auto;" class="pb-1">
+    <?php } ?>
+</div>      
 <div  style="width: 558px;float: left;margin:0px;padding:0px;">
 <table style="width: 100%;border-bottom:none !important;margin-top:30px;">
     <tr style="border-bottom:none !important;">
         <th style="width: 40%;border-right:none !important;">氏名 Name in Full (Family → Given):</th>
-        <td style="width: 30%;border-left:none !important;"></td>
+        <td style="width: 30%;border-left:none !important;"><?php echo $result->applicant_name?></td>
         <th style="width: 15%;border-right:none !important;">性別 SEX</th>
-        <td style="border-left:none !important;">Female</td>
+        <td style="border-left:none !important;"><?php echo $result->gender?></td>
     </tr>
 </table> 
 <table style="width: 100%;border-top:none !important;border-bottom:none !important;">
     <tr style="border-bottom:1px dotted #000000;">
         <th style="width:22%;border-bottom:none !important;border-bottom:1px dotted #000000;border-right:1px dotted #000000;text-align:center;">アルファベット<br>Alphabet</th>
-        <td style="border-bottom:1px dotted #000000;border-left:1px dotted #000000;"></td>
+        <td style="border-bottom:1px dotted #000000;border-left:1px dotted #000000;"><?php echo $result->applicant_name?></td>
     </tr>
 </table>
 <table style="width: 100%;border-top:none !important;">
     <tr style="border-top:none !important;">
         <th style="width:22%;border-bottom:none !important;border-bottom:1px dotted #000000;border-right:1px dotted #000000;text-align:center;">漢字<br>Chinese Character</th>
-        <td style="border-bottom:1px dotted #000000;border-left:1px dotted #000000;"></td>
+        <td style="border-bottom:1px dotted #000000;border-left:1px dotted #000000;"><?php echo $result->applicant_name_kanji?></td>
     </tr>
 </table> 
 </div>
@@ -115,9 +115,9 @@ td{
         <th scope="col" style="border-top:none !important;text-align:left;">国籍  Nationality</th>
     </tr>
     <tr class="text-center" style="font-size: 12px;border-top:none !important;">
-        <td>-</td>
-        <td></td>
-        <td></td>
+        <td><?php echo $result->date_of_birthday?></td>
+        <td><?php echo $result->place_birth?></td>
+        <td><?php echo $result->info_nationality?></td>
     </tr>
  </table>
  <table style="padding:0px;margin:0px;width:100%;border-top:none !important;border-bottom:none !important;" class="tbl">
@@ -128,7 +128,7 @@ td{
         <td  style="width: 60%;border-top:none !important;"></td>
     </tr>
     <tr style="border-top:none !important;border-bottom:none !important;" >
-        <td  style="width: 60%;border-top:none !important;"></td>
+        <td  style="width: 60%;border-top:none !important;"><?php echo $result->address?></td>
     </tr>
     <tr style="border-top:none !important;border-bottom:none !important;" >
         <td  style="width: 60%;border-top:none !important;"></td>
@@ -140,9 +140,9 @@ td{
 <table style="border-bottom:none !important;width:100%;">
     <tr  style="border-bottom:none !important;font-size:14px;">
         <th colspan="2" style="width:25%;text-align:center;border-right:none !important;">E-mail</th>
-        <td style="width:25%;border-left:none !important;border-right:none !important;font-size:14px;"></td>
+        <td style="width:25%;border-left:none !important;border-right:none !important;font-size:14px;"><?php echo $result->std_email?></td>
         <th style="width:25%;text-align:center;border-right:none !important;border-left:none !important;font-size:14px;">TEL</th>
-        <td style="width:25%;border-left:none !important;font-size:14px;"></td>
+        <td style="width:25%;border-left:none !important;font-size:14px;"><?php echo $result->info_phone?></td>
     </tr>
 </table> 
 <table style="width:100%;">
@@ -151,31 +151,29 @@ td{
         <th style="width: 50%;">勤務先・通学先 Place of Employment or School</th>
     </tr>
     <tr style="border-top:none !important;border-bottom:none !important;">
+        <td  style="text-align:left;"></td>
         <td  style="text-align:center;"></td>
-        <td  style="text-align:center;"></td>
+    </tr>
+    <tr style="border-top:none !important;border-bottom:none !important;">
+        <td  style="text-align:left;"><?php echo $result->occupation?></td>
+        <td  style="text-align:left;"><?php echo $result->place_employment_school?><?php echo $result->educational_school_name?></td>
     </tr>
     <tr style="border-top:none !important;border-bottom:none !important;">
         <td  style="text-align:center;"></td>
         <td  style="text-align:center;"></td>
     </tr>
-    <tr style="border-top:none !important;border-bottom:none !important;">
-        <td  style="text-align:center;"></td>
-        <td  style="text-align:center;"></td>
-    </tr>
-    <tr style="border-top:none !important;border-bottom:none !important;">
-        <td  style="text-align:center;"></td>
-        <td  style="text-align:center;"></td>
-    </tr>
+
 </table> 
 <table style="padding:0px;margin:0px;width:100%;text-align:left;" class="tbl">
     <tr>
         <th style="text-align:left;">勤務先・通学先の住所 Address of Occupation or School</th>
     </tr>
+  
     <tr style="border-top:none !important;border-bottom:none !important;">
         <td  style="text-align:center;"></td>
     </tr>
     <tr style="border-top:none !important;border-bottom:none !important;">
-        <td  style="text-align:center;"></td>
+        <td  style="text-align:left;"><?php echo $result->addr_employment_school?></td>
     </tr>
     <tr style="border-top:none !important;border-bottom:none !important;">
         <td  style="text-align:center;"></td>
@@ -187,7 +185,7 @@ td{
 <table style="border-bottom:none !important;width:100%;">
     <tr  style="border-bottom:none !important;font-size:14px;">
         <th clospan="2" style="width:50%;text-align:right;border-right:none !important;border-left:none !important;font-size:14px;">TEL</th>
-        <td style="width:50%;text-align:left;border-left:none !important;font-size:14px;"></td>
+        <td style="width:50%;text-align:left;border-left:none !important;font-size:14px;">　　　<?php echo $result->tel_employment_school?></td>
     </tr>
 </table> 
 <table style="padding:0px;margin:0px;width:100%;text-align:left;" class="tbl">
@@ -197,7 +195,7 @@ td{
     </tr>
     <tr style="border-top:none !important;border-bottom:none !important;">
         <th  rowspan="1" style="width: 50%;border-top:none !important;border-right:none !important;text-align:left;">本校での学習予定期間 Length of Study at ECC</th>
-        <td  rowspan="1" style="text-align:center;width: 40%;border-left:none !important;">- 年　year(s)</td>
+        <td  rowspan="1" style="text-align:center;width: 40%;border-left:none !important;"><?php echo $result->course_study_lengh?>  年　year(s)</td>
     </tr>
     <tr style="border-top: none !important;">
         <th style="border-bottom: none !important;border-right: none !important;"></th>
@@ -207,13 +205,13 @@ td{
 <table style="padding:0px;margin:0px;width:100%;text-align:left;" class="tbl">
     <tr style="border-top:none !important;border-bottom:1px dotted #000000;">
         <th rowspan="2" style="border-right:none !important;">旅券 Passport</th>
-        <td rowspan="2" style="border-left:none !important;border-right:none !important;">-</td>
+        <td rowspan="2" style="border-left:none !important;border-right:none !important;"><?php if($result->passport == '1'){echo 'Yes';}else{echo 'No';}?></td>
         <th style="border-bottom:none !important;border-left:1px dotted #000000;border-bottom:none !important;border-right:none !important">(1) 番号  Number</th>
-        <td style="border-bottom:none !important;border-left:none !important"></td>
+        <td style="border-bottom:none !important;border-left:none !important"><?php echo $result->passport_no?></td>
     </tr>
     <tr style="border-top:none !important;">
         <th style="border-top:none !important;border-left:1px dotted #000000;border-top:1px dotted #000000;border-right:none !important">(2) 有効期限  Valid Until</th>
-        <td style="border-top:none !important;border-left:none !important"></td>
+        <td style="border-top:none !important;border-left:none !important"><?php echo $result->passport_data_exp?></td>
     </tr>
 </table> 
 <table style="width:100%;">
@@ -231,42 +229,17 @@ td{
         <th scope="col" class="align-middle" style="width: 10%; text-align: center;border-right:none !important;border-left:none !important;border-bottom:1.5px dotted #000000;">入学年月<br/>Starting<br>Year/Month </th>
         <th scope="col" style="width: 10%;border-left: none;text-align: center;border-left:none !important;border-bottom:1.5px dotted #000000;">卒業年月<br/>Finishing<br>Year/Month</th>	
     </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-top: none;border-right:1.5px dotted #000000;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important;border-top: none;border-bottom:1.5px dotted #000000; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-top: none;"> ~ </td>
+    <?php
+        foreach($result1 as $row1){
+    ?> 
+    <tr style="border-bottom:1.5px dotted #000000;font-size:12px;">
+        <td style="text-align: center;border-top: none;border-right:1.5px dotted #000000;border-bottom:1.5px dotted #000000;"><?php echo $row1->edu_name?></td>
+        <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;border-left:none !important;border-top: none;border-bottom:1.5px dotted #000000; "><?php echo $row1->address?></td>
+        <td style="text-align: center;border-right: none;border-left:none !important; border-top: none;border-bottom:1.5px dotted #000000;"><?php echo $row1->start_date?></td>
+        <td style="text-align: center;border-left: none;border-top: none;"> ~ <?php echo $row1->end_date?></td>
     </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important;border-top: none;border-bottom:1.5px dotted #000000; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-top: none;"> ~ </td>
-    </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important;border-top: none;border-bottom:1.5px dotted #000000; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-top: none;"> ~ </td>
-    </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important;border-top: none;border-bottom:1.5px dotted #000000; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-top: none;"> ~ </td>
-    </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important;border-top: none;border-bottom:1.5px dotted #000000; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-top: none;"> ~ </td>
-    </tr>
-    <tr >
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important;border-top: none;border-bottom:1.5px dotted #000000; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; border-top: none;border-bottom:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-top: none;"> ~ </td>
-    </tr>
+    <?php } ?>
+    
 </table>
 <br><br><br>
 <table style="width:100%;">
@@ -281,36 +254,16 @@ td{
         <th scope="col" class="align-middle" style="width: 10%; text-align: center;border-right:none !important;border-left:none !important;">入学年月<br/>Starting<br>Year/Month </th>
         <th scope="col" style="width: 10%;border-left: none;text-align: center;border-left:none !important;">卒業年月<br/>Finishing<br>Year/Month</th>	
     </tr>
-    <tr style="border-bottom:1.5px dotted #000000;border-top:none !important;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
+    <?php
+        foreach($result2 as $row2){
+    ?> 
+    <tr style="border-bottom:1.5px dotted #000000;border-top:none !important;font-size:12px;">
+        <td style="text-align: center;border-right:1.5px dotted #000000;"><?php echo $row2->jp_name?></td>
+        <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "><?php echo $row2->address?></td>
+        <td style="text-align: center;border-right: none;border-left:none !important; "><?php echo $row2->start_date?></td>
+        <td style="text-align: center;border-left: none;"> ~ <?php echo $row2->end_date?></td>
     </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-    </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-    </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-    </tr>
-    <tr>
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-    </tr>
+    <?php } ?>
 </table>
 <table style="width:100%;">
     <tr style="border-top:none !important;border-bottom:1.5px dotted #000000;">
@@ -325,36 +278,16 @@ History of Employment (Write in order, ending with the most recent employment.)<
         <th scope="col" class="align-middle" style="width: 10%; text-align: center;border-right:none !important;border-left:none !important;">就職年月<br/>Starting<br>Year/Month </th>
         <th scope="col" style="width: 10%;border-left: none;text-align: center;border-left:none !important;">退職年月<br/>Finishing<br>Year/Month</th>	
     </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
+    <?php
+        foreach($result5 as $row5){
+    ?> 
+    <tr style="border-bottom:1.5px dotted #000000;font-size:12px;">
+        <td style="text-align: center;border-right:1.5px dotted #000000;"><?php echo $row5->emp_name?></td>
+        <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "><?php echo $row5->address?></td>
+        <td style="text-align: center;border-center: none;border-left:none !important;border-right:none !important; "><?php echo $row5->start_date?></td>
+        <td style="text-align: center;border-center: none;border-left:none !important;"> ~ <?php echo $row5->end_date?></td>
     </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-    </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-    </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-    </tr>
-    <tr>
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: right;border-left: none;border-right:1.5px dotted #000000;border-left:none !important; "></td>
-        <td style="font-size: 12px; text-align: left;border-right: none;border-left:none !important; "></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-    </tr>
+    <?php } ?>
 </table>
 <table style="width: 100%;">
     <tr style="border-top:none !important;border-bottom:none !important;">
@@ -372,48 +305,17 @@ History of Employment (Write in order, ending with the most recent employment.)<
         </tr>
     </thead>
     <tbody id="">
-        <tr style="border-bottom:1.5px dotted #000000;">
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none !important;">-</td>
+    <?php
+        foreach($result6 as $row6){
+    ?> 
+        <tr style="border-bottom:1.5px dotted #000000;font-size:12px;">
+            <td style=" text-align: center;border-right:1.5px dotted #000000;"><?php echo $row6->fam_name?></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row6->fam_relationship?></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row6->birthday?></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row6->occupation?></td>
+            <td style="text-align: center;border-left: none !important;"><?php echo $row6->address?></td>
         </tr>
-        <tr style="border-bottom:1.5px dotted #000000;">
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;">-</td>
-        </tr>
-        <tr style="border-bottom:1.5px dotted #000000;">
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;">-</td>
-        </tr>
-        <tr style="border-bottom:1.5px dotted #000000;">
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;">-</td>
-        </tr>
-        <tr style="border-bottom:1.5px dotted #000000;">
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;">-</td>
-        </tr>
-        <tr style="border-bottom:1.5px dotted #000000;">
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;">-</td>
-        </tr>
+    <?php } ?>
     </tbody>
 </table>
 <table style="width: 100%;">
@@ -428,7 +330,7 @@ History of Employment (Write in order, ending with the most recent employment.)<
         </td>
     </tr>
 </table>
-<br><br><br><br><br><br><br><br><br><br><br>
+<br>
 <table style="width:100%;">
 <tr style="border-bottom:1.5px dotted #000000;">
         <td style="padding:14px 0px;">在日親族 ( 父 ･ 母 ･ 配偶者 ・子 ･ 兄弟姉妹 ) 及び同居者 <br>
@@ -449,43 +351,19 @@ History of Employment (Write in order, ending with the most recent employment.)<
         </tr>
     </thead>
     <tbody id="">
-        <tr style="border-bottom:1.5px dotted #000000;">
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 12px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none !important;">-</td>
+    <?php
+        foreach($result7 as $row7){
+    ?> 
+        <tr style="border-bottom:1.5px dotted #000000;font-size:12px;">
+            <td style="text-align: center;border-right:1.5px dotted #000000;"><?php echo $row7->ja_fam_relationship?></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row7->ja_fam_name?></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"> <?php echo $row7->ja_fam_nationality?></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php if($row7->ja_fam_residing_applicant == '1'){echo 'Yes';}else{echo 'No';}?></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row7->ja_fam_work_place?></td>
+            <td style="text-align: center;border-left: none !important;">-</td>
         </tr>
-        <tr style="border-bottom:1.5px dotted #000000;">
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 12px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none !important;">-</td>
-        </tr>
-        <tr style="border-bottom:1.5px dotted #000000;">
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 12px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none !important;">-</td>
-        </tr>
-        <tr>
-            <td style="font-size: 12px; text-align: left;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 12px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> </td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-            <td style="font-size: 11px; text-align: left;border-left: none !important;">-</td>
-        </tr>
-        
+    <?php } ?>    
     </tbody>
 </table>
 <table style="width:100%;">
@@ -500,45 +378,22 @@ History of Employment (Write in order, ending with the most recent employment.)<
         <th scope="col" class="align-middle" style=" text-align: center;border-left: none;border-right:1.5px dotted #000000;">在留資格 <br/>Status</th>
         <th scope="col" style="border-left: none;text-align: center;border-left: none !important;">入国目的<br/>Purpose of Entry</th>	
     </tr>
+    <?php
+        foreach($result8 as $row8){
+    ?>
     <tr style="border-bottom:1.5px dotted #000000;">
 
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"> -</td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;"></td>
+        <td style="font-size: 11px; text-align: center;border-right:1.5px dotted #000000;"><?php echo $row8->entry_date?></td>
+        <td style="font-size: 11px; text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row8->arrival_date?></td>
+        <td style="font-size: 11px; text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row8->status?></td>
+        <td style="font-size: 11px; text-align: center;"><?php echo $row8->entry_purpose?></td>
     </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"> -</td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;"></td>
-    </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"> -</td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;"></td>
-    </tr>
-    <tr style="border-bottom:1.5px dotted #000000;">
-
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"> -</td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;"></td>
-    </tr>
-    <tr>
-        <td style="font-size: 11px; text-align: left;border-right:1.5px dotted #000000;"> -</td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"></td>
-        <td style="font-size: 11px; text-align: left;"></td>
-    </tr>
+    <?php } ?>
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="border-top: none !important;">
         <th style="width: 30%;padding:12px 0px;">VISA申請予定地<br/>Place to Apply for VISA</th>
-        <td style="padding:12px 2px;">-</td>
+        <td style="padding:12px 2px;">　　<?php echo $result->place_apply_visa?></td>
     </tr>
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
@@ -546,23 +401,23 @@ History of Employment (Write in order, ending with the most recent employment.)<
         <th style="padding:12px 0px;">在留資格認定証明書交付申請歴<br/>Previous Application of Certificate of Eligibility</th>
     </tr>
 </table>
-<table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
+<table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;" class="tbl">
     <tr style="width: 100%;border-top: none !important;">
-        <td style="font-size: 11px; text-align: left;width:15%;border-right:none !important;padding:12px 0px;">-</td>
-        <td style="font-size: 11px; text-align: left;border-right:none !important;border-left:none !important;padding:12px 0px;">-</td>
-        <th style="width:10%;border-right:none !important;border-left:none !important;padding:12px 0px;">times</th>
-        <th style="width:25%;font-family: big5;border-right:none !important;border-left:none !important;padding:12px 0px;">入国目的 Purpose of Entry：</th>
-        <td style="font-size: 11px; text-align: left;border-right:none !important;border-left:none !important;padding:12px 0px;">-</td>
+        <td colspan="3" style="text-align: left;border-right:none !important;padding:12px 0px;"><?php if($result->eligibility_have == '1'){echo 'Yes';}else{echo 'No';}?></td>
+        <td colspan="2" style=" text-align: right;border-right:none !important;border-left:none !important;padding:12px 0px;"><?php echo $result->eligibility_details?></td>
+        <th colspan="2" style="text-align: left;border-right:none !important;border-left:none !important;padding:12px 0px;">　times</th>
+        <th colspan="2" style="text-align: right;border-right:none !important;border-left:none !important;padding:12px 0px;">入国目的 Purpose of Entry：</th>
+        <td colspan="2" style=" text-align: left;border-right:none !important;border-left:none !important;padding:12px 0px;"><?php echo $result->entry_purpose1?></td>
     </tr>
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="width: 100%;border-top:none !important;">
         <th style="width: 50%;border-right:none !important;padding:12px 0px;">同伴者 Accompanying Persons, if Any</th>
-        <th style="width: 50%;border-left:none !important;padding:12px 0px;">配偶者 Marital Status</th>
+        <th style="text-align:center;width: 50%;border-left:none !important;padding:12px 0px;">配偶者 Marital Status</th>
     </tr>
     <tr style="width: 100%;">
-           <td style="border-right:none !important;padding:12px 0px;">-</td>
-           <td style="border-left:none !important;padding:12px 0px;">-</td>
+           <td style="text-align:left;border-right:none !important;padding:12px 0px;"><?php if($result->accompanying_person == '1'){echo 'Yes';}else{echo 'No';}?></td>
+           <td style="text-align:center;border-left:none !important;padding:12px 0px;"><?php if($result->martial_status == '1'){echo 'Single';}else{echo 'Married';}?></td>
     </tr>
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
@@ -572,9 +427,9 @@ History of Employment (Write in order, ending with the most recent employment.)<
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="width: 100%;border-top: none !important;">
-        <td style="font-size: 11px; text-align: left;width:15%;border-right:none !important;padding:12px 0px;">-</td>
-        <th style="width:25%;font-family: big5;border-right:none !important;border-left:none !important;padding:12px 0px;">具体的内容 Details:</th>
-        <td style="font-size: 11px; text-align: left;border-right:none !important;border-left:none !important;padding:12px 0px;">-</td>
+        <td style="font-size: 14px; text-align: left;width:15%;border-right:none !important;padding:12px 0px;font-weight:bold;"><?php if($result->criminal_record == '1'){echo 'Yes';}else{echo 'No';}?></td>
+        <th style="border-right:none !important;border-left:none !important;padding:12px 0px;">具体的内容 Details:</th>
+        <td style="font-size: 11px; text-align: left;border-right:none !important;border-left:none !important;padding:12px 0px;"><?php echo $result->criminal_record_details?></td>
     </tr>
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
@@ -584,7 +439,7 @@ History of Employment (Write in order, ending with the most recent employment.)<
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="width: 100%;border-top: none !important;">
-        <td style="font-size: 11px; text-align: left;width:15%;border-right:none !important;padding:12px 0px;">-</td>
+        <td style="font-size: 14px; text-align: left;width:15%;border-right:none !important;padding:12px 0px;"><?php if($result->departure_deportation == '1'){echo 'Yes';}else{echo 'No';}?></td>
     </tr>
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
@@ -594,17 +449,17 @@ History of Employment (Write in order, ending with the most recent employment.)<
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="width: 100%;border-top:none !important;">
-        <td style="font-size: 11px; text-align: left;width:15%;padding:12px 0px;">-</td>
+        <td style="font-size: 13px; text-align: left;width:15%;padding:12px 0px;"><?php echo $result->specific_plans_after_graduating?></td>
     </tr>
 </table>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
 <table style="border:none !important;padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="border:none !important;">
      <th style="width: 100%;font-size:18px;">学習理由　Purpose of Study in Japan</th>
     </tr>
 </table>
 <section class="personal-info">
-    <p class="note" style="width: 100%;padding: 200px 0px;border: 1px solid #000000;text-align:center;"></p>
+    <p class="note" style="width: 100%;height:200px;border: 1px solid #000000;vertical-align: top;"><?php echo $result->purpose_studying_in_japanese?></p>
 </section>
 <section class="personal-info" style="width:100%;"> 
 <p style="font-family: big5;">
@@ -626,6 +481,9 @@ History of Employment (Write in order, ending with the most recent employment.)<
     </section> 
     <section class="personal-info" style="width:100%;float:right;padding-top:12px;"> 
     <div style="width: 45%;float:right">
+    <p style="padding-left:150px;"><?php if(!empty($result->image_file)) { ?>
+    <img style="width:29%"; src="<?php echo base_url('upload/assets/adm/usr/'.$result->sign_file); ?>" width="150px;" class="pb-1">
+ <?php } ?></p>
   <p>署名 Signature:<span>____________________________</span></p>
 </div>
     
@@ -655,14 +513,11 @@ History of Employment (Write in order, ending with the most recent employment.)<
     
 </section> 
 <section class="personal-info" style="width:100%;padding-top:22px;"> 
-
 <p style="font-family: big5;padding-top:12px;">
  上記は全て真実であり、私が直筆あるいはコンピュータで作成したものです。<br/>
  I hereby declare the above statement is true and correct, and I myself filled in by my own handwriting or by computer. 
 </p>
-
 </section>
-
 <section class="personal-info" style="width:100%;"> 
     <table style="border:none !important;padding-top:10%;margin:0px;width:50%;border-top:none !important;text-align:left;" class="tbl">
         <tr style="border:none !important;width: 60%;">

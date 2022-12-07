@@ -15,6 +15,7 @@ class Langschoolapplicant_Model extends CI_Model
   private $db9 = "JLS_family_member";
   private $db10 = "JLS_family_in_japan";
   private $db11 = "JLS_previous_stay_in_japan";
+  private $db12 = "JLS_other_info";
 
   public function JLSapplicantinfo($userData)
   {
@@ -25,6 +26,11 @@ class Langschoolapplicant_Model extends CI_Model
   public function JLSapplicantdetails($userData1)
   {
     $this->db->insert($this->db2,$userData1);
+    return true;
+  }
+  public function JLSapplicantotherinfo($other_info)
+  {
+    $this->db->insert($this->db12,$other_info);
     return true;
   }
   public function JLSfinancialsponser($data_financial_sponsor)
@@ -123,7 +129,14 @@ class Langschoolapplicant_Model extends CI_Model
     $query = $this->db->get($this->db1);
     return $query->result();
   }
-  
+  public function getJLSDetail9($id)
+  {
+    $this->db->select('*,JLS_applicant_info.id');
+		$this->db->where($this->db1.'.id', $id);
+    $this->db->join($this->db12, $this->db1.'.id = '.$this->db12.'.applicant_id', 'left' );
+    $query = $this->db->get($this->db1);
+    return $query->result();
+  }
   public function studentDetail($id)
 	{
     $this->db->select('student.id,user_id,name,email,info_phone as info_phone,address,birthday,nrc,education,social,std_profile.request_date,image_file,std_profile.status,std_profile.permission');
@@ -219,7 +232,6 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->where('understand_language', $data_details['understand_language']);
 		$this->db->where('criminal_record', $data_details['criminal_record']);
     $this->db->where('criminal_record_details', $data_details['criminal_record_details']);
-    $this->db->where('eligibility_details', $data_details['eligibility_details']);
     $this->db->where('criminal_record_when', $data_details['criminal_record_when']);
     $this->db->where('departure_deportation', $data_details['departure_deportation']);
     $this->db->where('current_status', $data_details['current_status']);
@@ -448,6 +460,12 @@ class Langschoolapplicant_Model extends CI_Model
   {
     $this->db->where('applicant_id', $id);
 		$this->db->update($this->db11, $data_previous_stay_japan);
+		return true;
+  }
+  public function jlsAuthUpdate11($data_info, $id)
+  {
+    $this->db->where('applicant_id', $id);
+		$this->db->update($this->db12, $data_info);
 		return true;
   }
   public function getStudentBatchDetail($b_id,$std_id, $course)
