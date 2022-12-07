@@ -1,5 +1,3 @@
-
-
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php include(dirname(__FILE__) ."/../templates/header.php"); ?>
 
@@ -17,7 +15,7 @@
       </div>
     </div>
   </div> 
-12345
+
   <?php if(!empty($_SESSION['msg_success'])){ ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       <strong>Success!</strong>  <?php echo $_SESSION['msg_success']; ?> 
@@ -364,7 +362,7 @@ select.form-group.col-md-9.school_select{
         <span class="text-danger"><?php echo form_error('place_birth'); ?></span>
       </div>
       <div class="form-group">
-        <?php echo form_label('Place Of Birth', 'place_birth', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
+        <?php echo form_label('Place Of Birth City', 'place_birth', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <?php
           echo form_input(array(
             'name' => 'place_birth',
@@ -426,7 +424,7 @@ select.form-group.col-md-9.school_select{
         </select>
       </div> 
 
-      <div class="form-group " id="partaner" >
+      <div class="form-group " id="partaner" style="display:none;">
         <?php echo form_label('Name of your Partaner', 'partaner_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_name')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
@@ -679,7 +677,7 @@ $(function() {
         ?>
         <span class="text-danger"><?php echo form_error('current_status_school_grade'); ?></span>
   </div>
-  <div class="form-group">
+  <div class="form-group" style="margin-bottom: 270px;">
         <?php echo form_label('Have you ever been japan (Including 3 moth short visa) ‌', 'three_month_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'three_month_visa')); ?>
         <?php
           echo form_input(array(
@@ -696,12 +694,16 @@ $(function() {
   <h6 class="spec_plan">Specific Plans after Graduating</h6>
   <div class="form-group">
    <p class="addmission" style="margin-bottom:19px ;">Specific Plans after Graduating</p>
-   <select name="specific_plans_after_graduating" class="admission_select">
-        <option value="adv_to_high_edu" <?php if($result->specific_plans_after_graduating== "adv_to_high_edu") {echo "selected";} ?>>Advancing to higher education</option>
-        <option value="plan_to_work" <?php if($result->specific_plans_after_graduating== "plan_to_work") {echo "selected";} ?>>Planning to work</option>
-        <option value="return_to_home" <?php if($result->specific_plans_after_graduating== "return_to_home") {echo "selected";} ?>>帰国 /Return to Home Country</option>
-        <option value="attend_school_japan" <?php if($result->specific_plans_after_graduating== "attend_school_japan") {echo "selected";} ?>>日本での進学 /Attend School in Japan</option>
-        <option value="other" <?php if($result->specific_plans_after_graduating== "other") {echo "selected";} ?>>その他 /Other</option>
+   <select name="specific_plans_after_graduating" class="admission_select" id="specific_plans_after_graduating">
+        <option value="adv_to_high_edu">Advancing to higher education</option>
+        <option value="plan_to_work">Planning to work</option>
+        <option value="return_to_home">帰国 /Return to Home Country</option>
+        <option value="attend_school_japan">日本での進学 /Attend School in Japan</option>
+        <option value="adv_to_high_edu">Postgraduate Course</option>
+        <option value="plan_to_work">Junior College</option>
+        <option value="return_to_home">Undergraduate Course</option>
+        <option value="attend_school_japan">Professional School</option>
+        <option value="other">その他 /Other</option>
     </select>
   </div>
   <h6 class="spec_plan">Higher Education in Japan</h6>
@@ -986,7 +988,7 @@ $(function() {
     </select>
   </div>
   <div class="form-group">
-      <?php echo form_label('Accompanying marital status', 'accompanying_marital_status', array( 'class' => '', 'id'=> 'accompanying_marital_status', 'style' => '', 'for' => 'accompanying_marital_status')); ?>
+      <?php echo form_label('Accompanying marital status', 'accompanying_marital_status', array( 'class' => '', 'id'=> 'accompanying_marital_status', 'style' => 'margin-bottom: 13px;', 'for' => 'accompanying_marital_status')); ?>
       <?php
         echo form_input(array(
           'name' => 'accompanying_marital_status',
@@ -997,7 +999,7 @@ $(function() {
           'id' => 'accompanying_marital_status',
           'autocomplete' => ''));
       ?>
-      <span class="text-danger"><?php echo form_error('school_apply_date'); ?></span>
+      <span class="text-danger"><?php echo form_error('accompanying_marital_status'); ?></span>
   </div>
   <div class="form-group">
   <?php echo form_label('Did you apply before in Japan?', 'school_apply_before_japan', array( 'class' => 'form-control-label', 'id'=> '')); ?>
@@ -1011,7 +1013,7 @@ $(function() {
       <?php
         echo form_input(array(
           'name' => 'school_apply_date',
-          'type' => 'text',
+          'type' => 'date',
           'value' => html_escape(set_value('school_apply_date',isset($result)?$result->school_apply_date:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
@@ -1284,17 +1286,18 @@ $(function() {
             </label> 
         </div> -->
         <div class="form-group">
-        <?php echo form_label('Details', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'criminal_record_details')); ?>
+        <?php echo form_label('Details', 'criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'criminal_record_details', 'style' => '', 'for' => 'criminal_record_details')); ?>
         <?php
           echo form_input(array(
-            'name' => 'criminal_record_details ',
+            'name' => 'criminal_record_details',
             'type' => 'text',
+            'value' => html_escape(set_value('criminal_record_details',isset($result)?$result->criminal_record_details:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => ' criminal_record_details',
+            'id' => 'criminal_record_details',
             'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('criminal_record_details '); ?></span>
+        <span class="text-danger"><?php echo form_error('criminal_record_details'); ?></span>
   </div>
   <div class="criminal form-group float-left">
     <div class="">
@@ -1311,7 +1314,7 @@ $(function() {
         <?php
           echo form_input(array(
             'name' => 'criminal_record_when',
-            'type' => 'text',
+            'type' => 'date',
             'value' => html_escape(set_value('criminal_record_when',isset($result)?$result->criminal_record_when:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
@@ -1396,7 +1399,7 @@ $(function() {
        </div>
 
        <div class="form-group">
-        <?php echo form_label('Address','family_address', array('class' => 'col-form-label')); ?>
+        <?php echo form_label('Address','family_address', array('class' => '')); ?>
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
@@ -1409,6 +1412,335 @@ $(function() {
             'autocomplete' => ''));
         ?>
         <span class="text-danger"><?php echo form_error('family_address'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Name of the place where your father is working', 'father_work_place', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'father_work_place')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'father_work_place',
+            'type' => 'text',
+            'value' => html_escape(set_value('father_work_place',isset($result13)?$result13->father_work_place:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'father_work_place',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('father_work_place'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Type of work/post father','type_work_father', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'type_work_father',
+            'type' => 'text',
+            'value' => html_escape(set_value('type_work_father',isset($result13)?$result13->type_work_father:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'type_work_father',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('address'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Name of the place where your mother is working ','mother_work_place', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'mother_work_place',
+            'type' => 'text',
+            'value' => html_escape(set_value('mother_work_place',isset($result13)?$result13->mother_work_place:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'mother_work_place',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('address'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Type of work/post mother','type_work_mother', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'type_work_mother',
+            'type' => 'text',
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->type_work_mother:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'type_work_mother',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('address'); ?></span>
+       </div>
+</div>
+<div class="col-md-6 float-right">
+<h6 class="" style="padding: 33px 0px 12px;">Name of person who gave the consent</h6>
+<div class="form-group">
+        <?php echo form_label('Consent Name', 'consent_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'consent_name')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'consent_name',
+            'type' => 'text',
+            'value' => html_escape(set_value('consent_name',isset($result13)?$result13->consent_name:''), ENT_QUOTES),
+            'placeholder' => 'Enter email account!',
+            'class' => 'form-control',
+            'id' => 'consent_name',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('family_mail'); ?></span>
+       </div>
+
+       <div class="form-group">
+        <?php echo form_label('Relation', 'consent_relation', array( 'class' => '', 'id'=> '')); ?>
+          <select name="consent_relation" id="consent_relation" class="admission_select">
+              <option value="father">Father</option>
+              <option value="mother">Mother</option>
+              <option value="brother">Brother/Sister</option>
+              <option value="other">Others</option>
+          </select>
+      </div>
+
+    <div class="form-group">
+        <?php echo form_label('Address','consent_address', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'consent_address',
+            'type' => 'text',
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->consent_address:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'consent_address',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('address'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label(' Email','consent_email', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'consent_email',
+            'type' => 'text',
+            'value' => html_escape(set_value('consent_email',isset($result13)?$result13->consent_email:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'consent_email',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('address'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label(' Phone','consent_tel', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'consent_tel',
+            'type' => 'text',
+            'value' => html_escape(set_value('consent_tel',isset($result13)?$result13->consent_tel:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'consent_tel',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('address'); ?></span>
+       </div>
+       
+       <br><br><br>
+</div>
+<!-- co_leftside -->
+<div class="col-md-6 float-right">
+<h6 class="" style="padding: 33px 0px 12px;">Written Oath for Defraying Expenses</h6>
+<div class="form-group">
+        <?php echo form_label('Tuition for 6 months', 'six_tuition_fee', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'std_email')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'six_tuition_fee',
+            'type' => 'text',
+            'value' => html_escape(set_value('six_tuition_fee',isset($result13)?$result13->six_tuition_fee:''), ENT_QUOTES),
+            'placeholder' => 'Enter email account!',
+            'class' => 'form-control',
+            'id' => 'six_tuition_fee',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('family_mail'); ?></span>
+       </div>
+
+       <div class="form-group">
+        <?php echo form_label('Tuition for first year', 'first_year_tuitioin_fee', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'first_year_tuitioin_fee')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'first_year_tuitioin_fee',
+            'type' => 'text',
+            'value' => html_escape(set_value('first_year_tuitioin_fee',isset($result13)?$result13->first_year_tuitioin_fee:''), ENT_QUOTES),
+            'placeholder' => 'Enter phone number!',
+            'class' => 'form-control',
+            'id' => 'first_year_tuitioin_fee',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('first_year_tuitioin_fee'); ?></span>
+       </div>
+
+    <div class="form-group">
+        <?php echo form_label('Tuition for second year','second_year_tuitioin_fee', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'second_year_tuitioin_fee',
+            'type' => 'text',
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->second_year_tuitioin_fee:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'second_year_tuitioin_fee',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('second_year_tuitioin_fee'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label(' Period Studying','tuition_study_period', array('class' => 'col-form-labels')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'tuition_study_period',
+            'type' => 'text',
+            'value' => html_escape(set_value('tuition_study_period',isset($result13)?$result13->tuition_study_period:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'tuition_study_period',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('tuition_study_period'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Living expense (Monthly Amount)','living_expense_amount', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'living_expense_amount',
+            'type' => 'text',
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->living_expense_amount:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'living_expense_amount',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('living_expense_amount'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Method of payment', 'payment_method', array( 'class' => '', 'id'=> '')); ?>
+          <select name="payment_method" id="payment_method" class="admission_select">
+              <option value="father">Bank Transfer (Overseas Remittance)</option>
+              <option value="mother">Credit Card</option>
+              <option value="other">Others</option>
+          </select>
+      </div>
+</div>
+<div class="col-md-6 float-left">
+<h6 class="" style="padding: 33px 0px 12px;"> Name of person defraying expenses</h6>
+<div class="form-group">
+        <?php echo form_label('Name', 'defraying_name', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'defraying_name')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'defraying_name',
+            'type' => 'text',
+            'value' => html_escape(set_value('defraying_name',isset($result13)?$result13->defraying_name:''), ENT_QUOTES),
+            'placeholder' => 'Enter email account!',
+            'class' => 'form-control',
+            'id' => 'defraying_name',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('defraying_name'); ?></span>
+       </div>
+
+       <div class="form-group">
+        <?php echo form_label('Relation', 'defraying_relation', array( 'class' => '', 'id'=> '')); ?>
+          <select name="defraying_relation" id="defraying_relation" class="admission_select">
+              <option value="father">Father</option>
+              <option value="mother">Mother</option>
+              <option value="brother">Brother/Sister</option>
+              <option value="other">Others</option>
+          </select>
+      </div>
+
+    <div class="form-group">
+        <?php echo form_label('Tel','defraying_tel', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'family_address',
+            'type' => 'text',
+            'value' => html_escape(set_value('defraying_tel',isset($result13)?$result13->defraying_tel:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'defraying_tel',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('defraying_tel'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Company Name','defraying_company', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'defraying_company',
+            'type' => 'text',
+            'value' => html_escape(set_value('defraying_company',isset($result13)?$result13->defraying_company:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'defraying_company',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('defraying_company'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Tel(workplace)','defraying_work_tel', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'defraying_work_tel',
+            'type' => 'text',
+            'value' => html_escape(set_value('defraying_work_tel',isset($result13)?$result13->defraying_work_tel:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'defraying_work_tel',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('defraying_work_tel'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Signature','defraying_sign', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'defraying_sign',
+            'type' => 'text',
+            'value' => html_escape(set_value('defraying_sign',isset($result13)?$result13->defraying_sign:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'defraying_sign',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('defraying_sign'); ?></span>
+       </div>
+       <div class="form-group">
+        <?php echo form_label('Date','defraying_date', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'defraying_date',
+            'type' => 'date',
+            'value' => html_escape(set_value('defraying_date',isset($result13)?$result13->defraying_date:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'defraying_date',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('defraying_date'); ?></span>
        </div>
 </div>
 <!-- co_leftside -->
@@ -1754,24 +2086,24 @@ $('#removeRow08').on('click', function(e) {
             'autocomplete' => ''));
         ?>
       </td>
-      <td class="rowID">
+      <td class="rowID" style="text-align:center;">
       <?php
           echo form_input(array(
             'name' => 'edu_start_date[]',
-            'type' => 'text',
+            'type' => 'month',
             'value' => html_escape(set_value('edu_start_date',isset($row)?$row->start_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control productItem strEnd',
             'id' => 'edu_start_date',
             'autocomplete' => ''));
         ?>
       </td>
-      <td class="rowID">
+      <td class="rowID" style="text-align:center;">
       <?php
           echo form_input(array(
             'name' => 'edu_end_date[]',
-            'type' => 'text',
+            'type' => 'month',
             'value' => html_escape(set_value('edu_end_date',isset($row)?$row->end_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control productItem strEnd',
             'id' => 'edu_end_date',
             'autocomplete' => ''));
         ?>
@@ -1782,7 +2114,7 @@ $('#removeRow08').on('click', function(e) {
             'name' => 'edu_year[]',
             'type' => 'text',
             'value' => html_escape(set_value('edu_year',isset($row)?$row->year:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control productItem term',
             'id' => 'edu_year',
             'autocomplete' => ''));
         ?>
@@ -1808,7 +2140,38 @@ $('#removeRow08').on('click', function(e) {
        
 </div>
 <!-- Table -->
-
+<div class="col-md-6 float-left">
+<div class="form-group ">
+      <?php echo form_label('Registered enrollment', 'registered_enrollment', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'registered_enrollment')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'registered_enrollment',
+          'type' => 'text',
+          'value' => html_escape(set_value('registered_enrollment',isset($result)?$result->military_service_details:''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'registered_enrollment',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('registered_enrollment'); ?></span>
+  </div>
+</div>
+<div class="col-md-6 float-right">
+  <div class="form-group">
+      <?php echo form_label('Total period of education (from elementary school to the last school attended)', 'total_period_edu', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'total_period_edu')); ?>
+      <?php
+        echo form_input(array(
+          'name' => 'total_period_edu',
+          'type' => 'text',
+          'value' => html_escape(set_value('total_period_edu',isset($result13)?$result13->total_period_edu:''), ENT_QUOTES),
+          'placeholder' => 'Please Enter!',
+          'class' => 'form-control',
+          'id' => 'total_period_edu',
+          'autocomplete' => ''));
+      ?>
+      <span class="text-danger"><?php echo form_error('total_period_edu'); ?></span>
+  </div>        
+</div>
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Previous Japanese Language Study</h6>
@@ -1888,9 +2251,9 @@ $('#removeRow08').on('click', function(e) {
       <?php
           echo form_input(array(
             'name' => 'jp_start_date[]',
-            'type' => 'text',
+            'type' => 'month',
             'value' => html_escape(set_value('jp_start_date',isset($result)?$row1->start_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control productItem strEnd',
             'id' => 'jp_start_date',
             'autocomplete' => ''));
         ?>
@@ -1899,9 +2262,9 @@ $('#removeRow08').on('click', function(e) {
       <?php
           echo form_input(array(
             'name' => 'jp_end_date[]',
-            'type' => 'text',
+            'type' => 'month',
             'value' => html_escape(set_value('jp_end_date',isset($result)?$row1->end_date:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control productItem strEnd',
             'id' => 'jp_end_date',
             'autocomplete' => ''));
         ?>
@@ -1912,7 +2275,7 @@ $('#removeRow08').on('click', function(e) {
             'name' => 'jp_hour[]',
             'type' => 'text',
             'value' => html_escape(set_value('jp_hour',isset($result)?$row1->hour:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control productItem term',
             'id' => 'jp_hour',
             'autocomplete' => ''));
         ?>
@@ -1924,7 +2287,7 @@ $('#removeRow08').on('click', function(e) {
             'name' => 'jp_year[]',
             'type' => 'text',
             'value' => html_escape(set_value('jp_year',isset($result)?$row1->jp_year:''), ENT_QUOTES),
-            'class' => 'table-control productItem',
+            'class' => 'table-control productItem term',
             'id' => 'jp_year',
             'autocomplete' => ''));
         ?>
@@ -2064,7 +2427,22 @@ $('#removeRow08').on('click', function(e) {
 </th>
 </tr>
 </table>
-
+<br>
+<div class="form-group">
+        <?php echo form_label('Certificate Number','jp_certificate_number', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'jp_certificate_number',
+            'type' => 'text',
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->jp_certificate_number:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'jp_certificate_number',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('address'); ?></span>
+       </div>
 </div>
 </div>
 <div class="col-md-4 float-left">
@@ -2209,7 +2587,7 @@ $('#removeRow08').on('click', function(e) {
       <?php
           echo form_input(array(
             'name' => 'emp_start_date[]',
-            'type' => 'text',
+            'type' => 'month',
             'value' => html_escape(set_value('emp_start_date',isset($result)?$row4->start_date:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'emp_start_date',
@@ -2220,7 +2598,7 @@ $('#removeRow08').on('click', function(e) {
       <?php
           echo form_input(array(
             'name' => 'emp_end_date[]',
-            'type' => 'text',
+            'type' => 'month',
             'value' => html_escape(set_value('emp_end_date',isset($result)?$row4->end_date:''), ENT_QUOTES),
             'class' => 'table-control productItem',
             'id' => 'emp_end_date',
@@ -3046,7 +3424,7 @@ color:#48a1af;
 .school_select {
     width: 45.3%;
     padding: 8px;
-    margin: 7px 1px 7px 0px;
+    /* margin: 7px 1px 7px 0px; */
     border: 1px solid #ced4db;
     border-radius: 3px;
 }
@@ -3136,9 +3514,15 @@ color:#48a1af;
 
 }
 .table-control{
-  width: 84%;
+  width: 100%;
     border: none;
   }
+  input.table-control.term{
+  width: 74% !important;
+ }
+ .strEnd{
+  text-align: center;
+ }
 .tbl_head{
   text-align: center;
 }
@@ -3163,9 +3547,9 @@ color:#48a1af;
 .passport_text{
   margin-bottom: 10px;
 }
-#passport_data_exp_ttl{
+/* #passport_data_exp_ttl{
   margin-top: 7px;
-}
+} */
 .military_txt{
   margin-bottom: 18px;
 }
