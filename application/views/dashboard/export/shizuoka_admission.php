@@ -629,7 +629,11 @@ input {
      
 </div>
 <div style="width: 60%;float:right">
-  <p>署名 Signature:<span>_______________________________________</span></p>
+  <p>署名 Signature:<span>
+  <?php if(!empty($result->sign_file)) { ?>
+      <img src="<?php echo base_url('upload/assets/adm/usr/'.$result->sign_file); ?>" style="width:20%;height:auto;" class="pb-1">
+    <?php } ?>
+  </span></p>
 </div>
    
 <div style="width: 100%;">
@@ -642,13 +646,13 @@ input {
   <table style="width: 100%;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
       <th style="width:30%;background-color:none !important;border-top:none!important;border-right:none!important;border-left:none!important;font-size:15px;text-align:center;font-weight:normal;">Applicant Nationality</th>
-      <td style="width:70%;border-top:none !important;border-right:none!important;border-left:none!important;"></td>
+      <td style="width:70%;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->info_nationality?></td>
     </tr>
   </table>
   <table style="width: 100%;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
       <th style="width:30%;background-color:none !important;border-top:none!important;border-right:none!important;border-left:none!important;font-size:15px;text-align:center;font-weight:normal;">Applicant Name in Full</th>
-      <td style="width:70%;border-top:none !important;border-right:none!important;border-left:none!important;"></td>
+      <td style="width:70%;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->applicant_name?></td>
     </tr>
   </table>
   <table style="width: 100%;">
@@ -658,8 +662,11 @@ input {
       <td style="width:12%;border-top:none !important;border-right:none!important;border-left:none!important;text-align:right;">month/</td>
       <td style="width:12%;border-top:none !important;border-right:none!important;border-left:none!important;text-align:right;">day</td>
       <td style="width:20%;border-top:none !important;border-right:none!important;border-left:none!important;text-align:left;">
-      ( <input style="width:10%;font-size:16px;" type="radio" name="" id="" ><label> male/</label>
-     <input style="width:10%;font-size:16px;" type="radio" name="" id=""> <label>female )</label>
+      <!-- ( <input style="width:10%;font-size:16px;" type="radio" name="" id="" ><label> male/</label>
+     <input style="width:10%;font-size:16px;" type="radio" name="" id=""> <label>female )</label> -->
+    (<input style="width:10%;font-size:16px;"type="radio" <?php if($result->gender == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">male</label>
+     <input style="width:10%;font-size:16px;" type="radio" <?php if($result->gender == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">female</label> )
+
     </td>
     </tr>
   </table>
@@ -682,6 +689,7 @@ input {
     <td></td>
   </tr>
   <br>
+
   <tr style="border-top:none !important;">
     <td></td>
   </tr>
@@ -870,7 +878,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 75%;float:left">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->applicant_name?></td>
     </tr>
   </table>
 </div>
@@ -880,7 +888,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 55%;float:right">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->info_age?></td>
     </tr>
   </table>
 </div>
@@ -895,7 +903,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 50%;float:left">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->info_nationality?></td>
     </tr>
   </table>
 </div>
@@ -906,8 +914,9 @@ Further, when the above person applies for an extension of period of stay, I wil
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
     <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:center;">
-     <input type="radio" style="font-size: 14px;"><label for="">男＜Male＞</label>
-     <input type="radio" style="font-size: 14px;"><label for="">女＜Female＞</label>
+     <input type="radio" <?php if($result->gender == '1'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">男＜Male＞</label>
+     <input type="radio" <?php if($result->gender == '0'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">女＜Female＞</label> 
+
   </td>
     </tr>
   </table>
@@ -918,6 +927,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <br>
 <p style="font-size: 14px;">Ⅰ. あなたの家族についての質問 < Questions about your family.></p>
 <p style="font-size: 14px;">（1） 家族の住所 < Family's address > </p>
+<?php echo $result->family_address?>
 <hr>
 <hr>
 
@@ -928,7 +938,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 80%;float:left">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->family_tel?></td>
     </tr>
   </table>
 </div>
@@ -938,7 +948,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 80%;float:right">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->family_tel?></td>
     </tr>
   </table>
 </div>
@@ -950,7 +960,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 75%;float:left">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"><?php echo $result->family_mail?></td>
     </tr>
   </table>
 </div>
@@ -988,7 +998,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <div style="width: 100%;">
   <table style="width: 100%;float:right;">
     <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
-    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;">-</td>
+    <td style="width:100%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;"></td>
     </tr>
   </table>
 </div>
@@ -1071,7 +1081,7 @@ Further, when the above person applies for an extension of period of stay, I wil
 <p style="width:60%;font-size:13px;float:left;">日本でやってみたいこと < What do you want to do in Japan? > </p>
 <div style="width: 100%;">
 <section class="personal-info">
-    <p class="note" style="width: 100%;padding: 30px 0px;border: 1px solid #000000;"></p>
+    <p class="note" style="width: 100%;padding: 30px 0px;border: 1px solid #000000;"><?php echo $result->purpose_studying_in_japanese?></p>
 </section>
 </div>
 </div>
@@ -1164,7 +1174,7 @@ To Kokusai Kotoba GakuinJapanese Language School </span>
     留学生氏名 <br>
 Applicant name
     </th>
-      <td style="width:60%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:left;"></td>
+      <td style="width:60%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:left;"><?php echo $result->applicant_name?></td>
     </tr>
 </table>
 </div>
@@ -1185,7 +1195,7 @@ Applicant name
 <table style="width: 90%;">
   <tr style="border-top: none !important;border-right:none!important;border-left:none!important;">
     <th style="width:20%;font-size:14px;background-color:none !important;border-top:none!important;border-right:none!important;border-left:none!important;font-size:15px;text-align:left;font-weight:normal;">国籍 <br> Nationality</th>
-    <td style="width:20%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:right;"></td>
+    <td style="width:20%;font-size:14px;border-top:none !important;border-right:none!important;border-left:none!important;text-align:right;"><?php echo $result->info_nationality?></td>
   </tr>
 </table>
 </div>

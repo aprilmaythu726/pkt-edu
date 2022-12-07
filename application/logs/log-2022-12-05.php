@@ -645,3 +645,247 @@ ERROR - 2022-12-05 13:19:54 --> Severity: Notice --> Undefined property: stdClas
 ERROR - 2022-12-05 13:19:54 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
 ERROR - 2022-12-05 13:19:54 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
 ERROR - 2022-12-05 13:19:54 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 08:42:44 --> Severity: Notice --> Undefined property: stdClass::$info_name C:\xampp\htdocs\pkt-edu\application\views\dashboard\export\shizuoka_admission.php 891
+ERROR - 2022-12-05 08:45:25 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:45:25 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:45:25 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined variable: list C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 14:18:50 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:50 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:50 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 14:18:50 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:51 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:51 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:51 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 14:18:51 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 08:48:51 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:48:51 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:48:51 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:49:13 --> Severity: Notice --> Undefined property: stdClass::$family_email C:\xampp\htdocs\pkt-edu\application\views\dashboard\export\shizuoka_admission.php 962
+ERROR - 2022-12-05 08:49:44 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:49:44 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:49:44 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:52:51 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:52:51 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 08:52:51 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 09:14:34 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 09:14:34 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 09:14:34 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 09:31:34 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 09:31:34 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 09:31:34 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined variable: list C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 15:12:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:17 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined variable: list C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 15:12:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:12:43 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined variable: list C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 15:17:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 15:17:14 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 10:44:01 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:44:01 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:44:01 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:45:18 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:45:18 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:45:18 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:46:09 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:46:09 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:46:09 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:48:22 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:48:22 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:48:22 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:52:12 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:52:12 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:52:12 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:56:32 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:56:32 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:56:32 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:59:06 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:59:06 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 10:59:06 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:00:18 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:00:18 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:00:18 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:01:02 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:01:02 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:01:02 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined variable: list C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 16:44:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 172
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$user_id C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 256
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined variable: course C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 258
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$activate_date C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 277
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 289
+ERROR - 2022-12-05 16:44:18 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\pkt-edu\application\views\dashboard\langschoolstudent\lists.php 294
+ERROR - 2022-12-05 11:15:25 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:15:25 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:15:25 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:16:15 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:16:15 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:16:15 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:38:29 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:38:29 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:38:29 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:39:22 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:39:22 --> 404 Page Not Found: Asset/admin
+ERROR - 2022-12-05 11:39:22 --> 404 Page Not Found: Asset/admin
