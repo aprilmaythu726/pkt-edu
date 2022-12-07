@@ -12,6 +12,7 @@
     $this->CI->load->library('encrypt');
     $this->CI->load->library('session');
     $this->CI->load->library('upload');
+   // $this->CI->load->library('uploads');
     $this->CI->load->library('image_lib');
     $this->CI->load->library('calendar');
     $this->CI->load->model('dashboard/Config_Model');
@@ -103,7 +104,7 @@
     return mb_split($key, $value);
   }
 
-  public function _fileUpload($filename, $upload_path, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
+  public function _fileUpload($filename,$upload_path,$max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
   {
     $config['file_name'] = $filename;
     $config['upload_path'] = $upload_path;
@@ -116,7 +117,6 @@
     $config['detect_mime'] = TRUE;
     $this->CI->upload->initialize($config);
     $this->CI->load->library('upload', $config);
-
     if(!$this->CI->upload->do_upload('userfile')) {
       $data['msg_error'] = $this->CI->upload->display_errors();
     } else {
@@ -125,23 +125,24 @@
         $this->__resizeImage($data);
       }
     }
-    return $data;
+    return $data;  
   }
-  public function _fileUpload1($filename1, $upload_path1, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize)
+  
+  public function _fileUploadWithByName($filename, $upload_path, $max_size, $max_width, $max_height, $allow_type, $encrypt, $overwrite, $resize, $target = 'userfile')
   {
-    $config['file_name1'] = $filename1;
-    $config['upload_path1'] = $upload_path1;
-    $config['encrypt_name'] = $encrypt;
-    $config['overwrite'] = $overwrite;
-    $config['max_size'] = $max_size;
-    $config['max_width'] = $max_width;
-    $config['max_height'] = $max_height;
-    $config['allowed_types'] = $allow_type;
-    $config['detect_mime'] = TRUE;
-    $this->CI->upload->initialize($config);
-    $this->CI->load->library('upload', $config);
+    $configs['file_name'] = $filename;
+    $configs['upload_path'] = $upload_path;
+    $configs['encrypt_name'] = $encrypt;
+    $configs['overwrite'] = $overwrite;
+    $configs['max_size'] = $max_size;
+    $configs['max_width'] = $max_width;
+    $configs['max_height'] = $max_height;
+    $configs['allowed_types'] = $allow_type;
+    $configs['detect_mime'] = TRUE;
+    $this->CI->upload->initialize($configs);
+    $this->CI->load->library('upload', $configs);
 
-      if(!$this->CI->upload->do_upload('signfile')) {
+      if(!$this->CI->upload->do_upload($target)) {
         $data['msg_error'] = $this->CI->upload->display_errors();
       } else {
         $data = $this->CI->upload->data(); //data upload
@@ -151,6 +152,7 @@
     }
     return $data;
   }
+  
   public function __resizeImage($file)
   {
       $config1['image_library'] = 'gd2';

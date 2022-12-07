@@ -80,29 +80,29 @@ img{
   <table style="width: 100%;">
         <tr style="border-top: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">記入日<br/>date Y/M/D</th>
-            <td style="border-left: none !important;font-weight:normal;">2022年Y______月M ______日D</td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->created_at?>年Y______月M ______日D</td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-top: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">国<br/>Country</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $result->info_nationality?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">学校名（紹介者）<br/>Name of School<br/>or Introducer</th>
-            <td style="text-align: right;border-left: none !important;"><p style="text-align: right;font-weight:normal;"></p></td>
+            <td style="text-align: left;border-left: none !important;"><p style="text-align: left;font-weight:normal;"></p>PKT Education Center</td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-top: none !important;border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">応募者名<br/>Name of <br/>Applicant</th>
-            <td style="border-left: none !important;"></td>
+            <td style="border-left: none !important;"><?php echo $result->applicant_name?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr >
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">性別<br/>Sex</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php if($result->gender == '1'){echo 'Male';}else{echo 'Female';}?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">既婚・未婚<br/>Marital status</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="border-left: none !important;font-weight:normal;"><?php if($result->martial_status == '1'){echo 'Single';}else{echo 'Married';}?></td>
         </tr>
   </table>
   <table style="width: 100%;">
@@ -110,15 +110,15 @@ img{
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">生年月日<br/>Date of Birth </th>
             <td style="width:32%;border-left: none !important;font-weight:normal;">2022年Y______月M ______日D</td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">年齢<br/>Age</th>
-            <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;">歳Years old</p></td>
+            <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;"><?php echo $result->info_age?> 歳Years old</p></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-top: none !important;border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">最終学歴<br/>Final Education</th>
-            <td style="width:32%;border-left: none !important;font-weight:normal;"></td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $result->educational_school_name?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">卒業の年<br/>When did (will) <br/>you graduate?</th>
-            <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;">年Year</p></td>
+            <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;"><?php echo $result->graduate_date?>年Year</p></td>
         </tr>
   </table>
   <table style="width: 100%;">
@@ -131,94 +131,94 @@ img{
         <tr style="border-top: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">テスト合格級<br/>Japanese <br/>Language test<br/> you passed </th>
             <td style="width:32%;text-align: left;border-left: none !important;font-weight:normal;">
-                <p style="text-align: left;font-weight:normal;">テストName of Test:</p><br/>
-                <p style="text-align: left;font-weight:normal;">級 Level:</p>
+                <p style="text-align: left;font-weight:normal;">テストName of Test:<?php echo $resultachiv->achiv_name?></p><br/>
+                <p style="text-align: left;font-weight:normal;">級 Level:<?php echo $resultachiv->level?></p>
             </td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">テスト合格日<br/>when did you pass?</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $resultachiv->date_qualification?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-top: none !important;border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">受験予定<br/>When will you take <br>the exam？</th>
-            <td style="width:32%;border-left: none !important;font-weight:normal;">____年Year____月Month</td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $resultgoingtest->going_date?>____年Year____月Month</td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">受験番号<br/>Examinee's No.</th>
-            <td style="text-align: right;border-left: none !important;font-weight:normal;"></td>
+            <td style="text-align: right;border-left: none !important;font-weight:normal;"><?php echo $resultgoingtest->going_level?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr>
             <th rowspan="2" style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">日本語学習期間<br/>Period of studying Japanese</th>
-            <td style="width:32%;border-left: none !important;font-weight:normal;">From:_____年Y_____月M ____日D</td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;">From:_____年Y_____月M ____日D <?php echo $resultprejpstudy->start_date?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">日本語学習時間<br/> <span style="color:red;">（今までの既習時間) <br/>Had studied until now </span></th>
-            <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;">時間Hours</p></td>
+            <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;"><?php echo $resultprejpstudy->hour?>時間Hours</p></td>
         </tr>
         <tr style="border-top: none !important;">
-            <td style="width:32%;border-left: none !important;font-weight:normal;">To:_____年Y_____月M _____日D</td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;">To:_____年Y_____月M _____日D <?php echo $resultprejpstudy->end_date?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">他の学校に応募したこと<br/>Have you ever applied  <br/>for another school?</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="border-left: none !important;font-weight:normal;"><?php if($result->school_apply_before_japan == '1'){echo 'Yes';}else{echo 'No';}?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-top: none !important;border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">ビザ申請歴<br/>Have you applied for Japanese Visa/COE?</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php if($result->COE_reject == '1'){echo 'Yes';}else{echo 'No';}?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">ビザの種類<br/>Type of Visa</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->visa_type?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">来日歴<br/>Experience of stay in Japan</th>
-            <td style="width:32%;border-left: none !important;border-right: none !important;font-weight:normal;"></td>
+            <td style="width:32%;border-left: none !important;border-right: none !important;font-weight:normal;"><?php if($result->have_you_visited_jp == '1'){echo 'Yes';}else{echo 'No';}?></td>
             <td style="width:18%;text-align:center;border-left: none !important;border-right: none !important;border-right: none !important;font-weight:normal;">()<br/>ビザVisa</td>
-            <td style="border-left: none !important;font-weight:normal;">From____年Y____月M____日D<br/>To____年Y____月M____日D</td>
+            <td style="border-left: none !important;font-weight:normal;">From <?php echo $result->visited_date?>____年Y____月M____日D<br/>To <?php echo $result->date_of_departure?>____年Y____月M____日D</td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr >
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">犯罪歴<br/>Criminal Record</th>
-            <td style="border-left: none !important;"></td>
+            <td style="border-left: none !important;"><?php if($result->criminal_record == '1'){echo 'Yes';}else{echo 'No';}?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">経費支弁者<br/>Financial Supporter</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $result->fin_name?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">続柄<br/>Relation</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->fin_relationship?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">支弁者の職業<br/>Supporter's Occupaton </th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $result->fin_occupation?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">支弁者のビザ<br/>Supporter's Visa<br/>(if he/she is in Japan)</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->fin_visa?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-bottom: none !important;">
             <th rowspan="2" style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">在日親族<br/>Relatives in Japan</th>
-            <td rowspan="2" style="border-left: none !important;border-right: none !important;font-weight:normal;"></td>
+            <td rowspan="2" style="width:32%;border-left: none !important;border-right: none !important;font-weight:normal;"><?php if($result->family_in_japan == '1'){echo 'Yes';}else{echo 'No';}?></td>
             <th style="width:18%;text-align:left;border-right:none !important; border-bottom:none !important;font-weight:normal;">名前Name:</th>
-            <td style="border-left:none !important;border-bottom:none !important;font-weight:normal;"></td>
+            <td style="border-left:none !important;border-bottom:none !important;font-weight:normal;"><?php echo $resultfamjapan->ja_fam_name?></td>
         </tr>
         <tr style="border-top: none !important;border-bottom: none !important;">
             <th style="width:18%;text-align:left;border-right:none !important; border-top:none !important;font-weight:normal;">関係Relation:</th>
-            <td style="border-left:none !important;border-top:none !important;font-weight:normal;"></td>
+            <td style="border-left:none !important;border-top:none !important;font-weight:normal;"><?php echo $resultfamjapan->ja_fam_relationship?></td>
         </tr>
   </table>
   <table style="width: 100%;border-bottom: none !important;">
         <tr>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-top: none !important;font-weight:normal;">本人のEメール<br/>Applicant's E-mail</th>
-            <td style="border-left: none !important;font-weight:normal;"></td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->std_email?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-top: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">面接のURL送付先<br/>Who should we <br/>email the URL to?</th>
-            <td style="border-left: none !important;"></td>
+            <td style="border-left: none !important;">(  <?php echo $result->std_email?>    )</td>
         </tr>
   </table>
   <p>
