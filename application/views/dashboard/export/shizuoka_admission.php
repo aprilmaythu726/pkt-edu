@@ -181,7 +181,7 @@ th{
         <td><?php echo $result->current_status_school_major?></td>
         <td><?php echo $result->current_status_school_grade?></td>
         <th style="width:20% !important; text-align: center; ">卒業予定月年<br>will graduate in</th>
-        <td> <?php echo $result->expected_month?><?php echo $result->expected_year?><br> Month Year</td>
+        <td> <?php echo $result->expected_month?>  <?php echo $result->expected_year?><br> Month Year</td>
       </tr>
     </table>
 </div>

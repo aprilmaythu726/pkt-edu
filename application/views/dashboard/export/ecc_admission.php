@@ -81,7 +81,7 @@ td{
 </section>
 <br>
 <section class="eligibility">	
-<div style="width:110px;height:129px;float: right;border:1px solid #000000;margin:0px;padding:0px;">
+<div style="width:110px;height:149px;float: right;border:1px solid #000000;margin:0px;padding:0px;">
     <?php if(!empty($result->image_file)) { ?>
               <img src="<?php echo base_url('upload/assets/adm/usr/'.$result->image_file); ?>" style="width:100%;height:auto;" class="pb-1">
     <?php } ?>
@@ -93,7 +93,7 @@ td{
         <th style="width: 40%;border-right:none !important;">氏名 Name in Full (Family → Given):</th>
         <td style="width: 30%;border-left:none !important;"><?php echo $result->applicant_name?></td>
         <th style="width: 15%;border-right:none !important;">性別 SEX</th>
-        <td style="border-left:none !important;"><?php echo $result->gender?></td>
+        <td style="border-left:none !important;"><?php if($result->gender == '1'){echo 'Male';}else{echo 'Female';}?></td>
     </tr>
 </table> 
 <table style="width: 100%;border-top:none !important;border-bottom:none !important;">
@@ -461,8 +461,11 @@ History of Employment (Write in order, ending with the most recent employment.)<
      <th style="width: 100%;font-size:18px;">学習理由　Purpose of Study in Japan</th>
     </tr>
 </table>
-<section class="personal-info">
-    <p class="note" style="width: 100%;height:200px;border: 1px solid #000000;vertical-align: top;"><?php echo $result->purpose_studying_in_japanese?></p>
+<section class="personal-info" style="width: 100%;height:200px;border: 1px solid #000000;vertical-align: top;">
+    <p class="note"><?php echo $result->purpose_studying_in_japanese?></p><br><br><br><br>
+    <div class="edu-logo" style="width: 200px;margin:0 auto;">      
+    <img src="asset/admin/images/eccImg.jpg">
+    </div></p>
 </section>
 <section class="personal-info" style="width:100%;"> 
 <p style="font-family: big5;">
@@ -482,8 +485,8 @@ History of Employment (Write in order, ending with the most recent employment.)<
         </tr>
     </table>
     </section> 
-    <section class="personal-info" style="width:100%;float:right;padding-top:12px;"> 
-    <div style="width: 45%;float:right">
+    <section class="personal-info" style="width:100%;margin-right:50px;padding-top:12px;"> 
+    <div style="width: 55%;float:right">
   <p>署名 Signature:<span>
   <?php if(!empty($result->sign_file)) { ?>
               <img src="<?php echo base_url('upload/assets/adm/usr/'.$result->sign_file); ?>" style="width:100px;height:auto;" class="pb-1">
@@ -492,8 +495,8 @@ History of Employment (Write in order, ending with the most recent employment.)<
 </div>
     
     </section>
-    <section class="personal-info" style="width:100%;float:right;padding-top:12px;padding-right:32px;">
-    <div class="edu-logo" style="width: 300px;float:right;">      
+    <section class="personal-info" style="width:100%;padding-top:12px;padding-right:32px;">
+    <div class="edu-logo" style="width: 200px;margin:0 auto;">      
     <img src="asset/admin/images/eccImg.jpg">
     </div>
     </section>
