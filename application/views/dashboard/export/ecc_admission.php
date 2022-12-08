@@ -205,7 +205,7 @@ td{
 <table style="padding:0px;margin:0px;width:100%;text-align:left;" class="tbl">
     <tr style="border-top:none !important;border-bottom:1px dotted #000000;">
         <th rowspan="2" style="border-right:none !important;">旅券 Passport</th>
-        <td rowspan="2" style="border-left:none !important;border-right:none !important;"><?php if($result->passport == '1'){echo 'Yes';}else{echo 'No';}?></td>
+        <td rowspan="2" style="border-left:none !important;border-right:none !important;"><?php if($result->passport == '1'){echo 'Yes';}elseif($result->passport == '1'){echo 'No';}else{echo '-';}?></td>
         <th style="border-bottom:none !important;border-left:1px dotted #000000;border-bottom:none !important;border-right:none !important">(1) 番号  Number</th>
         <td style="border-bottom:none !important;border-left:none !important"><?php echo $result->passport_no?></td>
     </tr>
@@ -357,18 +357,19 @@ History of Employment (Write in order, ending with the most recent employment.)<
         <tr style="border-bottom:1.5px dotted #000000;font-size:12px;">
             <td style="text-align: center;border-right:1.5px dotted #000000;"><?php echo $row7->ja_fam_relationship?></td>
             <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row7->ja_fam_name?></td>
-            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row7->ja_fam_date_birth?></td>
             <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"> <?php echo $row7->ja_fam_nationality?></td>
-            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php if($row7->ja_fam_residing_applicant == '1'){echo 'Yes';}else{echo 'No';}?></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php if($row7->ja_fam_residing_applicant == '1'){echo 'Yes';}elseif($row7->ja_fam_residing_applicant == '0'){echo 'No';}else{echo '-';}?></td>
             <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row7->ja_fam_work_place?></td>
-            <td style="text-align: center;border-left: none !important;">-</td>
+            <td style="text-align: center;border-left: none !important;"><?php echo $row7->residence_card_no?></td>
         </tr>
     <?php } ?>    
     </tbody>
 </table>
+<br>
 <table style="width:100%;">
-    <tr style="border-bottom:1.5px dotted #000000;">
-        <td style="padding:14px 0px;">出入国歴 <br>Previous Stay in Japan</td>
+    <tr style="border-bottom:1.5px dotted #000000;font-size:14px;">
+        <td style="padding:14px 0px;font-size:14px;">出入国歴 <br>Previous Stay in Japan</td>
     </tr>
 </table>
 <table style="width:100%;">
@@ -381,12 +382,12 @@ History of Employment (Write in order, ending with the most recent employment.)<
     <?php
         foreach($result8 as $row8){
     ?>
-    <tr style="border-bottom:1.5px dotted #000000;">
+    <tr style="border-bottom:1.5px dotted #000000;font-size: 14px;">
 
-        <td style="font-size: 11px; text-align: center;border-right:1.5px dotted #000000;"><?php echo $row8->entry_date?></td>
-        <td style="font-size: 11px; text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row8->arrival_date?></td>
-        <td style="font-size: 11px; text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row8->status?></td>
-        <td style="font-size: 11px; text-align: center;"><?php echo $row8->entry_purpose?></td>
+        <td style="font-size: 14px; text-align: center;border-right:1.5px dotted #000000;"><?php echo $row8->entry_date?></td>
+        <td style="font-size: 14px; text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row8->arrival_date?></td>
+        <td style="font-size: 14px; text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row8->status?></td>
+        <td style="font-size: 14px; text-align: center;"><?php echo $row8->entry_purpose?></td>
     </tr>
     <?php } ?>
 </table>
@@ -403,7 +404,7 @@ History of Employment (Write in order, ending with the most recent employment.)<
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;" class="tbl">
     <tr style="width: 100%;border-top: none !important;">
-        <td colspan="3" style="text-align: left;border-right:none !important;padding:12px 0px;"><?php if($result->eligibility_have == '1'){echo 'Yes';}else{echo 'No';}?></td>
+        <td colspan="3" style="text-align: left;border-right:none !important;padding:12px 0px;"><?php if($result->eligibility_have == '1'){echo 'Yes';}elseif($result->eligibility_have == '0'){echo 'No';}else{echo '-';}?></td>
         <td colspan="2" style=" text-align: right;border-right:none !important;border-left:none !important;padding:12px 0px;"><?php echo $result->eligibility_details?></td>
         <th colspan="2" style="text-align: left;border-right:none !important;border-left:none !important;padding:12px 0px;">　times</th>
         <th colspan="2" style="text-align: right;border-right:none !important;border-left:none !important;padding:12px 0px;">入国目的 Purpose of Entry：</th>
@@ -416,7 +417,7 @@ History of Employment (Write in order, ending with the most recent employment.)<
         <th style="text-align:center;width: 50%;border-left:none !important;padding:12px 0px;">配偶者 Marital Status</th>
     </tr>
     <tr style="width: 100%;">
-           <td style="text-align:left;border-right:none !important;padding:12px 0px;"><?php if($result->accompanying_person == '1'){echo 'Yes';}else{echo 'No';}?></td>
+           <td style="text-align:left;border-right:none !important;padding:12px 0px;"><?php if($result->accompanying_person == '1'){echo 'Yes';}elseif($result->accompanying_person == '0'){echo 'No';}else{echo '-';}?></td>
            <td style="text-align:center;border-left:none !important;padding:12px 0px;"><?php if($result->martial_status == '1'){echo 'Single';}else{echo 'Married';}?></td>
     </tr>
 </table>
@@ -427,9 +428,9 @@ History of Employment (Write in order, ending with the most recent employment.)<
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="width: 100%;border-top: none !important;">
-        <td style="font-size: 14px; text-align: left;width:15%;border-right:none !important;padding:12px 0px;font-weight:bold;"><?php if($result->criminal_record == '1'){echo 'Yes';}else{echo 'No';}?></td>
-        <th style="border-right:none !important;border-left:none !important;padding:12px 0px;">具体的内容 Details:</th>
-        <td style="font-size: 11px; text-align: left;border-right:none !important;border-left:none !important;padding:12px 0px;"><?php echo $result->criminal_record_details?></td>
+        <td style="font-size: 14px; text-align: left;width:15%;border-right:none !important;padding:12px 0px;font-weight:bold;"><?php if($result->criminal_record == '1'){echo 'Yes';}elseif($result->criminal_record == '0'){echo 'No';}else{echo '-';}?></td>
+        <th style="border-right:none !important;border-left:none !important;padding:12px 0px;text-align: right;">具体的内容 Details:</th>
+        <td style="font-size: 14px; text-align: left;border-right:none !important;border-left:none !important;padding:12px 0px;">　<?php echo $result->criminal_record_details?></td>
     </tr>
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
@@ -439,7 +440,7 @@ History of Employment (Write in order, ending with the most recent employment.)<
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="width: 100%;border-top: none !important;">
-        <td style="font-size: 14px; text-align: left;width:15%;border-right:none !important;padding:12px 0px;"><?php if($result->departure_deportation == '1'){echo 'Yes';}else{echo 'No';}?></td>
+        <td style="font-size: 14px; text-align: left;width:15%;border-right:none !important;padding:12px 0px;"><?php if($result->departure_deportation == '1'){echo 'Yes';}elseif($result->departure_deportation == '0'){echo 'No';}else{echo '-';}?></td>
     </tr>
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
@@ -449,7 +450,20 @@ History of Employment (Write in order, ending with the most recent employment.)<
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="width: 100%;border-top:none !important;">
-        <td style="font-size: 13px; text-align: left;width:15%;padding:12px 0px;"><?php echo $result->specific_plans_after_graduating?></td>
+        <td style="font-size: 13px; text-align: left;width:15%;padding:12px 0px;">
+        <?php 
+        if($result->specific_plans_after_graduating == 'adv_to_high_edu'){echo 'Advancing to higher education';}
+        elseif($result->specific_plans_after_graduating == 'plan_to_work'){echo 'Planning to work';}
+        elseif($result->specific_plans_after_graduating == 'return_to_home'){echo 'Planning to work';}
+        elseif($result->specific_plans_after_graduating == 'attend_school_japan'){echo 'Planning to work';}
+        elseif($result->specific_plans_after_graduating == 'postgraduateCourse'){echo 'Planning to work';}
+        elseif($result->specific_plans_after_graduating == 'juniorCollege'){echo 'Planning to work';}
+        elseif($result->specific_plans_after_graduating == 'undergraduateCourse'){echo 'Planning to work';}
+        elseif($result->specific_plans_after_graduating == 'professionalSSchool'){echo 'Planning to work';}
+        elseif($result->specific_plans_after_graduating == 'other'){echo 'その他 /Other';}
+        else{echo '';}
+        ?>
+        </td>
     </tr>
 </table>
 <br>

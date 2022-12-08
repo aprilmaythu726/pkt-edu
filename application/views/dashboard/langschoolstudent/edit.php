@@ -9,11 +9,24 @@
     </div> 
     <div class="col controls-wrapper mt-3 mt-md-0 d-none d-md-block ">
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
-        
-      <a href="<?php echo base_url('adm/portal/langschool_applicant'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
-
+      <a href="<?php echo base_url('adm/portal/jls_applicant'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
+      </div>
+      <div class="" style="float: right;padding-right: 78px;width: 36%;">
+        <?php echo form_label('Date', 'created_at', array( 'class' => '', 'id'=> 'created_at', 'style' => '', 'for' => 'created_at')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'created_at',
+            'type' => 'date',
+            'value' => html_escape(set_value('created_at',isset($result)?$result->created_at:''), ENT_QUOTES),
+            'placeholder' => '',
+            'class' => 'form-control',
+            'id' => 'created_at',
+            'autocomplete' => ''));
+          ?>
       </div>
     </div>
+    
   </div> 
 
   <?php if(!empty($_SESSION['msg_success'])){ ?>
@@ -699,10 +712,10 @@ $(function() {
         <option value="plan_to_work">Planning to work</option>
         <option value="return_to_home">帰国 /Return to Home Country</option>
         <option value="attend_school_japan">日本での進学 /Attend School in Japan</option>
-        <option value="adv_to_high_edu">Postgraduate Course</option>
-        <option value="plan_to_work">Junior College</option>
-        <option value="return_to_home">Undergraduate Course</option>
-        <option value="attend_school_japan">Professional School</option>
+        <option value="postgraduateCourse">Postgraduate Course</option>
+        <option value="juniorCollege">Junior College</option>
+        <option value="undergraduateCourse">Undergraduate Course</option>
+        <option value="professionalSSchool">Professional School</option>
         <option value="other">その他 /Other</option>
     </select>
   </div>
@@ -1420,7 +1433,7 @@ $(function() {
           echo form_input(array(
             'name' => 'father_work_place',
             'type' => 'text',
-            'value' => html_escape(set_value('father_work_place',isset($result)?$result13->father_work_place:''), ENT_QUOTES),
+            'value' => html_escape(set_value('father_work_place',isset($result13)?$result13->father_work_place:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'father_work_place',
@@ -1435,7 +1448,7 @@ $(function() {
           echo form_input(array(
             'name' => 'type_work_father',
             'type' => 'text',
-            'value' => html_escape(set_value('type_work_father',isset($result)?$result->type_work_father:''), ENT_QUOTES),
+            'value' => html_escape(set_value('type_work_father',isset($result13)?$result13->type_work_father:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'type_work_father',
@@ -1450,7 +1463,7 @@ $(function() {
           echo form_input(array(
             'name' => 'mother_work_place',
             'type' => 'text',
-            'value' => html_escape(set_value('mother_work_place',isset($result)?$result->mother_work_place:''), ENT_QUOTES),
+            'value' => html_escape(set_value('mother_work_place',isset($result13)?$result13->mother_work_place:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'mother_work_place',
@@ -1465,7 +1478,7 @@ $(function() {
           echo form_input(array(
             'name' => 'type_work_mother',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->type_work_mother:''), ENT_QUOTES),
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->type_work_mother:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'type_work_mother',
@@ -1483,7 +1496,7 @@ $(function() {
           echo form_input(array(
             'name' => 'consent_name',
             'type' => 'text',
-            'value' => html_escape(set_value('consent_name',isset($result)?$result->consent_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('consent_name',isset($result13)?$result13->consent_name:''), ENT_QUOTES),
             'placeholder' => 'Enter email account!',
             'class' => 'form-control',
             'id' => 'consent_name',
@@ -1509,7 +1522,7 @@ $(function() {
           echo form_input(array(
             'name' => 'consent_address',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->consent_address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->consent_address:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'consent_address',
@@ -1524,7 +1537,7 @@ $(function() {
           echo form_input(array(
             'name' => 'consent_email',
             'type' => 'text',
-            'value' => html_escape(set_value('consent_email',isset($result)?$result->consent_email:''), ENT_QUOTES),
+            'value' => html_escape(set_value('consent_email',isset($result13)?$result13->consent_email:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'consent_email',
@@ -1539,7 +1552,7 @@ $(function() {
           echo form_input(array(
             'name' => 'consent_tel',
             'type' => 'text',
-            'value' => html_escape(set_value('consent_tel',isset($result)?$result->consent_tel:''), ENT_QUOTES),
+            'value' => html_escape(set_value('consent_tel',isset($result13)?$result13->consent_tel:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'consent_tel',
@@ -1560,7 +1573,7 @@ $(function() {
           echo form_input(array(
             'name' => 'six_tuition_fee',
             'type' => 'text',
-            'value' => html_escape(set_value('six_tuition_fee',isset($result)?$result->six_tuition_fee:''), ENT_QUOTES),
+            'value' => html_escape(set_value('six_tuition_fee',isset($result13)?$result13->six_tuition_fee:''), ENT_QUOTES),
             'placeholder' => 'Enter email account!',
             'class' => 'form-control',
             'id' => 'six_tuition_fee',
@@ -1576,7 +1589,7 @@ $(function() {
           echo form_input(array(
             'name' => 'first_year_tuitioin_fee',
             'type' => 'text',
-            'value' => html_escape(set_value('first_year_tuitioin_fee',isset($result)?$result->first_year_tuitioin_fee:''), ENT_QUOTES),
+            'value' => html_escape(set_value('first_year_tuitioin_fee',isset($result13)?$result13->first_year_tuitioin_fee:''), ENT_QUOTES),
             'placeholder' => 'Enter phone number!',
             'class' => 'form-control',
             'id' => 'first_year_tuitioin_fee',
@@ -1592,7 +1605,7 @@ $(function() {
           echo form_input(array(
             'name' => 'second_year_tuitioin_fee',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->second_year_tuitioin_fee:''), ENT_QUOTES),
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->second_year_tuitioin_fee:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'second_year_tuitioin_fee',
@@ -1607,7 +1620,7 @@ $(function() {
           echo form_input(array(
             'name' => 'tuition_study_period',
             'type' => 'text',
-            'value' => html_escape(set_value('tuition_study_period',isset($result)?$result->tuition_study_period:''), ENT_QUOTES),
+            'value' => html_escape(set_value('tuition_study_period',isset($result13)?$result13->tuition_study_period:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'tuition_study_period',
@@ -1622,7 +1635,7 @@ $(function() {
           echo form_input(array(
             'name' => 'living_expense_amount',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->living_expense_amount:''), ENT_QUOTES),
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->living_expense_amount:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'living_expense_amount',
@@ -1648,7 +1661,7 @@ $(function() {
           echo form_input(array(
             'name' => 'defraying_name',
             'type' => 'text',
-            'value' => html_escape(set_value('defraying_name',isset($result)?$result->defraying_name:''), ENT_QUOTES),
+            'value' => html_escape(set_value('defraying_name',isset($result13)?$result13->defraying_name:''), ENT_QUOTES),
             'placeholder' => 'Enter email account!',
             'class' => 'form-control',
             'id' => 'defraying_name',
@@ -1674,7 +1687,7 @@ $(function() {
           echo form_input(array(
             'name' => 'family_address',
             'type' => 'text',
-            'value' => html_escape(set_value('defraying_tel',isset($result)?$result->defraying_tel:''), ENT_QUOTES),
+            'value' => html_escape(set_value('defraying_tel',isset($result13)?$result13->defraying_tel:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'defraying_tel',
@@ -1689,7 +1702,7 @@ $(function() {
           echo form_input(array(
             'name' => 'defraying_company',
             'type' => 'text',
-            'value' => html_escape(set_value('defraying_company',isset($result)?$result->defraying_company:''), ENT_QUOTES),
+            'value' => html_escape(set_value('defraying_company',isset($result13)?$result13->defraying_company:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'defraying_company',
@@ -1704,7 +1717,7 @@ $(function() {
           echo form_input(array(
             'name' => 'defraying_work_tel',
             'type' => 'text',
-            'value' => html_escape(set_value('defraying_work_tel',isset($result)?$result->defraying_work_tel:''), ENT_QUOTES),
+            'value' => html_escape(set_value('defraying_work_tel',isset($result13)?$result13->defraying_work_tel:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'defraying_work_tel',
@@ -1719,7 +1732,7 @@ $(function() {
           echo form_input(array(
             'name' => 'defraying_sign',
             'type' => 'text',
-            'value' => html_escape(set_value('defraying_sign',isset($result)?$result->defraying_sign:''), ENT_QUOTES),
+            'value' => html_escape(set_value('defraying_sign',isset($result13)?$result13->defraying_sign:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'defraying_sign',
@@ -1734,7 +1747,7 @@ $(function() {
           echo form_input(array(
             'name' => 'defraying_date',
             'type' => 'date',
-            'value' => html_escape(set_value('defraying_date',isset($result)?$result->defraying_date:''), ENT_QUOTES),
+            'value' => html_escape(set_value('defraying_date',isset($result13)?$result13->defraying_date:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'defraying_date',
@@ -2028,10 +2041,202 @@ $('#removeRow08').on('click', function(e) {
 });
 });
 //  Remove  Row
-</script> 
+ </script> 
+<!--<p style="border-bottom:none !important;border-top:none !important;" class="two_yrs_crs">
+    <span>２－Year course</span>
+    <span>２０
+    <?php
+          echo form_input(array(
+            'name' => 'course_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('course_start_date',isset($result13)?$result13->course_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'course_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?>
+    <span>年０４月 -- ２０ </span>
+    <?php
+          echo form_input(array(
+            'name' => 'course_end_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('course_end_date',isset($result13)?$result13->course_end_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'course_end_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０３月</span>
+</p> -->
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(function() {  
+    $("#select_name_of_course").change(function() {
+       if($('option:selected', this).text() =="進学２年コ－ス"){
+         $('.two_yrs_crs').show();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+        }else if($('option:selected', this).text() =="進学1年9ヶ月コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').show();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+      }else if($('option:selected', this).text() =="進学１.５年コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').show();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+      }else if($('option:selected', this).text() =="進学1年3ヶ月コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').show();
+         $('.one_yrs_course').hide();
+      }else if($('option:selected', this).val() =="進学１年コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').show();
+      }else{
+        $('.data_expired_date').hide();
+        $('.admission_date').hide();
+        $('.interview_date').hide();
+        $('.tracking_code').hide();
+        $('.adm_complete_date').hide();
+      }
+    });
+});
 
-
+</script>
+<div class="col-md-12 float-left" style="padding-bottom: 15px;">
+<h6 class="" style="padding: 33px 0px 12px;">志望学科　Name of Course　* 東京日本橋校は4月期（2年,1年）と10月期（1.5年）のみ。</h6>
+<div class="form-group">
+  <select name="select_name_of_course" id="select_name_of_course" class="course_select">
+    <option value="進学２年コ－ス" <?php if($result->martial_status== "進学２年コ－ス") {echo "selected";} ?>>進学２年コ－ス</option>
+    <option value="進学1年9ヶ月コ－ス" <?php if($result->martial_status== "進学1年9ヶ月コ－ス") {echo "selected";} ?>>進学1年9ヶ月コ－ス</option>
+    <option value="進学１.５年コ－ス" <?php if($result->martial_status== "進学１.５年コ－ス") {echo "selected";} ?>>進学１.５年コ－ス</option>
+    <option value="進学1年3ヶ月コ－ス" <?php if($result->martial_status== "進学1年3ヶ月コ－ス") {echo "selected";} ?>>進学1年3ヶ月コ－ス</option>
+    <option value="進学１年コ－ス" <?php if($result->martial_status== "進学１年コ－ス") {echo "selected";} ?>>進学１年コ－ス</option>
+  </select>
+</div>
+<p style="border-bottom:none !important;border-top:none !important;display:none;" class="two_yrs_crs">
+    <span>２－Year course</span>
+    <span>２０
+    <?php
+          echo form_input(array(
+            'name' => 'twyrs_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('twyrs_crs_start_date',isset($result13)?$result13->twyrs_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'twyrs_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?>
+    <span>年０４月 -- ２０ </span>
+    <?php
+          echo form_input(array(
+            'name' => 'twyrs_crs_end_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('twyrs_crs_end_date',isset($result13)?$result13->twyrs_crs_end_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'twyrs_crs_end_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０３月</span>
+</p>
+<p style="border-bottom:none !important;border-top:none !important;display:none" class="oneyrs_ninemths_crs">
+    <span>1 Year and 9 Months course</span>
+    <span>２０ <?php
+          echo form_input(array(
+            'name' => 'onenine_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('onenine_crs_start_date',isset($result13)?$result13->onenine_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'onenine_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０７月 -- ２０ <?php
+        echo form_input(array(
+          'name' => 'onenine_crs_end_date',
+          'type' => 'text',
+          'value' => html_escape(set_value('onenine_crs_end_date',isset($result13)?$result13->onenine_crs_end_date:''), ENT_QUOTES),
+          'class' => '',
+          'id' => 'onenine_crs_end_date',
+          'style' => 'width:5%',
+          'autocomplete' => ''));
+      ?>年０３月</span>
+</p>
+<p style="border-bottom:none !important;border-top:none !important;display:none" class="oneyrs_fivemths_crs">
+    <span>1.5－Year course</span>
+    <span>２０ <?php
+          echo form_input(array(
+            'name' => 'onefive_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('onefive_crs_start_date',isset($result13)?$result13->onefive_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'onefive_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?>年１０月 -- ２０ <?php
+        echo form_input(array(
+          'name' => 'onefive_crs_end_date',
+          'type' => 'text',
+          'value' => html_escape(set_value('onefive_crs_end_date',isset($result13)?$result13->onefive_crs_end_date:''), ENT_QUOTES),
+          'class' => '',
+          'id' => 'onefive_crs_end_date',
+          'style' => 'width:5%',
+          'autocomplete' => ''));
+      ?>年０３月</span>
+</p>
+<p style="border-bottom:none !important;border-top:none !important;display:none" class="oneyrs_threemths_crs">
+    <span>1 Year and 3 Months course</span>
+    <span>２０  <?php
+          echo form_input(array(
+            'name' => 'onethree_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('onethree_crs_start_date',isset($result13)?$result13->onethree_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'onethree_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０１月 -- ２０ <?php
+        echo form_input(array(
+          'name' => 'onethree_crs_end_date',
+          'type' => 'text',
+          'value' => html_escape(set_value('onethree_crs_end_date',isset($result13)?$result13->onethree_crs_end_date:''), ENT_QUOTES),
+          'class' => '',
+          'id' => 'onethree_crs_end_date',
+          'style' => 'width:5%',
+          'autocomplete' => ''));
+      ?> 年０３月</span>
+</p>
+<p style="border-bottom:none !important;border-top:none !important;display:none" class="one_yrs_course">
+    <span>１－Year course<?php
+          echo form_input(array(
+            'name' => 'one_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('one_crs_start_date',isset($result13)?$result13->one_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'one_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０４月 -- ２０ <?php
+        echo form_input(array(
+          'name' => 'one_crs_end_date',
+          'type' => 'text',
+          'value' => html_escape(set_value('one_crs_end_date',isset($result13)?$result13->one_crs_end_date:''), ENT_QUOTES),
+          'class' => '',
+          'id' => 'one_crs_end_date',
+          'style' => 'width:5%',
+          'autocomplete' => ''));
+      ?>年０３月</span>
+</p>
+</div>
 <style>
 .align-middle span>.btn:hover{
     color:#ffffff;
@@ -2163,7 +2368,7 @@ $('#removeRow08').on('click', function(e) {
         echo form_input(array(
           'name' => 'total_period_edu',
           'type' => 'text',
-          'value' => html_escape(set_value('total_period_edu',isset($result)?$result->total_period_edu:''), ENT_QUOTES),
+          'value' => html_escape(set_value('total_period_edu',isset($result13)?$result13->total_period_edu:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
           'id' => 'total_period_edu',
@@ -2230,7 +2435,8 @@ $('#removeRow08').on('click', function(e) {
       </td>
       <td  class="rowID">
         <div class="">
-        <select name="jp_status[]" class="table-control col-md-12">
+         <select name="jp_status[]" class="table-control col-md-12">
+          <option value="0" <?php if($row1->jp_status== "") {echo "selected";} ?>></option>
           <option value="1" <?php if($row1->jp_status== "1") {echo "selected";} ?>>Completed</option>
           <option value="0" <?php if($row1->jp_status== "0") {echo "selected";} ?>>Still studying</option>
         </select>
@@ -2247,7 +2453,7 @@ $('#removeRow08').on('click', function(e) {
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td  class="rowID"  style="text-align:center;">
       <?php
           echo form_input(array(
             'name' => 'jp_start_date[]',
@@ -2258,7 +2464,7 @@ $('#removeRow08').on('click', function(e) {
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td  class="rowID"  style="text-align:center;">
       <?php
           echo form_input(array(
             'name' => 'jp_end_date[]',
@@ -2435,7 +2641,7 @@ $('#removeRow08').on('click', function(e) {
           echo form_input(array(
             'name' => 'jp_certificate_number',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->jp_certificate_number:''), ENT_QUOTES),
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->jp_certificate_number:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'jp_certificate_number',
@@ -2909,6 +3115,7 @@ $('#removeRow08').on('click', function(e) {
       <td  class="rowID">
       <div class="">
       <select name="ja_fam_residing_applicant[]" class="table-control col-md-12">
+        <option value="" <?php if($result->ja_fam_residing_applicant== "") {echo "selected";} ?>></option>
         <option value="1" <?php if($result->ja_fam_residing_applicant== "1") {echo "selected";} ?>>Yes</option>
         <option value="0" <?php if($result->ja_fam_residing_applicant== "0") {echo "selected";} ?>>No</option>
       </select>
@@ -3498,6 +3705,13 @@ color:#48a1af;
   width: 100%;
   margin-bottom: 20px;
   display: flex;
+}
+.course_select{
+  width: 49%;
+  padding: 8px;
+  /* margin: 7px; */
+  border: 1px solid #ced4db;
+  border-radius: 3px;
 }
 .criminal{
   /* padding-left: 12px; */
