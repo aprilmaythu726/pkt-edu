@@ -80,7 +80,7 @@ img{
   <table style="width: 100%;">
         <tr style="border-top: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">記入日<br/>date Y/M/D</th>
-            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->created_at?>年Y______月M ______日D</td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $splitted = date('Y', strtotime($result->created_at));?>年Y<?php echo $splitted = date('m', strtotime($result->created_at));?>月M<?php echo $splitted = date('d', strtotime($result->created_at));?>日D</td>
         </tr>
   </table>
   <table style="width: 100%;">
@@ -108,7 +108,7 @@ img{
   <table style="width: 100%;">
         <tr style="border-top: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">生年月日<br/>Date of Birth </th>
-            <td style="width:32%;border-left: none !important;font-weight:normal;">2022年Y______月M ______日D</td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $splitted = date('Y', strtotime($result->date_of_birthday));?>年Y<?php echo $splitted = date('m', strtotime($result->date_of_birthday));?>月M<?php echo $splitted = date('d', strtotime($result->date_of_birthday));?>日D</td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">年齢<br/>Age</th>
             <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;"><?php echo $result->info_age?> 歳Years old</p></td>
         </tr>
@@ -141,7 +141,7 @@ img{
   <table style="width: 100%;">
         <tr style="border-top: none !important;border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">受験予定<br/>When will you take <br>the exam？</th>
-            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $resultgoingtest->going_date?>____年Year____月Month</td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;"><?php echo $splitted = date('Y', strtotime($resultgoingtest->going_date));?>年Year<?php echo $splitted = date('m', strtotime($resultgoingtest->going_date));?>月Month</td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">受験番号<br/>Examinee's No.</th>
             <td style="text-align: right;border-left: none !important;font-weight:normal;"><?php echo $resultgoingtest->going_level?></td>
         </tr>
@@ -149,12 +149,12 @@ img{
   <table style="width: 100%;">
         <tr>
             <th rowspan="2" style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">日本語学習期間<br/>Period of studying Japanese</th>
-            <td style="width:32%;border-left: none !important;font-weight:normal;">From:_____年Y_____月M ____日D <?php echo $resultprejpstudy->start_date?></td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;">From:<?php echo $splitted = date('Y', strtotime($resultprejpstudy->start_date));?>年Y<?php echo $splitted = date('m', strtotime($resultprejpstudy->start_date));?>月M<?php echo $splitted = date('d', strtotime($resultprejpstudy->start_date));?>日D</td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">日本語学習時間<br/> <span style="color:red;">（今までの既習時間) <br/>Had studied until now </span></th>
             <td style="text-align: right;border-left: none !important;"><p style="width:10%;text-align: right;font-weight:normal;"><?php echo $resultprejpstudy->hour?>時間Hours</p></td>
         </tr>
         <tr style="border-top: none !important;">
-            <td style="width:32%;border-left: none !important;font-weight:normal;">To:_____年Y_____月M _____日D <?php echo $resultprejpstudy->end_date?></td>
+            <td style="width:32%;border-left: none !important;font-weight:normal;">To:<?php echo $splitted = date('Y', strtotime($resultprejpstudy->end_date));?>年Y<?php echo $splitted = date('m', strtotime($resultprejpstudy->end_date));?>月M<?php echo $splitted = date('d', strtotime($resultprejpstudy->end_date));?>日D</td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">他の学校に応募したこと<br/>Have you ever applied  <br/>for another school?</th>
             <td style="border-left: none !important;font-weight:normal;"><?php if($result->school_apply_before_japan == '1'){echo 'Yes';}else{echo 'No';}?></td>
         </tr>
@@ -164,15 +164,15 @@ img{
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">ビザ申請歴<br/>Have you applied for Japanese Visa/COE?</th>
             <td style="width:32%;border-left: none !important;font-weight:normal;"><?php if($result->COE_reject == '1'){echo 'Yes';}else{echo 'No';}?></td>
             <th style="width:18%;background-color: #e6e4e3;text-align:center;border-left: none !important;font-weight:normal;">ビザの種類<br/>Type of Visa</th>
-            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->visa_type?></td>
+            <td style="border-left: none !important;font-weight:normal;"><?php echo $result->place_apply_visa?></td>
         </tr>
   </table>
   <table style="width: 100%;">
         <tr style="border-bottom: none !important;">
             <th style="width:18%;background-color: #e6e4e3;text-align:center;font-weight:normal;">来日歴<br/>Experience of stay in Japan</th>
             <td style="width:32%;border-left: none !important;border-right: none !important;font-weight:normal;"><?php if($result->have_you_visited_jp == '1'){echo 'Yes';}else{echo 'No';}?></td>
-            <td style="width:18%;text-align:center;border-left: none !important;border-right: none !important;border-right: none !important;font-weight:normal;">()<br/>ビザVisa</td>
-            <td style="border-left: none !important;font-weight:normal;">From <?php echo $result->visited_date?>____年Y____月M____日D<br/>To <?php echo $result->date_of_departure?>____年Y____月M____日D</td>
+            <td style="width:18%;text-align:center;border-left: none !important;border-right: none !important;border-right: none !important;font-weight:normal;">(<?php echo $result->visa_type?>)<br/>ビザVisa</td>
+            <td style="border-left: none !important;font-weight:normal;">From <?php echo $splitted = date('Y', strtotime($result->visited_date));?>年Y<?php echo $splitted = date('m', strtotime($result->visited_date));?>月M<?php echo $splitted = date('d', strtotime($result->visited_date));?>日D<br/>To <?php echo $splitted = date('Y', strtotime($result->date_of_departure));?>年Y<?php echo $splitted = date('m', strtotime($result->date_of_departure));?>月M<?php echo $splitted = date('d', strtotime($result->date_of_departure));?>日D</td>
         </tr>
   </table>
   <table style="width: 100%;">
