@@ -1502,8 +1502,8 @@ $(function() {
        <div class="form-group">
         <?php echo form_label('Method of payment', 'payment_method', array( 'class' => '', 'id'=> '')); ?>
           <select name="payment_method" id="payment_method" class="admission_select">
-              <option value="father">Bank Transfer (Overseas Remittance)</option>
-              <option value="mother">Credit Card</option>
+              <option value="Bank">Bank Transfer (Overseas Remittance)</option>
+              <option value="Credit">Credit Card</option>
               <option value="other">Others</option>
           </select>
       </div>
