@@ -1633,9 +1633,9 @@ $(function() {
        <div class="form-group">
         <?php echo form_label('Method of payment', 'payment_method', array( 'class' => '', 'id'=> '')); ?>
           <select name="payment_method" id="payment_method" class="admission_select">
-              <option value="father">Bank Transfer (Overseas Remittance)</option>
-              <option value="mother">Credit Card</option>
-              <option value="other">Others</option>
+              <option value="bank" <?php if($result13->payment_method== "bank") {echo "selected";} ?>>Bank Transfer (Overseas Remittance)</option>
+              <option value="credit" <?php if($result13->payment_method== "credit") {echo "selected";} ?>>Credit Card</option>
+              <option value="other" <?php if($result13->payment_method== "other") {echo "selected";} ?>>Others</option>
           </select>
       </div>
 </div>
@@ -1672,7 +1672,7 @@ $(function() {
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'family_address',
+            'name' => 'defraying_tel',
             'type' => 'text',
             'value' => html_escape(set_value('defraying_tel',isset($result13)?$result13->defraying_tel:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',

@@ -162,10 +162,10 @@ $html = '
 		<h3 style="font-size: 20px;font-weight:bold;">Questionnaire</h3>
 	</div><br/>
     <div style="display: inline;padding: 0px;margin:0px;">
-        <span class="ecc_date"  style="">Date:<?php echo $result->created_at?></span>
-        <span class="ecc_date"  style=""><span>　　</span>year</span>
-        <span class="ecc_date"  style=""><span>　　</span>month</span>
-        <span class="ecc_date"  style=""><span>　　</span>date</span>
+        <span class="ecc_date"  style="">Date:</span>
+        <span class="ecc_date"  style=""><span><?php echo $splitted = date('Y', strtotime($result->created_at));?></span>year</span>
+        <span class="ecc_date"  style=""><span><?php echo $splitted = date('m', strtotime($result->created_at));?></span>month</span>
+        <span class="ecc_date"  style=""><span><?php echo $splitted = date('d', strtotime($result->created_at));?></span>date</span>
     </div>
 </section>
 <section class="eligibility">	
@@ -410,8 +410,8 @@ $html = '
     <p style="width:100px;float:left;font-size:13px;"><?php if($result->eligibility_have == '1'){echo 'Yes';}else{echo 'No';}?></p>
     <p style="width:120px;float:left;font-size:13px;">(times : <?php echo $result->eligibility_time?></p>                 
     <p style="width:180px;float:left;font-size:13px;">Purpose of Entry: <?php echo $result->entry_purpose1?></p>
-    <p style="width:60px;float:left;font-size:13px;"> When: <?php echo $result->criminal_record_when?></p> 
-    <p style="width:150px;float:right;font-size:13px;"> ) </p>
+    <p style="width:160px;float:left;font-size:13px;"> When: <?php echo $result->criminal_record_when?></p> 
+    <p style="width:30px;float:right;font-size:13px;"> ) </p>
  </p> 
 </div>	
 <h4 style="width:400px;float:left;font-family: 'Open Sans',sjis,sans-serif;font-size:14px;">Is it possible to provide all required documents in English?</h4>
@@ -530,7 +530,7 @@ $html = '
         </table>
         <table style="width: 100%;">
             <tr>
-			  <th style="width: 10%;border-right:none !important;font-size:13px;">Phone Number:</th>
+			  <th style="width: 15%;border-right:none !important;font-size:13px;">Phone Number:</th>
 			  <td colspan="3" style="width: 30%;border-left:none !important;font-size:13px;"><?php echo $result->tel?></td>
               <th style="width: 10%;border-right:none !important;font-size:13px;">Email:</th>
 			  <td colspan="3" style="width: 30%;border-left:none !important;font-size:13px;"><?php echo $result->email?></td>

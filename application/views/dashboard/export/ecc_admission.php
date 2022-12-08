@@ -364,7 +364,7 @@ History of Employment (Write in order, ending with the most recent employment.)<
             <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"> <?php echo $row7->ja_fam_nationality?></td>
             <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"><?php if($row7->ja_fam_residing_applicant == '1'){echo 'Yes';}else{echo 'No';}?></td>
             <td style="font-size: 11px; text-align: left;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row7->ja_fam_work_place?></td>
-            <td style="font-size: 11px; text-align: left;border-left: none !important;">-</td>
+            <td style="font-size: 11px; text-align: left;border-left: none !important;"><?php echo $row7->residence_card_no?></td>
         </tr>
     <?php } ?>    
     </tbody>
@@ -473,18 +473,22 @@ History of Employment (Write in order, ending with the most recent employment.)<
 <section class="personal-info" style="width:100%;"> 
     <table style="border:none !important;padding-top:10%;margin:0px;width:50%;border-top:none !important;text-align:left;" class="tbl">
         <tr style="border:none !important;width: 60%;">
-            <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">_____</td>
+            <th style="border:none !important;font-size: 14px; text-align: left;width:10%;"><?php echo $splitted = date('Y', strtotime($result->created_at));?></th>
             <th style="border:none !important;width:10%;">年 Year</th>
-            <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">_____</td>
+            <th style="border:none !important;font-size: 14px; text-align: left;width:10%;"><?php echo $splitted = date('m', strtotime($result->created_at));?></th>
             <th style="border:none !important;width:10%;">月 Month</th>
-            <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">_____</td>
+            <th style="border:none !important;font-size: 14px; text-align: left;width:10%;"><?php echo $splitted = date('d', strtotime($result->created_at));?></th>
             <th style="border:none !important;width:25%;font-family: big5;width:10%;">日 Date</th> 
         </tr>
     </table>
     </section> 
     <section class="personal-info" style="width:100%;float:right;padding-top:12px;"> 
     <div style="width: 45%;float:right">
-  <p>署名 Signature:<span>____________________________</span></p>
+  <p>署名 Signature:<span>
+  <?php if(!empty($result->sign_file)) { ?>
+              <img src="<?php echo base_url('upload/assets/adm/usr/'.$result->sign_file); ?>" style="width:100px;height:auto;" class="pb-1">
+    <?php } ?>
+  </span></p>
 </div>
     
     </section>
