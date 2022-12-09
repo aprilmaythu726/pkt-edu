@@ -9,11 +9,24 @@
     </div> 
     <div class="col controls-wrapper mt-3 mt-md-0 d-none d-md-block ">
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
-        
-      <a href="<?php echo base_url('adm/portal/langschool_applicant'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
-
+      <a href="<?php echo base_url('adm/portal/jls_applicant'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
+      </div>
+      <div class="" style="float: right;padding-right: 78px;width: 36%;">
+        <?php echo form_label('Date', 'created_at', array( 'class' => '', 'id'=> 'created_at', 'style' => '', 'for' => 'created_at')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'created_at',
+            'type' => 'date',
+            'value' => html_escape(set_value('created_at',isset($result)?$result->created_at:''), ENT_QUOTES),
+            'placeholder' => '',
+            'class' => 'form-control',
+            'id' => 'created_at',
+            'autocomplete' => ''));
+          ?>
       </div>
     </div>
+    
   </div> 
 
   <?php if(!empty($_SESSION['msg_success'])){ ?>
@@ -678,12 +691,26 @@ $(function() {
         <span class="text-danger"><?php echo form_error('current_status_school_grade'); ?></span>
   </div>
   <div class="form-group" style="margin-bottom: 270px;">
+        <?php echo form_label('‌Others (If your are a student of Japanese language course, or neither a student nor a worker, explain your current situation in detail. )', 'student_work_details', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'student_work_details')); ?>
+        <?php
+          echo form_input(array(
+            'name' => 'student_work_details',
+            'type' => 'text',
+            'value' => html_escape(set_value('student_work_details',isset($result13)?$result13->student_work_details:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'student_work_details',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('current_status_school_grade'); ?></span>
+  </div>
+  <div class="form-group" style="margin-bottom: 270px;">
         <?php echo form_label('Have you ever been japan (Including 3 moth short visa) ‌', 'three_month_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'three_month_visa')); ?>
         <?php
           echo form_input(array(
             'name' => 'three_month_visa',
             'type' => 'text',
-            //'value' => html_escape(set_value('three_month_visa',isset($result)?$result->three_month_visa:''), ENT_QUOTES),
+            'value' => html_escape(set_value('three_month_visa',isset($result13)?$result13->three_month_visa:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
             'id' => 'three_month_visa',
@@ -695,15 +722,15 @@ $(function() {
   <div class="form-group">
    <p class="addmission" style="margin-bottom:19px ;">Specific Plans after Graduating</p>
    <select name="specific_plans_after_graduating" class="admission_select" id="specific_plans_after_graduating">
-        <option value="adv_to_high_edu">Advancing to higher education</option>
-        <option value="plan_to_work">Planning to work</option>
-        <option value="return_to_home">帰国 /Return to Home Country</option>
-        <option value="attend_school_japan">日本での進学 /Attend School in Japan</option>
-        <option value="adv_to_high_edu">Postgraduate Course</option>
-        <option value="plan_to_work">Junior College</option>
-        <option value="return_to_home">Undergraduate Course</option>
-        <option value="attend_school_japan">Professional School</option>
-        <option value="other">その他 /Other</option>
+        <option value="Advancing to higher education">Advancing to higher education</option>
+        <option value="Planning to work">Planning to work</option>
+        <option value="帰国 /Return to Home Country">帰国 /Return to Home Country</option>
+        <option value="日本での進学 /Attend School in Japan">日本での進学 /Attend School in Japan</option>
+        <option value="Postgraduate Course">Postgraduate Course</option>
+        <option value="Junior College">Junior College</option>
+        <option value="Undergraduate Course">Undergraduate Course</option>
+        <option value="Professional School">Professional School</option>
+        <option value="その他 /Other">その他 /Other</option>
     </select>
   </div>
   <h6 class="spec_plan">Higher Education in Japan</h6>
@@ -1237,14 +1264,14 @@ $(function() {
       <span class="badge badge-danger">Required</span>
     </div>
   
-    <div class="radio_record">
-        <div class="criminal_record01">
+    <div class="">
+        <div class="criminal_record01" style="float: left;">
         <select name="eligibility_have" id="eligibility_have" class="admission_select">
           <option value="1" <?php if($result->eligibility_have== "1") {echo "selected";} ?>>Yes</option>
           <option value="0" <?php if($result->eligibility_have== "0") {echo "selected";} ?>>No</option>
         </select>
         </div>
-        <div>
+        <div
         <label class="col-rd cri_text"><span style="padding-left:30px ;margin-top: 7px;">Times</span>
             <?php
           echo form_input(array(
@@ -1261,7 +1288,24 @@ $(function() {
           </div>
     </div>  
 </div>
-    
+<div class="form-group">
+  <?php echo form_label('Intended to enroll', 'intended_roll', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+    <span class="badge badge-danger">Required</span>
+    <select name="intended_roll" id="intended_roll" class="admission_select">
+          <option value="1" <?php if($result13->intended_roll== "issued") {echo "selected";} ?>>issued</option>
+          <option value="0" <?php if($result13->intended_roll== "issued") {echo "selected";} ?>>denied</option>
+      </select>
+</div>
+<div class="form-group">
+       <?php echo form_label('ビザの種類 type of visa', 'eligibility_visa', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+       <span class="badge badge-danger">Required</span>
+       <select name="eligibility_visa" id="eligibility_visa" class="admission_select">
+          <option value="Student" <?php if($result13->eligibility_visa== "1") {echo "selected";} ?>>Student</option>
+          <option value="Trainee" <?php if($result13->eligibility_visa== "0") {echo "selected";} ?>>Trainee</option>
+          <option value="Technical" <?php if($result13->eligibility_visa== "1") {echo "selected";} ?>>Technical</option>
+          <option value="Others" <?php if($result13->eligibility_visa== "0") {echo "selected";} ?>>Others</option>
+        </select>
+      </div> 
 </div>
 
 
@@ -1309,7 +1353,7 @@ $(function() {
             <!-- <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
                 <input type="text" class="details form-control col-md-8" name="criminal_record_details" value="" checked="checked" style="margin-left: 16px;margin-right: 0px;">
             </label>  -->
-        <div class="form-group">
+        <div class="">
         <label class="col-rd cri_text"><span style="margin-top: 7px;">When:</span>
         <?php
           echo form_input(array(
@@ -1325,7 +1369,7 @@ $(function() {
         </label>
         </div>
       
-       <div class="form-group" style=" padding-left: 22px;">
+       <div class="" style=" padding-left: 22px;">
         <label class="col-rd cri_text"><span style="width: 85%;">Purpose of Entry:</span>
         <?php
           echo form_input(array(
@@ -1341,7 +1385,20 @@ $(function() {
         </div>
     </div>  
 </div>
-  
+<div class="form-group">
+  <?php echo form_label('Issued / Denied Date', 'issued_date', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+  <?php
+          echo form_input(array(
+            'name' => 'issued_date',
+            'type' => 'date',
+            'value' => html_escape(set_value('issued_date',isset($result13)?$result13->issued_date:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'issued_date',
+            'autocomplete' => ''));
+  ?>
+  <span class="text-danger"><?php echo form_error('issued_date'); ?></span>
+  </div>
   
 </div>
 <!-- co_leftside -->
@@ -1633,11 +1690,27 @@ $(function() {
        <div class="form-group">
         <?php echo form_label('Method of payment', 'payment_method', array( 'class' => '', 'id'=> '')); ?>
           <select name="payment_method" id="payment_method" class="admission_select">
-              <option value="bank" <?php if($result13->payment_method== "bank") {echo "selected";} ?>>Bank Transfer (Overseas Remittance)</option>
-              <option value="credit" <?php if($result13->payment_method== "credit") {echo "selected";} ?>>Credit Card</option>
-              <option value="other" <?php if($result13->payment_method== "other") {echo "selected";} ?>>Others</option>
+              <option value="father">Bank Transfer (Overseas Remittance)</option>
+              <option value="mother">Credit Card</option>
+              <option value="other">Others</option>
           </select>
       </div>
+      <div class="form-group">
+        <?php echo form_label('Below please explain in detail the circumstances for your defraying the costs of the
+applicant and your relationship to the applicant.','living_expense_amount', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'defraying_details',
+            'type' => 'text',
+            'value' => html_escape(set_value('phone',isset($result13)?$result13->defraying_details:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'defraying_details',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('defraying_details'); ?></span>
+       </div>
 </div>
 <div class="col-md-6 float-left">
 <h6 class="" style="padding: 33px 0px 12px;"> Name of person defraying expenses</h6>
@@ -1672,7 +1745,7 @@ $(function() {
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'defraying_tel',
+            'name' => 'family_address',
             'type' => 'text',
             'value' => html_escape(set_value('defraying_tel',isset($result13)?$result13->defraying_tel:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
@@ -2028,10 +2101,202 @@ $('#removeRow08').on('click', function(e) {
 });
 });
 //  Remove  Row
-</script> 
+ </script> 
+<!--<p style="border-bottom:none !important;border-top:none !important;" class="two_yrs_crs">
+    <span>２－Year course</span>
+    <span>２０
+    <?php
+          echo form_input(array(
+            'name' => 'course_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('course_start_date',isset($result13)?$result13->course_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'course_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?>
+    <span>年０４月 -- ２０ </span>
+    <?php
+          echo form_input(array(
+            'name' => 'course_end_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('course_end_date',isset($result13)?$result13->course_end_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'course_end_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０３月</span>
+</p> -->
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(function() {  
+    $("#select_name_of_course").change(function() {
+       if($('option:selected', this).text() =="進学２年コ－ス"){
+         $('.two_yrs_crs').show();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+        }else if($('option:selected', this).text() =="進学1年9ヶ月コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').show();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+      }else if($('option:selected', this).text() =="進学１.５年コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').show();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+      }else if($('option:selected', this).text() =="進学1年3ヶ月コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').show();
+         $('.one_yrs_course').hide();
+      }else if($('option:selected', this).val() =="進学１年コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').show();
+      }else{
+        $('.data_expired_date').hide();
+        $('.admission_date').hide();
+        $('.interview_date').hide();
+        $('.tracking_code').hide();
+        $('.adm_complete_date').hide();
+      }
+    });
+});
 
-
+</script>
+<div class="col-md-12 float-left" style="padding-bottom: 15px;">
+<h6 class="" style="padding: 33px 0px 12px;">志望学科　Name of Course　* 東京日本橋校は4月期（2年,1年）と10月期（1.5年）のみ。</h6>
+<div class="form-group">
+  <select name="select_name_of_course" id="select_name_of_course" class="course_select">
+    <option value="進学２年コ－ス" <?php if($result->martial_status== "進学２年コ－ス") {echo "selected";} ?>>進学２年コ－ス</option>
+    <option value="進学1年9ヶ月コ－ス" <?php if($result->martial_status== "進学1年9ヶ月コ－ス") {echo "selected";} ?>>進学1年9ヶ月コ－ス</option>
+    <option value="進学１.５年コ－ス" <?php if($result->martial_status== "進学１.５年コ－ス") {echo "selected";} ?>>進学１.５年コ－ス</option>
+    <option value="進学1年3ヶ月コ－ス" <?php if($result->martial_status== "進学1年3ヶ月コ－ス") {echo "selected";} ?>>進学1年3ヶ月コ－ス</option>
+    <option value="進学１年コ－ス" <?php if($result->martial_status== "進学１年コ－ス") {echo "selected";} ?>>進学１年コ－ス</option>
+  </select>
+</div>
+<p style="border-bottom:none !important;border-top:none !important;display:none;" class="two_yrs_crs">
+    <span>２－Year course</span>
+    <span>２０
+    <?php
+          echo form_input(array(
+            'name' => 'twyrs_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('twyrs_crs_start_date',isset($result13)?$result13->twyrs_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'twyrs_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?>
+    <span>年０４月 -- ２０ </span>
+    <?php
+          echo form_input(array(
+            'name' => 'twyrs_crs_end_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('twyrs_crs_end_date',isset($result13)?$result13->twyrs_crs_end_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'twyrs_crs_end_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０３月</span>
+</p>
+<p style="border-bottom:none !important;border-top:none !important;display:none" class="oneyrs_ninemths_crs">
+    <span>1 Year and 9 Months course</span>
+    <span>２０ <?php
+          echo form_input(array(
+            'name' => 'onenine_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('onenine_crs_start_date',isset($result13)?$result13->onenine_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'onenine_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０７月 -- ２０ <?php
+        echo form_input(array(
+          'name' => 'onenine_crs_end_date',
+          'type' => 'text',
+          'value' => html_escape(set_value('onenine_crs_end_date',isset($result13)?$result13->onenine_crs_end_date:''), ENT_QUOTES),
+          'class' => '',
+          'id' => 'onenine_crs_end_date',
+          'style' => 'width:5%',
+          'autocomplete' => ''));
+      ?>年０３月</span>
+</p>
+<p style="border-bottom:none !important;border-top:none !important;display:none" class="oneyrs_fivemths_crs">
+    <span>1.5－Year course</span>
+    <span>２０ <?php
+          echo form_input(array(
+            'name' => 'onefive_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('onefive_crs_start_date',isset($result13)?$result13->onefive_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'onefive_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?>年１０月 -- ２０ <?php
+        echo form_input(array(
+          'name' => 'onefive_crs_end_date',
+          'type' => 'text',
+          'value' => html_escape(set_value('onefive_crs_end_date',isset($result13)?$result13->onefive_crs_end_date:''), ENT_QUOTES),
+          'class' => '',
+          'id' => 'onefive_crs_end_date',
+          'style' => 'width:5%',
+          'autocomplete' => ''));
+      ?>年０３月</span>
+</p>
+<p style="border-bottom:none !important;border-top:none !important;display:none" class="oneyrs_threemths_crs">
+    <span>1 Year and 3 Months course</span>
+    <span>２０  <?php
+          echo form_input(array(
+            'name' => 'onethree_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('onethree_crs_start_date',isset($result13)?$result13->onethree_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'onethree_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０１月 -- ２０ <?php
+        echo form_input(array(
+          'name' => 'onethree_crs_end_date',
+          'type' => 'text',
+          'value' => html_escape(set_value('onethree_crs_end_date',isset($result13)?$result13->onethree_crs_end_date:''), ENT_QUOTES),
+          'class' => '',
+          'id' => 'onethree_crs_end_date',
+          'style' => 'width:5%',
+          'autocomplete' => ''));
+      ?> 年０３月</span>
+</p>
+<p style="border-bottom:none !important;border-top:none !important;display:none" class="one_yrs_course">
+    <span>１－Year course<?php
+          echo form_input(array(
+            'name' => 'one_crs_start_date',
+            'type' => 'text',
+            'value' => html_escape(set_value('one_crs_start_date',isset($result13)?$result13->one_crs_start_date:''), ENT_QUOTES),
+            'class' => '',
+            'id' => 'one_crs_start_date',
+            'style' => 'width:5%',
+            'autocomplete' => ''));
+        ?> 年０４月 -- ２０ <?php
+        echo form_input(array(
+          'name' => 'one_crs_end_date',
+          'type' => 'text',
+          'value' => html_escape(set_value('one_crs_end_date',isset($result13)?$result13->one_crs_end_date:''), ENT_QUOTES),
+          'class' => '',
+          'id' => 'one_crs_end_date',
+          'style' => 'width:5%',
+          'autocomplete' => ''));
+      ?>年０３月</span>
+</p>
+</div>
 <style>
 .align-middle span>.btn:hover{
     color:#ffffff;
@@ -2230,7 +2495,8 @@ $('#removeRow08').on('click', function(e) {
       </td>
       <td  class="rowID">
         <div class="">
-        <select name="jp_status[]" class="table-control col-md-12">
+         <select name="jp_status[]" class="table-control col-md-12">
+          <option value="0" <?php if($row1->jp_status== "") {echo "selected";} ?>></option>
           <option value="1" <?php if($row1->jp_status== "1") {echo "selected";} ?>>Completed</option>
           <option value="0" <?php if($row1->jp_status== "0") {echo "selected";} ?>>Still studying</option>
         </select>
@@ -2247,7 +2513,7 @@ $('#removeRow08').on('click', function(e) {
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td  class="rowID"  style="text-align:center;">
       <?php
           echo form_input(array(
             'name' => 'jp_start_date[]',
@@ -2258,7 +2524,7 @@ $('#removeRow08').on('click', function(e) {
             'autocomplete' => ''));
         ?>
       </td>
-      <td  class="rowID">
+      <td  class="rowID"  style="text-align:center;">
       <?php
           echo form_input(array(
             'name' => 'jp_end_date[]',
@@ -2909,6 +3175,7 @@ $('#removeRow08').on('click', function(e) {
       <td  class="rowID">
       <div class="">
       <select name="ja_fam_residing_applicant[]" class="table-control col-md-12">
+        <option value="" <?php if($result->ja_fam_residing_applicant== "") {echo "selected";} ?>></option>
         <option value="1" <?php if($result->ja_fam_residing_applicant== "1") {echo "selected";} ?>>Yes</option>
         <option value="0" <?php if($result->ja_fam_residing_applicant== "0") {echo "selected";} ?>>No</option>
       </select>
@@ -3496,8 +3763,15 @@ color:#48a1af;
 }
 .radio_record{
   width: 100%;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   display: flex;
+}
+.course_select{
+  width: 49%;
+  padding: 8px;
+  /* margin: 7px; */
+  border: 1px solid #ced4db;
+  border-radius: 3px;
 }
 .criminal{
   /* padding-left: 12px; */
