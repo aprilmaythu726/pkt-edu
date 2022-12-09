@@ -12,6 +12,11 @@
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
       <a href="<?php echo base_url('adm/portal/jls_applicant'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
       </div>
+      <div class="" style="float: right;padding-right: 78px;width: 36%;">
+        <?php echo form_label('Date', 'created_at', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'created_at')); ?>
+        <p class="comfirm_val" id="created_at" name="created_at"><?php echo $lists['created_at']; ?></p>
+    </div>
+
     </div>
   </div> 
 
@@ -306,6 +311,11 @@ p{
   </div>
 
   <div class="form-group">
+        <?php echo form_label('Others (If your are a student of Japanese language course, or neither a student nor a worker, explain your current situation in detail. ‌', 'student_work_details', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'student_work_details')); ?>
+        <p class="comfirm_val" id="student_work_details" name="student_work_details"><?php echo $other_info['student_work_details']; ?></p>
+  </div>
+<br>
+  <div class="form-group">
         <?php echo form_label('Have you ever been japan (Including 3 moth short visa) ‌', 'three_month_visa', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <p class="comfirm_val" id="three_month_visa" name="three_month_visa"><?php echo $other_info['three_month_visa']; ?></p>
   </div>
@@ -549,7 +559,7 @@ p{
         <p class="comfirm_val" id="criminal_record" name="criminal_record"><?php echo $data_details['criminal_record']; ?></p>   
   </div>
    
-  <div class="criminal form-group float-left">
+  <div class="criminal float-left">
   <div class="">
         <?php echo form_label('Have you applied for Certificate of Eligibility?', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
   </div>
@@ -564,7 +574,18 @@ p{
   </div>
   </div>  
 </div>  
+<br>
+<div class="form-group">
+        <?php echo form_label('Intended to enroll', 'intended_roll', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <p class="comfirm_val" id="intended_roll" name="intended_roll"><?php echo $other_info['intended_roll']; ?></p>   
 </div>
+<br><br><br>
+<div class="form-group">
+        <?php echo form_label('ビザの種類 type of visa', 'eligibility_visa', array( 'class' => 'form-control-label', 'id'=> 'eligibility_visa')); ?>
+        <p class="comfirm_val" id="eligibility_visa" name="eligibility_visa"><?php echo $other_info['eligibility_visa']; ?></p>   
+</div>
+</div>
+
 <div class="col-md-6 float-left">
  <div class="form-group">
     <label class="addmission">Language</label>
@@ -591,6 +612,10 @@ p{
             </label> 
         </div>
     </div>  
+</div>
+<div class="form-group">
+    <?php echo form_label('Issued / Denied Date', ' issued_date', array( 'class' => 'eli_text', 'id'=> 'issued_date', 'style' => '', 'for' => 'issued_date')); ?>
+    <p class="comfirm_val" id="issued_date" name="criminal_record_details"><?php echo $other_info['issued_date']; ?></p>   
 </div>
   <style>
   .criminal_record01 {
@@ -719,6 +744,11 @@ p{
     <?php echo form_label('Method of payment','payment_method', array('class' => '')); ?>
     <p class="comfirm_val" id="payment_method" name="payment_method"><?php echo $other_info['payment_method']; ?></p>
 </div>
+
+<div class="form-group">
+    <?php echo form_label('Below please explain in detail the circumstances for your defraying the costs of the applicant and your relationship to the applicant.','defraying_details', array('class' => '')); ?>
+    <p class="comfirm_val" id="defraying_details" name="defraying_details"><?php echo $other_info['defraying_details']; ?></p>
+</div>
 </div>
 <!-- co_rightside -->
 <!-- co_leftside -->
@@ -759,9 +789,97 @@ p{
     <p class="comfirm_val" id="defraying_date" name="defraying_date"><?php echo $other_info['defraying_date']; ?></p>
 </div>
 </div>
+
+<!-- <p>２０<?php echo $other_info['course_start_date']; ?>年０４月--
+   ２０<?php echo $other_info['course_end_date']; ?> 年０３月
+</p> -->
 <!-- co_leftside -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(function() {
+       if(($('#select_name_of_course', this).text()) === "進学２年コ－ス"){
+        console.log(true);
+         $('.two_yrs_crs').show();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+        }else if(($('#select_name_of_course', this).text()) === "進学1年9ヶ月コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').show();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+      }else if(($('#select_name_of_course', this).text()) === "進学１.５年コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').show();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+      }else if(($('#select_name_of_course', this).text()) === "進学1年3ヶ月コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').show();
+         $('.one_yrs_course').hide();
+      }else if(($('#select_name_of_course', this).text()) === "進学１年コ－ス"){
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').show();
+      }else{
+        $('.data_expired_date').hide();
+        $('.admission_date').hide();
+        $('.interview_date').hide();
+        $('.tracking_code').hide();
+        $('.adm_complete_date').hide();
+      }
+    });
 
+</script>
+<div class="col-md-12 float-left" style="padding-bottom: 15px;">
+<h6 class="" style="padding: 33px 0px 12px;">志望学科　Name of Course　* 東京日本橋校は4月期（2年,1年）と10月期（1.5年）のみ。</h6>
+<div class="form-group">
+    <p class="comfirm_val" id="select_name_of_course" name="select_name_of_course"><?php echo $other_info['select_name_of_course']; ?></p>
+</div>
+    <span name="twyrs_crs_start_date" id="twyrs_crs_start_date" class="two_yrs_crs" style="width:5%;">２－Year course
+    ２０<?php echo $other_info['twyrs_crs_start_date']; ?>年０４月--
+    </span> 
+    <span name="twyrs_crs_end_date" id="twyrs_crs_end_date" class="two_yrs_crs" style="width:5%;">
+    ２０<?php echo $other_info['twyrs_crs_end_date']; ?> 年０３月
+    </span>
 
+    <span name="onenine_crs_start_date" id="onenine_crs_start_date" class="oneyrs_ninemths_crs" style="width:5%;">1 Year and 9 Months course
+     ２０ <?php echo $other_info['onenine_crs_start_date']; ?> 年０７月--
+     </span>
+     <span name="onenine_crs_end_date" id="onenine_crs_end_date" class="oneyrs_ninemths_crs" style="width:5%;"> 
+     ２０  <?php echo $other_info['onenine_crs_end_date']; ?>年０３月
+    </span>
+
+    <span name="onefive_crs_start_date" id="onefive_crs_start_date" class="oneyrs_fivemths_crs" style="width:5%;">1.5－Year course
+     ２０ <?php echo $other_info['onefive_crs_start_date']; ?> 年１０月--
+    </span>
+    <span name="onefive_crs_end_date" id="onefive_crs_end_date" class="oneyrs_fivemths_crs" style="width:5%;"> 
+    ２０  <?php echo $other_info['onefive_crs_end_date']; ?>年０３月
+    </span>
+
+    <span name="onethree_crs_start_date" id="onethree_crs_start_date" class="oneyrs_threemths_crs" style="width:5%;">1 Year and 3 Months course 
+    ２０<?php echo $other_info['onethree_crs_start_date']; ?> 年０１月--
+   </span> 
+   <span name="onethree_crs_end_date" id="onethree_crs_end_date" class="oneyrs_threemths_crs" style="width:5%;"> 
+   ２０  <?php echo $other_info['onethree_crs_end_date']; ?>年０３月
+   </span>
+
+  <span name="one_crs_start_date" id="one_crs_start_date" class="one_yrs_course" style="width:5%;">１－Year course 
+  ２０<?php echo $other_info['one_crs_start_date']; ?> 年０４月 --
+  </span>
+  <span name="one_crs_end_date" id="one_crs_end_date" class="one_yrs_course" style="width:5%;">
+   ２０  <?php echo $other_info['one_crs_end_date']; ?>年０３月
+  </span>
+  
+</div>
+<!-- table -->
 <!-- Table -->
 <div class="col-md-12 float-left">
 <h6 class="" style="padding: 33px 0px 12px;">Educational History : from Elementary School to the Most Recent School</h6>
