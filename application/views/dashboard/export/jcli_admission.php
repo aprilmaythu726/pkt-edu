@@ -41,33 +41,33 @@ $html = '
                     <br>Name(s) as shown
                     <br>on your passport
                 </th>
-                <td colspan="5"></td>
+                <td colspan="5"><?php echo $result->applicant_name?></td>
             </tr>
             <tr>
 
                 <th style="width: 20%;background:#f5f5f5;">氏名　（漢字)
                     <br>Name(s) in
                     <br>Chinese characterｓ　</th>
-                    <td colspan="5"></td>
+                    <td colspan="5"><?php echo $result->applicant_name_kanji?></td>
                 </tr>
             <tr>
                 <th style="width: 20%;background:#f5f5f5;">				
                     国籍・地域<br>Nationality/Region
                 </th>
                 <td style="width: 15%;">
-                
+                <?php echo $result->info_nationality?>
                 </td>
                 <th style="width: 15%;background:#f5f5f5;">				
                 性別 <br>Sex
                 </th>
                 <td style="width: 15%;">
-                
+                <?php if($result->gender == '1'){echo 'Male';}else{echo 'Female';}?>
                 </td>
                 <th style="width: 15%;background:#f5f5f5;">			
                 婚姻 <br> Marital Status
                 </th>
                 <td style="width: 20%;">
-                
+                <?php if($result->martial_status == '1'){echo 'Single';}else{echo 'Married';}?>
                 </td>
             </tr>
             <tr>
@@ -75,23 +75,25 @@ $html = '
                 <th style="width: 20%;background:#f5f5f5;">
                     入学希望コース <br> Course of Admission			
                 </th>
-                <td style="width: 20%;"></td>
+                <td style="width: 20%;"><?php if($result->course_admission == '一般'){echo '一般';}elseif($result->course_admission == '進学'){echo '進学';}elseif($result->course_admission == 'ビジネス'){echo 'ビジネス';}else{echo 'SSW';}?></td>
                 <th style="width: 20%;background:#f5f5f5;">
                     生年月日 <br> Date of birth	
                 </th>
-                <td colspan="3"></td>
+                <td colspan="3"><?php echo $result->date_of_birthday?></td>
                 </tr>
             <tr>
-
-            <th style="width: 20%;border-bottom:0px;background:#f5f5f5;">出生地 <br> Place of  birth			
-                </th>
-            <td colspan="5" style="border-bottom:0px;"></td>
+            <th style="width: 20%;border-bottom:0px;background:#f5f5f5;">出生地 <br> Place of  birth</th>
+            <td colspan="5" style="border-bottom:0px;"><?php echo $result->province?></td>
             </tr>
             </table>
         </div>
         <span class="applicant_image">
-            <p style="width:150px;height:100px;border:1p solid #000000;margin-left:20px;float:right;padding:10px 0px 10px 5px;font-size:10px;line-height:15px;">写真貼付欄${student_photo}
-            <br>Photo
+            <p style="width:150px;height:200px;border:1p solid #000000;margin-left:20px;float:right;padding:10px 0px 10px 5px;font-size:10px;line-height:15px;">
+            <?php if(!empty($result->image_file)) { ?>
+              <img src="<?php echo base_url('upload/assets/adm/usr/'.$result->image_file); ?>" width="100%;" class="pb-1">
+            <?php } ?>
+           <!-- 写真貼付欄${student_photo}
+             <br>Photo
             <br>（４ｃｍ×３ｃm ）
             <br><br>・最近３ヶ月以内
             　<br>・上半身正面
@@ -100,7 +102,7 @@ $html = '
             　<br>・Full　face
             　<br>・Without hat
             　<br>・2 copies 
-              <br>
+              <br> -->
             </p>
         </span>
     </section>
@@ -108,27 +110,27 @@ $html = '
 		<table style="width:100%;">
         <tr>
 			<th style="width: 12.75%;border-top:0px;background:#f5f5f5;font-size:10px;">本国の戸籍住所 <br>Home address</th>
-			<td colspan="3"></td>
+			<td colspan="3"><?php echo $result->address?></td>
             </tr>
         <tr>
 			<th style="width: 12.75%;border-top:0px;background:#f5f5f5;font-size:10px;">現在の住所 <br> Present address</th>
-			<td colspan="3"></td>
+			<td colspan="3"><?php echo $result->address?></td>
             </tr>
 		<tr>
 			<th style="width: 12.75%;background:#f5f5f5;font-size:10px;">電話番号 <br>Phone Number</th>
-			<td></td>
+			<td><?php echo $result->info_phone?></td>
             <th style="width: 12.75%;background:#f5f5f5;font-size:10px;">Ｅメール <br> E-mail</th>
-			<td></td>
-            </tr> -->
+			<td><?php echo $result->std_email?></td>
+            </tr>
 		<tr>
 			<th style="width: 12.75%;background:#f5f5f5;font-size:10px;">旅券番号 <br>Passport No</th>
-			<td></td>
+			<td><?php echo $result->passport_no?></td>
             <th style="width: 12.75%;background:#f5f5f5;font-size:10px;">有効期限 <br> Date of expiration</th>
-			<td></td>
+			<td><?php echo $result->passport_data_exp?></td>
             </tr>
 		<tr>
 			<th style="width: 12.75%;background:#f5f5f5;font-size:10px;">職業 <br> Occupation</th>
-			<td colspan="3"></td>
+			<td colspan="3"><?php echo $result->occupation?></td>
            
             </tr>
         </table>
@@ -141,10 +143,10 @@ $html = '
             Past history of applying for a certificate of eligibility</p>
         <div class="radio" style="width:200px;float:right;margin-top:10px;">
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
+                <input type="radio" name="eligibility_have" value="1" <?php if($result->eligibility_have== '1'){ echo "checked='checked'"; } ?>> ありYes　　
             </label>
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="0" >なし　 No
+                <input type="radio" name="eligibility_have" value="0" <?php if($result->eligibility_have== '0'){ echo "checked='checked'"; } ?>>なしNo
             </label>
         </div>	
     </div>																	
@@ -154,7 +156,7 @@ $html = '
                 回数 <br> No. of times
                 </th>
                 <td colspan="1">
-                   
+                <?php echo $result->eligibility_details?>
                 </td>
                 <th style="width: 30%;background:#f5f5f5;">			
                     うち不交付となった回数<br>
@@ -172,10 +174,10 @@ $html = '
         <p class="badge badge-danger" style="float:left;width: 30%;"> 過去の来日歴　/　<br>Record of entry to Japan</p>
         <div class="radio" style="width:200px;float:right;margin-top:10px;">
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
+                <input type="radio" name="have_you_visited_jp" value="1" <?php if($result->have_you_visited_jp== '1'){ echo "checked='checked'"; } ?>> ありYes　　
             </label>
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="0" >なし　 No
+                <input type="radio" name="have_you_visited_jp" value="0"  <?php if($result->have_you_visited_jp== '0'){ echo "checked='checked'"; } ?>>なしNo
             </label>
         </div>	
     </div>																	
@@ -185,13 +187,13 @@ $html = '
                     回数 <br> No. of times
                 </th>
                 <td colspan="1">
-                   
+               
                 </td>
                 <th style="width: 20%;background:#f5f5f5;">			
                     直近の出入国歴 <br>The latest entry																                                                                                                                                                                 
                 </th>
                 <td colspan="1">
-                   
+               
                 </td>
             </tr>
         </table>																
@@ -209,24 +211,16 @@ $html = '
                                 </tr>
                             </thead>
                             <tbody id="stockList">
+                            <?php
+                                foreach($result8 as $row8){
+                                ?> 
                                     <tr>
-                                    <td style="font-size: 11px; text-align: right;border-right:none;"> ~ </td>
-                                        <td style="font-size: 11px; text-align: right;border-left:none;">  </td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
+                                    <td style="font-size: 11px; text-align: right;border-right:none;"><?php echo $row8->entry_date?>　  ~</td>
+                                        <td style="font-size: 11px; text-align: right;border-left:none; text-align: left;">   <?php echo $row8->depature_date?></td>
+                                        <td style="font-size: 12px; text-align: center;"><?php echo $row8->status?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row8->entry_purpose?></td>
                                     </tr>
-                                    <tr>
-                                    <td style="font-size: 11px; text-align: right;border-right:none;"> ~ </td>
-                                        <td style="font-size: 11px; text-align: right;border-left:none;">  </td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                                    <tr>
-                                    <td style="font-size: 11px; text-align: right;border-right:none;"> ~ </td>
-                                        <td style="font-size: 11px; text-align: right;border-left:none;"> </td>
-                                        <td style="font-size: 12px; text-align: left;"> </td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
+                                    <?php } ?>
                                
                             </tbody>
                         </table>
@@ -239,10 +233,10 @@ $html = '
             Family in Japan (father, mother, spouse, children, <br>siblings,grandparents,uncle, aunt or others) and cohabitants</p>
         <div class="radio" style="width:150px;float:right;margin-top:20px;">
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
+                <input type="radio" name="family_in_japan" value="1" <?php if($result->family_in_japan== '1'){ echo "checked='checked'"; } ?>>ありYes　　
             </label>
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="0" >なし　 No
+                <input type="radio" name="family_in_japan" value="0" <?php if($result->family_in_japan== '0'){ echo "checked='checked'"; } ?>>なしNo
             </label>
         </div>	
     </div>		
@@ -259,37 +253,19 @@ $html = '
                                 </tr>
                             </thead>
                             <tbody id="stockList">
+                            <?php
+                                foreach($result7 as $row7){
+                                ?> 
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row7->ja_fam_relationship?></td>
+                                        <td style="font-size: 12px; text-align: center;"><?php echo $row7->ja_fam_name?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row7->ja_fam_date_birth?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row7->ja_fam_nationality?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row7->ja_fam_address?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row7->ja_fam_work_place?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row7->residence_card_no?></td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                    </tr>
-                               
+                                    <?php } ?>
                             </tbody>
                         </table>
 </section>
@@ -314,31 +290,19 @@ $html = '
                                 </tr>
                             </thead>
                             <tbody id="stockList">
+                            <?php
+                                foreach($result1 as $row1){
+                                ?> 
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;border-right:0px;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;">~</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row1->edu_name?></td>
+                                        <td style="font-size: 12px; text-align: right;border-right:0px;"><?php echo $row1->start_date?></td>
+                                        <td style="font-size: 11px; text-align: left;border-left: none;">~　<?php echo $row1->end_date?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row1->year?></td>
                                        
-                                        <td style="font-size: 11px; text-align: right;">-</td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row1->address?></td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;border-right:0px;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;">~</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;border-right:0px;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;">~</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                    </tr>
-                                    
+                                  
+                                    <?php } ?>
                                
                             </tbody>
                         </table>
@@ -347,13 +311,11 @@ $html = '
                         <table style="width:100%; padding_top:20px;border-top:none;" class="tbl">
                             <tbody>
                                 <tr class="text-center" style="font-size: 12px;border-top:none;">
-                                    <th scope="col" style="width:25% !important">在籍状況 <br> Registered enrollment</th>
+                                    <th scope="col"  style="width: 35%;">在籍状況 <br> Registered enrollment</th>
                                     <td scope="col" class="align-middle" style="width: 15%;"></td>
-                                    <td scope="col" style="width: 15%;border-left: none">		
-                                    </td>
-                                    <th scope="col" style="width: 25%;;">修学年数(小学校から最終学歴まで)<br>
+                                    <th scope="col" style="width: 30%;">修学年数(小学校から最終学歴まで)<br>
  Total period of education (from elementary school to the last school attended). </th>
-                                    <td scope="col" style="width: 15%;"></td>
+                                    <td scope="col" style="width: 15%;"><?php echo $resulteduhis->year?></td>
                                     <td scope="col" style="width: 10%;">年<br>Years</td>
                                 </tr>
                             </tbody>
@@ -368,10 +330,10 @@ $html = '
         <p class="badge badge-danger" style="float:left;width: 40%;margin-top:5px;">職歴　/　Occupational experience</p>
         <div class="radio" style="width:200px;float:right;">
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
+                <input type="radio" name="employment_experience" value="1" <?php if($result->employment_experience== '1'){ echo "checked='checked'"; } ?>> ありYes　　
             </label>
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="0" >なし　 No
+                <input type="radio" name="employment_experience" value="0" <?php if($result->employment_experience== '0'){ echo "checked='checked'"; } ?>>なしNo
             </label>
         </div>	
     </div>		
@@ -387,32 +349,17 @@ $html = '
                                 </tr>
                             </thead>
                             <tbody id="stockList">
+                            <?php
+                                foreach($result5 as $row5){
+                                ?> 
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;border-right: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
+                                        <td style="font-size: 11px; text-align: center;"></td>
+                                        <td style="font-size: 12px; text-align: right;border-right: none;"><?php echo $row5->start_date?></td>
+                                        <td style="font-size: 11px; text-align: left;border-left: none;">~<?php echo $row5->end_date?> </td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row5->job_description?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row5->address?></td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;border-right: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;border-right: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                    </tr>
-                                   
-                               
+                                    <?php } ?>
                             </tbody>
                         </table>
 </section>
@@ -424,11 +371,17 @@ $html = '
         </p>
         <div class="radio" style="width:200px;float:right;">
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
+                <input type="radio" name="military_service" value="1" <?php if($result->military_service== '1'){ echo "checked='checked'"; } ?>>ありYes　　
             </label>
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="0" >なし　 No
+                <input type="radio" name="military_service" value="0" <?php if($result->military_service== '0'){ echo "checked='checked'"; } ?>>なしNo
             </label>
+            <!-- <label class="col-md-4">
+            <input type="radio" <?php if($result->military_service== "1") {echo "selected";} ?>>ありYes　　
+            </label>
+            <label class="col-md-4">
+            <input type="radio" <?php if($result->military_service== "0") {echo "selected";} ?>>なしNo
+            </label> -->
         </div>	
         
     </div>		
@@ -449,10 +402,10 @@ $html = '
         </p>
         <div class="radio" style="width:30%;float:right;">
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
+                <input type="radio" name="std_permission" value="1" <?php if($result->military_service== '1'){ echo "checked='checked'"; } ?>>ありYes　　
             </label>
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="0" >なし　 No
+                <input type="radio" name="std_permission" value="0" <?php if($result->military_service== '0'){ echo "checked='checked'"; } ?>>なしNo
             </label>
         </div>	
         
@@ -461,11 +414,7 @@ $html = '
                             <thead style="background: #f5f5f5; text-align:center;padding:1px;">
                                 <tr class="text-center" style="font-size: 12px;">
                                     <th scope="col" style="width:25%;text-align: center;">学校名及び所在地 <br>Name of Institution and location</th>
-                                    
-                                       
-                                   
                                     <th scope="col" class="align-middle" style="width: 10%;border-right: none;">
-                                        
                                         <span>入学年月<br> Enrollment<br>Year/Month ~ </span>
                                      </th>
                                     <th scope="col" style="width: 10%;border-left: none">卒業年月<br>Completion<br>Year/Month		
@@ -473,25 +422,16 @@ $html = '
                                 </tr>
                             </thead>
                             <tbody id="stockList">
+                            <?php
+                                foreach($result2 as $row2){
+                                ?> 
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;border-right: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row2->jp_name?>　/　<?php echo $row2->address?></td>
+                                        <td style="font-size: 12px; text-align: right;border-right: none;"><?php echo $row2->start_date?></td>
+                                        <td style="font-size: 11px; text-align: left;border-left: none;"> ~　 <?php echo $row2->end_date?> </td>
                                         
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;border-right: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;border-right: none;"></td>
-                                        <td style="font-size: 11px; text-align: left;border-left: none;"> ~ </td>
-                                        
-                                    </tr>
-                                   
+                                    <?php } ?>
                                
                             </tbody>
                         </table>
@@ -504,65 +444,38 @@ $html = '
         </p>
         <div class="radio" style="width:30%;float:right;">
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="1" checked="checked"> あり　Yes
+                <input type="radio" name="std_permission" value="1" <?php if($result->military_service== '1'){ echo "checked='checked'"; } ?>>ありYes　　
             </label>
             <label class="col-md-4">
-                <input type="radio" name="std_permission" value="0" >なし　 No
+                <input type="radio" name="std_permission" value="0" <?php if($result->military_service== '၀'){ echo "checked='checked'"; } ?>>なしNo
             </label>
         </div>	
     </div>		
                         <table style="width:100%;" class="tbl">
                             <thead style="background: #f5f5f5; text-align:center;padding:1px;">
+                           
                                 <tr class="text-center" style="font-size: 12px;">
-                                    
-                                    <th colspan="2" scope="col" style="width:20%;">受験名称 <br> Examination</th>
+                                    <th colspan="1" scope="col" style="width:20%;">受験名称 <br> Examination</th>
                                     <th colspan="1" scope="col" class="align-middle" style="width: 15%;">受験年度 <br> Exam year</th>
                                     <th colspan="1" scope="col" style="width: 15%;">受験等級 <br> Exam Level</th>
                                     <th colspan="1" scope="col" style="width: 15%;">"受験点数 <br>Score</th>
                                     <th colspan="1" scope="col" style="width: 15%;">受験結果 <br> Result</th>
                                 </tr>
+                               
                             </thead>
                             <tbody id="stockList">
+                            <?php
+                                foreach($result3 as $row3){
+                                ?> 
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;width:50px;"></td>
-                                        <td style="font-size: 12px; text-align: left;">JLPT（日本語能力試験</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
+                                        <!-- <td style="font-size: 11px; text-align: right;width:50px;"></td> -->
+                                        <td style="font-size: 12px; text-align: center;"><?php echo $row3->achiv_name?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row3->exam_year?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row3->level?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row3->score?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row3->result?></td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;">J-TEST(実用日本語検定)</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;">NAT-TEST</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;">Other</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        
-                                    </tr>
+                                    <?php } ?>
                             </tbody>
                         </table>
 </section>
@@ -585,37 +498,18 @@ $html = '
                                 </tr>
                             </thead>
                             <tbody id="stockList">
+                            <?php
+                                foreach($result6 as $row6){
+                                ?>
                                     <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row6->fam_relationship?></td>
+                                        <td style="font-size: 12px; text-align: center;"><?php echo $row6->fam_name?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row6->birthday?></td>
+                                        <td style="font-size: 11px; text-align: center;">-</td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row6->occupation?></td>
+                                        <td style="font-size: 11px; text-align: center;"><?php echo $row6->address?></td>
                                     </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 11px; text-align: right;"></td>
-                                        <td style="font-size: 12px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                        <td style="font-size: 11px; text-align: right;">-</td>
-                                        <td style="font-size: 11px; text-align: left;"></td>
-                                       
-                                    </tr>
-                               
+                                    <?php } ?>
                             </tbody>
                         </table>
 </section>
@@ -636,7 +530,7 @@ $html = '
 			<th colspan="1" style="background:#f5f5f5;">氏名(ローマ字)
 				<br>Name(s) as shown
 				<br>on your passport</th>
-				<td colspan="5"></td>
+				<td colspan="5"><?php echo $result->applicant_name?></td>
         </tr>
 		<tr>
            
@@ -644,19 +538,19 @@ $html = '
 				国籍・地域<br>Nationality/Region
             </th>
 			<td style="width: 20%;">
-               
+            <?php echo $result->info_nationality?> 
             </td>
             <th style="width: 10%;background:#f5f5f5;">				
             性別 <br> Sex
             </th>
 			<td style="width: 20%;">
-               
+            <?php if($result->gender == '1'){echo 'Male';}else{echo 'Female';}?>
             </td>
             <th style="width: 20%;background:#f5f5f5;">			
              生年月日 <br> Date of birth
             </th>
 			<td style="width: 20%;">
-               
+            <?php echo $result->date_of_birthday?>
             </td>
 		</tr>
        
@@ -674,22 +568,21 @@ $html = '
             <th colspan="1" style="width: 10%;background:#f5f5f5;">
 				学校種別 <br> Type of schools
 			</th>
-            <td colspan="4"></td>
-           
+            <td colspan="4"><?php echo $result->specific_plan_type_schools?></td>
         </tr>
         <tr>
 			<th colspan="1" style="width: 15%;background:#f5f5f5;">
 				学校名 <br> Name of School	
 			</th>			
             
-			<td colspan="4"></td>
+			<td colspan="4"><?php echo $result->specific_plan_school_name?></td>
         </tr>
         <tr>
 			<th colspan="1" style="width: 15%;background:#f5f5f5;">
 				希望科目（専攻）<br> Major
 			</th>			
            
-			<td colspan="4"></td>
+			<td colspan="4"><?php echo $result->current_status_school_major?></td>
         </tr>
         <tr>
 			<th colspan="1" style="width: 25%;background:#f5f5f5;">
@@ -698,7 +591,7 @@ $html = '
             <th colspan="1" style="width: 15%;background:#f5f5f5;">
 				希望する職種 <br> Aimed occupational category
 			</th>	
-			<td colspan="4"></td>
+			<td colspan="4"><?php echo $result->aimed_occupational_category?></td>
         </tr>
         <tr>
 			<th colspan="1" style="width: 25%;background:#f5f5f5;">
@@ -707,22 +600,21 @@ $html = '
             <th colspan="2" style="width: 30%;background:#f5f5f5;">
 				いつ頃帰国する予定ですか？<br> When will you return?
 			</th>	
-			<td colspan="3"></td>
+			<td colspan="3"><?php echo $result->will_you_return?></td>
         </tr>
         <tr>
-
-			<th colspan="1" style="background:#f5f5f5;">その他 <br> Others</th>
-				<td colspan="5"></td>
+            <th colspan="1" style="background:#f5f5f5;">その他 <br> Others</th>
+				<td colspan="5"><?php if($result->specific_plans_after_graduating== "Other"){echo '-';}?></td>
         </tr>		      
 		</table>		
 </section>
+<br><br><br><br>
 <section class="personal-info">
 <img src="asset/admin/images/purpose.png" style="width:30px;float:left;margin-right:10px;padding:10px 0 0px;">
     <p style="padding: 10px 0px 0px;">志望理由　Statement of purpose</p>
-    <p class="note" style="width: 100%;padding: 200px 50px;border: 1px solid #000000;
-"></p>
+    <p class="note" style="width: 100%;padding:30px 30px;border: 1px solid #000000;"><?php echo $result->purpose_studying_in_japanese?></p>
     <p> 以上のことはすべて事実であり、私が記入したものです。また、本入学願書に記述した全ての内容、及びその他の出願に必要となる提出書類については、その情報の取り<br>扱いにつき、貴校の募集要項の内容に同意の上出願を行うものです。<br>
-        I hereby declare the above statement that I wrote is true and correct. By signing below I give consent to all of the information stated in this application form. The <br> submitted documents will be treated in accordance with the enrollment guidelines.</p>
+        I hereby declare the above statement that I wrote is true and correct. By signing below I give consent to all of the information stated in this application form. The submitted documents will be treated in accordance with the enrollment guidelines.</p>
     <table style="width:100%; float: left;">
         <tr>
 			<th colspan="1" style="width: 10%;background:#f5f5f5;">
@@ -732,7 +624,11 @@ $html = '
             <th colspan="1" style="width: 15%;background:#f5f5f5;">
 				署名 <br> Signature
 			</th>	
-			<td colspan="4"></td>
+			<td colspan="4">
+            <?php if(!empty($result->image_file)) { ?>
+              <img style="width:40px;height:40px;" src="<?php echo base_url('upload/assets/adm/usr/'.$result->sign_file); ?>" width="10px;" height="10px" class="pb-1">
+            <?php } ?>
+            </td>
         </tr> 
 		</table>	
 </section>
@@ -742,10 +638,6 @@ $html = '
                     font-size: 12px;
                     color: #111;
                     font-weight: normal;
-                    /* font-family:firefly, DejaVu Sans, sans-serif;
-                    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif; */
-                    /* font-family: "Lucida Console", "Courier New", monospace;*/               
-                    /* font-family: sjis; */
                     font-family: 'Open Sans',big5,sans-serif;
                     line-height: 20px;
                 }
@@ -781,7 +673,6 @@ $html = '
                     border: solid black;
                     border-width: 1px 1px 0 0;
                 }
-
                 .tbl th,th,
                 .tbl td,td{
                     border: solid black;
@@ -879,4 +770,3 @@ $html = '
             }
 </style>
 </html>';
-
