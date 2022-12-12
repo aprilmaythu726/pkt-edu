@@ -254,6 +254,10 @@ p{
         <?php echo form_label('Have you visited Japan?', 'have_you_visited_jp', array( 'class' => 'form-control-label', 'id'=> '')); ?>
         <p class="comfirm_val" id="have_you_visited_jp" name="have_you_visited_jp"><?php echo $data_details['have_you_visited_jp']; ?></p>
   </div>
+  <div class="form-group">
+        <?php echo form_label('Visited Status', 'visited_jp_status', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+        <p class="comfirm_val" id="visited_jp_status" name="visited_jp_status"><?php echo $data_details['visited_jp_status']; ?></p>
+  </div>
 
   <div class="form-group">
         <?php echo form_label('Date of Entry', 'visited_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
@@ -516,8 +520,13 @@ p{
   </div>
   <h6 class="spec_plan" style="padding: 0px;margin-bottom:10px;">Return to home country</h6>
   <div class="form-group">
-        <?php echo form_label('When will you return', 'will_you_return', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'will_you_return')); ?>
+        <?php echo form_label('Return Other', 'will_you_return', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'will_you_return')); ?>
         <p class="comfirm_val" id="will_you_return" name="will_you_return"><?php echo $data_details['will_you_return']; ?></p>   
+  </div>
+
+  <div class="form-group">
+        <?php echo form_label('When will you return', 'return_other', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'return_other')); ?>
+        <p class="comfirm_val" id="will_you_return" name="return_other"><?php echo $data_details['return_other']; ?></p>   
   </div>
 
   <div class="form-group">
@@ -594,7 +603,6 @@ p{
     <div class="">
     <?php echo form_label('Have you applied for Certificate of Eligibility?', 'criminal_record', array( 'class' => 'form-control-label', 'id'=> '')); ?>
   </div>
-  
   <div class="radio_record">
         <div class="">
             <label class="col-rd cri_text"><span>When:</span>
@@ -607,7 +615,12 @@ p{
             </label> 
         </div>
     </div>  
+    
 </div>
+<div class="form-group">
+    <?php echo form_label('Of these applications, the number of times of non-issuance', ' criminal_record_details', array( 'class' => 'eli_text', 'id'=> 'eligibility_non_issuance', 'style' => '', 'for' => 'phone')); ?>
+    <p class="comfirm_val" id="eligibility_non_issuance" name="eligibility_non_issuance"><?php echo $data_details['eligibility_non_issuance']; ?></p>   
+  </div>
 <div class="form-group">
     <?php echo form_label('Issued / Denied Date', ' issued_date', array( 'class' => 'eli_text', 'id'=> 'issued_date', 'style' => '', 'for' => 'issued_date')); ?>
     <p class="comfirm_val" id="issued_date" name="criminal_record_details"><?php echo $other_info['issued_date']; ?></p>   

@@ -360,7 +360,20 @@ $(function() {
         <option value="0">No</option>
     </select>
   </div>
-
+  <div class="form-group">
+        <?php echo form_label('Visited Status', 'visited_jp_status', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php
+          echo form_input(array(
+            'name' => 'visited_jp_status',
+            'type' => 'text',
+            'value' => html_escape(set_value('visited_jp_status',isset($result)?$result->visited_jp_status:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'visited_jp_status',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('visited_date'); ?></span>
+  </div>
   <div class="form-group">
         <?php echo form_label('Date of Entry', 'visited_date', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
@@ -1057,6 +1070,20 @@ $(function() {
         <span class="text-danger"><?php echo form_error('will_you_return'); ?></span>
   </div>
   <div class="form-group">
+        <?php echo form_label('Return Other', 'return_other', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php
+          echo form_input(array(
+            'name' => 'return_other',
+            'type' => 'text',
+            'value' => html_escape(set_value('return_other',isset($result)?$result->return_other:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'return_other',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('return_other'); ?></span>
+  </div>
+  <div class="form-group">
   <?php echo form_label('Is it possible to provide in English? ', 'provide_english', array( 'class' => 'form-control-label', 'id'=> '')); ?>
   <span class="badge badge-danger">Required</span>
     <select name="provide_english" id="provide_english" class="admission_select">
@@ -1078,7 +1105,7 @@ $(function() {
           echo form_input(array(
             'name' => 'allergic_medicine_details',
             'type' => 'text',
-            'value' => html_escape(set_value('will_you_return',isset($result)?$result->allergic_medicine_details:''), ENT_QUOTES),
+            'value' => html_escape(set_value('allergic_medicine_details',isset($result)?$result->allergic_medicine_details:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
             'id' => 'allergic_medicine_details',
@@ -1155,8 +1182,8 @@ $(function() {
 <div class="form-group">
   <?php echo form_label('Intended to enroll', 'intended_roll', array( 'class' => 'passport_text', 'id'=> 'intended_roll')); ?>
     <select name="intended_roll" id="intended_roll" class="admission_select">
-        <option value="issued">issued</option>
-        <option value="denied">denied</option>
+        <option value="1">issued</option>
+        <option value="0">denied</option>
     </select>
   </div>
 <div class="form-group">
@@ -1222,12 +1249,26 @@ $(function() {
     </div>  
 </div>
 <div class="form-group">
+  <?php echo form_label('Of these applications, the number of times of non-issuance', 'eligibility_non_issuance', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+  <?php
+          echo form_input(array(
+            'name' => 'eligibility_non_issuance',
+            'type' => 'text',
+           'value' => html_escape(set_value('eligibility_non_issuance',isset($result)?$result->eligibility_non_issuance:''), ENT_QUOTES),
+            'placeholder' => 'Please Enter!',
+            'class' => 'form-control',
+            'id' => 'eligibility_non_issuance',
+            'autocomplete' => ''));
+  ?>
+  <span class="text-danger"><?php echo form_error('issued_date'); ?></span>
+  </div>
+<div class="form-group">
   <?php echo form_label('Issued / Denied Date', 'issued_date', array( 'class' => 'form-control-label', 'id'=> '')); ?>
   <?php
           echo form_input(array(
             'name' => 'issued_date',
             'type' => 'date',
-           // 'value' => html_escape(set_value('graduate_date',isset($result)?$result->graduate_date:''), ENT_QUOTES),
+           'value' => html_escape(set_value('issued_date',isset($result)?$result->issued_date:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
             'id' => 'issued_date',
@@ -1318,13 +1359,13 @@ $(function() {
           echo form_input(array(
             'name' => 'family_address',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result)?$result->family_address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('family_address',isset($result)?$result->family_address:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'family_address',
             'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('address'); ?></span>
+        <span class="text-danger"><?php echo form_error('family_address'); ?></span>
        </div>
        <div class="form-group">
         <?php echo form_label(' Name of the place where your father is working','father_work_place', array('class' => '')); ?>
@@ -2038,7 +2079,7 @@ $(function() {
         echo form_input(array(
           'name' => 'registered_enrollment',
           'type' => 'text',
-          'value' => html_escape(set_value('registered_enrollment',isset($result)?$result->military_service_details:''), ENT_QUOTES),
+          'value' => html_escape(set_value('registered_enrollment',isset($result)?$result->registered_enrollment:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
           'id' => 'registered_enrollment',
@@ -2964,6 +3005,22 @@ $(function() {
   </tbody>
 </table>
 </div>
+<br>
+<div class="form-group">
+        <?php echo form_label('If you have stayed in Japan more than four times, please use the blank below.','japan_four_times', array('class' => '')); ?>
+        <span class="badge badge-danger">Required</span>
+        <?php
+          echo form_input(array(
+            'name' => 'japan_four_times',
+            'type' => 'text',
+            'value' => html_escape(set_value('phone',isset($result)?$result->japan_four_times:''), ENT_QUOTES),
+            'placeholder' => 'Enter address!',
+            'class' => 'form-control',
+            'id' => 'japan_four_times',
+            'autocomplete' => ''));
+        ?>
+        <span class="text-danger"><?php echo form_error('japan_four_times'); ?></span>
+       </div>
 </div>
 <!-- Table -->
 
