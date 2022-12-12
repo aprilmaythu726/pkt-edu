@@ -877,11 +877,10 @@ $(function() {
 <!-- table -->
 <script>
 $(function() {  
-    $("#future_plan_after_graduating").change(function() {
-       if($('option:selected', this).text() =="A. 進学 Advancing to higher education"){
+       if(($('#future_plan_after_graduating', this).text()) =="A. 進学 Advancing to higher education"){
          $('.drop_checkbox').show();
          $('.specify').hide();
-        }else if($('option:selected', this).text() =="D. その他 < Other> (Specify)"){
+        }else if(($('#future_plan_after_graduating', this).text()) =="D. その他 < Other> (Specify)"){
          $('.drop_checkbox').hide();
          $('.specify').show();
       }else{
@@ -889,7 +888,6 @@ $(function() {
          $('.specify').hide();
       }
     });
-});
 </script>
 <div class="col-md-12 float-left" style="padding-bottom: 15px;">
 <h6 class="" style="padding: 33px 0px 12px;">この学校を卒業した後の予定 < Future plan after graduating from this school.></h6>
@@ -899,7 +897,7 @@ $(function() {
 <div class="drop_checkbox">
 <p class="comfirm_val" id="future_plan_checkdata01" name="future_plan_checkdata01"><?php echo $other_info['future_plan_checkdata01']; ?></p>
 </div>
-<div class="drop_checkbox">
+<div class="specify">
 <p class="comfirm_val" id="spec_other" name="spec_other"><?php echo $other_info['spec_other']; ?></p>
 </div>
 </div>

@@ -29,38 +29,36 @@ $html = '
             <?php if(!empty($result->image_file)) { ?>
               <img style="width:15%"; src="<?php echo base_url('upload/assets/adm/usr/'.$result->image_file); ?>"  class="pb-1">
             <?php } ?>
-            <!-- 写真　 Photos<br>
-最近3ヶ月以内に撮<br>影した上半身正面脱帽のもの(4cm×3cm)<br> 三个月以内的近照,<br>半身正面脱帽的证明<br>像(4cm×3cm) -->
+            </td>
+        </tr>
+        <tr style="border-top: 0px;border-bottom:0px;">                                                    
+            <td>
+            <input type="checkbox" id="select_name_of_course" name="select_name_of_course" value="進学２年コ－ス" style="float:left;" <?php if($result9->select_name_of_course == '進学２年コ－ス') { echo "checked='checked'"; }?>> 
+            <label for="select_name_of_course" style="font-size:13px;">進学２年コ－ス　　　　　２－Year course  　　　　　 ２０<span style="font-size:13px;"><?php if($result9->twyrs_crs_start_date == ''){echo '___';}else if($result9->select_name_of_course == '進学２年コ－ス'){echo $result9->twyrs_crs_start_date;}else{echo '___';} ?></span> 年０４月 -- ２０<span style="font-size:13px;"><?php if($result9->twyrs_crs_end_date == ''){echo '___';}else if($result9->select_name_of_course == '進学２年コ－ス'){echo $result9->twyrs_crs_end_date;}else{echo '___';} ?></span> 年０３月</label>
             </td>
         </tr>
         <tr style="border-top: 0px;border-bottom:0px;">
             <td>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked=checked> 
-            <label for="vehicle1">進学２年コ－ス　　　　　　 ２－Year course  　　　　　　　  ２０２３ 年０４月 -- ２０２５ 年０３月</label>
+            <input type="checkbox" id="select_name_of_course" name="select_name_of_course" value="進学1年9ヶ月コ－ス" style="float:left;" <?php if($result9->select_name_of_course == '進学1年9ヶ月コ－ス') { echo "checked='checked'"; }?>> 
+            <label for="select_name_of_course">進学1年9ヶ月コ－ス　　 1 Year and 9 Months course　２０<span style="font-size:13px;"><?php if($result9->onenine_crs_start_date == ''){echo '___';}else if($result9->select_name_of_course == '進学1年9ヶ月コ－ス'){echo $result9->onenine_crs_start_date;}else{echo '___';}?></span>年０７月 -- ２０<span style="font-size:13px;"><?php if($result9->onenine_crs_end_date == ''){echo '___';}else if($result9->select_name_of_course == '進学1年9ヶ月コ－ス'){echo $result9->onenine_crs_end_date;}else{echo '___';} ?></span>年０３月</label>
             </td>
         </tr>
         <tr style="border-top: 0px;border-bottom:0px;">
             <td>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
-            <label for="vehicle1">進学1年9ヶ月コ－ス　　 1 Year and 9 Months course 　　 ２０_____年０７月 -- ２０_____年０３月</label>
+            <input type="checkbox" id="select_name_of_course" name="select_name_of_course" value="進学１.５年コ－ス" style="float:left;" <?php if($result9->select_name_of_course == '進学１.５年コ－ス') { echo "checked='checked'"; }?>> 
+            <label for="select_name_of_course">進学１.５年コ－ス　　　　 1.5－Year course　　　　　２０<span style="font-size:13px;"><?php if($result9->onefive_crs_start_date == ''){echo '___';}else if($result9->select_name_of_course == '進学１.５年コ－ス'){echo $result9->onefive_crs_start_date;}else{echo '___';} ?></span>年１０月 -- ２０<span style="font-size:13px;"><?php if($result9->onefive_crs_end_date == ''){echo '___';}else if($result9->select_name_of_course == '進学１.５年コ－ス'){echo $result9->onefive_crs_end_date;}else{echo '___';}?></span> 年０３月</label>
             </td>
         </tr>
         <tr style="border-top: 0px;border-bottom:0px;">
             <td>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
-            <label for="vehicle1">進学１.５年コ－ス　　　　　 1.5－Year course　　　　　　 ２０____ 年１０月 -- ２０____ 年０３月 <br></label>
+            <input type="checkbox" id="select_name_of_course" name="select_name_of_course" value="進学1年3ヶ月コ－ス" style="float:left;" <?php if($result9->select_name_of_course == '進学1年3ヶ月コ－ス') { echo "checked='checked'"; }?>> 
+            <label for="select_name_of_course">進学1年3ヶ月コ－ス　　 1 Year and 3 Months course　２０<span style="font-size:13px;"><?php if($result9->onethree_crs_start_date == ''){echo '___';}else if($result9->select_name_of_course == '進学1年3ヶ月コ－ス'){echo $result9->onethree_crs_start_date;}else{echo '___';}?></span>年０１月 -- ２０<span style="font-size:13px;"><?php if($result9->onethree_crs_end_date == ''){echo '___';}else if($result9->select_name_of_course == '進学1年3ヶ月コ－ス'){echo $result9->onethree_crs_end_date;}else{echo '___';}?></span> 年０３月</label>
             </td>
         </tr>
         <tr style="border-top: 0px;border-bottom:0px;">
             <td>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
-            <label for="vehicle1">進学1年3ヶ月コ－ス　　1 Year and 3 Months course　　 ２０____ 年０１月 -- ２０____ 年０３月</label>
-            </td>
-        </tr>
-        <tr style="border-top: 0px;border-bottom:0px;">
-            <td>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="float:left;" checked> 
-            <label for="vehicle1">進学１年コ－ス　　　　　 １－Year course　　　　　　　 ２０_____ 年０４月 -- ２０_____ 年０３月</label>
+            <input type="checkbox" id="select_name_of_course" name="select_name_of_course" value="進学１年コ－ス" style="float:left;" <?php if($result9->select_name_of_course == '進学１年コ－ス') { echo "checked='checked'"; }?>>
+            <label for="vehicle1">進学１年コ－ス　　　　　１－Year course  　　　　　 ２０<span style="font-size:13px;"><?php if($result9->one_crs_start_date == ''){echo '___';}else if($result9->select_name_of_course == '進学１年コ－ス'){echo $result9->one_crs_start_date;}else{echo '___';}?></span> 年０４月 -- ２０<span style="font-size:13px;"><?php if($result9->one_crs_end_date == ''){echo '___';}else if($result9->select_name_of_course == '進学１年コ－ス'){echo $result9->one_crs_end_date;}else{echo '___';}?></span> 年０３月</label>
             </td>
         </tr>        
         <tr style="width: 80%;border-bottom:0px;"> 
@@ -134,6 +132,7 @@ $html = '
             </tr>
     </table>                  
 </section>
+
 <section class="edu-background">	
                         <table style="width:100%;" class="tbl">
                                 <tr style="border-top:0px;"> 
@@ -147,6 +146,7 @@ $html = '
                                     <th scope="col" style="width: 10%;border-left: none;text-align:center;">年　数<br> Years</th>
                                     <th scope="col" style="width: 25%;text-align:center;">修学期間<br>Period</th>
                                 </tr>
+                                
                                 <?php
                                 foreach($result1 as $row1){
                                 ?>
@@ -155,8 +155,9 @@ $html = '
                                         <td style="font-size: 12px; text-align: center;"><?php echo $row1->address?></td>
                                         <td style="font-size: 11px; text-align: center;border-left: none;"><?php echo $row1->year?></td>
                                         <td style="font-size: 11px; text-align: left;">
-                                        自from <span><?php echo $splitted = date('Y', strtotime($row1->start_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row1->start_date));?></span> 月 <br>
-                                        至to   <span><?php echo $splitted = date('Y', strtotime($row1->end_date));?></span> 年 <span><?php echo $splitted = date('m', strtotime($row1->end_date));?></span> 月 
+                                       
+                                        自from <span><?php if($splitted == date('Y', strtotime($row1->start_date))){echo'-';}else{echo $splitted = date('Y', strtotime($row1->start_date));}?></span> 年 <span><?php if($splitted == date('m', strtotime($row1->start_date))){echo'-';}else{echo $splitted = date('m', strtotime($row1->start_date));}?></span> 月 <br>
+                                        至to   <span><?php if($splitted == date('Y', strtotime($row1->end_date))){echo'-';}else{echo $splitted = date('Y', strtotime($row1->end_date));}?></span> 年 <span><?php if($splitted == date('m', strtotime($row1->end_date))){echo'-';}else{echo $splitted = date('m', strtotime($row1->end_date));}?></span> 月 
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -208,7 +209,7 @@ $html = '
             <tr class="text-center" style="font-size: 12px;border-top:0px;">
                 <th scope="col" style="text-align:right;width:25%;border-right:0px;"><?php echo $resultachiv->level?>Level
                 </th>
-                <th scope="col" class="align-middle" style="width:40%;text-align: right;">号
+                <th scope="col" class="align-middle" style="width:40%;text-align: right;"><?php echo $result9->jp_certificate_number?>号
                 </th>
                 <th scope="col" style="text-align:center;width:35%;">Date of Qualification
                 </th>                                   
@@ -519,94 +520,6 @@ $html = '
                         <tr style="border-top:0px;"> 
                             <td style="width: 100%;font-size:19px;">
                         </tr>
-                        <!-- <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr>
-                        <tr style=""> 
-                            <td colspan="5" style="width: 100%;height:39px;"></p>
-                            </td>
-                        </tr> -->
                     </table>                     
 </section>
 <section class="edu-background">	

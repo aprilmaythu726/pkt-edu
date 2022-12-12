@@ -92,7 +92,7 @@ td{
         <th style="width: 40%;border-right:none !important;">氏名 Name in Full (Family → Given):</th>
         <td style="width: 30%;border-left:none !important;"><?php echo $result->applicant_name?></td>
         <th style="width: 15%;border-right:none !important;">性別 SEX</th>
-        <td style="border-left:none !important;"><?php echo $result->gender?></td>
+        <td style="border-left:none !important;"><?php if($result->gender == '1'){echo 'Male';}else{echo 'Female';}?></td>
     </tr>
 </table> 
 <table style="width: 100%;border-top:none !important;border-bottom:none !important;">
@@ -311,7 +311,7 @@ History of Employment (Write in order, ending with the most recent employment.)<
         <tr style="border-bottom:1.5px dotted #000000;font-size:12px;">
             <td style=" text-align: center;border-right:1.5px dotted #000000;"><?php echo $row6->fam_name?></td>
             <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row6->fam_relationship?></td>
-            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row6->birthday?></td>
+            <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php if($row6->birthday == ''){echo '-';}else{echo $row6->birthday;}?></td>
             <td style="text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row6->occupation?></td>
             <td style="text-align: center;border-left: none !important;"><?php echo $row6->address?></td>
         </tr>
@@ -384,8 +384,8 @@ History of Employment (Write in order, ending with the most recent employment.)<
     ?>
     <tr style="border-bottom:1.5px dotted #000000;font-size: 14px;">
 
-        <td style="font-size: 14px; text-align: center;border-right:1.5px dotted #000000;"><?php echo $row8->entry_date?></td>
-        <td style="font-size: 14px; text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row8->arrival_date?></td>
+        <td style="font-size: 14px; text-align: center;border-right:1.5px dotted #000000;"><?php if($row8->entry_date == '') {echo'-';} else{echo $row8->entry_date;}?></td>
+        <td style="font-size: 14px; text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php if($row8->arrival_date == ''){echo '-';}else{echo $row8->arrival_date;}?></td>
         <td style="font-size: 14px; text-align: center;border-left: none;border-right:1.5px dotted #000000;"><?php echo $row8->status?></td>
         <td style="font-size: 14px; text-align: center;"><?php echo $row8->entry_purpose?></td>
     </tr>
@@ -450,19 +450,7 @@ History of Employment (Write in order, ending with the most recent employment.)<
 </table>
 <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
     <tr style="width: 100%;border-top:none !important;">
-        <td style="font-size: 13px; text-align: left;width:15%;padding:12px 0px;">
-        <?php 
-        if($result->specific_plans_after_graduating == 'adv_to_high_edu'){echo 'Advancing to higher education';}
-        elseif($result->specific_plans_after_graduating == 'plan_to_work'){echo 'Planning to work';}
-        elseif($result->specific_plans_after_graduating == 'return_to_home'){echo 'Planning to work';}
-        elseif($result->specific_plans_after_graduating == 'attend_school_japan'){echo 'Planning to work';}
-        elseif($result->specific_plans_after_graduating == 'postgraduateCourse'){echo 'Planning to work';}
-        elseif($result->specific_plans_after_graduating == 'juniorCollege'){echo 'Planning to work';}
-        elseif($result->specific_plans_after_graduating == 'undergraduateCourse'){echo 'Planning to work';}
-        elseif($result->specific_plans_after_graduating == 'professionalSSchool'){echo 'Planning to work';}
-        elseif($result->specific_plans_after_graduating == 'other'){echo 'その他 /Other';}
-        else{echo '';}
-        ?>
+        <td style="font-size: 13px; text-align: left;width:15%;padding:12px 0px;"><?php echo $result->specific_plans_after_graduating?>
         </td>
     </tr>
 </table>
@@ -484,19 +472,19 @@ History of Employment (Write in order, ending with the most recent employment.)<
 <section class="personal-info" style="width:100%;"> 
     <table style="border:none !important;padding-top:10%;margin:0px;width:50%;border-top:none !important;text-align:left;" class="tbl">
         <tr style="border:none !important;width: 60%;">
-            <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">_____</td>
-            <th style="border:none !important;width:10%;">年 Year</th>
-            <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">_____</td>
-            <th style="border:none !important;width:10%;">月 Month</th>
-            <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">_____</td>
-            <th style="border:none !important;width:25%;font-family: big5;width:10%;">日 Date</th> 
+            <td style="border:none !important; text-align: center;"><?php echo $splitted = date('Y', strtotime($result->created_at));?></td>
+            <th style="border:none !important;">年 Year</th>
+            <td style="border:none !important;text-align: center;"><?php echo $splitted = date('m', strtotime($result->created_at));?></td>
+            <th style="border:none !important;">月 Month</th>
+            <td style="border:none !important;text-align: center;"><?php echo $splitted = date('d', strtotime($result->created_at));?></td>
+            <th style="border:none !important;">日 Date</th> 
         </tr>
     </table>
     </section> 
     <section class="personal-info" style="width:100%;float:right;padding-top:12px;"> 
     <div style="width: 45%;float:right">
     <p style="padding-left:150px;"><?php if(!empty($result->image_file)) { ?>
-    <img style="width:29%"; src="<?php echo base_url('upload/assets/adm/usr/'.$result->sign_file); ?>" width="150px;" class="pb-1">
+    <img style="width:40%"; src="<?php echo base_url('upload/assets/adm/usr/'.$result->sign_file); ?>" width="150px;" class="pb-1">
  <?php } ?></p>
   <p>署名 Signature:<span>____________________________</span></p>
 </div>
@@ -509,55 +497,6 @@ History of Employment (Write in order, ending with the most recent employment.)<
     </section>
 </div>
 </section> 
-    
- <!-- 
-    <section class="personal-info" style="width:100%;"> 
-    <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
-        <tr style="width: 100%;font-family: big5;">
-            <th >犯罪歴(日本または海外)  Criminal Record (in Japan or Overseas)</th>
-        </tr>
-    </table>
-    <table style="padding-top:10%;margin:0px;width:100%;border-top:none !important;text-align:left;" class="tbl">
-        <tr style="width: 100%;">
-        <td style="font-size: 11px; text-align: left;width:15%;">-</td>
-        </tr>
-    </table>
-    </section> 
-<section class="personal-info" style="width:100%;"> 
-    
-</section> 
-<section class="personal-info" style="width:100%;padding-top:22px;"> 
-<p style="font-family: big5;padding-top:12px;">
- 上記は全て真実であり、私が直筆あるいはコンピュータで作成したものです。<br/>
- I hereby declare the above statement is true and correct, and I myself filled in by my own handwriting or by computer. 
-</p>
-</section>
-<section class="personal-info" style="width:100%;"> 
-    <table style="border:none !important;padding-top:10%;margin:0px;width:50%;border-top:none !important;text-align:left;" class="tbl">
-        <tr style="border:none !important;width: 60%;">
-            <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">-</td>
-            <th style="border:none !important;width:10%;">年 Year</th>
-            <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">-</td>
-            <th style="border:none !important;width:10%;">月 Month</th>
-            <td style="border:none !important;font-size: 11px; text-align: left;width:10%;">-</td>
-            <th style="border:none !important;width:25%;font-family: big5;width:10%;">日 Date</th> 
-        </tr>
-    </table>
-    </section> 
-    <section class="personal-info" style="width:100%;float:right;padding-top:12px;"> 
-    <table style="border:none !important;padding-top:10%;margin:0px;width:100%;border-top:none !important;" class="tbl">
-        <tr style="border:none !important;">
-            <th style="width:70%;border:none !important;text-align:right;">  署名　Signature </th>
-            <td style="border:none !important;font-size: 11px; text-align: right;">________________________________</td>
-        </tr>
-    </table>
-    
-    </section>
-    <section class="personal-info" style="width:100%;float:right;padding-top:22px;padding-right:32px;">
-    <div class="edu-logo" style="width: 280px;float:right;">      
-    <img src="asset/admin/images/eccImg.jpg">
-    </div>
-    </section> -->
 </body>
 </html>
 </html>';

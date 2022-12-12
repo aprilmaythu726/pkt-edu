@@ -348,7 +348,9 @@ ul.manage-menu li {
     font-weight: 400;
     white-space: nowrap;
 }
-
+.table-responsive{
+    display: table !important;
+}
 ul.manage-menu li:last-child::after{
   content: "";
   position: absolute;

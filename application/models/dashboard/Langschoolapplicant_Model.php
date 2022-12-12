@@ -181,7 +181,6 @@ class Langschoolapplicant_Model extends CI_Model
     $this->db->where('applicant_name_kanji', $data_info['applicant_name_kanji']);
 		$this->db->where('jls_name', $data_info['jls_name']);
     $this->db->where('date_of_birthday', $data_info['date_of_birthday']);
-    $this->db->where('current_date', $data_info['current_date']);
     $this->db->where('info_age', $data_info['info_age']);
     $this->db->where('info_nationality', $data_info['info_nationality']);
     $this->db->where('gender', $data_info['gender']);

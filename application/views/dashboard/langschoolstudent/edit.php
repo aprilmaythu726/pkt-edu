@@ -2087,31 +2087,6 @@ $('#removeRow08').on('click', function(e) {
 });
 //  Remove  Row
  </script> 
-<!--<p style="border-bottom:none !important;border-top:none !important;" class="two_yrs_crs">
-    <span>２－Year course</span>
-    <span>２０
-    <?php
-          echo form_input(array(
-            'name' => 'course_start_date',
-            'type' => 'text',
-            'value' => html_escape(set_value('course_start_date',isset($result13)?$result13->course_start_date:''), ENT_QUOTES),
-            'class' => '',
-            'id' => 'course_start_date',
-            'style' => 'width:5%',
-            'autocomplete' => ''));
-        ?>
-    <span>年０４月 -- ２０ </span>
-    <?php
-          echo form_input(array(
-            'name' => 'course_end_date',
-            'type' => 'text',
-            'value' => html_escape(set_value('course_end_date',isset($result13)?$result13->course_end_date:''), ENT_QUOTES),
-            'class' => '',
-            'id' => 'course_end_date',
-            'style' => 'width:5%',
-            'autocomplete' => ''));
-        ?> 年０３月</span>
-</p> -->
 
 <!-- Name of Course -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -2165,7 +2140,13 @@ $(function() {
     const selectCourseName = '<?php echo $result13->select_name_of_course; ?>';
      if(selectCourseName){
       courseNameSelector(selectCourseName);
-     }    
+     }else{
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
+     }
    
 });
 
@@ -2174,6 +2155,7 @@ $(function() {
 <h6 class="" style="padding: 33px 0px 12px;">志望学科　Name of Course　* 東京日本橋校は4月期（2年,1年）と10月期（1.5年）のみ。</h6>
 <div class="form-group">
   <select name="select_name_of_course" id="select_name_of_course" class="course_select">
+    <option value="">Please Select!</option>
     <option value="進学２年コ－ス" <?php if($result13->select_name_of_course== "進学２年コ－ス") {echo "selected";} ?>>進学２年コ－ス</option>
     <option value="進学1年9ヶ月コ－ス" <?php if($result13->select_name_of_course== "進学1年9ヶ月コ－ス") {echo "selected";} ?>>進学1年9ヶ月コ－ス</option>
     <option value="進学１.５年コ－ス" <?php if($result13->select_name_of_course== "進学１.５年コ－ス") {echo "selected";} ?>>進学１.５年コ－ス</option>
@@ -2304,19 +2286,31 @@ $(function() {
 
 
 <script>
-$(function() {  
-    $("#future_plan_after_graduating").change(function() {
-       if($('option:selected', this).text() =="A. 進学 Advancing to higher education"){
-         $('.drop_checkbox').show();
-         $('.specify').hide();
-        }else if($('option:selected', this).text() =="D. その他 < Other> (Specify)"){
-         $('.drop_checkbox').hide();
-         $('.specify').show();
+$(function() {      
+     const futurePlanSelector = (future_plan) =>{
+      if(future_plan =="A. 進学 Advancing to higher education"){
+        $('.drop_checkbox').show();
+        $('.specify').hide();
+      }else if(future_plan =="D. その他 < Other> (Specify)"){
+        $('.drop_checkbox').hide();
+        $('.specify').show();
       }else{
-         $('.drop_checkbox').hide();
-         $('.specify').hide();
+        $('.drop_checkbox').hide();
+        $('.specify').hide();
       }
+     }
+     $("#future_plan_after_graduating").change(function() {
+       const futurePlanName = $('option:selected', this).text();
+       futurePlanSelector(futurePlanName);
+
     });
+    const selectfuturePlan = '<?php echo $result13->future_plan_after_graduating; ?>';
+     if(selectfuturePlan){
+      futurePlanSelector(selectfuturePlan);
+     }else{
+      $('.drop_checkbox').hide();
+      $('.specify').hide();
+     }
 });
 </script>
 <div class="col-md-12 float-left" style="padding-bottom: 15px;">

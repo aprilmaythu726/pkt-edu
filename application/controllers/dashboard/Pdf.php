@@ -61,6 +61,8 @@ class Pdf extends CI_Controller {
        $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
        $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
        $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+       $data['result9'] = $this->Pdf_Model->getJLSDetail9($id);
+
        // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
         $html = $this->load->view('dashboard/export/ecc_interview', $data, true);
        // var_dump($html);
@@ -97,6 +99,8 @@ class Pdf extends CI_Controller {
         $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
         $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
         $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+        $data['result9'] = $this->Pdf_Model->getJLSDetail9($id);
+
         // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
          $html = $this->load->view('dashboard/export/fukuoka_interview', $data, true);
         // var_dump($html);
@@ -132,6 +136,8 @@ class Pdf extends CI_Controller {
          $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
          $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
          $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+         $data['result9'] = $this->Pdf_Model->getJLSDetail9($id);
+
         // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
          $html = $this->load->view('dashboard/export/shizuoka_interview', $data, true);
         // var_dump($html);
@@ -168,6 +174,8 @@ class Pdf extends CI_Controller {
              $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
              $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
              $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+                         $data['result9'] = $this->Pdf_Model->getJLSDetail9($id);
+
             // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
              $html = $this->load->view('dashboard/export/ecc_admission', $data, true);
             // var_dump($html);
@@ -205,6 +213,8 @@ class Pdf extends CI_Controller {
             $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
             $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
             $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+            $data['result9'] = $this->Pdf_Model->getJLSDetail9($id);
+
            // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
             $html = $this->load->view('dashboard/export/fukuoka_admission', $data, true);
            // var_dump($html);
@@ -242,6 +252,8 @@ class Pdf extends CI_Controller {
             $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
             $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
             $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+            $data['result9'] = $this->Pdf_Model->getJLSDetail9($id);
+
            // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
             $html = $this->load->view('dashboard/export/shizuoka_admission', $data, true);
            // var_dump($html);
@@ -279,6 +291,8 @@ class Pdf extends CI_Controller {
             $data['result7'] = $this->Pdf_Model->getJLSDetail7($id);
             $data['resultfamjapan'] = $this->Pdf_Model->getFamJapan($id);
             $data['result8'] = $this->Pdf_Model->getJLSDetail8($id);
+            $data['result9'] = $this->Pdf_Model->getJLSDetail9($id);
+
            // $html = $this->load->view('dashboard/export/ecc_interview', $data['member'], true);
             $html = $this->load->view('dashboard/export/jcli_admission', $data, true);
            // var_dump($html);

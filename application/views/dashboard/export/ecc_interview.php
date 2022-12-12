@@ -161,9 +161,9 @@ $html = '
 	</div><br/>
     <div style="display: inline;padding: 0px;margin:0px;">
         <span class="ecc_date"  style="">Date:</span>
-        <span class="ecc_date"  style=""><span>　　</span>year</span>
-        <span class="ecc_date"  style=""><span>　　</span>month</span>
-        <span class="ecc_date"  style=""><span>　　</span>date</span>
+        <span class="ecc_date"  style=""><span><?php echo $splitted = date('Y', strtotime($result->created_at));?></span>year</span>
+        <span class="ecc_date"  style=""><span><?php echo $splitted = date('m', strtotime($result->created_at));?></span>month</span>
+        <span class="ecc_date"  style=""><span><?php echo $splitted = date('d', strtotime($result->created_at));?></span>date</span>
     </div>
 </section>
 <section class="eligibility">	
@@ -186,7 +186,7 @@ $html = '
                 <th style="width:20%;border-right:none !important;font-size:13px;">	
                 Sex:		
                 </th>
-                <td colspan="1.5" style="border-left:none !important;font-size:13px;"><?php echo $result->info_age?></td>
+                <td colspan="1.5" style="border-left:none !important;font-size:13px;"><?php if($result->gender == '1'){echo 'Male';}else{echo 'Female';}?></td>
             </tr>
             <tr>
                 <th class="ecc_stu_name" style="width:10%;border-right:none !important;font-size:13px;">				
@@ -346,7 +346,7 @@ $html = '
             <tr>
                 <td style="font-size: 11px; text-align: center;border-left: none;"><?php echo $row4->going_name?></td>
                 <td style="font-size: 11px; text-align: left;border-right:none !important;"><p style="text-align: left;padding:0px;margin:0px;display:flex;">Level:</p><?php echo $row4->going_level?></td>
-                <td style="font-size: 11px; text-align: left;border-left:none !important;"><p style="text-align: left;padding:0px;margin:0px;display:flex;">Date:</p><?php echo $row4->going_level?></td>
+                <td style="font-size: 11px; text-align: left;border-left:none !important;"><p style="text-align: left;padding:0px;margin:0px;display:flex;">Date:</p><?php echo $row4->going_date?></td>
             </tr>
             <!-- <tr>
                 <td style="font-size: 11px; text-align: left;border-left: none;"></td>
@@ -444,12 +444,12 @@ $html = '
           foreach($result6 as $row6){
         ?> 
            <tr>
-                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->fam_name?></td>
-                <td style="font-size: 12px; text-align: left;height:24px;"><?php echo $row6->fam_relationship?></td>
-                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->work_place?></td>
-                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->occupation?></td>
-                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->length_sevice?></td>
-                <td style="font-size: 11px; text-align: left;height:24px;"><?php echo $row6->annual_income?></td>
+                <td style="font-size: 11px; text-align: center;height:24px;"><?php echo $row6->fam_name?></td>
+                <td style="font-size: 12px; text-align: center;height:24px;"><?php echo $row6->fam_relationship?></td>
+                <td style="font-size: 11px; text-align: center;height:24px;"><?php echo $row6->work_place?></td>
+                <td style="font-size: 11px; text-align: center;height:24px;"><?php echo $row6->occupation?></td>
+                <td style="font-size: 11px; text-align: center;height:24px;"><?php echo $row6->length_sevice?></td>
+                <td style="font-size: 11px; text-align: center;height:24px;"><?php echo $row6->annual_income?></td>
             </tr>
         <?php } ?>  
             <!-- <tr>

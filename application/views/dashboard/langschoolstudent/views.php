@@ -302,6 +302,7 @@
 table thead th {
   vertical-align: middle !important;
 }
+
 </style>
 <?php include(dirname(__FILE__) ."/../templates/footer.php"); ?>
 
