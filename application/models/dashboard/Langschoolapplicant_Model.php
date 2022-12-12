@@ -45,12 +45,15 @@ class Langschoolapplicant_Model extends CI_Model
   }
   public function getJLSList()
   {
-    $this->db->select('id,applicant_name,applicant_name_kanji,jls_name,info_phone,address,std_email,created_at,updated_at');
+    $this->db->select('*');
     $this->db->from($this->db1);
     $query=$this->db->get();
     return $query->result();
   }
-  
+  // public function countRow(){
+  //   $this->db->select('appli_status');
+  //   return $this->db->get($this->db1)->row();
+  // }
   public function getJLSDetail($id)
   {
     $this->db->select('*,JLS_applicant_info.id');

@@ -110,22 +110,22 @@
 <div class="status_popup" >
 <div class="school_list status_select" name="" >
 <p class="list_label">Status </p>
-<select name="" id="sele_popup " class="school_select">
-<option value="" <?php if($result->status== "") echo "selected"; ?>>Please Select!</option>
-        <option value="Register" <?php if($result->status== "Register") echo "selected"; ?>>Register</option>
-        <option value="Interview" <?php if($result->status== "Interview") echo "selected"; ?>>Interview</option>
-        <option value="Interview Failed" <?php if($result->status== "Interview Failed") echo "selected"; ?>>Interview Failed</option>
-        <option value="Admission" <?php if($result->status== "Admission") echo "selected"; ?>>Admission</option>
-        <option value="Admission Complete" <?php if($result->status== "Admission Complete") echo "selected"; ?>>Admission Complete</option>
-        <option value="COE Waiting" <?php if($result->status== "COE Waiting") echo "selected"; ?>>COE Waiting</option>
-        <option value="Cancel" <?php if($result->status== "Cancel") echo "selected"; ?>>Cancel</option>
-        <option value="COE Failed" <?php if($result->status== "COE Failed") echo "selected"; ?>>COE Failed</option>
-        <option value="COE Passed" <?php if($result->status== "COE Passed") echo "selected"; ?>>COE Passed</option>
+<select name="appli_status" id="sele_popup " class="school_select">
+<option value="">Please Select!</option>
+        <option value="Register" <?php if($result->appli_status== "Register") echo "selected"; ?>>Register</option>
+        <option value="Interview" <?php if($result->appli_status== "Interview") echo "selected"; ?>>Interview</option>
+        <option value="Interview Failed" <?php if($result->appli_status== "Interview Failed") echo "selected"; ?>>Interview Failed</option>
+        <option value="Admission" <?php if($result->appli_status== "Admission") echo "selected"; ?>>Admission</option>
+        <option value="Admission Complete" <?php if($result->appli_status== "Admission Complete") echo "selected"; ?>>Admission Complete</option>
+        <option value="COE Waiting" <?php if($result->appli_status== "COE Waiting") echo "selected"; ?>>COE Waiting</option>
+        <option value="Cancel" <?php if($result->appli_status== "Cancel") echo "selected"; ?>>Cancel</option>
+        <option value="COE Failed" <?php if($result->appli_status== "COE Failed") echo "selected"; ?>>COE Failed</option>
+        <option value="COE Passed" <?php if($result->appli_status== "COE Passed") echo "selected"; ?>>COE Passed</option>
 </select>
 </div>
   <!-- Status Name -->
   <!-- interview date -->
-  <div class="col-md-10 float-left" id="interview_date"  style="display: none;">
+  <div class="col-md-10" id="interview_date"  style="display: none;">
     <div class="form-group school_list"  style="width:60% ;padding: 0px;">
     <p class="list_label" >
        <label style="margin-bottom: 0px;margin-top: 12px;">Interview Date</label>
@@ -148,7 +148,7 @@
 
 
 <!-- admission date -->
-<div class="col-md-10 float-left" id="admission_date" style="display: none;">
+<div class="col-md-10" id="admission_date" style="display: none;">
     <div class="form-group school_list"  style="width:60% ;padding: 0px;">
     <p class="list_label" >
        <label  style="margin-bottom: 0px;margin-top: 12px;">Admission Date</label>
@@ -169,7 +169,7 @@
 <!-- admission date -->
 
 <!-- collect data expired date -->
-<div class="col-md-10 float-left" id="data_expired_date" style="display: none;">
+<div class="col-md-10" id="data_expired_date" style="display: none;">
     <div class="form-group school_list"  style="width:60% ;padding: 0px;">
     <p class="list_label">
        <label  style="margin-bottom: 0px;margin-top: 12px;">Collect Data EXP Date</label>
@@ -190,7 +190,7 @@
 <!-- collect data expired date -->
 
 <!-- admission date -->
-<div class="col-md-10 float-left" id="adm_complete_date" style="display: none;">
+<div class="col-md-10" id="adm_complete_date" style="display: none;">
     <div class="form-group school_list" style="width:60% ;padding: 0px;">
     <p class="list_label">
        <label  style="margin-bottom: 0px;margin-top: 12px;">Complete Date</label>
@@ -211,7 +211,7 @@
 <!-- admission date -->
 
 <!-- tracking code -->
-<div class="col-md-10 float-left" id="tracking_code" style="display: none;">
+<div class="col-md-10" id="tracking_code" style="display: none;">
     <div class="form-group school_list"  style="width:60% ;padding: 0px;margin-top: 8px;">
     <p class="list_label">
        <label  style="margin-bottom: 0px;margin-top: 12px;">Tracking Code</label>
@@ -1189,26 +1189,26 @@ $(function() {
     </select>
   </div>
   <div class="form-group">
-  <?php echo form_label('Are you allergic to any medicine or foods?', 'provide_english', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+  <?php echo form_label('Are you allergic to any medicine or foods?', 'allergic_medicine', array( 'class' => 'form-control-label', 'id'=> '')); ?>
   <span class="badge badge-danger">Required</span>
-    <select name="provide_english" id="provide_english" class="admission_select">
+    <select name="allergic_medicine" id="allergic_medicine" class="admission_select">
         <option value="1">Yes</option>
         <option value="0">No</option>
     </select>
   </div>
   <div class="form-group">
-        <?php echo form_label('If you select ”Yes”, please tell us in detal about your allegy.', 'will_you_return', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('If you select ”Yes”, please tell us in detal about your allegy.', 'allergic_medicine_details', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => 'will_you_return',
+            'name' => 'allergic_medicine_details',
             'type' => 'text',
-            'value' => html_escape(set_value('will_you_return',isset($result)?$result->will_you_return:''), ENT_QUOTES),
+            'value' => html_escape(set_value('will_you_return',isset($result13)?$result13->allergic_medicine_details:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'will_you_return',
+            'id' => 'allergic_medicine_details',
             'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('will_you_return'); ?></span>
+        <span class="text-danger"><?php echo form_error('allergic_medicine_details'); ?></span>
   </div>
   
 </div> 
@@ -1278,18 +1278,18 @@ $(function() {
   <?php echo form_label('Intended to enroll', 'intended_roll', array( 'class' => 'form-control-label', 'id'=> '')); ?>
     <span class="badge badge-danger">Required</span>
     <select name="intended_roll" id="intended_roll" class="admission_select">
-          <option value="1" <?php if($result13->intended_roll== "issued") {echo "selected";} ?>>issued</option>
-          <option value="0" <?php if($result13->intended_roll== "issued") {echo "selected";} ?>>denied</option>
+          <option value="1" <?php if($result13->intended_roll== "1") {echo "selected";} ?>>issued</option>
+          <option value="0" <?php if($result13->intended_roll== "0") {echo "selected";} ?>>denied</option>
       </select>
 </div>
 <div class="form-group">
        <?php echo form_label('ビザの種類 type of visa', 'eligibility_visa', array( 'class' => 'form-control-label', 'id'=> '')); ?>
        <span class="badge badge-danger">Required</span>
        <select name="eligibility_visa" id="eligibility_visa" class="admission_select">
-          <option value="Student" <?php if($result13->eligibility_visa== "1") {echo "selected";} ?>>Student</option>
-          <option value="Trainee" <?php if($result13->eligibility_visa== "0") {echo "selected";} ?>>Trainee</option>
-          <option value="Technical" <?php if($result13->eligibility_visa== "1") {echo "selected";} ?>>Technical</option>
-          <option value="Others" <?php if($result13->eligibility_visa== "0") {echo "selected";} ?>>Others</option>
+          <option value="Student" <?php if($result13->eligibility_visa== "Student") {echo "selected";} ?>>Student</option>
+          <option value="Trainee" <?php if($result13->eligibility_visa== "Trainee") {echo "selected";} ?>>Trainee</option>
+          <option value="Technical" <?php if($result13->eligibility_visa== "Technical") {echo "selected";} ?>>Technical</option>
+          <option value="Others" <?php if($result13->eligibility_visa== "Others") {echo "selected";} ?>>Others</option>
         </select>
       </div> 
 </div>
@@ -1538,10 +1538,10 @@ $(function() {
        <div class="form-group">
         <?php echo form_label('Relation', 'consent_relation', array( 'class' => '', 'id'=> '')); ?>
           <select name="consent_relation" id="consent_relation" class="admission_select">
-              <option value="father">Father</option>
-              <option value="mother">Mother</option>
-              <option value="brother">Brother/Sister</option>
-              <option value="other">Others</option>
+              <option value="father" <?php if($result13->consent_relation== "father") {echo "selected";} ?>>Father</option>
+              <option value="mother" <?php if($result13->consent_relation== "mother") {echo "selected";} ?>>Mother</option>
+              <option value="brother" <?php if($result13->consent_relation== "brother") {echo "selected";} ?>>Brother/Sister</option>
+              <option value="other" <?php if($result13->consent_relation== "other") {echo "selected";} ?>>Others</option>
           </select>
       </div>
 
@@ -1635,7 +1635,7 @@ $(function() {
           echo form_input(array(
             'name' => 'second_year_tuitioin_fee',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result13)?$result13->second_year_tuitioin_fee:''), ENT_QUOTES),
+            'value' => html_escape(set_value('second_year_tuitioin_fee',isset($result13)?$result13->second_year_tuitioin_fee:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'second_year_tuitioin_fee',
@@ -1665,7 +1665,7 @@ $(function() {
           echo form_input(array(
             'name' => 'living_expense_amount',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result13)?$result13->living_expense_amount:''), ENT_QUOTES),
+            'value' => html_escape(set_value('living_expense_amount',isset($result13)?$result13->living_expense_amount:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'living_expense_amount',
@@ -1676,9 +1676,9 @@ $(function() {
        <div class="form-group">
         <?php echo form_label('Method of payment', 'payment_method', array( 'class' => '', 'id'=> '')); ?>
           <select name="payment_method" id="payment_method" class="admission_select">
-              <option value="father">Bank Transfer (Overseas Remittance)</option>
-              <option value="mother">Credit Card</option>
-              <option value="other">Others</option>
+              <option value="father" <?php if($result13->payment_method== "father") {echo "selected";} ?>>Bank Transfer (Overseas Remittance)</option>
+              <option value="mother" <?php if($result13->payment_method== "mother") {echo "selected";} ?>>Credit Card</option>
+              <option value="other" <?php if($result13->payment_method== "other") {echo "selected";} ?>>Others</option>
           </select>
       </div>
       <div class="form-group">
@@ -1688,7 +1688,7 @@ applicant and your relationship to the applicant.','defraying_details', array('c
           echo form_input(array(
             'name' => 'defraying_details',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result13)?$result13->defraying_details:''), ENT_QUOTES),
+            'value' => html_escape(set_value('defraying_details ',isset($result13)?$result13->defraying_details:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'defraying_details',
@@ -1718,10 +1718,10 @@ applicant and your relationship to the applicant.','defraying_details', array('c
        <div class="form-group">
         <?php echo form_label('Relation', 'defraying_relation', array( 'class' => '', 'id'=> '')); ?>
           <select name="defraying_relation" id="defraying_relation" class="admission_select">
-              <option value="father">Father</option>
-              <option value="mother">Mother</option>
-              <option value="brother">Brother/Sister</option>
-              <option value="other">Others</option>
+              <option value="father" <?php if($result13->defraying_relation== "father") {echo "selected";} ?>>Father</option>
+              <option value="mother" <?php if($result13->defraying_relation== "mother") {echo "selected";} ?>>Mother</option>
+              <option value="brother" <?php if($result13->defraying_relation== "brother") {echo "selected";} ?>>Brother/Sister</option>
+              <option value="other" <?php if($result13->defraying_relation== "other") {echo "selected";} ?>>Others</option>
           </select>
       </div>
 
@@ -1730,7 +1730,7 @@ applicant and your relationship to the applicant.','defraying_details', array('c
         <span class="badge badge-danger">Required</span>
         <?php
           echo form_input(array(
-            'name' => 'family_address',
+            'name' => 'defraying_tel',
             'type' => 'text',
             'value' => html_escape(set_value('defraying_tel',isset($result13)?$result13->defraying_tel:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
@@ -2464,7 +2464,7 @@ $(function() {
         echo form_input(array(
           'name' => 'registered_enrollment',
           'type' => 'text',
-          'value' => html_escape(set_value('registered_enrollment',isset($result)?$result->military_service_details:''), ENT_QUOTES),
+          'value' => html_escape(set_value('registered_enrollment',isset($result13)?$result13->registered_enrollment:''), ENT_QUOTES),
           'placeholder' => 'Please Enter!',
           'class' => 'form-control',
           'id' => 'registered_enrollment',
