@@ -217,7 +217,7 @@ th{
 </p>
 <table style="width: 100%;border:1px solid #000000;">
 <tr>
-    <td style="width: 100%;height:80px;border:1px solid #000000;"></td>
+    <td style="width: 100%;height:80px;border:1px solid #000000;"><?php echo $result9->student_work_details?></td>
  </tr>
 </table>
 </div>
@@ -268,20 +268,20 @@ th{
     <tr>
       <td style="width:10%;border-right:none !important;">
         <p style="font-size: 12px;text-align:left;float:right;">
-            <input type="checkbox"><label for="" style="font-size: 14px;">交付<br/>issued</label>
+            <input type="checkbox" <?php if($result9->intended_roll == 'issued'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">交付<br/>issued</label>
         </p>
       </td>
       <td style="font-size:12px;width:27%;text-align:left;border-right:none !important;border-left:none !important;">(申請時の入学予定 年 月期生<br/>Intended to enroll  </td>
-      <td style="width:12%;text-align:left;border-right:none !important;border-left:none !important;">年<br/>year</td>
-      <td style="width:12%;text-align:left;border-left:none !important;border-right:none !important;">月期生)<br/>month</td>
+      <td style="width:12%;text-align:left;border-right:none !important;border-left:none !important;"><?php echo $splitted = date('Y', strtotime($result9->issued_date	));?>年<br/>year</td>
+      <td style="width:12%;text-align:left;border-left:none !important;border-right:none !important;"><?php echo $splitted = date('m', strtotime($result9->issued_date	));?>月期生)<br/>month</td>
       <td style="width:12%;border-right:none !important;border-left:none !important;">
         <p style="font-size: 12px;text-align:left;float:right;">
-            <input type="checkbox"><label for="" style="font-size: 14px;">不交付<br/>denied</label>
+            <input type="checkbox" <?php if($result9->intended_roll == 'denied'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">不交付<br/>denied</label>
         </p>
       </td>  
       <td style="font-size:12px;width:25%;text-align:left;border-right:none !important;border-left:none !important;">(申請時の入学予定 年 月期生<br/>Intended to enroll  </td>
-      <td style="width:12%;text-align:left;border-right:none !important;border-left:none !important;">年<br/>year</td>
-      <td style="width:12%;text-align:left;border-left:none !important;border-right:none !important;">月期生)<br/>month</td>
+      <td style="width:12%;text-align:left;border-right:none !important;border-left:none !important;"><?php echo $splitted = date('Y', strtotime($result9->issued_date	));?>年<br/>year</td>
+      <td style="width:12%;text-align:left;border-left:none !important;border-right:none !important;"><?php echo $splitted = date('m', strtotime($result9->issued_date	));?>月期生)<br/>month</td>
     </tr>
     </table>
 
@@ -290,22 +290,22 @@ th{
       <td style="width:25%;text-align:left;border-right:none !important;border-left:none !important;">ビザの種類 type of visa </td>
       <td style="width:12%;text-align:left;border-right:none !important;border-left:none !important;">
          <p style="font-size: 12px;text-align:left;float:right;">
-            <input type="checkbox"><label for="" style="font-size: 14px;">留学<br/>Student</label>
+            <input type="checkbox" <?php if($result9->eligibility_visa == 'Student'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">留学<br/>Student</label>
          </p>
       </td>
       <td style="width:12%;text-align:left;border-right:none !important;border-left:none !important;">
          <p style="font-size: 12px;text-align:left;float:right;">
-            <input type="checkbox"><label for="" style="font-size: 14px;">研修<br/>Trainee</label>
+            <input type="checkbox" <?php if($result9->eligibility_visa == 'Trainee'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">研修<br/>Trainee</label>
          </p>
       </td>
       <td style="width:12%;text-align:left;border-right:none !important;border-left:none !important;">
          <p style="font-size: 12px;text-align:left;float:right;">
-            <input type="checkbox"><label for="" style="font-size: 14px;">技能実習<br/>Technical Intern Training</label>
+            <input type="checkbox" <?php if($result9->eligibility_visa == 'Technical'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">技能実習<br/>Technical Intern Training</label>
          </p>
       </td>
       <td style="width:12%;text-align:left;border-right:none !important;border-left:none !important;">
          <p style="font-size: 12px;text-align:left;float:right;">
-            <input type="checkbox"><label for="" style="font-size: 14px;">その他<br/>Others</label>
+            <input type="checkbox" <?php if($result9->eligibility_visa == 'Others'){ echo "checked='checked'"; } ?>><label for="" style="font-size: 14px;">その他<br/>Others</label>
          </p>
       </td>
       <td style="width:12%;text-align:left;border-right:none !important;border-left:none !important;">(</td>
@@ -840,7 +840,7 @@ Further, when the above person applies for an extension of period of stay, I wil
  <table style="width: 100%;">
   <tr style="border-top: none !important;border-left: none !important;border-right: none !important;">
     <th style="width: 30%;background-color:none !important;border-right: none !important;font-size:14px;">TEL(workplace) :</th>
-    <td style="width: 60%;border-left: none !important;font-size:14px;"><?php echo $result9->name="defraying_work_tel" ?></td>
+    <td style="width: 60%;border-left: none !important;font-size:14px;"><?php echo $result9->defraying_work_tel ?></td>
   </tr>
  </table>
 
@@ -849,7 +849,11 @@ Further, when the above person applies for an extension of period of stay, I wil
  <table style="width: 100%;">
   <tr style="border-top: none !important;border-left: none !important;border-right: none !important;">
     <th style="width: 10%;background-color:none !important;border-right: none !important;font-size:14px;">Signature:</th>
-    <td style="width: 30%;border-left: none !important;font-size:14px;"></td>
+    <td style="width: 30%;border-left: none !important;font-size:14px;">
+    <?php if(!empty($result9->defraying_sign)) { ?>
+      <img src="<?php echo base_url('upload/assets/adm/usr/'.$result9->defraying_sign); ?>" style="width:50px;height:auto;" class="pb-1">
+    <?php } ?>
+    </td>
   </tr>
  </table>
  </div>

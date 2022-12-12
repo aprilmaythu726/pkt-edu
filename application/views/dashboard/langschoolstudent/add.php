@@ -11,20 +11,6 @@
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
       <a href="<?php echo base_url('adm/portal/jls_applicant'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
       </div>
-      <div class="" style="float: right;padding-right: 78px;width: 36%;">
-        <?php echo form_label('Date', 'created_at', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'created_at')); ?>
-        <span class="badge badge-danger">Required</span>
-        <?php
-          echo form_input(array(
-            'name' => 'created_at',
-            'type' => 'date',
-            'value' => html_escape(set_value('created_at',isset($result)?$result->created_at:''), ENT_QUOTES),
-            'placeholder' => 'Enter Date Of Birth!',
-            'class' => 'form-control',
-            'id' => 'created_at',
-            'autocomplete' => ''));
-          ?>
-      </div>
     </div>
     
   </div> 
@@ -1567,8 +1553,8 @@ $(function() {
       </div>
       <div class="form-group">
         <?php echo form_label('Below please explain in detail the circumstances for your defraying the costs of the
-applicant and your relationship to the applicant.','living_expense_amount', array('class' => '')); ?>
-        <span class="badge badge-danger">Required</span>
+applicant and your relationship to the applicant.','defraying_details', array('class' => '')); ?>
+        <!-- <span class="badge badge-danger">Required</span> -->
         <?php
           echo form_input(array(
             'name' => 'defraying_details',
@@ -1742,18 +1728,18 @@ $(function() {
          $('.oneyrs_fivemths_crs').hide();
          $('.oneyrs_threemths_crs').show();
          $('.one_yrs_course').hide();
-      }else if($('option:selected', this).val() =="進学１年コ－ス"){
+      }else if($('option:selected', this).text() =="進学１年コ－ス"){
          $('.two_yrs_crs').hide();
          $('.oneyrs_ninemths_crs').hide();
          $('.oneyrs_fivemths_crs').hide();
          $('.oneyrs_threemths_crs').hide();
          $('.one_yrs_course').show();
       }else{
-        $('.data_expired_date').hide();
-        $('.admission_date').hide();
-        $('.interview_date').hide();
-        $('.tracking_code').hide();
-        $('.adm_complete_date').hide();
+         $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
       }
     });
 });
@@ -1773,7 +1759,8 @@ $(function() {
     <option value="進学１年コ－ス">進学１年コ－ス</option>
   </select>
 </div>
-<p style="border-bottom:none !important;border-top:none !important;display:none;" class="two_yrs_crs">
+<p></p>
+<p style="display:none;" class="two_yrs_crs">
     <span>２－Year course</span>
     <span>２０
     <?php
@@ -1798,7 +1785,7 @@ $(function() {
             'autocomplete' => ''));
         ?> 年０３月</span>
 </p>
-<p style="border-bottom:none !important;border-top:none !important;display:none;" class="oneyrs_ninemths_crs">
+<p style="display:none;" class="oneyrs_ninemths_crs">
     <span>1 Year and 9 Months course</span>
     <span>２０ <?php
           echo form_input(array(
@@ -1820,7 +1807,7 @@ $(function() {
           'autocomplete' => ''));
       ?>年０３月</span>
 </p>
-<p style="border-bottom:none !important;border-top:none !important;display:none;" class="oneyrs_fivemths_crs">
+<p style="display:none;" class="oneyrs_fivemths_crs">
     <span>1.5－Year course</span>
     <span>２０ <?php
           echo form_input(array(
@@ -1842,7 +1829,7 @@ $(function() {
           'autocomplete' => ''));
       ?>年０３月</span>
 </p>
-<p style="border-bottom:none !important;border-top:none !important;display:none;" class="oneyrs_threemths_crs">
+<p style="display:none;" class="oneyrs_threemths_crs">
     <span>1 Year and 3 Months course</span>
     <span>２０  <?php
           echo form_input(array(
@@ -1864,7 +1851,7 @@ $(function() {
           'autocomplete' => ''));
       ?> 年０３月</span>
 </p>
-<p style="border-bottom:none !important;border-top:none !important;display:none;" class="one_yrs_course">
+<p style="display:none;" class="one_yrs_course">
     <span>１－Year course<?php
           echo form_input(array(
             'name' => 'one_crs_start_date',
@@ -1886,50 +1873,59 @@ $(function() {
       ?>年０３月</span>
 </p>
 </div>
-<!-- table -->
-<!-- <div class="col-md-12 float-left" style="padding-bottom: 15px;">
-<div class="tbl">
-<table class="table-bordered" name="applicant_id" style="border-bottom:none !important;">
-  <tr colspan="3" style="border-bottom:none !important;">
-    <td colspan="3" style="border-bottom:none !important;">1 志望学科　Name of Course　* 東京日本橋校は4月期（2年,1年）と10月期（1.5年）のみ。</td>
-  </tr>
-  <tr style="border-bottom:none !important;">
-    <td style="width:30%;border-bottom:none !important;border-right:none !important;padding-top:">
-        <select name="" id="" class="course_select">
-          <option value="進学２年コ－ス">進学２年コ－ス</option>
-          <option value="進学1年9ヶ月コ－ス">進学1年9ヶ月コ－ス</option>
-          <option value="進学１.５年コ－ス">進学１.５年コ－ス</option>
-          <option value="進学1年3ヶ月コ－ス">進学1年3ヶ月コ－ス</option>
-          <option value="進学１年コ－ス">進学１年コ－ス</option>
-        </select>
-    </td>
-    <td style="width:30%;border-bottom:none !important;border-left:none !important;border-right:none !important;">２－Year course</td>
-    <td style="width:30%;border-bottom:none !important;border-left:none !important;">２０<input type="text" style="width:20%;" name="twyrs_firstinput[]" id="twyrs_firstinput"> 年０４月 -- ２０<input type="text" style="width:20%;" name="twyrs_secinput[]" id="twyrs_secinput"> 年０３月</td>
-  </tr>
-  <tr style="border-bottom:none !important;border-top:none !important;">
-    <td style="border-bottom:none !important;border-top:none !important;border-right:none !important;"></td>
-    <td style="width:30%;border-bottom:none !important;border-top:none !important;border-left:none !important;border-right:none !important;">1 Year and 9 Months course</td>
-    <td style="width:30%;border-bottom:none !important;border-top:none !important;border-left:none !important;">２０<input type="text" style="width:20%;" name="oneyear_ninemonth_firstinput[]" id="oneyear_ninemonth_firstinput"> 年０７月 -- ２０<input type="text" style="width:20%;" name="oneyear_ninemonth_secinput[]" id="oneyear_ninemonth_secinput"> 年０３月</td>
-  </tr>
-  <tr style="border-bottom:none !important;border-top:none !important;">
-    <td style="border-bottom:none !important;border-top:none !important;border-right:none !important;"></td>
-    <td  style="width:30%;border-bottom:none !important;border-top:none !important;border-left:none !important;border-right:none !important;">1.5－Year course</td>
-    <td  style="width:30%;border-bottom:none !important;border-top:none !important;border-left:none !important;">２０<input type="text" style="width:20%;" name="onepoint_fivemonth_firstinput[]" id="onepoint_fivemonth_firstinput"> 年１０月 -- ２０<input type="text" style="width:20%;" name="onepoint_fivemonth_secinput[]" id="onepoint_fivemonth_secinput"> 年０３月</td>
-  </tr>
-  <tr style="border-bottom:none !important;border-top:none !important;">
-    <td style="border-bottom:none !important;border-top:none !important;border-right:none !important;"></td>
-    <td  style="width:30%;border-bottom:none !important;border-top:none !important;border-left:none !important;border-right:none !important;">1 Year and 3 Months course</td>
-    <td  style="width:30%;border-bottom:none !important;border-top:none !important;border-left:none !important;">２０<input type="text" style="width:20%;" name="oneyear_threemonth_firstinput[]" id="oneyear_threemonth_firstinput"> 年０１月 -- ２０<input type="text" style="width:20%;" name="oneyear_threemonth_secinput[]" id="oneyear_threemonth_secinput"> 年０３月</td>
-  </tr>
-  <tr style="border-top:none !important;">
-    <td style="border-top:none !important;border-right:none !important;"></td>
-    <td  style="width:30%;border-top:none !important;border-left:none !important;border-right:none !important;">１－Year course</td>
-    <td  style="width:30%;border-top:none !important;border-left:none !important;">２０<input type="text" style="width:20%;" name="one_year_firstinput[]" id="one_year_firstinput"> 年０４月 -- ２０<input type="text" style="width:20%;" name="one_year_secinput[]" id="one_year_secinput"> 年０３月</td>
-  </tr>
-</table>
+<script>
+$(function() {  
+    $("#future_plan_after_graduating").change(function() {
+       if($('option:selected', this).text() =="A. 進学 Advancing to higher education"){
+         $('.drop_checkbox').show();
+         $('.specify').hide();
+        }else if($('option:selected', this).text() =="D. その他 < Other> (Specify)"){
+         $('.drop_checkbox').hide();
+         $('.specify').show();
+      }else{
+         $('.drop_checkbox').hide();
+         $('.specify').hide();
+      }
+    });
+});
+</script>
+<div class="col-md-12 float-left" style="padding-bottom: 15px;">
+<h6 class="" style="padding: 33px 0px 12px;"> この学校を卒業した後の予定 < Future plan after graduating from this school.></h6>
+<div class="form-group">
+  <select name="future_plan_after_graduating" id="future_plan_after_graduating" class="course_select">
+    <option value="">Please Select!</option>
+    <option value="A. 進学 Advancing to higher education">A. 進学 Advancing to higher education</option>
+    <option value="B. 就職 Planning to work">B. 就職 Planning to work</option>
+    <option value="C. 帰国 Returning home">C. 帰国 Returning home</option>
+    <option value="D. その他 < Other> (Specify)">D. その他 < Other> (Specify)</option>
+  </select>
 </div>
-</div> -->
-<!-- table -->
+<div class="drop_checkbox" style="display:none;">
+<select name="future_plan_checkdata01" id="future_plan_checkdata01" class="course_select">
+    <option value="">Please Select!</option>
+    <option value="大学院( Master's degree / Doctoral course)">大学院( Master's degree / Doctoral course)</option>
+    <option value="短期大学( Junior College )">短期大学( Junior College )</option>
+    <option value="大学( Undergraduate(Bachelor) )">大学( Undergraduate(Bachelor) )</option>
+    <option value="専門学校( Vocational School )">専門学校( Vocational School )</option>
+    <option value="その他 ( Other )">その他 ( Other )</option>
+</select>
+</div>
+
+<div class="specify" style="display:none;">
+  <?php
+      echo form_input(array(
+        'name' => 'spec_other',
+        'type' => 'text',
+        'value' => html_escape(set_value('spec_other',isset($result)?$result->spec_other:''), ENT_QUOTES),
+        'class' => 'form-control',
+        'id' => 'spec_other',
+        'placeholder' => '-',
+        'style' => 'width:49%;',
+        'autocomplete' => ''));
+    ?>
+  </div>
+</div>
+
 
 <!-- Table -->
 <div class="col-md-12 float-left">

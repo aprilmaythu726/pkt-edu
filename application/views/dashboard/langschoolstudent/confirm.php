@@ -12,11 +12,6 @@
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
       <a href="<?php echo base_url('adm/portal/jls_applicant'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">reorder</span></a>
       </div>
-      <div class="" style="float: right;padding-right: 78px;width: 36%;">
-        <?php echo form_label('Date', 'created_at', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'created_at')); ?>
-        <p class="comfirm_val" id="created_at" name="created_at"><?php echo $lists['created_at']; ?></p>
-    </div>
-
     </div>
   </div> 
 
@@ -829,11 +824,11 @@ $(function() {
          $('.oneyrs_threemths_crs').hide();
          $('.one_yrs_course').show();
       }else{
-        $('.data_expired_date').hide();
-        $('.admission_date').hide();
-        $('.interview_date').hide();
-        $('.tracking_code').hide();
-        $('.adm_complete_date').hide();
+        $('.two_yrs_crs').hide();
+         $('.oneyrs_ninemths_crs').hide();
+         $('.oneyrs_fivemths_crs').hide();
+         $('.oneyrs_threemths_crs').hide();
+         $('.one_yrs_course').hide();
       }
     });
 
@@ -878,6 +873,33 @@ $(function() {
    ２０  <?php echo $other_info['one_crs_end_date']; ?>年０３月
   </span>
   
+</div>
+<!-- table -->
+<script>
+$(function() {  
+       if(($('#future_plan_after_graduating', this).text()) =="A. 進学 Advancing to higher education"){
+         $('.drop_checkbox').show();
+         $('.specify').hide();
+        }else if(($('#future_plan_after_graduating', this).text()) =="D. その他 < Other> (Specify)"){
+         $('.drop_checkbox').hide();
+         $('.specify').show();
+      }else{
+         $('.drop_checkbox').hide();
+         $('.specify').hide();
+      }
+    });
+</script>
+<div class="col-md-12 float-left" style="padding-bottom: 15px;">
+<h6 class="" style="padding: 33px 0px 12px;">この学校を卒業した後の予定 < Future plan after graduating from this school.></h6>
+<div class="form-group">
+    <p class="comfirm_val" id="future_plan_after_graduating" name="future_plan_after_graduating"><?php echo $other_info['future_plan_after_graduating']; ?></p>
+</div>
+<div class="drop_checkbox">
+<p class="comfirm_val" id="future_plan_checkdata01" name="future_plan_checkdata01"><?php echo $other_info['future_plan_checkdata01']; ?></p>
+</div>
+<div class="specify">
+<p class="comfirm_val" id="spec_other" name="spec_other"><?php echo $other_info['spec_other']; ?></p>
+</div>
 </div>
 <!-- table -->
 <!-- Table -->

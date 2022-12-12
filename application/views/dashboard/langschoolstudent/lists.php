@@ -99,7 +99,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
               <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
               <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
-              <div class="dropdown-item">
+              <div class="dropdown-item" style="_blank">
               <?php 
                 if($row->jls_name == 'ECC'){
                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
@@ -348,7 +348,9 @@ ul.manage-menu li {
     font-weight: 400;
     white-space: nowrap;
 }
-
+.table-responsive{
+    display: table !important;
+}
 ul.manage-menu li:last-child::after{
   content: "";
   position: absolute;
