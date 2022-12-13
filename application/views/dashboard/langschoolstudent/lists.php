@@ -78,6 +78,7 @@
           foreach ($lists as $row) {
         ?>
         <tr>
+        <?php if($row->appli_status == 'Register') { ?>
           <th class="text-right"><?php echo $x; ?></th>
           <th width="1" class="text-left">
           JLS_01
@@ -99,7 +100,7 @@
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
           <td class="text-left"><?php echo $row->info_phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
@@ -150,6 +151,7 @@
          
             </div>
           </td>
+          <?php }?>
         </tr>
         <?php $x++; } ?>
       </tbody>
@@ -202,7 +204,7 @@
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
           <td class="text-center"><?php echo $row->info_phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
           <td class="text-center"><?php echo $row->interview_date; ?></td>
           <td class="text-center">
            
@@ -247,7 +249,8 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Register Date</th>
-          <th>Interview Date</th>
+          <th>Failed Date</th>
+          <th>Inter Fail Times</th>
           <th>Action</th>
           <th>Status</th>
         </tr>
@@ -281,10 +284,10 @@
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
           <td class="text-center"><?php echo $row->info_phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
-          <td class="text-center"><?php echo $row->interview_date; ?></td>
-          <!-- <td class="text-center"><?php if($row->activate_date == "30-11--0001 00:00:00"){ echo " - "; } else { echo $row->activate_date; } ?></td> -->
-          <td class="text-center">
+          <td class="text-center"><?php echo $row->register_date; ?></td>
+          <td class="text-center"><?php echo $row->inter_fail_date; ?></td>
+          <td class="text-center"><?php echo $row->inter_fail_times; ?></td>
+         <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
             <span class="material-icons md-20 align-middle">more_vert</span></a>
@@ -326,8 +329,8 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Register Date</th>
-          <th>Collect Date Exp Date	</th>
           <th>Admission Date</th>
+          <th>Collect Date Exp Date	</th>
           <th>Action</th>
           <th>Status</th>
         </tr>
@@ -361,9 +364,9 @@
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
           <td class="text-center"><?php echo $row->info_phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
           <td class="text-center"><?php echo $row->admission_date; ?></td>
-          <td class="text-center"><?php echo $row->interview_date; ?></td>
+          <td class="text-center"><?php echo $row->data_expired_date; ?></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
@@ -393,8 +396,8 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Register Date</th>
-          <th>Tracking Code</th>
           <th>Complete Date</th>
+          <th>Tracking Code</th>
           <th>Action</th>
           <th>Status</th>
         </tr>
@@ -428,9 +431,9 @@
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
           <td class="text-center"><?php echo $row->info_phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
-          <td class="text-center"><?php echo $row->tracking_code; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
           <td class="text-center"><?php echo $row->adm_complete_date; ?></td>
+          <td class="text-center"><?php echo $row->tracking_code; ?></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
@@ -460,7 +463,7 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Register Date</th>
-          <th>Interview Date</th>
+          <th>COE Date</th>
           <th>Action</th>
           <th>Status</th>
         </tr>
@@ -494,9 +497,8 @@
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
           <td class="text-center"><?php echo $row->info_phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
-          <td class="text-center"><?php echo $row->interview_date; ?></td>
-          <!-- <td class="text-center"><?php if($row->activate_date == "30-11--0001 00:00:00"){ echo " - "; } else { echo $row->activate_date; } ?></td> -->
+          <td class="text-center"><?php echo $row->register_date; ?></td>
+          <td class="text-center"><?php echo $row->coe_date; ?></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
@@ -526,7 +528,9 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Register Date</th>
-          <th>Interview Date</th>
+          <th>Failed Date</th>
+          <th>Pass Date</th>
+          <th>COE Fail Times</th>
           <th>Action</th>
           <th>Status</th>
         </tr>
@@ -538,7 +542,7 @@
           foreach ($lists as $row) {
         ?>
         <tr>
-        <?php if($row->appli_status == 'COE Failed') { ?>
+        <?php if($row->appli_status == 'COE Result') { ?>
           <th class="text-right"><?php echo $x; ?></th>
           <th width="1" class="text-left">
           JLS_01
@@ -560,9 +564,10 @@
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
           <td class="text-center"><?php echo $row->info_phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
-          <td class="text-center"><?php echo $row->interview_date; ?></td>
-          <!-- <td class="text-center"><?php if($row->activate_date == "30-11--0001 00:00:00"){ echo " - "; } else { echo $row->activate_date; } ?></td> -->
+          <td class="text-center"><?php echo $row->register_date; ?></td>
+          <td class="text-center"><?php echo $row->coe_fail_date; ?></td>
+          <td class="text-center"><?php echo $row->coe_pass_date; ?></td>
+          <td class="text-center"><?php echo $row->coe_fail_times; ?></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
@@ -580,6 +585,7 @@
       </tbody>
     </table>
     </div>
+    
     <div id="tab-8" class="tab-content">    
       <table class="table table-striped bg-white text-nowrap table-responsive" id="studentDataLocal">      
       <thead>
@@ -626,7 +632,7 @@
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
           <td class="text-center"><?php echo $row->info_phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
           <td class="text-center"><?php echo $row->interview_date; ?></td>
           <!-- <td class="text-center"><?php if($row->activate_date == "30-11--0001 00:00:00"){ echo " - "; } else { echo $row->activate_date; } ?></td> -->
           <td class="text-center">

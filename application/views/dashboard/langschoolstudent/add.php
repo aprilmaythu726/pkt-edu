@@ -1023,7 +1023,7 @@ $(function() {
             'id' => 'language_can_you_use',
             'autocomplete' => ''));
   ?>
-  <span class="text-danger"><?php echo form_error('graduate_date'); ?></span>
+  <span class="text-danger"><?php echo form_error('language_can_you_use'); ?></span>
   </div>
   <div class="form-group">
   <?php echo form_label('What subjects are you good at?', 'you_are_good_subject', array( 'class' => 'form-control-label', 'id'=> '')); ?>

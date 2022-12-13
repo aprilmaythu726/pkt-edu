@@ -119,13 +119,33 @@
         <option value="Admission Complete" <?php if($result->appli_status== "Admission Complete") echo "selected"; ?>>Admission Complete</option>
         <option value="COE Waiting" <?php if($result->appli_status== "COE Waiting") echo "selected"; ?>>COE Waiting</option>
         <option value="Cancel" <?php if($result->appli_status== "Cancel") echo "selected"; ?>>Cancel</option>
-        <option value="COE Failed" <?php if($result->appli_status== "COE Failed") echo "selected"; ?>>COE Failed</option>
-        <option value="COE Passed" <?php if($result->appli_status== "COE Passed") echo "selected"; ?>>COE Passed</option>
+        <option value="COE Result" <?php if($result->appli_status== "COE Result") echo "selected"; ?>>COE Result</option>
 </select>
 </div>
   <!-- Status Name -->
-  <!-- interview date -->
-  <div class="col-md-10" id="interview_date"  style="display: none;">
+  <!-- Register date -->
+  <div class="col-md-10" id="register_date"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">Register Date</label>
+       <span class="badge badge-danger" >Required</span>
+
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'register_date',
+            'type' => 'date',
+            'value' => html_escape(set_value('register_date',isset($result)?$result->register_date:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'register_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('register_date'); ?></span>
+    </div>
+  </div>
+<!-- Register date -->
+<!-- interview date -->
+<div class="col-md-10" id="interview_date"  style="display: none;">
     <div class="form-group school_list"  style="width:60% ;padding: 0px;">
     <p class="list_label" >
        <label style="margin-bottom: 0px;margin-top: 12px;">Interview Date</label>
@@ -145,7 +165,6 @@
     </div>
   </div>
 <!-- interview date -->
-
 
 <!-- admission date -->
 <div class="col-md-10" id="admission_date" style="display: none;">
@@ -230,7 +249,69 @@
     </div>
 </div>
 <!-- tracking code -->
+<!-- interview date -->
+<div class="col-md-10" id="coe_date"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">COE Date</label>
+       <span class="badge badge-danger" >Required</span>
 
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'coe_date',
+            'type' => 'date',
+            'value' => html_escape(set_value('coe_date',isset($result)?$result->coe_date:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'coe_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('coe_date'); ?></span>
+    </div>
+  </div>
+<!-- interview date -->
+<!-- interview date -->
+<div class="col-md-10" id="coe_pass_date"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">COE Passed</label>
+       <span class="badge badge-danger" >Required</span>
+
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'coe_pass_date',
+            'type' => 'date',
+            'value' => html_escape(set_value('coe_pass_date',isset($result)?$result->coe_pass_date:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'coe_pass_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('coe_pass_date'); ?></span>
+    </div>
+  </div>
+<!-- interview date -->
+<!-- interview date -->
+<div class="col-md-10" id="coe_fail_date"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">COE Failed</label>
+       <span class="badge badge-danger" >Required</span>
+
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'coe_fail_date',
+            'type' => 'date',
+            'value' => html_escape(set_value('coe_fail_date',isset($result)?$result->coe_fail_date:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'coe_fail_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('coe_fail_date'); ?></span>
+    </div>
+  </div>
+<!-- interview date -->
 </div>
 <!-- Status -->
 </div>
@@ -239,37 +320,95 @@
 <script>
 $(function() {  
     $(".status_select").change(function() {
-       if($('option:selected', this).text() =="Interview"){
-         $('#interview_date').show();
+       if($('option:selected', this).text() =="Register"){
+         $('#register_date').show();
+         $('#interview_date').hide();
          $('#data_expired_date').hide();
          $('#admission_date').hide();
          $('#tracking_code').hide();
          $('#adm_complete_date').hide();
+         $('#coe_date').hide();
+         $('#coe_fail_date').hide();
+         $('#coe_pass_date').hide();
+
+        }else if($('option:selected', this).text() =="Interview"){
+         $('#interview_date').show();
+         $('#register_date').hide();
+         $('#data_expired_date').hide();
+         $('#admission_date').hide();
+         $('#tracking_code').hide();
+         $('#adm_complete_date').hide();
+         $('#coe_date').hide();
+         $('#coe_fail_date').hide();
+         $('#coe_pass_date').hide();
 
         }else if($('option:selected', this).text() =="Admission"){
         $('#data_expired_date').show();
         $('#admission_date').show();
         $('#interview_date').hide();
+        $('#register_date').hide();
         $('#tracking_code').hide();
         $('#adm_complete_date').hide();
+        $('#coe_date').hide();
+        $('#coe_fail_date').hide();
+        $('#coe_pass_date').hide();
       }else if($('option:selected', this).text() =="Admission Complete"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
         $('#interview_date').hide();
+        $('#register_date').hide();
         $('#tracking_code').show();
         $('#adm_complete_date').show();
+        $('#coe_date').hide();
+        $('#coe_fail_date').hide();
+        $('#coe_pass_date').hide();
+      }else if($('option:selected', this).text() =="COE Waiting"){
+        $('#data_expired_date').hide();
+        $('#admission_date').hide();
+        $('#interview_date').hide();
+        $('#register_date').hide();
+        $('#tracking_code').hide();
+        $('#coe_date').show();
+        $('#coe_fail_date').hide();
+        $('#coe_pass_date').hide();
+        $('#adm_complete_date').hide();
+      }else if($('option:selected', this).text() =="COE Failed"){
+        $('#data_expired_date').hide();
+        $('#admission_date').hide();
+        $('#interview_date').hide();
+        $('#register_date').hide();
+        $('#tracking_code').hide();
+        $('#coe_date').hide();
+        $('#coe_pass_date').hide();
+        $('#coe_fail_date').show();
+        $('#adm_complete_date').hide();
+      }else if($('option:selected', this).text() =="COE Result"){
+        $('#data_expired_date').hide();
+        $('#admission_date').hide();
+        $('#interview_date').hide();
+        $('#register_date').hide();
+        $('#tracking_code').hide();
+        $('#coe_pass_date').show();
+        $('#coe_date').hide();
+        $('#coe_fail_date').show();
+        $('#adm_complete_date').hide();
       }else{
         $('#data_expired_date').hide();
         $('#admission_date').hide();
         $('#interview_date').hide();
+        $('#register_date').hide();
         $('#tracking_code').hide();
         $('#adm_complete_date').hide();
+        $('#coe_date').hide();
+        $('#coe_fail_date').hide();
+        $('#coe_pass_date').hide();
       }
     });
 });
 </script>
 
 <style>
+ #register_date,
  #interview_date,
  #data_expired_date,
  #admission_date,
@@ -763,32 +902,32 @@ $(function() {
         <span class="text-danger"><?php echo form_error('specific_plan_major '); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label('What is your special ability?', 'specific_plan_major ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label('What is your special ability?', 'special_ability', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => 'specific_plan_major',
+            'name' => 'special_ability',
             'type' => 'text',
-            'value' => html_escape(set_value('specific_plan_major',isset($result)?$result->specific_plan_major :''), ENT_QUOTES),
+            'value' => html_escape(set_value('special_ability',isset($result13)?$result13->special_ability :''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'specific_plan_major',
+            'id' => 'special_ability',
             'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('specific_plan_major '); ?></span>
+        <span class="text-danger"><?php echo form_error('special_ability'); ?></span>
   </div>
   <div class="form-group">
-        <?php echo form_label(' What are your hobbies?', 'specific_plan_major ', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
+        <?php echo form_label(' What are your hobbies?', 'hobbies', array( 'class' => '', 'id'=> '', 'style' => '', 'for' => 'phone')); ?>
         <?php
           echo form_input(array(
-            'name' => 'specific_plan_major',
+            'name' => 'hobbies',
             'type' => 'text',
-            'value' => html_escape(set_value('specific_plan_major',isset($result)?$result->specific_plan_major :''), ENT_QUOTES),
+            'value' => html_escape(set_value('hobbies',isset($result13)?$result13->hobbies :''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'specific_plan_major',
+            'id' => 'hobbies',
             'autocomplete' => ''));
         ?>
-        <span class="text-danger"><?php echo form_error('specific_plan_major '); ?></span>
+        <span class="text-danger"><?php echo form_error('hobbies'); ?></span>
   </div>
 </div>
 <!-- leftside -->
@@ -1123,15 +1262,15 @@ $(function() {
     </select>
   </div>
   <div class="form-group">
-  <?php echo form_label('What language can you use?', 'graduate_date', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+  <?php echo form_label('What language can you use?', 'language_can_you_use', array( 'class' => 'form-control-label', 'id'=> '')); ?>
   <?php
           echo form_input(array(
-            'name' => 'graduate_date',
+            'name' => 'language_can_you_use',
             'type' => 'text',
            // 'value' => html_escape(set_value('graduate_date',isset($result)?$result->graduate_date:''), ENT_QUOTES),
             'placeholder' => 'Please Enter!',
             'class' => 'form-control',
-            'id' => 'graduate_date',
+            'id' => 'language_can_you_use',
             'autocomplete' => ''));
   ?>
   <span class="text-danger"><?php echo form_error('graduate_date'); ?></span>
@@ -1189,11 +1328,11 @@ $(function() {
     </select>
   </div>
   <div class="form-group">
-  <?php echo form_label('Are you allergic to any medicine or foods?', 'allergic_medicine', array( 'class' => 'form-control-label', 'id'=> '')); ?>
+  <?php echo form_label('Are you allergic to any medicine or foods?', 'allergic_medicine', array( 'class' => 'form-control-label', 'id'=> 'allergic_medicine')); ?>
   <span class="badge badge-danger">Required</span>
     <select name="allergic_medicine" id="allergic_medicine" class="admission_select">
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+        <option value="1" <?php if($result13->allergic_medicine== "1") {echo "selected";} ?>>Yes</option>
+        <option value="0" <?php if($result13->allergic_medicine== "0") {echo "selected";} ?>>No</option>
     </select>
   </div>
   <div class="form-group">
@@ -1552,7 +1691,7 @@ $(function() {
           echo form_input(array(
             'name' => 'consent_address',
             'type' => 'text',
-            'value' => html_escape(set_value('phone',isset($result13)?$result13->consent_address:''), ENT_QUOTES),
+            'value' => html_escape(set_value('consent_address ',isset($result13)?$result13->consent_address:''), ENT_QUOTES),
             'placeholder' => 'Enter address!',
             'class' => 'form-control',
             'id' => 'consent_address',
