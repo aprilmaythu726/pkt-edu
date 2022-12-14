@@ -119,7 +119,8 @@
         <option value="Admission Complete" <?php if($result->appli_status== "Admission Complete") echo "selected"; ?>>Admission Complete</option>
         <option value="COE Waiting" <?php if($result->appli_status== "COE Waiting") echo "selected"; ?>>COE Waiting</option>
         <option value="Cancel" <?php if($result->appli_status== "Cancel") echo "selected"; ?>>Cancel</option>
-        <option value="COE Result" <?php if($result->appli_status== "COE Result") echo "selected"; ?>>COE Result</option>
+        <option value="COE Passed" <?php if($result->appli_status== "COE Passed") echo "selected"; ?>>COE Passed</option>
+        <option value="COE Failed" <?php if($result->appli_status== "COE Failed") echo "selected"; ?>>COE Failed</option>
 </select>
 </div>
   <!-- Status Name -->
@@ -165,7 +166,27 @@
     </div>
   </div>
 <!-- interview date -->
+<!-- interview failed date -->
+<div class="col-md-10" id="inter_fail_date"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">Interview Failed Date</label>
+       <span class="badge badge-danger" >Required</span>
 
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'inter_fail_date',
+            'type' => 'date',
+            'value' => html_escape(set_value('inter_fail_date',isset($result)?$result->inter_fail_date:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'inter_fail_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('inter_fail_date'); ?></span>
+    </div>
+  </div>
+<!-- interview failed date -->
 <!-- admission date -->
 <div class="col-md-10" id="admission_date" style="display: none;">
     <div class="form-group school_list"  style="width:60% ;padding: 0px;">
@@ -322,6 +343,7 @@ $(function() {
     $(".status_select").change(function() {
        if($('option:selected', this).text() =="Register"){
          $('#register_date').show();
+         $('#inter_fail_date').hide();
          $('#interview_date').hide();
          $('#data_expired_date').hide();
          $('#admission_date').hide();
@@ -333,6 +355,19 @@ $(function() {
 
         }else if($('option:selected', this).text() =="Interview"){
          $('#interview_date').show();
+         $('#inter_fail_date').hide();
+         $('#register_date').hide();
+         $('#data_expired_date').hide();
+         $('#admission_date').hide();
+         $('#tracking_code').hide();
+         $('#adm_complete_date').hide();
+         $('#coe_date').hide();
+         $('#coe_fail_date').hide();
+         $('#coe_pass_date').hide();
+
+        }else if($('option:selected', this).text() =="Interview Failed"){
+         $('#interview_date').hide();
+         $('#inter_fail_date').show();
          $('#register_date').hide();
          $('#data_expired_date').hide();
          $('#admission_date').hide();
@@ -345,6 +380,7 @@ $(function() {
         }else if($('option:selected', this).text() =="Admission"){
         $('#data_expired_date').show();
         $('#admission_date').show();
+        $('#inter_fail_date').hide();
         $('#interview_date').hide();
         $('#register_date').hide();
         $('#tracking_code').hide();
@@ -355,6 +391,7 @@ $(function() {
       }else if($('option:selected', this).text() =="Admission Complete"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
+        $('#inter_fail_date').hide();
         $('#interview_date').hide();
         $('#register_date').hide();
         $('#tracking_code').show();
@@ -365,6 +402,7 @@ $(function() {
       }else if($('option:selected', this).text() =="COE Waiting"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
+        $('#inter_fail_date').hide();
         $('#interview_date').hide();
         $('#register_date').hide();
         $('#tracking_code').hide();
@@ -375,6 +413,7 @@ $(function() {
       }else if($('option:selected', this).text() =="COE Failed"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
+        $('#inter_fail_date').hide();
         $('#interview_date').hide();
         $('#register_date').hide();
         $('#tracking_code').hide();
@@ -382,19 +421,32 @@ $(function() {
         $('#coe_pass_date').hide();
         $('#coe_fail_date').show();
         $('#adm_complete_date').hide();
-      }else if($('option:selected', this).text() =="COE Result"){
+      }else if($('option:selected', this).text() =="COE Passed"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
+        $('#inter_fail_date').hide();
         $('#interview_date').hide();
         $('#register_date').hide();
         $('#tracking_code').hide();
         $('#coe_pass_date').show();
+        $('#coe_date').hide();
+        $('#coe_fail_date').hide();
+        $('#adm_complete_date').hide();
+      }else if($('option:selected', this).text() =="COE Failed"){
+        $('#data_expired_date').hide();
+        $('#admission_date').hide();
+        $('#inter_fail_date').hide();
+        $('#interview_date').hide();
+        $('#register_date').hide();
+        $('#tracking_code').hide();
+        $('#coe_pass_date').hide();
         $('#coe_date').hide();
         $('#coe_fail_date').show();
         $('#adm_complete_date').hide();
       }else{
         $('#data_expired_date').hide();
         $('#admission_date').hide();
+        $('#inter_fail_date').hide();
         $('#interview_date').hide();
         $('#register_date').hide();
         $('#tracking_code').hide();
