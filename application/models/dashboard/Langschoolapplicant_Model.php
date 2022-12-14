@@ -50,6 +50,71 @@ class Langschoolapplicant_Model extends CI_Model
     $query=$this->db->get();
     return $query->result();
   }
+  public function getRegisterTotal()
+  {
+    $this->db->select('*, COUNT(id) AS totalRegister');
+    $this->db->from($this->db1);
+    $this->db->where('appli_status', 'Register');
+    $query=$this->db->get();
+    return $query->result();
+  }
+  public function getInterTotal()
+  {
+    $this->db->select('*, COUNT(id) AS totalInter');
+    $this->db->from($this->db1);
+    $this->db->where('appli_status', 'Interview');
+    $query=$this->db->get();
+    return $query->result();
+  }
+  public function getInterFailTotal()
+  {
+    $this->db->select('*, COUNT(id) AS totalInterFail');
+    $this->db->from($this->db1);
+    $this->db->where('appli_status', 'Interview Failed');
+    $query=$this->db->get();
+    return $query->result();
+  }
+  public function getAdmissionTotal()
+  {
+    $this->db->select('*, COUNT(id) AS totalAdmission');
+    $this->db->from($this->db1);
+    $this->db->where('appli_status', 'Admission');
+    $query=$this->db->get();
+    return $query->result();
+  }
+  public function getAdmissionCompleteTotal()
+  {
+    $this->db->select('*, COUNT(id) AS totalAdmissCompete');
+    $this->db->from($this->db1);
+    $this->db->where('appli_status', 'Admission Complete');
+    $query=$this->db->get();
+    return $query->result();
+  }
+  public function getCOEWaitTotal()
+  {
+    $this->db->select('*, COUNT(id) AS totalCOEWait');
+    $this->db->from($this->db1);
+    $this->db->where('appli_status', 'COE Waiting');
+    $query=$this->db->get();
+    return $query->result();
+  }
+  public function getCOEResultTotal()
+  {
+    $this->db->select('*, COUNT(id) AS totalCOEResult');
+    $this->db->from($this->db1);
+    $where = "appli_status='COE Passed' OR appli_status='COE Failed'";
+    $this->db->where($where);
+    $query=$this->db->get();
+    return $query->result();
+  }
+  public function getCancelTotal()
+  {
+    $this->db->select('*, COUNT(id) AS totalCancel');
+    $this->db->from($this->db1);
+    $this->db->where('appli_status', 'Cancel');
+    $query=$this->db->get();
+    return $query->result();
+  }
   // public function countRow(){
   //   $this->db->select('appli_status');
   //   return $this->db->get($this->db1)->row();

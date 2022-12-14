@@ -60,7 +60,22 @@ class Langschoolapplicant extends CI_Controller
         $this->__permissionChecker($this->key, $this->url);
         $globalHeader = array("alert" => $this->mainconfig->_DefaultNotic(), 'title' => "Student Lists", 'msg' => "", 'uri' => array("langschoolapplicant", "jls_lists"), 'config' => $this->user_config);
         $lists = $this->Langschoolapplicant_Model->getJLSList();
-        // var_dump($list);
+        $registerlists = $this->Langschoolapplicant_Model->getRegisterTotal();
+        $this->data['registerlists'] = $registerlists;
+        $interlists = $this->Langschoolapplicant_Model->getInterTotal();
+        $this->data['interlists'] = $interlists;
+        $interfail = $this->Langschoolapplicant_Model->getInterFailTotal();
+        $this->data['interfail'] = $interfail;
+        $admisslists = $this->Langschoolapplicant_Model->getAdmissionTotal();
+        $this->data['admisslists'] = $admisslists;
+        $admisscomplete = $this->Langschoolapplicant_Model->getAdmissionCompleteTotal();
+        $this->data['admisscomplete'] = $admisscomplete;
+        $coewait = $this->Langschoolapplicant_Model->getCOEWaitTotal();
+        $this->data['coewait'] = $coewait;
+        $coeresult = $this->Langschoolapplicant_Model->getCOEResultTotal();
+        $this->data['coeresult'] = $coeresult;
+        $cancellists = $this->Langschoolapplicant_Model->getCancelTotal();
+        $this->data['cancellists'] = $cancellists;
         //*** Generate necessary key and value
         $Q_list = _transfer_key_prepare(array_keys_checker($lists));
         $this->data['lists'] = array_transfer($lists, $Q_list);
