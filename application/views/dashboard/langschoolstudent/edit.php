@@ -333,6 +333,90 @@
     </div>
   </div>
 <!-- interview date -->
+<!-- coe failed times -->
+<div class="col-md-10" id="coe_fail_times"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">COE Failed Times</label>
+       <span class="badge badge-danger" >Required</span>
+
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'coe_fail_times',
+            'type' => 'text',
+            'value' => html_escape(set_value('coe_fail_times',isset($result)?$result->coe_fail_times:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'coe_fail_times',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('coe_fail_times'); ?></span>
+    </div>
+  </div>
+<!-- coe failed times -->
+<!-- cancel dates -->
+<div class="col-md-10" id="cancel_date"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">Cancel Date</label>
+       <span class="badge badge-danger" >Required</span>
+
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'cancel_date',
+            'type' => 'date',
+            'value' => html_escape(set_value('coe_fail_times',isset($result)?$result->cancel_date:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'cancel_date',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('cancel_date'); ?></span>
+    </div>
+  </div>
+<!-- cancel date -->
+<!-- cancel times -->
+<div class="col-md-10" id="cancel_times"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">Cancel Times</label>
+       <span class="badge badge-danger" >Required</span>
+
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'cancel_times',
+            'type' => 'text',
+            'value' => html_escape(set_value('cancel_times',isset($result)?$result->cancel_times:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'cancel_times',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('cancel_times'); ?></span>
+    </div>
+  </div>
+<!-- cancel times -->
+<!-- interview failed times -->
+<div class="col-md-10" id="inter_fail_times"  style="display: none;">
+    <div class="form-group school_list"  style="width:60% ;padding: 0px;">
+    <p class="list_label" >
+       <label style="margin-bottom: 0px;margin-top: 12px;">Inter Fail Times</label>
+       <span class="badge badge-danger" >Required</span>
+
+    </p>
+        <?php
+          echo form_input(array(
+            'name' => 'inter_fail_times',
+            'type' => 'text',
+            'value' => html_escape(set_value('cancel_times',isset($result)?$result->inter_fail_times:''), ENT_QUOTES),
+            'class' => 'form-control',
+            'id' => 'inter_fail_times',
+            'autocomplete' => ''));
+          ?>
+        <span class="text-danger"><?php echo form_error('inter_fail_times'); ?></span>
+    </div>
+  </div>
+<!-- interview failed times -->
 </div>
 <!-- Status -->
 </div>
@@ -352,6 +436,10 @@ $(function() {
          $('#coe_date').hide();
          $('#coe_fail_date').hide();
          $('#coe_pass_date').hide();
+         $('#coe_fail_times').hide();
+         $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').hide();
 
         }else if($('option:selected', this).text() =="Interview"){
          $('#interview_date').show();
@@ -364,6 +452,10 @@ $(function() {
          $('#coe_date').hide();
          $('#coe_fail_date').hide();
          $('#coe_pass_date').hide();
+         $('#coe_fail_times').hide();
+         $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').hide();
 
         }else if($('option:selected', this).text() =="Interview Failed"){
          $('#interview_date').hide();
@@ -376,6 +468,10 @@ $(function() {
          $('#coe_date').hide();
          $('#coe_fail_date').hide();
          $('#coe_pass_date').hide();
+         $('#coe_fail_times').hide();
+         $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').show();
 
         }else if($('option:selected', this).text() =="Admission"){
         $('#data_expired_date').show();
@@ -388,6 +484,11 @@ $(function() {
         $('#coe_date').hide();
         $('#coe_fail_date').hide();
         $('#coe_pass_date').hide();
+        $('#coe_fail_times').hide();
+        $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').hide();
+
       }else if($('option:selected', this).text() =="Admission Complete"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
@@ -399,6 +500,11 @@ $(function() {
         $('#coe_date').hide();
         $('#coe_fail_date').hide();
         $('#coe_pass_date').hide();
+        $('#coe_fail_times').hide();
+        $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').hide();
+
       }else if($('option:selected', this).text() =="COE Waiting"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
@@ -410,6 +516,11 @@ $(function() {
         $('#coe_fail_date').hide();
         $('#coe_pass_date').hide();
         $('#adm_complete_date').hide();
+        $('#coe_fail_times').hide();
+        $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').hide();
+
       }else if($('option:selected', this).text() =="COE Failed"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
@@ -420,7 +531,12 @@ $(function() {
         $('#coe_date').hide();
         $('#coe_pass_date').hide();
         $('#coe_fail_date').show();
+        $('#coe_fail_times').show();
         $('#adm_complete_date').hide();
+        $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').hide();
+
       }else if($('option:selected', this).text() =="COE Passed"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
@@ -432,6 +548,11 @@ $(function() {
         $('#coe_date').hide();
         $('#coe_fail_date').hide();
         $('#adm_complete_date').hide();
+        $('#coe_fail_times').hide();
+        $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').hide();
+
       }else if($('option:selected', this).text() =="COE Failed"){
         $('#data_expired_date').hide();
         $('#admission_date').hide();
@@ -443,6 +564,27 @@ $(function() {
         $('#coe_date').hide();
         $('#coe_fail_date').show();
         $('#adm_complete_date').hide();
+        $('#coe_fail_times').show();
+        $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').hide();
+
+      }else if($('option:selected', this).text() =="Cancel"){
+        $('#data_expired_date').hide();
+        $('#admission_date').hide();
+        $('#inter_fail_date').hide();
+        $('#interview_date').hide();
+        $('#register_date').hide();
+        $('#tracking_code').hide();
+        $('#coe_pass_date').hide();
+        $('#coe_date').hide();
+        $('#coe_fail_date').hide();
+        $('#adm_complete_date').hide();
+        $('#coe_fail_times').hide();
+        $('#cancel_date').show();
+        $('#cancel_times').show();
+        $('#inter_fail_times').hide();
+
       }else{
         $('#data_expired_date').hide();
         $('#admission_date').hide();
@@ -454,6 +596,11 @@ $(function() {
         $('#coe_date').hide();
         $('#coe_fail_date').hide();
         $('#coe_pass_date').hide();
+        $('#coe_fail_times').hide();
+        $('#cancel_date').hide();
+         $('#cancel_times').hide();
+         $('#inter_fail_times').hide();
+
       }
     });
 });

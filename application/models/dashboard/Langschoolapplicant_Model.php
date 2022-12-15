@@ -107,6 +107,14 @@ class Langschoolapplicant_Model extends CI_Model
     $query=$this->db->get();
     return $query->result();
   }
+  public function getCOEFailedTotal()
+  {
+    $this->db->select('*, COUNT(id) AS totalCOEFailed');
+    $this->db->from($this->db1);
+    $this->db->where('appli_status', 'COE Failed');
+    $query=$this->db->get();
+    return $query->result();
+  }
   public function getCancelTotal()
   {
     $this->db->select('*, COUNT(id) AS totalCancel');

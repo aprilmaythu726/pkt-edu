@@ -144,7 +144,7 @@
          
             </div>
           </td>
-          <?php }?>
+         <?php } ?>
         </tr>
         <?php $x++; } ?>
       </tbody>
@@ -772,6 +772,8 @@
           <th>Phone</th>
           <th>Register Date</th>
           <th>Interview Date</th>
+          <th>Cancel Date</th>
+          <th>Cancel Times</th>
           <th>Action</th>
           <th>Status</th>
         </tr>
@@ -807,6 +809,8 @@
           <td class="text-center"><?php echo $row->info_phone; ?></td>
           <td class="text-center"><?php echo $row->register_date; ?></td>
           <td class="text-center"><?php echo $row->interview_date; ?></td>
+          <td class="text-center"><?php echo $row->cancel_date; ?></td>
+          <td class="text-center"><?php echo $row->cancel_times; ?></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
