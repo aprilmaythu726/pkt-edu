@@ -10,7 +10,7 @@
     
     <div class="col controls-wrapper mt-3 mt-md-0 d-none d-md-block ">
       <div class="controls d-flex justify-content-center justify-content-md-end float-right">
-      <a href="<?php echo base_url('adm/portal/langschool_applicant/add'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">add_circle</span></a>
+      <a href="<?php echo base_url('adm/portal/jls_applicant/add'); ?>" class="btn btn-secondary py-1 px-2" ><span class="material-icons align-text-bottom">add_circle</span></a>
       </div>
     </div>
   </div> 
@@ -37,15 +37,16 @@
     <div class="card-body">
       <div class="status-menu">
         <ul class="manage-menu tabs">
-        <li class="tab-link current" data-tab="tab-1" style="color: #EA585A;"><a href="<?php echo base_url('adm/portal/jls_applicant/new'); ?>">New Applicant(10)</a></li>
-              <li class="tab-link" data-tab="tab-2">Interview(10)</li>
-              <li class="tab-link" data-tab="tab-3">Interview Failed(0)</li>
-              <li>Admission(10)</li>
-              <li>Admission Complete(10)</li>
-              <li>COE Waiting(10)</li>
-              <li>COE Result(10)</li>
-              <li>Cancel(1)</li>
+        <li class="tab-link current" data-tab="tab-1" style="color: #EA585A;"><a href="<?php echo base_url('adm/portal/jls_applicant/'); ?>">New Applicant(<?php  echo $registerlists[0]->totalRegister ?>)</a></li>
+              <li class="tab-link" data-tab="tab-2">Interview(<?php  echo $interlists[0]->totalInter ?>)</li>
+              <li class="tab-link" data-tab="tab-3">Interview Failed(<?php  echo $interfail[0]->totalInterFail ?>)</li>
+              <li class="tab-link" data-tab="tab-4">Admission(<?php  echo $admisslists[0]->totalAdmission ?>)</li>
+              <li class="tab-link" data-tab="tab-5">Admission Complete(<?php  echo $admisscomplete[0]->totalAdmissCompete ?>)</li>
+              <li class="tab-link" data-tab="tab-6">COE Waiting(<?php  echo $coewait[0]->totalCOEWait ?>)</li>
+              <li class="tab-link" data-tab="tab-7">COE Result(<?php  echo $coeresult[0]->totalCOEResult ?>)</li>
+              <li class="tab-link" data-tab="tab-8">Cancel(<?php  echo $cancellists[0]->totalCancel ?>)</li>
         </ul>
+        
     </div>
     <div id="tab-1" class="tab-content current">     
       <table class="table table-striped bg-white text-nowrap table-responsive" id="studentDataOnline">   
@@ -70,6 +71,7 @@
           foreach ($lists as $row) {
         ?>
         <tr>
+        <?php if($row->appli_status == 'Register') { ?>
           <th class="text-right"><?php echo $x; ?></th>
           <th width="1" class="text-left">
           JLS_01
@@ -90,24 +92,59 @@
             <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
           </td>
           <td class="text-left"><?php echo $row->std_email; ?></td>
-          <td class="text-left"><?php echo $row->phone; ?></td>
-          <td class="text-center"><?php echo $row->created_at; ?></td>
+          <td class="text-left"><?php echo $row->info_phone; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
             <span class="material-icons md-20 align-middle">more_vert</span></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
               <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/pdf/'.$row->id); ?>">Print PDF</a>
-              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/langschool_applicant/delete/'); ?>">Delete</a>
+              <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
+              <div class="dropdown-item" style="_blank">
+              <?php 
+                if($row->jls_name =='ECC'){
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Interview PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+              ?>
+              </div>
+              <div class="dropdown-item">
+              <?php 
+               if($row->jls_name =='ECC'){
+                echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
+              }elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'JCLI'){ 
+                  echo anchor("adm/portal/jls_applicant/jcli_admission/$row->id","Admission PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ojls_admission/$row->id","Admission PDF");
+                }
+              ?>
+              </div>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
             </div>
           </td>
           <td class="text-center">
-          <span class="md-18">Interview</span>
+          <span class="md-18"><?php echo $row->appli_status; ?></span>
            
          
             </div>
           </td>
+         <?php } ?>
         </tr>
         <?php $x++; } ?>
       </tbody>
@@ -132,140 +169,694 @@
         </tr>
       </thead>
       <tbody>
-        <?php 
-          $x = 1;
-          $y = 0;
-          foreach ($list as $row) {
-        ?>
-        <tr>
-          <th class="text-right"><?php echo $x; ?></th>
-          <th width="1" class="text-left">
-            JLS_01
-          <!-- <?php echo $row->user_id; ?> -->
-            <span class="text-left">
-              <?php foreach($course as $result) {
-                if($row->id == $result->std_id && $result->status == 0) { $y++;
-                } else { $y = 0; } ?>
-                <?php if($y > 0) { 
-                  if($y == 1) { ?>
-                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
-              <?php } } } ?>
-            </span>
-          </th>
-          <td class="text-left">
-            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">$row['applicant_name']</a>
-          </td>
-          <td class="text-left">
-            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">ECC</a>
-          </td>
-          <td class="text-left">minthant@gmail.com</td>
-          <td class="text-center">0978656666</td>
-          <td class="text-center">13-08-2022 12:42:09	</td>
-          <td class="text-center">05-09-2022 09:30:09</td>
-          <!-- <td class="text-center"><?php if($row->activate_date == "30-11--0001 00:00:00"){ echo " - "; } else { echo $row->activate_date; } ?></td> -->
-          <td class="text-center">
-           
-          <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
-            <span class="material-icons md-20 align-middle">more_vert</span></a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/pdf/'.$row->id); ?>">Print PDF</a>
-              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/langschool_applicant/delete/'.$row->id); ?>">Delete</a>
-            </div>
-          </td>
-          <td class="text-center">
-            <?php if($row->status == 1) { ?>
-              <span class="md-18">Interview</span>
-              <!-- <a class="text-success" onclick="return confirm('Are you want to deactive this student status?');" data-toggle="tooltip" data-placement="top" title="Active" href="<?php echo base_url('adm/portal/langschool_applicant/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a> -->
-           
-            <?php } ?>
-            <?php if($row->status == 0) { ?>
-              <span class="md-18">Interview</span>
-              <!-- <a class="text-success" onclick="return confirm('Are you want to deactive this course permission?');" data-toggle="tooltip" data-placement="top" title="Allow" href="<?php echo base_url('adm/portal/langschool_applicant/permission/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a> -->
-           
-            <?php } ?>
-         
-            </div>
-          </td>
-        </tr>
-        <?php $x++; } ?>
-      </tbody>
-        </div>
-    </table>
-  </div>
-    <div id="tab-2" class="tab-content">    
-      <table class="table table-striped bg-white text-nowrap table-responsive" id="studentDataLocal">      
-      <thead>
-        <tr class="text-center">
-          <th>#</th>
-          <!-- <th width="1">Student ID&nbsp;<a href="#" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-secondary">notifications_active</span></a>&nbsp;</th> -->
-          <th>Applicant ID</th>
-          <th>Applicant Name</th>
-          <th>School Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Register Date</th>
-          <th>Interview Date</th>
-          <th>Action</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php 
+      <?php 
           $x = 1;
           $y = 0;
           foreach ($lists as $row) {
         ?>
         <tr>
+        <?php if($row->appli_status == 'Interview') { ?>
           <th class="text-right"><?php echo $x; ?></th>
           <th width="1" class="text-left">
-            JLS_01
-          <!-- <?php echo $row->user_id; ?> -->
+          JLS_01
             <span class="text-left">
-              <?php foreach($course as $result) {
-                if($row->id == $result->std_id && $result->status == 0) { $y++;
-                } else { $y = 0; } ?>
+              <?php foreach($lists as $result) {
+                // if($row->id == $result->std_id && $result->status == 0) { $y++;
+                // } else { $y = 0; } ?>
                 <?php if($y > 0) { 
                   if($y == 1) { ?>
-                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
+                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
               <?php } } } ?>
             </span>
           </th>
           <td class="text-left">
-            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">Min Thant</a>
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->applicant_name; ?></a>
           </td>
           <td class="text-left">
-            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail">ECC</a>
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
           </td>
-          <td class="text-left">minthant@gmail.com</td>
-          <td class="text-center">0978656666</td>
-          <td class="text-center">13-08-2022 12:42:09	</td>
-          <td class="text-center">05-09-2022 09:30:09</td>
-          <!-- <td class="text-center"><?php if($row->activate_date == "30-11--0001 00:00:00"){ echo " - "; } else { echo $row->activate_date; } ?></td> -->
+          <td class="text-left"><?php echo $row->std_email; ?></td>
+          <td class="text-center"><?php echo $row->info_phone; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
+          <td class="text-center"><?php echo $row->interview_date; ?></td>
           <td class="text-center">
            
           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
             <span class="material-icons md-20 align-middle">more_vert</span></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
               <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
-              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/pdf/'.$row->id); ?>">Print PDF</a>
-              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/langschool_applicant/delete/'.$row->id); ?>">Delete</a>
+              <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
+              <div class="dropdown-item" style="_blank">
+              <?php 
+                if($row->jls_name =='ECC'){
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Interview PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+              ?>
+              </div>
+              <div class="dropdown-item">
+              <?php 
+               if($row->jls_name =='ECC'){
+                echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
+              }elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'JCLI'){ 
+                  echo anchor("adm/portal/jls_applicant/jcli_admission/$row->id","Admission PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ojls_admission/$row->id","Admission PDF");
+                }
+              ?>
+              </div>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
             </div>
           </td>
+          <td class="text-center"><?php echo $row->appli_status; ?></td>
+          <?php } ?>
+        </tr>
+        <?php $x++; } ?>
+      </tbody>
+        </div>
+    </table>
+  </div>
+    <div id="tab-3" class="tab-content">    
+      <table class="table table-striped bg-white text-nowrap table-responsive" id="studentDataLocal">      
+      <thead>
+        <tr class="text-center">
+          <th>#</th>
+          <!-- <th width="1">Student ID&nbsp;<a href="#" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-secondary">notifications_active</span></a>&nbsp;</th> -->
+          <th>Applicant ID</th>
+          <th>Applicant Name</th>
+          <th>School Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Register Date</th>
+          <th>Failed Date</th>
+          <th>Inter Fail Times</th>
+          <th>Action</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php 
+          $x = 1;
+          $y = 0;
+          foreach ($lists as $row) {
+        ?>
+        <tr>
+        <?php if($row->appli_status == 'Interview Failed') { ?>
+          <th class="text-right"><?php echo $x; ?></th>
+          <th width="1" class="text-left">
+          JLS_01
+            <span class="text-left">
+              <?php foreach($lists as $result) {
+                // if($row->id == $result->std_id && $result->status == 0) { $y++;
+                // } else { $y = 0; } ?>
+                <?php if($y > 0) { 
+                  if($y == 1) { ?>
+                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
+              <?php } } } ?>
+            </span>
+          </th>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->applicant_name; ?></a>
+          </td>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
+          </td>
+          <td class="text-left"><?php echo $row->std_email; ?></td>
+          <td class="text-center"><?php echo $row->info_phone; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
+          <td class="text-center"><?php echo $row->inter_fail_date; ?></td>
+          <td class="text-center"><?php echo $row->inter_fail_times; ?></td>
           <td class="text-center">
-            <?php if($row->status == 1) { ?>
-              <span class="md-18">Interview</span>
-              <!-- <a class="text-success" onclick="return confirm('Are you want to deactive this student status?');" data-toggle="tooltip" data-placement="top" title="Active" href="<?php echo base_url('adm/portal/langschool_applicant/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a> -->
            
-            <?php } ?>
-            <?php if($row->status == 0) { ?>
-              <span class="md-18">Interview</span>
-              <!-- <a class="text-success" onclick="return confirm('Are you want to deactive this course permission?');" data-toggle="tooltip" data-placement="top" title="Allow" href="<?php echo base_url('adm/portal/langschool_applicant/permission/deactivated/'.$row->id); ?>"><span class="material-icons align-middle md-18">Register</span></a> -->
+           <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
+             <span class="material-icons md-20 align-middle">more_vert</span></a>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
+               <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
+               <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
+               <div class="dropdown-item" style="_blank">
+               <?php 
+                 if($row->jls_name =='ECC'){
+                   echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                 }
+                 elseif($row->jls_name == 'Shizuoka'){ 
+                   echo anchor("adm/portal/jls_applicant/shizuoka_interview/$row->id","Interview PDF");
+                 }
+                 elseif($row->jls_name == 'Fukuoka'){ 
+                   echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Interview PDF");
+                 }
+                 else{ 
+                   echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                 }
+               ?>
+               </div>
+               <div class="dropdown-item">
+               <?php 
+                if($row->jls_name =='ECC'){
+                 echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
+               }elseif($row->jls_name == 'Shizuoka'){ 
+                   echo anchor("adm/portal/jls_applicant/shizuoka_admission/$row->id","Admission PDF");
+                 }
+                 elseif($row->jls_name == 'Fukuoka'){ 
+                   echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
+                 }
+                 elseif($row->jls_name == 'JCLI'){ 
+                   echo anchor("adm/portal/jls_applicant/jcli_admission/$row->id","Admission PDF");
+                 }
+                 else{ 
+                   echo anchor("adm/portal/jls_applicant/ojls_admission/$row->id","Admission PDF");
+                 }
+               ?>
+               </div>
+               <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
+             </div>
+           </td>
+           <td class="text-center">
+          <span class="md-18"><?php echo $row->appli_status; ?></span>
+           </td>
+          <?php } ?>
+        </tr>
+        <?php $x++; } ?>
+      </tbody>
+    </table>
+    </div>
+    <div id="tab-4" class="tab-content">    
+      <table class="table table-striped bg-white text-nowrap table-responsive" id="studentDataLocal">      
+      <thead>
+        <tr class="text-center">
+          <th>#</th>
+          <!-- <th width="1">Student ID&nbsp;<a href="#" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-secondary">notifications_active</span></a>&nbsp;</th> -->
+          <th>Applicant ID</th>
+          <th>Applicant Name</th>
+          <th>School Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Register Date</th>
+          <th>Admission Date</th>
+          <th>Collect Date Exp Date	</th>
+          <th>Action</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php 
+          $x = 1;
+          $y = 0;
+          foreach ($lists as $row) {
+        ?>
+        <tr>
+        <?php if($row->appli_status == 'Admission') { ?>
+          <th class="text-right"><?php echo $x; ?></th>
+          <th width="1" class="text-left">
+          JLS_01
+            <span class="text-left">
+              <?php foreach($lists as $result) {
+                // if($row->id == $result->std_id && $result->status == 0) { $y++;
+                // } else { $y = 0; } ?>
+                <?php if($y > 0) { 
+                  if($y == 1) { ?>
+                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
+              <?php } } } ?>
+            </span>
+          </th>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->applicant_name; ?></a>
+          </td>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
+          </td>
+          <td class="text-left"><?php echo $row->std_email; ?></td>
+          <td class="text-center"><?php echo $row->info_phone; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
+          <td class="text-center"><?php echo $row->admission_date; ?></td>
+          <td class="text-center"><?php echo $row->data_expired_date; ?></td>
+          <td class="text-center">
            
-            <?php } ?>
-         
+          <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
+            <span class="material-icons md-20 align-middle">more_vert</span></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
+              <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
+              <div class="dropdown-item" style="_blank">
+              <?php 
+                if($row->jls_name =='ECC'){
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Interview PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+              ?>
+              </div>
+              <div class="dropdown-item">
+              <?php 
+               if($row->jls_name =='ECC'){
+                echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
+              }elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'JCLI'){ 
+                  echo anchor("adm/portal/jls_applicant/jcli_admission/$row->id","Admission PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ojls_admission/$row->id","Admission PDF");
+                }
+              ?>
+              </div>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
             </div>
           </td>
+          <td class="text-center"><?php echo $row->appli_status; ?></td>
+          <?php } ?>
+        </tr>
+        <?php $x++; } ?>
+      </tbody>
+    </table>
+    </div>
+    <div id="tab-5" class="tab-content">    
+      <table class="table table-striped bg-white text-nowrap table-responsive" id="studentDataLocal">      
+      <thead>
+        <tr class="text-center">
+          <th>#</th>
+          <!-- <th width="1">Student ID&nbsp;<a href="#" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-secondary">notifications_active</span></a>&nbsp;</th> -->
+          <th>Applicant ID</th>
+          <th>Applicant Name</th>
+          <th>School Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Register Date</th>
+          <th>Complete Date</th>
+          <th>Tracking Code</th>
+          <th>Action</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php 
+          $x = 1;
+          $y = 0;
+          foreach ($lists as $row) {
+        ?>
+        <tr>
+        <?php if($row->appli_status == 'Admission Complete') { ?>
+          <th class="text-right"><?php echo $x; ?></th>
+          <th width="1" class="text-left">
+          JLS_01
+            <span class="text-left">
+              <?php foreach($lists as $result) {
+                // if($row->id == $result->std_id && $result->status == 0) { $y++;
+                // } else { $y = 0; } ?>
+                <?php if($y > 0) { 
+                  if($y == 1) { ?>
+                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
+              <?php } } } ?>
+            </span>
+          </th>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->applicant_name; ?></a>
+          </td>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
+          </td>
+          <td class="text-left"><?php echo $row->std_email; ?></td>
+          <td class="text-center"><?php echo $row->info_phone; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
+          <td class="text-center"><?php echo $row->adm_complete_date; ?></td>
+          <td class="text-center"><?php echo $row->tracking_code; ?></td>
+          <td class="text-center">
+           
+          <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
+            <span class="material-icons md-20 align-middle">more_vert</span></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
+              <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
+              <div class="dropdown-item" style="_blank">
+              <?php 
+                if($row->jls_name =='ECC'){
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Interview PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+              ?>
+              </div>
+              <div class="dropdown-item">
+              <?php 
+               if($row->jls_name =='ECC'){
+                echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
+              }elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'JCLI'){ 
+                  echo anchor("adm/portal/jls_applicant/jcli_admission/$row->id","Admission PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ojls_admission/$row->id","Admission PDF");
+                }
+              ?>
+              </div>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
+            </div>
+          </td>
+          <td class="text-center"><?php echo $row->appli_status; ?></td>
+          <?php } ?>
+        </tr>
+        <?php $x++; } ?>
+      </tbody>
+    </table>
+    </div>
+    <div id="tab-6" class="tab-content">    
+      <table class="table table-striped bg-white text-nowrap table-responsive" id="studentDataLocal">      
+      <thead>
+        <tr class="text-center">
+          <th>#</th>
+          <!-- <th width="1">Student ID&nbsp;<a href="#" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-secondary">notifications_active</span></a>&nbsp;</th> -->
+          <th>Applicant ID</th>
+          <th>Applicant Name</th>
+          <th>School Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Register Date</th>
+          <th>COE Date</th>
+          <th>Action</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php 
+          $x = 1;
+          $y = 0;
+          foreach ($lists as $row) {
+        ?>
+        <tr>
+        <?php if($row->appli_status == 'COE Waiting') { ?>
+          <th class="text-right"><?php echo $x; ?></th>
+          <th width="1" class="text-left">
+          JLS_01
+            <span class="text-left">
+              <?php foreach($lists as $result) {
+                // if($row->id == $result->std_id && $result->status == 0) { $y++;
+                // } else { $y = 0; } ?>
+                <?php if($y > 0) { 
+                  if($y == 1) { ?>
+                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
+              <?php } } } ?>
+            </span>
+          </th>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->applicant_name; ?></a>
+          </td>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
+          </td>
+          <td class="text-left"><?php echo $row->std_email; ?></td>
+          <td class="text-center"><?php echo $row->info_phone; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
+          <td class="text-center"><?php echo $row->coe_date; ?></td>
+          <td class="text-center">
+           
+          <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
+            <span class="material-icons md-20 align-middle">more_vert</span></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
+              <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
+              <div class="dropdown-item" style="_blank">
+              <?php 
+                if($row->jls_name =='ECC'){
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Interview PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+              ?>
+              </div>
+              <div class="dropdown-item">
+              <?php 
+               if($row->jls_name =='ECC'){
+                echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
+              }elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'JCLI'){ 
+                  echo anchor("adm/portal/jls_applicant/jcli_admission/$row->id","Admission PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ojls_admission/$row->id","Admission PDF");
+                }
+              ?>
+              </div>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
+            </div>
+          </td>
+          <td class="text-center"><?php echo $row->appli_status; ?></td>
+          <?php } ?>
+        </tr>
+        <?php $x++; } ?>
+      </tbody>
+    </table>
+    </div>
+    <div id="tab-7" class="tab-content">    
+      <table class="table table-striped bg-white text-nowrap table-responsive" id="studentDataLocal">      
+      <thead>
+        <tr class="text-center">
+          <th>#</th>
+          <!-- <th width="1">Student ID&nbsp;<a href="#" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-secondary">notifications_active</span></a>&nbsp;</th> -->
+          <th>Applicant ID</th>
+          <th>Applicant Name</th>
+          <th>School Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Register Date</th>
+          <th>COE Pass Date</th>
+          <th>COE Fail Date</th>
+          <th>COE Fail Times</th>
+          <th>Action</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php 
+          $x = 1;
+          $y = 0;
+          foreach ($lists as $row) {
+        ?>
+        <tr>
+        <?php if($row->appli_status == 'COE Passed' || $row->appli_status == 'COE Failed') { ?>
+          <th class="text-right"><?php echo $x; ?></th>
+          <th width="1" class="text-left">
+          JLS_01
+            <span class="text-left">
+              <?php foreach($lists as $result) {
+                // if($row->id == $result->std_id && $result->status == 0) { $y++;
+                // } else { $y = 0; } ?>
+                <?php if($y > 0) { 
+                  if($y == 1) { ?>
+                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
+              <?php } } } ?>
+            </span>
+          </th>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->applicant_name; ?></a>
+          </td>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
+          </td>
+          <td class="text-left"><?php echo $row->std_email; ?></td>
+          <td class="text-center"><?php echo $row->info_phone; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>          
+          <td class="text-center"><?php echo $row->coe_pass_date; ?></td>
+          <td class="text-center"><?php echo $row->coe_fail_date; ?></td>
+          <td class="text-center"><?php echo $row->coe_fail_times; ?></td>
+          <td class="text-center">
+           
+          <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
+            <span class="material-icons md-20 align-middle">more_vert</span></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
+              <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
+              <div class="dropdown-item" style="_blank">
+              <?php 
+                if($row->jls_name =='ECC'){
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Interview PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+              ?>
+              </div>
+              <div class="dropdown-item">
+              <?php 
+               if($row->jls_name =='ECC'){
+                echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
+              }elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'JCLI'){ 
+                  echo anchor("adm/portal/jls_applicant/jcli_admission/$row->id","Admission PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ojls_admission/$row->id","Admission PDF");
+                }
+              ?>
+              </div>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
+            </div>
+          </td>
+          <td class="text-center"><?php echo $row->appli_status; ?></td>
+          <?php } ?>
+        </tr>
+        <?php $x++; } ?>
+      </tbody>
+    </table>
+    </div>
+    
+    <div id="tab-8" class="tab-content">    
+      <table class="table table-striped bg-white text-nowrap table-responsive" id="studentDataLocal">      
+      <thead>
+        <tr class="text-center">
+          <th>#</th>
+          <!-- <th width="1">Student ID&nbsp;<a href="#" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-secondary">notifications_active</span></a>&nbsp;</th> -->
+          <th>Applicant ID</th>
+          <th>Applicant Name</th>
+          <th>School Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Register Date</th>
+          <th>Interview Date</th>
+          <th>Cancel Date</th>
+          <th>Cancel Times</th>
+          <th>Action</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php 
+          $x = 1;
+          $y = 0;
+          foreach ($lists as $row) {
+        ?>
+        <tr>
+        <?php if($row->appli_status == 'Cancel') { ?>
+          <th class="text-right"><?php echo $x; ?></th>
+          <th width="1" class="text-left">
+          JLS_01
+            <span class="text-left">
+              <?php foreach($lists as $result) {
+                // if($row->id == $result->std_id && $result->status == 0) { $y++;
+                // } else { $y = 0; } ?>
+                <?php if($y > 0) { 
+                  if($y == 1) { ?>
+                  <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'); ?>" class="text-light" data-toggle="tooltip" data-placement="top" title="Request Course"><span class="material-icons align-text-bottom md-18 text-danger">notifications_active</span></a>
+              <?php } } } ?>
+            </span>
+          </th>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->applicant_name; ?></a>
+          </td>
+          <td class="text-left">
+            <a href="<?php echo base_url('adm/portal/langschool_applicant/view/'.$row->id); ?>" class="text-dark" data-toggle="tooltip" data-placement="top" title="Detail"><?php echo $row->jls_name; ?></a>
+          </td>
+          <td class="text-left"><?php echo $row->std_email; ?></td>
+          <td class="text-center"><?php echo $row->info_phone; ?></td>
+          <td class="text-center"><?php echo $row->register_date; ?></td>
+          <td class="text-center"><?php echo $row->interview_date; ?></td>
+          <td class="text-center"><?php echo $row->cancel_date; ?></td>
+          <td class="text-center"><?php echo $row->cancel_times; ?></td>
+          <td class="text-center">
+           
+          <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown">
+            <span class="material-icons md-20 align-middle">more_vert</span></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown">
+              <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/edit/'.$row->id); ?>">Edit</a>
+              <!-- <a class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/fukuoka_interview/'.$row->id); ?>">Print PDF</a> -->
+              <div class="dropdown-item" style="_blank">
+              <?php 
+                if($row->jls_name =='ECC'){
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_interview/$row->id","Interview PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_interview/$row->id","Interview PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ecc_interview/$row->id","Interview PDF");
+                }
+              ?>
+              </div>
+              <div class="dropdown-item">
+              <?php 
+               if($row->jls_name =='ECC'){
+                echo anchor("adm/portal/jls_applicant/ecc_admission/$row->id","Admission PDF");
+              }elseif($row->jls_name == 'Shizuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/shizuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'Fukuoka'){ 
+                  echo anchor("adm/portal/jls_applicant/fukuoka_admission/$row->id","Admission PDF");
+                }
+                elseif($row->jls_name == 'JCLI'){ 
+                  echo anchor("adm/portal/jls_applicant/jcli_admission/$row->id","Admission PDF");
+                }
+                else{ 
+                  echo anchor("adm/portal/jls_applicant/ojls_admission/$row->id","Admission PDF");
+                }
+              ?>
+              </div>
+              <a onclick="return confirm('Are you want to delete this data?');" class="dropdown-item" href="<?php echo base_url('adm/portal/jls_applicant/delete/'.$row->id); ?>">Delete</a>
+            </div>
+          </td>
+           <td class="text-center"><?php echo $row->appli_status; ?></td>
+          <?php } ?>
         </tr>
         <?php $x++; } ?>
       </tbody>
@@ -315,7 +906,9 @@ ul.manage-menu li {
     font-weight: 400;
     white-space: nowrap;
 }
-
+.table-responsive{
+    display: table !important;
+}
 ul.manage-menu li:last-child::after{
   content: "";
   position: absolute;
@@ -365,6 +958,7 @@ ul.tabs li.current{
 
 .tab-content.current{
 	display: inherit;
+  overflow-x: auto;
 }
 a {
     color: #000000;

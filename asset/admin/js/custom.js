@@ -321,10 +321,13 @@ $(window).on("load", function() {
     "columnDefs": [
        	{ "width": "5%", "targets": 0 }
      ]
-
+studentDataLocal
 		*****************************************/
     $('#studentDataOnline').DataTable();
     $('#studentDataLocal').DataTable();
+    $('#studentDataLoca1l').DataTable();
+    $('#studentDataLocal2').DataTable();
+    $('#studentDataLocal3').DataTable();
     $('#ApplicantDataNew').DataTable();
     $('#ApplicantDataInter').DataTable();
 
